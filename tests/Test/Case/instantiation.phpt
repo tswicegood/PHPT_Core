@@ -7,13 +7,14 @@ set_include_path(dirname(__FILE__) . '/../../../src');
 //END_STRIP_AT_PACKAGE
 
 require_once 'Test/Case.php';
+require_once 'Test/Section/Setup.php';
+require_once 'Test/Section/Teardown.php';
 
 $test = array(
-    'setup' => '<?php echo "setup\n"; ?>',
-    'file'  => '<?php echo "test\n"; ?>',
-    'teardown' => '<?php echo "teardown\n"; ?>',
+    'setup' => new Test_Section_Setup('<?php echo "setup\n"; ?>'),
+    'teardown' => new Test_Section_Teardown('<?php echo "teardown\n"; ?>'),
 );
-$case = new Test_Case('sometest', $test);
+$case = new Test_Case('sometest', '<?php echo "test\n"; ?>', $test);
 $case->run();
 
 ?>
