@@ -22,5 +22,4 @@ class Test_Case
         
         Test_Runner::run($source);
     }
-    
 }
