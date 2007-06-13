@@ -17,7 +17,9 @@ class Test_Case
     {
         $source = $this->_test_case;
         foreach ($this->_sections as $section) {
-            $source = $section->run($source);
+            if ($section->type == 'modify') {
+                $source = $section->run($source);
+            }
         }
         
         $file = new Test_File(tempnam(sys_get_temp_dir(), ''), $source);
