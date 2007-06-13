@@ -45,10 +45,25 @@ class Test_Parser
         $sections = array();
         foreach ($section_contents as $name => $contents) {
             $obj_name = 'Test_Section_' . ucfirst(strtolower($name));
-            require_once str_replace('_', '/', $obj_name) . '.php';
+            if (!class_exists($obj_name, false)) {
+                // surpress error as class_exists() will find that it failed
+                @include_once str_replace('_', '/', $obj_name) . '.php';
+                
+                if (!class_exists($obj_name, false)) {
+                    throw new Test_Parser_Exception(
+                        "encountered unknown section: [{$name}]"
+                    );
+                }
+            }
+            
             $sections[$name] = new $obj_name($contents);
         }
         
         return new Test_Case($test_name, $test_case, $sections);
     }
+}
+
+class Test_Parser_Exception extends Exception
+{
+    
 }
