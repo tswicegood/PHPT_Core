@@ -12,8 +12,11 @@ class Test_Util
         $exploded_code = explode("\n", $code);
         if (count($exploded_code) == 1) {
             // simple regex
-            preg_match('/<\?(php)?(.*)\?>/', $code, $matches);
-            return $matches[2];
+            preg_match('/^(<\?(php)?)?(.*)(\?>)?$/', $code, $matches);
+            if (substr($matches[3], -2) == '?>') {
+                return trim(substr($matches[3], 0, -2));
+            }
+            return trim($matches[3]);
         }
         
         // first and last line for php process instructions and strip them

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Test/Util.php';
+
 abstract class Test_Section
 {
     private $_name = '';
@@ -10,7 +12,7 @@ abstract class Test_Section
     {
         $this->_name = $name;
         $this->_php = $php;
-        $this->_php_fragment = trim(preg_replace('/^<\?(php)?(.*)\?>$/', '\2', $this->_php));
+        $this->_php_fragment = Test_Util::parse($this->_php);
     }
     
     public function __get($key)
