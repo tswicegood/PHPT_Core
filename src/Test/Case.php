@@ -20,6 +20,8 @@ class Test_Case
             $source = $section->run($source);
         }
         
-        Test_Runner::run($source);
+        $file = new Test_File(tempnam(sys_get_temp_dir(), ''), $source);
+        Test_Runner::run($file);
+        $file->remove();
     }
 }

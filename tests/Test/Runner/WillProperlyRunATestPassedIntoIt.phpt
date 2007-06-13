@@ -9,11 +9,14 @@ set_include_path(dirname(__FILE__) . '/../../../src');
 require_once 'Test/Runner.php';
 $one = rand(10, 20);
 $two = rand(20, 30);
-$str = "<?php echo {$one} * {$two}; ?>";
 
+$filename = tempnam(sys_get_temp_dir(), '');
+$str = "<?php echo {$one} * {$two}; ?>";
+$file = new Test_File($filename, $str);
 $runner = new Test_Runner();
 ob_start();
-$runner->run($str);
+$runner->run($file);
+$file->remove();
 
 $buffer = ob_get_clean();
 assert('$buffer == ($one * $two)');

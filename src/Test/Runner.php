@@ -1,12 +1,12 @@
 <?php
 
+require_once 'Test/File.php';
+
 class Test_Runner
 {
-    public function run($string)
+    public function run(Test_File $file)
     {
-        $file = tempnam(sys_get_temp_dir(), 'phpt');
-        file_put_contents($file, $string);
-        passthru('php -f ' . $file);
+        passthru('php -f ' . $file->filename);
         //@unlink($file);
     }
 }
