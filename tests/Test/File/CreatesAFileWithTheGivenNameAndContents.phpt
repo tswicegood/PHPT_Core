@@ -19,5 +19,7 @@ $file = new Test_File($filename, $random);
 // filesize($filename) doesn't work here for some reason
 assert('strlen(file_get_contents($filename)) == strlen($random)');
 
+echo 'complete';
 ?>
 --EXPECT--
+complete

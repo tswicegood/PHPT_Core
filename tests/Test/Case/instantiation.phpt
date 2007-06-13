@@ -17,8 +17,10 @@ $test = array(
 $case = new Test_Case('sometest', '<?php echo "test\n"; ?>', $test);
 $case->run();
 
+echo 'complete';
 ?>
 --EXPECT--
 setup
 test
 teardown
+complete

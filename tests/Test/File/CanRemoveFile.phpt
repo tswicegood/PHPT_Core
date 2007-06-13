@@ -12,5 +12,7 @@ $file = new Test_File($filename, '');
 $file->remove();
 
 assert('file_exists($filename) == false');
+echo 'complete';
 ?>
 --EXPECT--
+complete

@@ -10,14 +10,16 @@ set_include_path(dirname(__FILE__) . '/../../../src');
 require_once 'Test/Runner.php';
 
 $filename = tempnam(sys_get_temp_dir(), '');
-$file = new Test_File($filename, 'Hello World!');
+$file = new Test_File($filename, 'Hello World!' . "\n");
 
 $runner = new Test_Runner();
 $runner->run($file);
 
+echo 'complete';
 ?>
 --EXPECT--
 Hello World!
+complete
 --CLEAN--
 <?php
 unlink($filename);

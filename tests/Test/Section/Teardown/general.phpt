@@ -19,9 +19,11 @@ $teardown = new Test_Section_Teardown('// inserted by teardown');
 $result = $teardown->run($source);
 
 echo $result;
+echo "\ncomplete";
 ?>
 --EXPECT--
 <?php
 // this is a sample file
 // inserted by teardown
 ?>
+complete

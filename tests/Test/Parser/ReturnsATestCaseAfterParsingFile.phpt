@@ -16,5 +16,7 @@ $parser = new Test_Parser();
 $case = $parser->parse($file);
 
 assert('$case instanceof Test_Case');
+echo 'complete';
 ?>
 --EXPECT--
+complete

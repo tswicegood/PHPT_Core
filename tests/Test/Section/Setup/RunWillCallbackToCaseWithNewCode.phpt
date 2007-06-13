@@ -19,9 +19,11 @@ $setup = new Test_Section_Setup('// inserted by setup');
 $result = $setup->run($source);
 
 echo $result;
+echo "\ncomplete";
 ?>
 --EXPECT--
 <?php
 // inserted by setup
 // this is a sample file
 ?>
+complete

@@ -18,8 +18,10 @@ try {
 } catch (Test_File_Exception $e) {
     assert('$e->getMessage() == "attempted to set read-only \"filename\" property"');
 }
+echo 'complete';
 ?>
 --EXPECT--
+complete
 --CLEAN--
 <?php
 @unlink($filename);

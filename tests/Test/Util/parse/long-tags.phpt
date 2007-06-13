@@ -28,5 +28,7 @@ assert('$code == $php');
 $code = Test_Util::parse("<?php{$php}\n\n?>");
 assert('$code == $php');
 
+echo 'complete';
 ?>
 --EXPECT--
+complete

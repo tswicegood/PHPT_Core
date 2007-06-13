@@ -20,5 +20,7 @@ $file->remove();
 
 $buffer = ob_get_clean();
 assert('$buffer == ($one * $two)');
+echo 'complete';
 ?>
 --EXPECT--
+complete

@@ -18,6 +18,7 @@ $section = new TestableSection($name, $php);
 assert('$section->name == $name');
 assert('$section->php == $php');
 assert('$section->php_fragment == $php_fragment');
-
+echo 'complete';
 ?>
 --EXPECT--
+complete
