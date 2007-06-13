@@ -37,11 +37,18 @@ class Test_Parser
                 default:
                     $section_contents[$section] = empty($section_contents[$section]) ?
                         $line :
-                        implode("\n", $section_contents[$section]);
+                        implode("\n", array($section_contents[$section], $line));
                     break;
             }
         }
         
-        return new Test_Case($test_name, $test_case, array());
+        $sections = array();
+        foreach ($section_contents as $name => $contents) {
+            $obj_name = 'Test_Section_' . ucfirst(strtolower($name));
+            require_once str_replace('_', '/', $obj_name) . '.php';
+            $sections[$name] = new $obj_name($contents);
+        }
+        
+        return new Test_Case($test_name, $test_case, $sections);
     }
 }

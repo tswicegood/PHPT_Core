@@ -17,6 +17,12 @@ echo 'Hello World!';
 ?>";
 $sample = '-' . '-' . "TEST--
 Some test name\n";
+$sample .= '-' . '-' . 'SETUP--
+<?php
+
+echo "setup ran\n";
+
+?>' . "\n";
 $sample .= '-' . '-' . "FILE--
 {$test_code}";
 
@@ -33,8 +39,11 @@ assert('$case->contents == $test_code');
 assert('$case->name == "Some test name"');
 ob_start();
 $result = $case->run();
-ob_end_clean();
+$buffer = ob_get_clean();
 assert('$result');
+$expected = "setup ran\n" .
+            "Hello World!";
+assert('$expected == $buffer');
 
 unlink($filename);
 echo 'complete';
