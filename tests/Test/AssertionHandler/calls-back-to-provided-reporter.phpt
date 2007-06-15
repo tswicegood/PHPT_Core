@@ -1,9 +1,5 @@
 --TEST--
 Assertional will properly callback to the provided implementation of Test_Reporter
---SKIPIF--
-<?php
-return true;
-?>
 --FILE--
 <?php
 //STRIP_AT_PACKAGE
