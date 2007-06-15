@@ -2,9 +2,11 @@
 
 require_once 'Test/Assert/True.php';
 require_once 'Test/Reporter.php';
+require_once 'Test/AssertionPack/Basic.php';
 
 class Test_AssertionHandler
 {
+    private $_assertion_packs = array();
     private $_reporter = null;
     
     public function __construct(Test_Reporter $reporter = null)
@@ -12,13 +14,29 @@ class Test_AssertionHandler
         $this->_reporter = $reporter;
     }
     
-    public function assertTrue($value, $message = 'value [true] is true')
+    public function __call($method, $arguments)
     {
-        $assertion = new Test_Assert_True($value, $message);
-        if ($assertion->getStatus()) {
-            $this->_reporter->onSuccess($assertion);
-        } else {
-            $this->_reporter->onFailure($assertion);
+        if (empty($this->_assertion_packs)) {
+            $this->_initAssertionPacks();
         }
+        
+        foreach ($this->_assertion_packs as $pack) {
+            if (!method_exists($pack, $method)) {
+                continue;
+            }
+            
+            call_user_func_array(
+                array($pack, $method),
+                $arguments
+            );
+            break;
+        }
+    }
+    
+    private function _initAssertionPacks()
+    {
+        $pack = new Test_AssertionPack_Basic();
+        $pack->setReporter($this->_reporter);
+        $this->_assertion_packs[] = $pack;
     }
 }
