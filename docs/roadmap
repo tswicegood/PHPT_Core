@@ -1,0 +1,15 @@
+The Test package is to be a compelling replacement for the current run-tests.php file.
+
+TODO
+----
+* Extensible section parser
+    - 'before' type sections that run on a separate process prior to the script
+    - <strike>'modify' type sections that run prior to the script and can modify the source</strike>
+    - 'compare' type sections that run after the script and are given the results to compare
+    - 'after' type sections that run on a separate process after the script
+* Given a $test object to handle assertion comparisons by default
+* Have xUnit style setup and teardown sections
+* Test package is tested
+* xDebug code coverage
+* Drop-in replacement for existing .phpt tests (i.e., can run all of the tests from PEAR and/or PHP)
+* Extensible reporting via Test_Reporter objects (a la SimpleTest)
