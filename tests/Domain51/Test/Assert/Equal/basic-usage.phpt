@@ -24,6 +24,6 @@ echo $not_equal->getMessage() . "\n";
 ?>
 ===DONE===
 --EXPECT--
-value [123] equal to [123]
-value [123] not equal to [321]
+values [123] and [123] are equal
+values [123] and [321] are not equal
 ===DONE===

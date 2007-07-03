@@ -6,13 +6,15 @@ class Domain51_Test_Assert_Equal implements Domain51_Test_Assertion
 {
     private $_one = null;
     private $_two = null;
-    private $_message = null;
+    private $_message = 'values [%s] and [%s] %s equal';
     
     public function __construct($one, $two, $message = null)
     {
         $this->_one = $one;
         $this->_two = $two;
-        $this->_message = $message;
+        if (!is_null($message)) {
+            $this->_message = $message;
+        }
     }
     
     public function getStatus()
@@ -21,15 +23,10 @@ class Domain51_Test_Assert_Equal implements Domain51_Test_Assertion
     }
     public function getMessage()
     {
-        if (!is_null($this->_message)) {
-            return $this->_message;
-        }
-        
-        $message = "value [%s] %s [%s]";
-        return sprintf($message,
+        return sprintf($this->_message,
                        $this->_one,
-                       $this->getStatus() ? 'equal to' : 'not equal to',
-                       $this->_two
+                       $this->_two,
+                       $this->getStatus() ? 'are' : 'are not'
                       );
     }
 }
