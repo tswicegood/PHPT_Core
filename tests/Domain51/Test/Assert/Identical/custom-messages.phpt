@@ -4,7 +4,7 @@ message to be used instead of the default message.  Any valid <i>$format</i> str
 There are three replacements available: 
  # The first "%s" is the first value passed in at construct
  # The second is the second value
- # The third is "are not" or "are" depending on whether getStatus() is true or false, respectively
+ # The third is "are" or "are not" depending on whether getStatus() is true or false, respectively
 --FILE--
 <?php
 //BEGIN REMOVE
