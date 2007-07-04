@@ -1,33 +1,16 @@
 <?php
 
-require_once 'Domain51/Test/Assertion.php';
+require_once 'Domain51/Test/Assert/Identical.php';
 
-class Domain51_Test_Assert_NotIdentical implements Domain51_Test_Assertion
+class Domain51_Test_Assert_NotIdentical extends Domain51_Test_Assert_Identical
 {
-    private $_one;
-    private $_two;
-    private $_message = 'values [%s] and [%s] %s identical';
-    
-    public function __construct($one, $two, $message = null)
-    {
-        $this->_one = $one;
-        $this->_two = $two;
-        if (!is_null($message)) {
-            $this->_message = $message;
-        }
-    }
+    protected $_comparison = array(
+        0 => 'are',
+        1 => 'are not'
+    );
     
     public function getStatus()
     {
-        return $this->_one !== $this->_two;
-    }
-    
-    public function getMessage()
-    {
-        return sprintf($this->_message,
-                       var_export($this->_one, true),
-                       var_export($this->_two, true),
-                       $this->getStatus() ? 'are not' : 'are'
-                      );
+        return !parent::getStatus();
     }
 }
