@@ -8,6 +8,11 @@ class Domain51_Test_Assert_RegExp implements Domain51_Test_Assertion
     private $_value = null;
     private $_message = 'pattern [%1$s] %3$s contained in value [%2$s]';
     
+    protected $_comparison = array(
+        0 => 'is not',
+        1 => 'is',
+    );
+    
     public function __construct($pattern, $value, $message = null)
     {
         $this->_pattern = $pattern;
@@ -25,12 +30,12 @@ class Domain51_Test_Assert_RegExp implements Domain51_Test_Assertion
     
     public function getMessage()
     {
+        $status = $this->getStatus();
         return sprintf(
             $this->_message,
             $this->_exportPattern(),
             var_export($this->_value, true),
-            $this->getStatus() ? 'is' : 'is not'
-            
+            $this->_comparison[(int)$status]
         );
     }
     
