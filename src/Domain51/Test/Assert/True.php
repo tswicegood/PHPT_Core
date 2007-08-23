@@ -7,9 +7,12 @@ class Domain51_Test_Assert_True implements Domain51_Test_Assertion
     private $_message = 'value [%s] %s true';
     private $_value = null;
     
-    public function __construct($value)
+    public function __construct($value, $message = null)
     {
         $this->_value = $value;
+        if (!is_null($message)) {
+            $this->_message = $message;
+        }
     }
     
     public function getStatus()
