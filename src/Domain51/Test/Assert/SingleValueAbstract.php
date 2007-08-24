@@ -6,10 +6,6 @@ abstract class Domain51_Test_Assert_SingleValueAbstract implements Domain51_Test
 {
     protected $_message = '';
     protected $_value = null;
-    protected $_comparison = array(
-        0 => 'is not',
-        1 => 'is',
-    );
     
     public function __construct($value, $message = null)
     {
