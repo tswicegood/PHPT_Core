@@ -21,10 +21,21 @@ echo $dumper, "\n";
 $dumper = new Domain51_Test_Util_ValueDumper(array('zero' => 123, 'one' => 'tres dos uno'));
 echo $dumper, "\n";
 
+echo new Domain51_Test_Util_ValueDumper(
+    array(
+        123,
+        array(
+            234,
+            432
+        ),
+    )
+), "\n";
+
 ?>
 ===DONE===
 --EXPECT--
 array()
 array(0 => 123, 1 => 321)
 array('zero' => 123, 'one' => 'tres dos uno')
+array(0 => 123, 1 => array(0 => 234, 1 => 432))
 ===DONE===

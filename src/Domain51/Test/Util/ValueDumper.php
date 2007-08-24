@@ -26,7 +26,7 @@ class Domain51_Test_Util_ValueDumper
     {
         $value_strings = array();
         foreach ($array as $key => $value) {
-            $value_strings[] = var_export($key, true) . ' => ' . var_export($value, true);
+            $value_strings[] = var_export($key, true) . ' => ' . (string)new Domain51_Test_Util_ValueDumper($value);
         }
         
         $this->_dumped = 'array(' . implode(', ', $value_strings) . ')';
