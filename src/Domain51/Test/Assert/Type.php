@@ -1,8 +1,9 @@
 <?php
 
+require_once 'Domain51/Test/Assertion.php';
 require_once 'Domain51/Test/Util/ValueDumper.php';
 
-class Domain51_Test_Assert_Type
+class Domain51_Test_Assert_Type implements Domain51_Test_Assertion
 {
     private $_type = '';
     private $_value = null;
