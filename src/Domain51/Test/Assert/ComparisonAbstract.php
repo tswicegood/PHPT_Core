@@ -31,10 +31,11 @@ abstract class Domain51_Test_Assert_ComparisonAbstract implements Domain51_Test_
     public function getMessage()
     {
         $status = $this->getStatus();
-        return sprintf($this->_message,
-                       var_export($this->_one, true),
-                       var_export($this->_two, true),
-                       $status ? $this->_comparison[(int)$status] : $this->_comparison[(int)$status]
-                      );
+        return sprintf(
+            $this->_message,
+            var_export($this->_one, true),
+            var_export($this->_two, true),
+            $status ? $this->_comparison[(int)$status] : $this->_comparison[(int)$status]
+        );
     }
 }
