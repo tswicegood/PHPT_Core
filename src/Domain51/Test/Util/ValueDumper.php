@@ -10,6 +10,8 @@ class Domain51_Test_Util_ValueDumper
             $this->_dumpArray($value);
         } elseif (is_object($value)) {
             $this->_dumped = 'object: ' . get_class($value);
+        } elseif (is_resource($value)) {
+            $this->_dumped = 'resource';
         } else {
             $this->_dumped = var_export($value, true);
         }
