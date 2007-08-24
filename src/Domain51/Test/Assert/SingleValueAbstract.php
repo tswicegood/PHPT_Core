@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Domain51/Test/Assertion.php';
+require_once 'Domain51/Test/Util/ValueDumper.php';
 
 abstract class Domain51_Test_Assert_SingleValueAbstract implements Domain51_Test_Assertion
 {
@@ -19,7 +20,7 @@ abstract class Domain51_Test_Assert_SingleValueAbstract implements Domain51_Test
     {
         return sprintf(
             $this->_message,
-            var_export($this->_value, true),
+            (string)new Domain51_Test_Util_ValueDumper($this->_value),
             $this->getStatus() ? 'is' : 'is not'
         );
     }

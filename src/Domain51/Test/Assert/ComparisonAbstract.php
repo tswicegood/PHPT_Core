@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Domain51/Test/Assertion.php';
+require_once 'Domain51/Test/Util/ValueDumper.php';
 
 abstract class Domain51_Test_Assert_ComparisonAbstract implements Domain51_Test_Assertion
 {
@@ -33,8 +34,8 @@ abstract class Domain51_Test_Assert_ComparisonAbstract implements Domain51_Test_
         $status = $this->getStatus();
         return sprintf(
             $this->_message,
-            var_export($this->_one, true),
-            var_export($this->_two, true),
+            (string)new Domain51_Test_Util_ValueDumper($this->_one),
+            (string)new Domain51_Test_Util_ValueDumper($this->_two),
             $status ? $this->_comparison[(int)$status] : $this->_comparison[(int)$status]
         );
     }

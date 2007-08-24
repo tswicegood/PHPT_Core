@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Domain51/Test/Assertion.php';
+require_once 'Domain51/Test/Util/ValueDumper.php';
 
 class Domain51_Test_Assert_RegExp implements Domain51_Test_Assertion
 {
@@ -34,7 +35,7 @@ class Domain51_Test_Assert_RegExp implements Domain51_Test_Assertion
         return sprintf(
             $this->_message,
             $this->_exportPattern(),
-            var_export($this->_value, true),
+            (string)new Domain51_Test_Util_ValueDumper($this->_value),
             $this->_comparison[(int)$status]
         );
     }
