@@ -6,7 +6,11 @@ class Domain51_Test_AssertionPacks_Basic
 {
     private $_recorder = null;
     
-    public function __construct($recorder)
+    public function __construct()
+    {
+    }
+    
+    public function registerRecorder($recorder)
     {
         $this->_recorder = $recorder;
     }
