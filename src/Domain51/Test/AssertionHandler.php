@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @todo refactor $_asserton_packs to an AssertionPacksList object
+ */
 class Domain51_Test_AssertionHandler
 {
     private $_recorder = null;
@@ -27,6 +30,14 @@ class Domain51_Test_AssertionHandler
     {
         $this->_recorder = $recorder;
         $this->_recorder->registerAssertionHandler($this);
+        foreach ($this->_assertion_packs as $assertion_pack) {
+            $assertion_pack->registerRecorder($this->_recorder);
+        }
+    }
+    
+    public function finish()
+    {
+        $this->_recorder->finish();
     }
     
     public function __call($method, $arguments)
