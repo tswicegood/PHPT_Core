@@ -14,6 +14,7 @@ set_include_path(
 require_once 'Domain51/Loader.php';
 
 $result_file = __FILE__ . '.results';
+@unlink($result_file);
 assert('!file_exists($result_file)');
 
 $recorder = new Domain51_Test_ResultRecorder_ToFile(__FILE__);
@@ -36,7 +37,7 @@ echo file_get_contents($result_file);
 ===DONE===
 --CLEAN--
 <?php
-    unlink(str_replace('.clean.', '.', __FILE__) . '.results');
+    @unlink(str_replace('.clean.', '.', __FILE__) . '.results');
 ?>
 --EXPECT--
 <?xml version="1.0"?>
