@@ -14,24 +14,26 @@ set_include_path(
 
 require_once 'Domain51/Loader.php';
 
-class SimpleRecorder
+class SimpleRecorder implements Domain51_Test_ResultRecorder
 {
-    public function onSuccess($assertion)
+    public function registerAssertionHandler(Domain51_Test_AssertionHandler $handler)
+    {
+        echo "just registered: {$handler->name}\n";
+    }
+    
+    public function onSuccess(Domain51_Test_Assertion $assertion)
     {
         echo "passed: " . $assertion->getMessage() . "\n";
     }
     
-    public function onFailure($assertion)
+    public function onFailure(Domain51_Test_Assertion $assertion)
     {
         echo "failed: " . $assertion->getMessage() . "\n";
     }
 }
 
-$test = new Domain51_Test_AssertionHandler(
-    __FILE__,
-    new SimpleRecorder()
-);
-
+$test = new Domain51_Test_AssertionHandler('/tmp/easytest');
+$test->registerRecorder(new SimpleRecorder());
 $test->addAssertionPack(
     new Domain51_Test_AssertionPacks_Basic()
 );
@@ -61,6 +63,7 @@ $test->assertNotRegExp('/.*/', '123');
 ?>
 ===DONE===
 --EXPECT--
+just registered: /tmp/easytest
 passed: value [true] is true
 passed: value [false] is false
 passed: value [NULL] is null

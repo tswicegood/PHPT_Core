@@ -5,10 +5,11 @@ class Domain51_Test_AssertionHandler
     private $_recorder = null;
     private $_assertion_map = array();
     private $_assertion_packs = array();
+    public $name = '';
     
-    public function __construct($name, $recorder)
+    public function __construct($name)
     {
-        $this->_recorder = $recorder;
+        $this->name = $name;
     }
     
     public function addAssertionPack($pack)
@@ -20,6 +21,12 @@ class Domain51_Test_AssertionHandler
         foreach ($declared as $assertion) {
             $this->_assertion_map[$assertion] = $pack_name;
         }
+    }
+    
+    public function registerRecorder(Domain51_Test_ResultRecorder $recorder)
+    {
+        $this->_recorder = $recorder;
+        $this->_recorder->registerAssertionHandler($this);
     }
     
     public function __call($method, $arguments)
