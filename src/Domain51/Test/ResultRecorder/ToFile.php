@@ -12,11 +12,6 @@ class Domain51_Test_ResultRecorder_ToFile implements Domain51_Test_ResultRecorde
         touch($this->_file);
     }
     
-    public function __destruct()
-    {
-        $this->finish();
-    }
-    
     public function registerAssertionHandler(Domain51_Test_AssertionHandler $handler)
     {
         $this->_handler = $handler;
