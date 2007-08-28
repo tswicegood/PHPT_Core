@@ -21,12 +21,12 @@ class SimpleRecorder implements Domain51_Test_ResultRecorder
         echo "just registered: {$handler->name}\n";
     }
     
-    public function onSuccess(Domain51_Test_NamedAssertion $assertion)
+    public function onSuccess(Domain51_Test_Assertion $assertion)
     {
         echo "passed: " . $assertion->getMessage() . "\n";
     }
     
-    public function onFailure(Domain51_Test_NamedAssertion $assertion)
+    public function onFailure(Domain51_Test_Assertion $assertion)
     {
         echo "failed: " . $assertion->getMessage() . "\n";
     }

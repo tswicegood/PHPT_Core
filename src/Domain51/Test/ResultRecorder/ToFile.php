@@ -26,7 +26,7 @@ class Domain51_Test_ResultRecorder_ToFile implements Domain51_Test_ResultRecorde
         $this->_dom->save($this->_file);
     }
     
-    public function onSuccess(Domain51_Test_NamedAssertion $assertion)
+    public function onSuccess(Domain51_Test_Assertion $assertion)
     {
         $pass = $this->_dom->createElement('test');
         $name = $this->_dom->createElement('name');
@@ -42,7 +42,7 @@ class Domain51_Test_ResultRecorder_ToFile implements Domain51_Test_ResultRecorde
         $this->_dom->documentElement->appendChild($pass);
     }
     
-    public function onFailure(Domain51_Test_NamedAssertion $assertion)
+    public function onFailure(Domain51_Test_Assertion $assertion)
     {
         $fail = $this->_dom->createElement('test');
         $name = $this->_dom->createElement('name');
