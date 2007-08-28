@@ -26,13 +26,13 @@ class Domain51_Test_ResultRecorder_ToFile implements Domain51_Test_ResultRecorde
         $this->_dom->save($this->_file);
     }
     
-    public function onSuccess(Domain51_Test_Assertion $assertion)
+    public function onSuccess(Domain51_Test_NamedAssertion $assertion)
     {
         $pass = $this->_dom->createElement('test');
         $name = $this->_dom->createElement('name');
         $status = $this->_dom->createElement('status');
         $message = $this->_dom->createElement('message');
-        $name->nodeValue = 'assertTrue';
+        $name->nodeValue = $assertion->getName();
         $status->nodeValue = 'pass';
         $message->nodeValue = $assertion->getMessage();
         
@@ -42,13 +42,13 @@ class Domain51_Test_ResultRecorder_ToFile implements Domain51_Test_ResultRecorde
         $this->_dom->documentElement->appendChild($pass);
     }
     
-    public function onFailure(Domain51_Test_Assertion $assertion)
+    public function onFailure(Domain51_Test_NamedAssertion $assertion)
     {
         $fail = $this->_dom->createElement('test');
         $name = $this->_dom->createElement('name');
         $status = $this->_dom->createElement('status');
         $message = $this->_dom->createElement('message');
-        $name->nodeValue = 'assertTrue';
+        $name->nodeValue = $assertion->getName();
         $status->nodeValue = 'fail';
         $message->nodeValue = $assertion->getMessage();
         

@@ -29,6 +29,8 @@ $handler->addAssertionPack(new Domain51_Test_AssertionPacks_Basic());
 $handler->registerRecorder($recorder);
 $handler->assertTrue(true);
 $handler->assertTrue(false);
+$handler->assertFalse(true);
+$handler->assertFalse(false);
 $handler->finish();
 
 echo file_get_contents($result_file);
@@ -51,6 +53,16 @@ echo file_get_contents($result_file);
     <name>assertTrue</name>
     <status>fail</status>
     <message>value [false] is not true</message>
+  </test>
+  <test>
+    <name>assertFalse</name>
+    <status>fail</status>
+    <message>value [true] is not false</message>
+  </test>
+  <test>
+    <name>assertFalse</name>
+    <status>pass</status>
+    <message>value [false] is false</message>
   </test>
 </tests>
 ===DONE===
