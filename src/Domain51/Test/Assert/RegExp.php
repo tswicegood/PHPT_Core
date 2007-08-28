@@ -40,6 +40,11 @@ class Domain51_Test_Assert_RegExp implements Domain51_Test_Assertion
         );
     }
     
+    public function getName()
+    {
+        return 'assertRegExp';
+    }
+    
     private function _exportPattern()
     {
         return stripslashes(

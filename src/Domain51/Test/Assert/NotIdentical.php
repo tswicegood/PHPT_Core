@@ -13,4 +13,9 @@ class Domain51_Test_Assert_NotIdentical extends Domain51_Test_Assert_Identical
     {
         return !parent::getStatus();
     }
+    
+    public function getName()
+    {
+        return 'assertNotIdentical';
+    }
 }

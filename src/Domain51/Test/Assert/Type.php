@@ -71,4 +71,9 @@ class Domain51_Test_Assert_Type implements Domain51_Test_Assertion
             $this->_type
         );
     }
+    
+    public function getName()
+    {
+        return 'assertType';
+    }
 }

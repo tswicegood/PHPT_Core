@@ -10,4 +10,9 @@ class Domain51_Test_Assert_Identical extends Domain51_Test_Assert_ComparisonAbst
     {
         return $this->_one === $this->_two;
     }
+    
+    public function getName()
+    {
+        return 'assertIdentical';
+    }
 }

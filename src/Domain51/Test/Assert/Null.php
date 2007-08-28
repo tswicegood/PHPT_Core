@@ -10,4 +10,9 @@ class Domain51_Test_Assert_Null extends Domain51_Test_Assert_SingleValueAbstract
     {
         return is_null($this->_value);
     }
+    
+    public function getName()
+    {
+        return 'assertNull';
+    }
 }

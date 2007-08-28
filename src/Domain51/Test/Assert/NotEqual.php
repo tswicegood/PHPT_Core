@@ -13,4 +13,9 @@ class Domain51_Test_Assert_NotEqual extends Domain51_Test_Assert_Equal
     {
         return !parent::getStatus();
     }
+    
+    public function getName()
+    {
+        return 'assertNotEqual';
+    }
 }

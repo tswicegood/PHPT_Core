@@ -13,4 +13,9 @@ class Domain51_Test_Assert_NotRegExp extends Domain51_Test_Assert_RegExp
     {
         return !parent::getStatus();
     }
+    
+    public function getName()
+    {
+        return 'assertNotRegExp';
+    }
 }

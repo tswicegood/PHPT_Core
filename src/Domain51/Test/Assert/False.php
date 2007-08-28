@@ -11,4 +11,9 @@ class Domain51_Test_Assert_False extends Domain51_Test_Assert_SingleValueAbstrac
     {
         return $this->_value == false;
     }
+    
+    public function getName()
+    {
+        return 'assertFalse';
+    }
 }
