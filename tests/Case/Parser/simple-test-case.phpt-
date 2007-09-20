@@ -1,0 +1,12 @@
+--TEST--
+This is a sample test case to show that "Hello World" can be echoed
+--FILE--
+<?php
+
+echo "Hello World\n";
+
+?>
+===DONE===
+--EXPECT--
+Hello World
+===DONE===

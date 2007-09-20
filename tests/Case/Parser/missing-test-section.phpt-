@@ -1,0 +1,6 @@
+Some test without a --TEST-- block
+--FILE--
+<?php
+echo "something";
+?>
+--EXPECT--
