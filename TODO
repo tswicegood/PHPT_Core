@@ -1,0 +1,21 @@
+Prior to v0.1 release
+---------------------
+* [DONE] Create basic assertions and assertion pack
+* [DONE] Create basic recorder for assertions
+* [DONE] Create reader for recorded results so they can be used by the test controller to display results
+    * [DONE] Create result object for iterating over read results
+* Create test file parser capable of:
+    * parsing sections that modify the test prior to running it
+        * create setup, teardown, and assertobject sections
+    * parsing pre-run sections
+        * create env, post, postraw, get, ini, cookie, and stdin sections
+    * parsing post-run secionts
+        * create cleanup, expect, expectf, and expectregexp sections
+    * returning a ready-to-run test case
+* Create a test case runner
+* Create a suite capable of running multiple test cases
+* Create build file to handle packaging
+
+### Goals
+* Capable of running its own tests
+* Capable of running all of the tests in PEAR
