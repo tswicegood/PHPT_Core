@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Result
+class Domain51_Test_Result implements Iterator
 {
     private $_data = array();
     
@@ -9,6 +9,9 @@ class Domain51_Test_Result
         $this->_data = $data;
     }
     
+    /**
+     * @todo consider associative arrays as valid type for $status for complex filtering
+     */
     public function count($status = null)
     {
         if (is_null($status)) {
@@ -23,5 +26,30 @@ class Domain51_Test_Result
             }
         }
         return $count;
+    }
+    
+    public function current()
+    {
+        return current($this->_data);
+    }
+    
+    public function key()
+    {
+        return key($this->_data);
+    }
+    
+    public function next()
+    {
+        next($this->_data);
+    }
+    
+    public function rewind()
+    {
+        reset($this->_data);
+    }
+    
+    public function valid()
+    {
+        return $this->current() !== false;
     }
 }
