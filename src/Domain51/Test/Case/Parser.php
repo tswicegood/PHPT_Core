@@ -38,8 +38,6 @@ class Domain51_Test_Case_Parser
         $test_case_file = dirname($file) . '/' . basename($file, '.phpt') . '.php';
         
         $name = trim(implode("\n", $sections['TEST']));
-        
-        file_put_contents($test_case_file, implode("\n", $sections['FILE']));
         return new Domain51_Test_Case($name, $test_case_file, $sections['FILE'], $sections);
     }
 }
