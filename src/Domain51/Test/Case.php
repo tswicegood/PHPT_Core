@@ -15,6 +15,11 @@ class Domain51_Test_Case
         $this->update();
     }
     
+    public function __destruct()
+    {
+        unlink($this->filename);
+    }
+    
     public function update()
     {
         file_put_contents($this->filename, $this->code);
