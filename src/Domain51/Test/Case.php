@@ -4,6 +4,7 @@ class Domain51_Test_Case
 {
     public $name = 'This is a sample test case to show that "Hello World" can be echoed';
     public $filename = '';
+    public $leave_file = false;
     
     public function __construct($name, $filename, $code, $sections)
     {
@@ -17,7 +18,9 @@ class Domain51_Test_Case
     
     public function __destruct()
     {
-        unlink($this->filename);
+        if ($this->leave_file == false) {
+            unlink($this->filename);
+        }
     }
     
     public function update()
