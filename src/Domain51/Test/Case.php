@@ -12,6 +12,11 @@ class Domain51_Test_Case
         $this->code = $code;
         $this->sections = $sections;
         
+        $this->update();
+    }
+    
+    public function update()
+    {
         file_put_contents($this->filename, $this->code);
     }
 }
