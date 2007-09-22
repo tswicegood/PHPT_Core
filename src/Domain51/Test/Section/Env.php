@@ -28,6 +28,10 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section
         }
     }
     
+    /**
+     * @todo handle POST_RAW section
+     * @todo handle POST
+     */
     public function run(Domain51_Test_Case $case)
     {
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
