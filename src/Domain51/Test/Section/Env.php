@@ -14,17 +14,20 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section
         'HTTP_COOKIE',
     );
     
-    public function __construct($data)
+    public function __construct($data = '')
     {
         $this->data = $_ENV;
         foreach ($this->_default_values_to_empty as $key_name) {
             $this->data[$key_name] = '';
         }
         
-        $lines = explode("\n", trim($data));
-        foreach ($lines as $line) {
-            $pair = explode('=', trim($line), 2);
-            $this->data[$pair[0]] = $pair[1];
+        $data = trim($data);
+        if (!empty($data)) {
+            $lines = explode("\n", $data);
+            foreach ($lines as $line) {
+                $pair = explode('=', trim($line), 2);
+                $this->data[$pair[0]] = $pair[1];
+            }
         }
     }
     
