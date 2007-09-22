@@ -29,8 +29,8 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section
     }
     
     /**
-     * @todo handle POST_RAW section
-     * @todo handle POST
+     * @todo create Domain51_Section_EnvModifier interface that allows any section
+     *       to modify the environment object
      */
     public function run(Domain51_Test_Case $case)
     {
