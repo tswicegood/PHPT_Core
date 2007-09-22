@@ -35,11 +35,10 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section
     public function run(Domain51_Test_Case $case)
     {
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
-        if (isset($case->sections['COOKIE'])) {
-            $this->data['HTTP_COOKIE'] = trim($case->sections['COOKIE']);
-        }
-        if (isset($case->sections['GET'])) {
-            $this->data['QUERY_STRING'] = trim($case->sections['GET']);
+        foreach ($case->sections as $section) {
+            if ($section instanceof Domain51_Test_Section_EnvModifier) {
+                $section->modifyEnv($this);
+            }
         }
     }
 }
