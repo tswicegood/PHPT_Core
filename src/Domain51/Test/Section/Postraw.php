@@ -11,7 +11,7 @@ class Domain51_Test_Section_Postraw extends Domain51_Test_Section_Post
         $started = false;
         
         foreach ($lines as $line) {
-            if (preg_match('/Content-Type:(.*)/', $line, $matches)) {
+            if (preg_match('/Content-Type:(.*)/i', $line, $matches)) {
                 $this->_content_type = trim($matches[1]);
                 continue;
             }
