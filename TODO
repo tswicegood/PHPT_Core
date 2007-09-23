@@ -29,3 +29,7 @@ Prior to v0.1 release
 ### Goals
 * Capable of running its own tests
 * Capable of running all of the tests in PEAR
+
+Prior to v0.2 release
+---------------------
+* Implement Section_Redirecttest
