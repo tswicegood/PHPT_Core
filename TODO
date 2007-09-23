@@ -8,6 +8,11 @@ Prior to v0.1 release
 * Create implementation for each of the base Sections that are supported in the current
   phpt implementation: env, post, postraw, get, ini, cookie, stdin, clean, expect, expectf,
   and expectregexp.
+* Determine and implement how sections will modify Case's command.  Possible solutions:
+    - Case::$command that can be modified
+    - Case_CommandBuilder object that looks at sections and builds command based on available
+      sections
+    - Move functionality into Test_Runner object
 * Create implemeantion for new Sections: setup, teardown, and assertobject
 * Create test file parser capable of:
     * parsing sections that modify the test prior to running it
