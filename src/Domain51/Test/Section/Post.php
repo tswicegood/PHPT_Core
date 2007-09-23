@@ -5,9 +5,11 @@ class Domain51_Test_Section_Post implements Domain51_Test_Section, Domain51_Test
     public $file = '';
     public $raw_data = '';
     
-    public function __construct($data)
+    public function __construct($data = '')
     {
-        $this->file = uniqid();
+        if (!empty($data)) {
+            $this->file = uniqid();
+        }
         $this->raw_data = $data;
     }
     
