@@ -26,6 +26,8 @@ class Domain51_Test_Section_Post implements Domain51_Test_Section, Domain51_Test
     
     public function modifyEnv(Domain51_Test_Section_Env $env)
     {
-        
+        $env->data['REQUEST_METHOD'] = 'POST';
+        $env->data['CONTENT_TYPE'] = 'application/x-www-form-urlencoded';
+        $env->data['CONTENT_LENGTH'] = strlen($this->raw_data);
     }
 }
