@@ -26,6 +26,10 @@ Prior to v0.1 release
 * Create a suite capable of running multiple test cases
 * Create build file to handle packaging
 
+### Possible v0.1, maybe v0.2
+* Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
+  object.
+
 ### Goals
 * Capable of running its own tests
 * Capable of running all of the tests in PEAR
