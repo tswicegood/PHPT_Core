@@ -31,6 +31,9 @@ Prior to v0.1 release
   object.
 * Consider making a new Domain51_Test_Section_Runnable interface to specify run() method:
     - There's a lot of code, particularly in the setup, that doesn't need to be run.
+* Add tests to all Sections insuring that they are instantiated with a string:
+    - assert('is_string($data)');
+
 
 ### Goals
 * Capable of running its own tests
