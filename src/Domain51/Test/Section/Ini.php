@@ -44,4 +44,16 @@ class Domain51_Test_Section_Ini implements Domain51_Test_Section
     {
         
     }
+    
+    public function __toString()
+    {
+        $string = '';
+        foreach ($this->data as $key => $value) {
+            if (!empty($string)) {
+                $string .= " ";
+            }
+            $string .= "-d \"{$key}={$value}\"";
+        }
+        return $string;
+    }
 }
