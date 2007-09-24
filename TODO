@@ -29,6 +29,8 @@ Prior to v0.1 release
 ### Possible v0.1, maybe v0.2
 * Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
   object.
+* Consider making a new Domain51_Test_Section_Runnable interface to specify run() method:
+    - There's a lot of code, particularly in the setup, that doesn't need to be run.
 
 ### Goals
 * Capable of running its own tests
