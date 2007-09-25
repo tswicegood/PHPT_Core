@@ -3,17 +3,20 @@
 abstract class Domain51_Test_Section_ExpectationAbstract implements Domain51_Test_Section_Runnable
 {
     protected $_expected = null;
+    private $_exception = 'Domain51_Test_Section_%s_UnexpectedOutputException';
     
     public function __construct($data)
     {
         $this->_expected = $data;
+        $exploded = explode('_', get_class($this));
+        $this->_exception = sprintf($this->_exception, array_pop($exploded));
     }
     
     public function run(Domain51_Test_Case $case)
     {
         if (!$this->_isValid($case)) {
             $this->_storeExpFile($case->filename);
-            throw new Domain51_Test_Section_Expect_UnexpectedOutputException(
+            throw new $this->_exception(
                 $this->_expected,
                 $case->output
             );
