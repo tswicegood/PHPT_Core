@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Clean implements Domain51_Test_Section
+class Domain51_Test_Section_Clean implements Domain51_Test_Section_Runnable
 {
     public $filename = null;
     private $_data = null;

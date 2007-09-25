@@ -9,11 +9,6 @@ class Domain51_Test_Section_Stdin implements Domain51_Test_Section
         $this->_data = $data;
     }
     
-    public function run(Domain51_Test_Case $case)
-    {
-        
-    }
-    
     public function __toString()
     {
         return $this->_data;

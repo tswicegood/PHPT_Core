@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Env implements Domain51_Test_Section
+class Domain51_Test_Section_Env implements Domain51_Test_Section_Runnable
 {
     public $data = array();
     private $_default_values_to_empty = array(

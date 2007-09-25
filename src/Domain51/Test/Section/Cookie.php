@@ -9,11 +9,6 @@ class Domain51_Test_Section_Cookie implements Domain51_Test_Section, Domain51_Te
         $this->_data = $data;
     }
     
-    public function run(Domain51_Test_Case $case)
-    {
-        
-    }
-    
     public function modifyEnv(Domain51_Test_Section_Env $env)
     {
         $env->data['HTTP_COOKIE'] = (string)$this;

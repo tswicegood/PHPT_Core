@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Expect implements Domain51_Test_Section
+class Domain51_Test_Section_Expect implements Domain51_Test_Section_Runnable
 {
     private $_expected = null;
     

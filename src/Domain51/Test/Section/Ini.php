@@ -40,14 +40,6 @@ class Domain51_Test_Section_Ini implements Domain51_Test_Section
         $this->data = array_merge($this->data, $this->_default_values);
     }
     
-    /**
-     * @internal This currently does not do anything, but is here to satisfy the interface
-     */
-    public function run(Domain51_Test_Case $case)
-    {
-        
-    }
-    
     public function __toString()
     {
         $string = '';
