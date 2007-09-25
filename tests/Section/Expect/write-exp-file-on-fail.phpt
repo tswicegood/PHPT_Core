@@ -6,7 +6,7 @@ When Section_Expect fails, it should write a .exp file with the expected outcome
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
-$basename = 'simple-fake-case' . rand(100, 200);
+$basename = 'fake-test-case' . rand(100, 200);
 $filename = dirname(__FILE__) . "/{$basename}.php";
 $exp_filename = dirname(__FILE__) . "/{$basename}.exp";
 
@@ -29,15 +29,6 @@ try {
 ?>
 ===DONE===
 --CLEAN--
-<?php
-
-$dir = dirname(__FILE__);
-$files = scandir($dir);
-foreach ($files as $file) {
-    if (preg_match('/^simple-fake-case.*/', $file)) {
-        unlink($dir . '/' . $file);
-    }
-}
-?>
+<?php include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===
