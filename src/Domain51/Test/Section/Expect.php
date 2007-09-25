@@ -12,7 +12,10 @@ class Domain51_Test_Section_Expect implements Domain51_Test_Section
     public function run(Domain51_Test_Case $case)
     {
         if (strcmp($case->output, $this->_expected)) {
-            throw new Domain51_Test_Section_Expect_UnexpectedOutputException();
+            throw new Domain51_Test_Section_Expect_UnexpectedOutputException(
+                $this->_expected,
+                $case->output
+            );
         }
     }
 }
