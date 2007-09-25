@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Cookie implements Domain51_Test_Section, Domain51_Test_Section_EnvModifier
+class Domain51_Test_Section_Cookie implements Domain51_Test_Section_EnvModifier
 {
     private $_data = '';
     
