@@ -1,5 +1,6 @@
 <?php
 
+// @todo make all properties "read-only" (or as read-only as they can be in PHP)
 class Domain51_Test_Case
 {
     public $name = 'This is a sample test case to show that "Hello World" can be echoed';
