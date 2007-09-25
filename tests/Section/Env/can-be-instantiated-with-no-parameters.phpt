@@ -1,5 +1,6 @@
 --TEST--
-Domain51_Test_Section_Env can be instantiated without any parameters
+Domain51_Test_Section_Env can be instantiated without any parameters and will have
+a minimum of "default" values.
 --FILE--
 <?php
 
@@ -16,7 +17,11 @@ $expected = array(
     'CONTENT_LENGTH' => '',
     'HTTP_COOKIE' => '',
 );
-assert('$env->data == $expected');
+
+foreach ($expected as $key => $value) {
+    assert('isset($env->data[$key])');
+    assert('$env->data[$key] == $value');
+}
 
 ?>
 ===DONE===
