@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @todo this needs to be updated to current PHP standards instead of this original
+ *       values set forth from PEAR_RunTests
+ */
 class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
 {
     private $_pattern = '';
@@ -12,12 +16,14 @@ class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
                 '%s',
                 '%d',
                 '%f',
+                '%x',
             ),
             array(
                 '[+-]?[0-9]+',
                 '.+',
                 '[0-9]+',
                 '[+\-]?\.?[0-9]+\.?[0-9]*(E-?[0-9]+)?',
+                '[A-Fa-f0-9]+',
             ),
             "/{$data}/"
         );
