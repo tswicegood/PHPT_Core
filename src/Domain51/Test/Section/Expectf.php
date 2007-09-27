@@ -9,9 +9,11 @@ class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
         $this->_pattern = str_replace(
             array(
                 '%i',
+                '%s',
             ),
             array(
                 '[+-]?[0-9]+',
+                '.+',
             ),
             "/{$data}/"
         );
