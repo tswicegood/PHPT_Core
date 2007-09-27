@@ -11,11 +11,13 @@ class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
                 '%i',
                 '%s',
                 '%d',
+                '%f',
             ),
             array(
                 '[+-]?[0-9]+',
                 '.+',
                 '[0-9]+',
+                '[+\-]?\.?[0-9]+\.?[0-9]*(E-?[0-9]+)?',
             ),
             "/{$data}/"
         );
