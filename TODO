@@ -7,7 +7,7 @@ Prior to v0.1 release
 * [DONE] Create Test_Section interface
 * Create implementation for each of the base Sections that are supported in the current
   phpt implementation: env, post, postraw, get, ini, cookie, stdin, clean, expect, expectf,
-  and expectregexp.
+  expectregexp, and args.
 * Create SectionList object to contain all Sections
     * Implement ArrayAccess
     * Implement filterByInterface code that can request certain types of Section_* filters:
