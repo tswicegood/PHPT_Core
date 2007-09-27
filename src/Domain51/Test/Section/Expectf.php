@@ -6,11 +6,12 @@
  */
 class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
 {
-    private $_pattern = '';
+    private $_real_pattern = '';
     
     public function __construct($data)
     {
-        $this->_pattern = str_replace(
+        $this->_pattern = $data;
+        $this->_real_pattern = str_replace(
             array(
                 '%i',
                 '%s',
@@ -31,8 +32,11 @@ class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
     
     public function run(Domain51_Test_Case $case)
     {
-        if (!preg_match($this->_pattern, $case->output)) {
-            throw new Domain51_Test_Section_Expectf_UnexpectedOutputException();
+        if (!preg_match($this->_real_pattern, $case->output)) {
+            throw new Domain51_Test_Section_Expectf_UnexpectedOutputException(
+                $this->_pattern,
+                $case->output
+            );
         }
     }
 }
