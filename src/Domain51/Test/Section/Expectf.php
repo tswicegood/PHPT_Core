@@ -4,13 +4,13 @@
  * @todo this needs to be updated to current PHP standards instead of this original
  *       values set forth from PEAR_RunTests
  */
-class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
+class Domain51_Test_Section_Expectf extends Domain51_Test_Section_ExpectationAbstract
 {
     private $_real_pattern = '';
     
     public function __construct($data)
     {
-        $this->_pattern = $data;
+        parent::__construct($data);
         $this->_real_pattern = str_replace(
             array(
                 '%i',
@@ -30,13 +30,8 @@ class Domain51_Test_Section_Expectf implements Domain51_Test_Section_Runnable
         );
     }
     
-    public function run(Domain51_Test_Case $case)
+    protected function _isValid(Domain51_Test_Case $case)
     {
-        if (!preg_match($this->_real_pattern, $case->output)) {
-            throw new Domain51_Test_Section_Expectf_UnexpectedOutputException(
-                $this->_pattern,
-                $case->output
-            );
-        }
+        return preg_match($this->_real_pattern, $case->output);
     }
 }
