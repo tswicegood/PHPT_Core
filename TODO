@@ -25,7 +25,7 @@ Prior to v0.1 release
     * parsing post-run secionts
         * create clean, expect, expectf, and expectregexp sections
     * returning a ready-to-run test case
-* Create a test case runner
+* Create a test case/code runner
 * Create a suite capable of running multiple test cases
 * Create build file to handle packaging
 
