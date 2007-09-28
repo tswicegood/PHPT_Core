@@ -5,7 +5,7 @@ Prior to v0.1 release
 * [DONE] Create reader for recorded results so they can be used by the test controller to display results
     * [DONE] Create result object for iterating over read results
 * [DONE] Create Test_Section interface
-* Create implementation for each of the base Sections that are supported in the current
+* [DONE] Create implementation for each of the base Sections that are supported in the current
   phpt implementation: env, post, postraw, get, ini, cookie, stdin, clean, expect, expectf,
   expectregexp, skipif, and args.
 * Create SectionList object to contain all Sections
