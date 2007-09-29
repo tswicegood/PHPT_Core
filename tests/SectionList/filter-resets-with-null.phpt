@@ -1,5 +1,5 @@
 --TEST--
-If you call filter() with null or no-value, the full dataset is restored
+If you call filterByInterface() with null or no-value, the full dataset is restored
 --FILE--
 <?php
 
@@ -16,14 +16,14 @@ $non_runnable = array(
 
 $data = array_merge($runnable, $non_runnable);
 $list = new Domain51_Test_SectionList($data);
-$list->filter('Runnable');
+$list->filterByInterface('Runnable');
 
 // sanity check
 foreach ($list as $key => $value) {
     assert('$runnable[$key] == $value');
 }
 
-$list->filter();
+$list->filterByInterface();
 
 foreach ($list as $key => $value) {
     assert('$data[$key] == $value');

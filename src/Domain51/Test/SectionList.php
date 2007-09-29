@@ -55,7 +55,7 @@ class Domain51_Test_SectionList implements Iterator, ArrayAccess
         
     }
     
-    public function filter($interface = null)
+    public function filterByInterface($interface = null)
     {
         if (is_null($interface)) {
             $this->_sections = $this->_raw_sections;

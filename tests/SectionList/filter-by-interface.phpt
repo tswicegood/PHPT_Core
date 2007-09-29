@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_SectionList::filter() filters the data based on the interface name
+Domain51_Test_SectionList::filterByInterface() filterByInterfaces the data based on the interface name
 passed in.  The full interface is "Domain51_Test_Section_<$interface>".
 --FILE--
 <?php
@@ -17,9 +17,9 @@ $non_runnable = array(
 
 $data = array_merge($runnable, $non_runnable);
 $list = new Domain51_Test_SectionList($data);
-$list->filter('Runnable');
+$list->filterByInterface('Runnable');
 assert('$list->valid()');
-$list->filter('EnvModifier');
+$list->filterByInterface('EnvModifier');
 assert('$list->valid() == false');
 
 ?>
