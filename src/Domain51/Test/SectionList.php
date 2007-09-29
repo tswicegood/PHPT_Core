@@ -2,24 +2,26 @@
 
 class Domain51_Test_SectionList implements Iterator, ArrayAccess
 {
-    public function __construct(array $one = array())
+    private $_sections = null;
+    
+    public function __construct(array $sections = array())
     {
-        
+        $this->_sections = $sections;
     }
     
     public function current()
     {
-        
+        return current($this->_sections);
     }
     
     public function key()
     {
-        
+        return key($this->_sections);
     }
     
     public function next()
     {
-        
+        next($this->_sections);
     }
     
     public function rewind()
@@ -29,7 +31,7 @@ class Domain51_Test_SectionList implements Iterator, ArrayAccess
     
     public function valid()
     {
-        
+        return current($this->_sections) !== false;
     }
     
     public function offsetExists($key)
