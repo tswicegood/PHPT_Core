@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_SectionList implements Iterator, ArrayAccess
+class Domain51_Test_SectionList implements Iterator
 {
     private $_raw_sections = null;
     private $_sections = null;
@@ -33,26 +33,6 @@ class Domain51_Test_SectionList implements Iterator, ArrayAccess
     public function valid()
     {
         return current($this->_sections) !== false;
-    }
-    
-    public function offsetExists($key)
-    {
-        
-    }
-    
-    public function offsetGet($key)
-    {
-        
-    }
-    
-    public function offsetSet($key, $value)
-    {
-        
-    }
-    
-    public function offsetUnset($key)
-    {
-        
     }
     
     public function filterByInterface($interface = null)
