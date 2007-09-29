@@ -39,7 +39,7 @@ class Domain51_Test_SectionList implements Iterator
     {
         if (is_null($interface)) {
             $this->_sections = $this->_raw_sections;
-            return;
+            return $this;
         }
         
         $full_interface = 'Domain51_Test_Section_' . $interface;
@@ -50,5 +50,7 @@ class Domain51_Test_SectionList implements Iterator
             }
             $this->_sections[$name] = $section;
         }
+        
+        return $this;
     }
 }
