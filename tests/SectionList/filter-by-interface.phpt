@@ -18,10 +18,9 @@ $non_runnable = array(
 $data = array_merge($runnable, $non_runnable);
 $list = new Domain51_Test_SectionList($data);
 $list->filter('Runnable');
-
-foreach ($list as $key => $value) {
-    assert('$runnable[$key] == $value');
-}
+assert('$list->valid()');
+$list->filter('EnvModifier');
+assert('$list->valid() == false');
 
 ?>
 ===DONE===
