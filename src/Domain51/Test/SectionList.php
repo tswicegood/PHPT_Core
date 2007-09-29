@@ -26,7 +26,7 @@ class Domain51_Test_SectionList implements Iterator, ArrayAccess
     
     public function rewind()
     {
-        
+        reset($this->_sections);
     }
     
     public function valid()
