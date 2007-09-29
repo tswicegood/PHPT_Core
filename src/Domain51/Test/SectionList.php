@@ -61,4 +61,9 @@ class Domain51_Test_SectionList implements Iterator
         
         return $this;
     }
+    
+    public function has($name)
+    {
+        return isset($this->_raw_sections[$name]);
+    }
 }
