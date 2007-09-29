@@ -15,7 +15,9 @@ $random = rand(100, 200);
 $modifier->value = 'some random value: ' . $random;
 
 $case = new Domain51_Test_SimpleTestCase();
-$case->sections[] = $modifier;
+$case->sections = new Domain51_Test_SectionList(
+    array($modifier)
+);
 
 $env = new Domain51_Test_Section_Env('foo=bar');
 assert('!isset($env->data[$modifier->key])');

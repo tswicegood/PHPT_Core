@@ -5,7 +5,10 @@
  */
 class Domain51_Test_SimpleTestCase extends Domain51_Test_Case {
     public $filename = '';
-    public $sections = array();
-    public function __construct() { }
+    public $sections = null;
+    public function __construct()
+    {
+        $this->sections = new Domain51_Test_SectionList(array());
+    }
     public function __destruct() { }
 }

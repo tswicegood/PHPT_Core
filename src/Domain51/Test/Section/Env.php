@@ -38,8 +38,8 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section_Runnable
     public function run(Domain51_Test_Case $case)
     {
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
-        foreach ($case->sections as $section) {
-            if ($section instanceof Domain51_Test_Section_EnvModifier) {
+        if ($case->sections->filterByInterface('EnvModifier')->valid()) {
+            foreach ($case->sections as $section) {
                 $section->modifyEnv($this);
             }
         }
