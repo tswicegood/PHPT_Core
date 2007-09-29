@@ -43,5 +43,6 @@ class Domain51_Test_Section_Env implements Domain51_Test_Section_Runnable
                 $section->modifyEnv($this);
             }
         }
+        $case->sections->filterByInterface();
     }
 }
