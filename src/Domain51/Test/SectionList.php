@@ -7,6 +7,12 @@ class Domain51_Test_SectionList implements Iterator
     
     public function __construct(array $sections = array())
     {
+        foreach ($sections as $section) {
+            if (!$section instanceof Domain51_Test_Section) {
+                throw new Domain51_Test_SectionList_InvalidParameter();
+            }
+        }
+        
         $this->_sections = $this->_raw_sections = $sections;
     }
     
