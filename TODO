@@ -9,7 +9,6 @@ Prior to v0.1 release
   phpt implementation: env, post, postraw, get, ini, cookie, stdin, clean, expect, expectf,
   expectregexp, skipif, and args.
 * Create SectionList object to contain all Sections
-    * Implement ArrayAccess
     * Implement filterByInterface code that can request certain types of Section_* filters:
 * Determine and implement how sections will modify Case's command.  Possible solutions:
     - Case::$command that can be modified
