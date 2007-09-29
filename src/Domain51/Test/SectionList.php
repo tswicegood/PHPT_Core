@@ -2,8 +2,8 @@
 
 class Domain51_Test_SectionList implements Iterator
 {
-    private $_raw_sections = null;
-    private $_sections = null;
+    private $_raw_sections = array();
+    private $_sections = array();
     
     public function __construct(array $sections = array())
     {
@@ -11,9 +11,11 @@ class Domain51_Test_SectionList implements Iterator
             if (!$section instanceof Domain51_Test_Section) {
                 throw new Domain51_Test_SectionList_InvalidParameter();
             }
+            $name = strtoupper(str_replace('Domain51_Test_Section_', '', get_class($section)));
+            $this->_raw_sections[$name] = $section;
         }
         
-        $this->_sections = $this->_raw_sections = $sections;
+        $this->_sections = $this->_raw_sections;
     }
     
     public function current()
