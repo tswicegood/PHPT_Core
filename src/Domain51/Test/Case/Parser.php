@@ -14,7 +14,7 @@ class Domain51_Test_Case_Parser
         $current_section = null;
         foreach ($lines as $line) {
             if (preg_match('/^--([^-]+)--$/', $line, $matches)) {
-                $current_section = $matches[1];
+                $current_section = 'Domain51_Test_Section_' . ucfirst(strtolower($matches[1]));
                 $sections[$current_section] = array();
                 continue;
             }
@@ -27,18 +27,26 @@ class Domain51_Test_Case_Parser
             $sections[$current_section][] = $line;
         }
         
-        if (!isset($sections['TEST'])) {
+        // @todo refactor so only one foreach is done
+        foreach ($sections as $name => $data) {
+            $sections[] = new $name(trim(implode("\n", $data)));
+            unset($sections[$name]);
+        }
+        
+        $list = new Domain51_Test_SectionList($sections);
+        
+        // @todo move this over to Domain51_Test_Case_Validator
+        if (!$list->has('TEST')) {
             throw new Domain51_Test_Case_Parser_InvalidTestCaseException('missing TEST section');
         }
         
-        if (!isset($sections['FILE'])) {
+        if (!$list->has('FILE')) {
             throw new Domain51_Test_Case_Parser_InvalidTestCaseException('missing FILE section');
         }
         
-        $test_case_file = dirname($file) . '/' . basename($file, '.phpt') . '.php';
+        $list->FILE->filename = dirname($file) . '/' . basename($file, '.phpt') . '.php';
         
-        $name = trim(implode("\n", $sections['TEST']));
-        return new Domain51_Test_Case($name, $test_case_file, $sections['FILE'], $sections);
+        return new Domain51_Test_Case($list);
     }
 }
 

@@ -5,7 +5,7 @@ Domain51_Test_Case::$output is null at instantiation
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$case = new Domain51_Test_Case('', 'foobar.php', '', '');
+$case = new Domain51_Test_Case(new Domain51_Test_SectionList());
 assert('is_null($case->output)');
 
 ?>

@@ -1,10 +1,6 @@
 --TEST--
-Domain51_Test_Case should be instantiated with the following parameters:
-
-* $name: string - the contents of the TEST section
-* $filename: string - the full-path of the file that represents this test
-* $code: string - the raw PHP of this test case
-* $sections: array - an array of sections dealing with this test case
+Domain51_Test_Case should be instantiated with a SectionList with the required sections as
+defined by Domain51_Test_Case_Validator
 --FILE--
 <?php
 
@@ -15,9 +11,16 @@ $filename = dirname(__FILE__) . '/some-fake-test-case.php';
 $code = "<?php
 echo 'Hello world...';
 ?>";
-$sections = array();
 
-$case = new Domain51_Test_Case($name, $filename, $code, $sections);
+$file = new Domain51_Test_Section_File($code);
+$file->filename = $filename;
+
+$sections = new Domain51_Test_SectionList(array(
+    new Domain51_Test_Section_Test($name),
+    $file
+));
+
+$case = new Domain51_Test_Case($sections);
 assert('$case->name == $name');
 assert('$case->filename == $filename');
 assert('$case->code == $code');
