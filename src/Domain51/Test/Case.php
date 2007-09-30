@@ -29,6 +29,12 @@ class Domain51_Test_Case
         }
         $this->sections->filterByInterface();
         $this->sections->FILE->run($this);
+        if ($this->sections->filterByInterface('RunAfter')->valid()) {
+            foreach ($this->sections as $section) {
+                $section->run($this);
+            }
+        }
+        $this->sections->filterByInterface();
     }
     
     public function __set($key, $value)
