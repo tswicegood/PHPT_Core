@@ -27,10 +27,7 @@ class Domain51_Test_Case
     
     public function run()
     {
-        // @todo refactor to call sections->FILE->run($this)s
-        ob_start();
-        include $this->sections->FILE->filename;
-        $this->output = ob_get_clean();
+        $this->sections->FILE->run($this);
     }
     
     public function __set($key, $value)

@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_File implements Domain51_Test_Section
+class Domain51_Test_Section_File implements Domain51_Test_Section_Runnable
 {
     public $leave_file = false;
     
@@ -43,5 +43,13 @@ class Domain51_Test_Section_File implements Domain51_Test_Section
         if ($key == 'filename') {
             return $this->_filename;
         }
+    }
+    
+    public function run(Domain51_Test_Case $case)
+    {
+        // @todo refactor into Domain51_Test_CodeRunner
+        ob_start();
+        include $this->filename;
+        $case->output = ob_get_clean();
     }
 }
