@@ -22,6 +22,12 @@ class Domain51_Test_Case
     
     public function run()
     {
+        if ($this->sections->filterByInterface('RunBefore')->valid()) {
+            foreach ($this->sections as $section) {
+                $section->run($this);
+            }
+        }
+        $this->sections->filterByInterface();
         $this->sections->FILE->run($this);
     }
     
