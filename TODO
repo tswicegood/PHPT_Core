@@ -10,6 +10,9 @@ Prior to v0.1 release
   expectregexp, skipif, and args.
 * [DONE] Create SectionList object to contain all Sections
     * [DONE] Implement filterByInterface code that can request certain types of Section_* filters:
+* Add Section_BeforeRun interface for filtering - make sure Case::run() executes before run()
+* Add Section_AfterRun interface for filtering - make sure Case::run() executes after run()
+* Add Section_FileModifier interface for modifying Section_File
 * Determine and implement how sections will modify Case's command.  Possible solutions:
     - Case::$command that can be modified
     - Case_CommandBuilder object that looks at sections and builds command based on available
