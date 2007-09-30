@@ -20,11 +20,6 @@ class Domain51_Test_Case
         }
     }
     
-    public function update()
-    {
-        file_put_contents($this->filename, $this->code);
-    }
-    
     public function run()
     {
         $this->sections->FILE->run($this);
