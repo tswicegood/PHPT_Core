@@ -10,6 +10,11 @@ class Domain51_Test_Section_File implements Domain51_Test_Section
         $this->_contents = $data;
     }
     
+    public function __destruct()
+    {
+        @unlink($this->_filename);
+    }
+    
     public function __set($key, $value)
     {
         $trigger_update = false;
@@ -30,6 +35,9 @@ class Domain51_Test_Section_File implements Domain51_Test_Section
     {
         if ($key == 'contents') {
             return $this->_contents;
+        }
+        if ($key == 'filename') {
+            return $this->_filename;
         }
     }
 }
