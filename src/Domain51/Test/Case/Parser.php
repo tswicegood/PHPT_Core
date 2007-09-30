@@ -2,9 +2,11 @@
 
 class Domain51_Test_Case_Parser
 {
+    private $_validator = null;
+    
     public function __construct()
     {
-        
+        $this->_validator = new Domain51_Test_Case_Validator();
     }
     
     public function parse($file)
@@ -17,10 +19,14 @@ class Domain51_Test_Case_Parser
         foreach ($lines as $line) {
             if (preg_match('/^--([^-]+)--$/', $line, $matches)) {
                 if (!empty($section_name)) {
-                    $raw_sections[] = new $section_name($section_data);
+                    $section_object_name = 'Domain51_Test_Section_' . ucfirst(strtolower($section_name));
+                    $raw_sections[$section_name] = new $section_object_name($section_data);
+                    if ($section_name == 'FILE') {
+                        $raw_sections[$section_name]->filename = dirname($file) . '/' . basename($file, '.phpt') . '.php';
+                    }
                 }
                 
-                $section_name = 'Domain51_Test_Section_' . ucfirst(strtolower($matches[1]));
+                $section_name = $matches[1];
                 $section_data = '';
                 continue;
             }
@@ -38,19 +44,8 @@ class Domain51_Test_Case_Parser
         
         $sections = new Domain51_Test_SectionList($raw_sections);
         
-        // @todo move this over to Domain51_Test_Case_Validator
-        if (!$sections->has('TEST')) {
-            throw new Domain51_Test_Case_Parser_InvalidTestCaseException('missing TEST section');
-        }
-        
-        if (!$sections->has('FILE')) {
-            throw new Domain51_Test_Case_Parser_InvalidTestCaseException('missing FILE section');
-        }
-        
-        $sections->FILE->filename = dirname($file) . '/' . basename($file, '.phpt') . '.php';
-        
-        return new Domain51_Test_Case($sections);
+        $case = new Domain51_Test_Case($sections);
+        $this->_validator->validate($case);
+        return $case;
     }
 }
-
-class Domain51_Test_Case_Parser_InvalidTestCaseException extends Exception { }
