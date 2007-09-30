@@ -2,6 +2,8 @@
 
 class Domain51_Test_Section_File implements Domain51_Test_Section
 {
+    public $leave_file = false;
+    
     private $_contents = '';
     private $_filename = '';
     
@@ -12,7 +14,9 @@ class Domain51_Test_Section_File implements Domain51_Test_Section
     
     public function __destruct()
     {
-        @unlink($this->_filename);
+        if ($this->leave_file == false) {
+            @unlink($this->_filename);
+        }
     }
     
     public function __set($key, $value)
