@@ -19,10 +19,10 @@ Prior to v0.1 release
     - Move functionality into Test_Runner object
 * [DONE] Create test file parser capable of:
     * [DONE] parsing pre-run sections
-        * create env, post, postraw, get, ini, cookie, and stdin sections
+        * [DONE] create env, post, postraw, get, ini, cookie, and stdin sections
     * [DONE] parsing post-run secionts
-        * create clean, expect, expectf, and expectregexp sections
-    * returning a ready-to-run test case
+        * [DONE] create clean, expect, expectf, and expectregexp sections
+    * [DONE] returning a ready-to-run test case
 * Create a test case/code runner
 * Create a suite capable of running multiple test cases
 * Create build file to handle packaging
