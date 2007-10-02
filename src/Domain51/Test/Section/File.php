@@ -6,10 +6,12 @@ class Domain51_Test_Section_File implements Domain51_Test_Section_Runnable
     
     private $_contents = '';
     private $_filename = '';
+    private $_runner = null;
     
     public function __construct($data)
     {
         $this->_contents = $data;
+        $this->_runner = new Domain51_Test_CodeRunner();
     }
     
     public function __destruct()
@@ -47,9 +49,6 @@ class Domain51_Test_Section_File implements Domain51_Test_Section_Runnable
     
     public function run(Domain51_Test_Case $case)
     {
-        // @todo refactor into Domain51_Test_CodeRunner
-        ob_start();
-        include $this->filename;
-        $case->output = ob_get_clean();
+        $case->output = $this->_runner->run($this->_filename)->output;
     }
 }
