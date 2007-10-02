@@ -1,6 +1,6 @@
 <?php
 
-abstract class Domain51_Test_Section_ExpectationAbstract implements Domain51_Test_Section_Runnable
+abstract class Domain51_Test_Section_ExpectationAbstract implements Domain51_Test_Section_RunAfter
 {
     protected $_expected = null;
     private $_exception = 'Domain51_Test_Section_%s_UnexpectedOutputException';

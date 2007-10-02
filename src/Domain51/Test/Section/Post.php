@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Post implements Domain51_Test_Section_Runnable, Domain51_Test_Section_EnvModifier
+class Domain51_Test_Section_Post implements Domain51_Test_Section_RunBefore, Domain51_Test_Section_EnvModifier
 {
     public $file = '';
     public $raw_data = '';

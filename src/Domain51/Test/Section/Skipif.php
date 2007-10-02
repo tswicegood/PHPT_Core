@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_Skipif implements Domain51_Test_Section, Domain51_Test_Section_Runnable
+class Domain51_Test_Section_Skipif implements Domain51_Test_Section_RunBefore
 {
     private $_data = null;
     
