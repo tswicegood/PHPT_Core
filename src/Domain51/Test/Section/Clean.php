@@ -15,6 +15,7 @@ class Domain51_Test_Section_Clean implements Domain51_Test_Section_RunAfter
         @unlink($this->filename);
     }
     
+    // @todo add test to make sure Clean::run() actually executes code
     public function run(Domain51_Test_Case $case)
     {
         $this->filename = substr($case->filename, 0, -4) . '.clean.php';
