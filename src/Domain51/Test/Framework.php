@@ -10,6 +10,7 @@ class Domain51_Test_Framework
         
     }
     
+    // @todo add some sort of error handling
     public static function autoload($class)
     {
         if (is_null(self::$namespace_length)) {
