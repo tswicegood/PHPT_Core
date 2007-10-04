@@ -13,11 +13,12 @@ file_put_contents($filename, $code);
 $runner = new Domain51_Test_CodeRunner();
 $result = $runner->run($filename);
 
-assert('preg_match("/.*Undefined variable: this/", $result->output)');
+echo $result->output, "\n";
 
 ?>
 ===DONE===
 --CLEAN--
 <?php @unlink(dirname(__FILE__) . '/foobar.php'); ?>
---EXPECT--
+--EXPECTREGEX--
+.*Undefined variable: this.*
 ===DONE===
