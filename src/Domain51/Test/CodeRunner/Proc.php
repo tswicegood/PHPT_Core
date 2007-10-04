@@ -9,6 +9,7 @@ class Domain51_Test_CodeRunner_Proc
     public $timeout = 60;
     public $ini = null;
     public $stdin = null;
+    public $args = null;
     
     public function __construct(Domain51_Test_CodeRunner $caller)
     {
@@ -21,7 +22,7 @@ class Domain51_Test_CodeRunner_Proc
         $result->filename = $filename;
         
         $proc = proc_open(
-            "{$this->command_line} {$this->ini} -f {$filename}",
+            "{$this->command_line} {$this->ini} -f {$filename} {$this->args}",
             array(
                 0 => array('pipe', 'r'),
                 1 => array('pipe', 'w'),
