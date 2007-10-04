@@ -8,6 +8,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 
 $case = new Domain51_Test_SimpleTestCase();
 $case->output = 'this string contains no decimals';
+$case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $section = new Domain51_Test_Section_Expectf('%d');
 try {
