@@ -1,8 +1,5 @@
 <?php
 
-require_once 'Domain51/Test/Assertion.php';
-require_once 'Domain51/Test/Util/ValueDumper.php';
-
 abstract class Domain51_Test_Assert_ComparisonAbstract implements Domain51_Test_Assertion
 {
     protected $_one = null;

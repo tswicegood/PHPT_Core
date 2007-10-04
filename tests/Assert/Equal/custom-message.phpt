@@ -10,8 +10,6 @@ There are three replacements available:
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-require_once 'Domain51/Test/Assert/Equal.php';
-
 $equal = new Domain51_Test_Assert_Equal(123, 123, 'values should be equal');
 echo $equal->getMessage() . "\n";
 

@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Domain51/Loader.php';
-
 class Domain51_Test_AssertionPacks_Basic
 {
     private $_recorder = null;

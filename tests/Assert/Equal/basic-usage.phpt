@@ -5,7 +5,6 @@ message depending on the status.
 --FILE--
 <?php
 require dirname(__FILE__) . '/../_setup.inc';
-require_once 'Domain51/Test/Assert/Equal.php';
 
 $equal = new Domain51_Test_Assert_Equal(123, 123);
 assert('$equal->getStatus()');
