@@ -22,11 +22,12 @@ class Domain51_Test_CodeRunner_Proc
         $result->filename = $filename;
         
         $proc = proc_open(
-            "{$this->command_line} {$this->ini} -f {$filename} {$this->args}",
+            "{$this->command_line} {$this->ini} -f {$filename} {$this->args} ; echo $? >&3",
             array(
                 0 => array('pipe', 'r'),
                 1 => array('pipe', 'w'),
                 2 => array('pipe', 'w'),
+                3 => array('pipe', 'w'), // pipe to write exit code to
             ),
             $pipes,
             null,
@@ -76,8 +77,10 @@ class Domain51_Test_CodeRunner_Proc
             }
         }
     
-        //$stat = proc_get_status($proc);
-        $exitcode = proc_close($proc);
+        $exitcode = trim(fread($pipes[3], 5));
+        fclose($pipes[3]);
+        
+        proc_close($proc);
         
         $result->output = $data;
         $result->exitcode = $exitcode;
