@@ -14,10 +14,12 @@ file_put_contents($filename, $code);
 $runner = new Domain51_Test_CodeRunner();
 $result = $runner->run($filename);
 
+echo $result->exitcode, "\n";
 assert('$result->exitcode == $random');
 ?>
 ===DONE===
 --CLEAN--
 <?php @unlink(dirname(__FILE__) . '/foobar.php'); ?>
---EXPECT--
+--EXPECTREGEX--
+[12][0-9]{2}
 ===DONE===
