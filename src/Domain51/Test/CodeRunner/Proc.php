@@ -37,7 +37,7 @@ class Domain51_Test_CodeRunner_Proc
         );
         
         // @todo figure out how to test
-        if ($proc === false) {
+        if ($proc == false) {
             throw new Domain51_Test_Exception_InvalidStateException(
                 'proc_open returned false in ' . __METHOD__
             );
