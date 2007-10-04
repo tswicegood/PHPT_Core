@@ -4,14 +4,8 @@ to the file it was instantiated with.  The results can then be parsed
 by another process to determine what happened.
 --FILE--
 <?php
-//BEGIN REMOVE
-set_include_path(
-    dirname(__FILE__) . '/../../../src/' . PATH_SEPARATOR .
-    get_include_path()
-);
-// END REMOVE
 
-require_once 'Domain51/Loader.php';
+require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $result_file = __FILE__ . '.results';
 @unlink($result_file);
