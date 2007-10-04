@@ -5,14 +5,8 @@ to it which it uses to determine where to dispatch calls to
 asssert*() methods.
 --FILE--
 <?php
-//BEGIN REMOVE
-set_include_path(
-    dirname(__FILE__) . '/../../src/' . PATH_SEPARATOR .
-    get_include_path()
-);
-// END REMOVE
 
-require_once 'Domain51/Loader.php';
+require_once dirname(__FILE__) . '/../_setup.inc';
 
 class SimpleRecorder implements Domain51_Test_ResultRecorder
 {
