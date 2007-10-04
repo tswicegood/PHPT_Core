@@ -17,7 +17,7 @@ try {
     $runner->run($filename);
     trigger_error('exception not caught');
 } catch (Domain51_Test_CodeRunner_ExecutionException $e) {
-    assert('preg_match("/\/some\/unknown\/and\/bad\/path\/to\/php: No such file or directory/", $e->getMessage())');
+    assert('preg_match("/\/some\/unknown\/and\/bad\/path\/to\/php/", $e->getMessage())');
 }
 
 ?>
