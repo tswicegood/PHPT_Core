@@ -19,7 +19,7 @@ try {
     trigger_error('exception not caught');
 } catch (Domain51_Test_CodeRunner_TimeoutException $e) {
     assert('$e->getMessage() == "code execution timed out"');
-    assert('$e->getCause() == $caller');
+    assert('$e->getCause() === $caller');
 }
 
 ?>
