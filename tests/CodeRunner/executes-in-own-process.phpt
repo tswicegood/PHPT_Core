@@ -20,5 +20,5 @@ echo $result->output, "\n";
 --CLEAN--
 <?php @unlink(dirname(__FILE__) . '/foobar.php'); ?>
 --EXPECTREGEX--
-.*Undefined variable: this.*
+.*(Undefined variable: this.|NULL)*
 ===DONE===
