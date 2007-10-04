@@ -24,7 +24,7 @@ $case = new Domain51_Test_Case($sections);
 assert('$case->name == $name');
 assert('$case->filename == $filename');
 assert('$case->code == $code');
-assert('$case->sections == $sections');
+assert('$case->sections === $sections');
 
 assert('file_exists($case->filename)');
 
