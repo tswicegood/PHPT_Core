@@ -20,5 +20,7 @@ try {
 
 ?>
 ===DONE===
+--CLEAN--
+<?php unlink(dirname(__FILE__) . '/fake-test-case.exp'); ?>
 --EXPECT--
 ===DONE===
