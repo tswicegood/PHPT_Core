@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Case_Validator
+class PHPT_Case_Validator_Runnable
 {
     public function __construct()
     {

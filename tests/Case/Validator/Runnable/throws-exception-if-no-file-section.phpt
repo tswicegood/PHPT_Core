@@ -4,14 +4,14 @@ PHPT_Exception_InvalidCaseException will be thrown.
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $sections = new PHPT_SectionList(array(
     new PHPT_Section_Test('foobar')
 ));
 
 $case = new PHPT_Case($sections);
-$validator = new PHPT_Case_Validator();
+$validator = new PHPT_Case_Validator_Runnable();
 
 try {
     $validator->validate($case);

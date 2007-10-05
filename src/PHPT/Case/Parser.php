@@ -6,7 +6,7 @@ class PHPT_Case_Parser
     
     public function __construct()
     {
-        $this->_validator = new PHPT_Case_Validator();
+        $this->_validator = new PHPT_Case_Validator_Runnable();
     }
     
     public function parse($file)

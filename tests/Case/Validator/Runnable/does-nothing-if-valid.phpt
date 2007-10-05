@@ -1,9 +1,9 @@
 --TEST--
-If PHPT_Case_Validator::validate() provided a valid nothing happens
+If PHPT_Case_Validator_Runnable::validate() provided a valid nothing happens
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $file = new PHPT_Section_File('foobar');
 $file->filename = dirname(__FILE__) . '/fake-test-case.php';
@@ -15,7 +15,7 @@ $case = new PHPT_Case(
     ))
 );
 
-$validator = new PHPT_Case_Validator();
+$validator = new PHPT_Case_Validator_Runnable();
 $validator->validate($case);
 
 ?>
