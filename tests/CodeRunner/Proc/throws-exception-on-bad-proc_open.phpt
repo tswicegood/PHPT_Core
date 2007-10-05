@@ -1,5 +1,5 @@
 --TEST--
-If proc_open() does not generate a resource, a Domain51_Test_CodeRunner_Proc_ExecutionException
+If proc_open() does not generate a resource, a PHPT_CodeRunner_Proc_ExecutionException
 is thrown
 --FILE--
 <?php
@@ -10,13 +10,13 @@ $filename = dirname(__FILE__) . '/foobar.php';
 $code = '<?php echo "Hello World!"; ?>';
 file_put_contents($filename, $code);
 
-$caller = new Domain51_Test_CodeRunner();
-$runner = new Domain51_Test_CodeRunner_Proc($caller);
+$caller = new PHPT_CodeRunner();
+$runner = new PHPT_CodeRunner_Proc($caller);
 $runner->command_line = '/some/unknown/and/bad/path/to/php';
 try {
     $runner->run($filename);
     trigger_error('exception not caught');
-} catch (Domain51_Test_CodeRunner_ExecutionException $e) {
+} catch (PHPT_CodeRunner_ExecutionException $e) {
     assert('preg_match("/\/some\/unknown\/and\/bad\/path\/to\/php/", $e->getMessage())');
 }
 

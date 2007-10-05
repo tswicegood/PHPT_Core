@@ -1,5 +1,5 @@
 --TEST--
-When a Domain51_Test_Section_Post object is destroyed after the $file is
+When a PHPT_Section_Post object is destroyed after the $file is
 created, __destruct() will remove the file.
 --FILE--
 <?php
@@ -11,8 +11,8 @@ $post_data = <<<END
 msg=Hello+World
 END;
 
-$case = new Domain51_Test_SimpleTestCase();
-$post = new Domain51_Test_Section_Post($post_data);
+$case = new PHPT_SimpleTestCase();
+$post = new PHPT_Section_Post($post_data);
 $post->run($case);
 $filename = $post->file;
 

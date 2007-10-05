@@ -1,89 +1,89 @@
 --TEST--
-Domain51_Test_Assert_Type can determine if the value is a integer
+PHPT_Assert_Type can determine if the value is a integer
 --FILE--
 <?php
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$test = new Domain51_Test_Assert_Type('integer', true);
+$test = new PHPT_Assert_Type('integer', true);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', false);
+$test = new PHPT_Assert_Type('integer', false);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', array());
+$test = new PHPT_Assert_Type('integer', array());
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', array(123, 234));
+$test = new PHPT_Assert_Type('integer', array(123, 234));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', 'hello world');
+$test = new PHPT_Assert_Type('integer', 'hello world');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', 123);
+$test = new PHPT_Assert_Type('integer', 123);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', 123.321);
+$test = new PHPT_Assert_Type('integer', 123.321);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', '123');
+$test = new PHPT_Assert_Type('integer', '123');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', '123.321');
+$test = new PHPT_Assert_Type('integer', '123.321');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$assertion = new Domain51_Test_Assert_Type('integer', true);
-$test = new Domain51_Test_Assert_Type('integer', $assertion);
+$assertion = new PHPT_Assert_Type('integer', true);
+$test = new PHPT_Assert_Type('integer', $assertion);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', null);
+$test = new PHPT_Assert_Type('integer', null);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
 $fp = fopen(dirname(__FILE__) . '/temporary.file', 'w');
-$test = new Domain51_Test_Assert_Type('integer', $fp);
+$test = new PHPT_Assert_Type('integer', $fp);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', 'strtolower');
+$test = new PHPT_Assert_Type('integer', 'strtolower');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', array('ReflectionClass', 'export'));
+$test = new PHPT_Assert_Type('integer', array('ReflectionClass', 'export'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$reflection = new ReflectionClass('Domain51_Test_Assert_Type');
-$test = new Domain51_Test_Assert_Type('integer', array($reflection, 'implementsintegererface'));
+$reflection = new ReflectionClass('PHPT_Assert_Type');
+$test = new PHPT_Assert_Type('integer', array($reflection, 'implementsintegererface'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('integer', $reflection);
+$test = new PHPT_Assert_Type('integer', $reflection);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
@@ -102,7 +102,7 @@ value [123] is a type of integer
 value [123.321] is not a type of integer
 value ['123'] is not a type of integer
 value ['123.321'] is not a type of integer
-value [object: Domain51_Test_Assert_Type] is not a type of integer
+value [object: PHPT_Assert_Type] is not a type of integer
 value [NULL] is not a type of integer
 value [resource] is not a type of integer
 value ['strtolower'] is not a type of integer

@@ -5,7 +5,7 @@ NotRegExp assertion is named assertNotRegExp
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_NotRegExp('/.+/', '');
+$assertion = new PHPT_Assert_NotRegExp('/.+/', '');
 assert('$assertion->getName() == "assertNotRegExp"');
 
 ?>

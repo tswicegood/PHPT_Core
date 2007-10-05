@@ -5,7 +5,7 @@ Equal assertion is named assertEqual
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_Equal(123, 123);
+$assertion = new PHPT_Assert_Equal(123, 123);
 assert('$assertion->getName() == "assertEqual"');
 
 ?>

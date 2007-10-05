@@ -1,12 +1,12 @@
 --TEST--
-Domain51_Test_Section_Env can be instantiated without any parameters and will have
+PHPT_Section_Env can be instantiated without any parameters and will have
 a minimum of "default" values.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$env = new Domain51_Test_Section_Env();
+$env = new PHPT_Section_Env();
 $expected = array(
     'REDIRECT_STATUS' => '',
     'QUERY_STRING' => '',

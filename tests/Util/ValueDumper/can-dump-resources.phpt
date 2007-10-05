@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Util_ValueDumper can dump resources in the following format:
+PHPT_Util_ValueDumper can dump resources in the following format:
 "resource"
 --FILE--
 <?php
@@ -7,7 +7,7 @@ Domain51_Test_Util_ValueDumper can dump resources in the following format:
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $fp = fopen(dirname(__FILE__) . '/temporary.file', 'w');
-echo new Domain51_Test_Util_ValueDumper($fp), "\n";
+echo new PHPT_Util_ValueDumper($fp), "\n";
 ?>
 ===DONE===
 --CLEAN--

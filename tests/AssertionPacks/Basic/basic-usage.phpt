@@ -18,7 +18,7 @@ class SimpleRecorder
     }
 }
 
-$assertions = new Domain51_Test_AssertionPacks_Basic();
+$assertions = new PHPT_AssertionPacks_Basic();
 $assertions->registerRecorder(new SimpleRecorder());
 $expected = array(
     'assertTrue',

@@ -1,14 +1,14 @@
 --TEST--
-Domain51_Test_Section_Ini always uses exposes these minimum settings.
+PHPT_Section_Ini always uses exposes these minimum settings.
 
 NOTE:  This is the current default of PEAR_RunTest and may be subject to change
-prior the first stable release of Domain51_Test.
+prior the first stable release of PHPT.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$ini = new Domain51_Test_Section_Ini();
+$ini = new PHPT_Section_Ini();
 $expected = array(
     'output_handler' => '',
     'open_basedir' => '',

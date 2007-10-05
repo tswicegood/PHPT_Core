@@ -11,7 +11,7 @@ $random = rand(100, 200);
 $code = "<?php exit({$random}); ?>";
 file_put_contents($filename, $code);
 
-$runner = new Domain51_Test_CodeRunner();
+$runner = new PHPT_CodeRunner();
 $result = $runner->run($filename);
 
 echo $result->exitcode, "\n";

@@ -8,11 +8,11 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/_simple-test-case.inc';
 require_once dirname(__FILE__) . '/_simple-env-modifier.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
-$sectionList = new Domain51_Test_SectionList(array(
-    'ENV' => new Domain51_Test_Section_Env(''),
-    'INI' => new Domain51_Test_Section_Ini(''),
-    'fake' => new Domain51_Test_Section_SimpleEnvModifier(''),
+$case = new PHPT_SimpleTestCase();
+$sectionList = new PHPT_SectionList(array(
+    'ENV' => new PHPT_Section_Env(''),
+    'INI' => new PHPT_Section_Ini(''),
+    'fake' => new PHPT_Section_SimpleEnvModifier(''),
 ));
 
 $before_run = array();
@@ -22,7 +22,7 @@ foreach ($sectionList as $value) {
 
 $case->sections = $sectionList;
 
-$env = new Domain51_Test_Section_Env('');
+$env = new PHPT_Section_Env('');
 $env->run($case);
 
 $after_run = array();

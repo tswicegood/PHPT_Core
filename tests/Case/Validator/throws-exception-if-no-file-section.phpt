@@ -1,22 +1,22 @@
 --TEST--
 If a Case->sections does not contain a FILE section, a
-Domain51_Test_Exception_InvalidCaseException will be thrown.
+PHPT_Exception_InvalidCaseException will be thrown.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$sections = new Domain51_Test_SectionList(array(
-    new Domain51_Test_Section_Test('foobar')
+$sections = new PHPT_SectionList(array(
+    new PHPT_Section_Test('foobar')
 ));
 
-$case = new Domain51_Test_Case($sections);
-$validator = new Domain51_Test_Case_Validator();
+$case = new PHPT_Case($sections);
+$validator = new PHPT_Case_Validator();
 
 try {
     $validator->validate($case);
     trigger_error('exception not caught');
-} catch (Domain51_Test_Exception_InvalidCaseException $e) {
+} catch (PHPT_Exception_InvalidCaseException $e) {
     assert('$e->getMessage() == "missing FILE section"');
 }
 

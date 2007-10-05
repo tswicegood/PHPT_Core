@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Assert_NotIdentical verifies that the two values it is passed are not identical (!==).
+PHPT_Assert_NotIdentical verifies that the two values it is passed are not identical (!==).
 getStatus() returns true if the assertion is valid, while getMessage() returns an appropriate
 message.
 --FILE--
@@ -7,11 +7,11 @@ message.
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$valid = new Domain51_Test_Assert_NotIdentical(123, '123');
+$valid = new PHPT_Assert_NotIdentical(123, '123');
 assert('$valid->getStatus()');
 echo $valid->getMessage() . "\n";
 
-$not_valid = new Domain51_Test_Assert_NotIdentical(123, 123);
+$not_valid = new PHPT_Assert_NotIdentical(123, 123);
 assert('!$not_valid->getStatus()');
 echo $not_valid->getMessage() . "\n";
 

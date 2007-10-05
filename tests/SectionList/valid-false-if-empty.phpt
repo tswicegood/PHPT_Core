@@ -5,7 +5,7 @@ If SectionList is instantiated with an empty array, valid() will be false
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$list = new Domain51_Test_SectionList(array());
+$list = new PHPT_SectionList(array());
 assert('$list->valid() == false');
 
 ?>

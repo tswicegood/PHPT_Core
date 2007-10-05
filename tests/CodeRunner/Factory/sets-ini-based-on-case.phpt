@@ -1,5 +1,5 @@
 --TEST--
-The returned Domain51_Test_CodeRunner has its $ini property set based on the
+The returned PHPT_CodeRunner has its $ini property set based on the
 Test_Case's (string)sections->INI value.
 --FILE--
 <?php
@@ -7,7 +7,7 @@ Test_Case's (string)sections->INI value.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
-class FoobarTestCase extends Domain51_Test_Case
+class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
@@ -21,7 +21,7 @@ class FoobarTestCase extends Domain51_Test_Case
 
 $case = new FoobarTestCase();
 
-$runner = Domain51_Test_CodeRunner_Factory::factory($case);
+$runner = PHPT_CodeRunner_Factory::factory($case);
 assert('$runner->ini == (string)$case->sections->INI');
 
 ?>

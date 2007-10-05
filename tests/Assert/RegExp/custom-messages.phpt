@@ -1,5 +1,5 @@
 --TEST--
-An optional third parameter on Domain51_Test_Assert_RegExp::__construct() allows for a custom
+An optional third parameter on PHPT_Assert_RegExp::__construct() allows for a custom
 message to be used instead of the default message.  Any valid <i>$format</i> string is allowed.
 There are three replacements available:
 
@@ -11,31 +11,31 @@ There are three replacements available:
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$valid = new Domain51_Test_Assert_RegExp('/\d/', 123, 'value should match pattern');
+$valid = new PHPT_Assert_RegExp('/\d/', 123, 'value should match pattern');
 assert('$valid->getStatus()');
 echo $valid->getMessage() . "\n";
 
-$not_valid  = new Domain51_Test_Assert_RegExp('/\d/', 'abc', 'value should match pattern');
+$not_valid  = new PHPT_Assert_RegExp('/\d/', 'abc', 'value should match pattern');
 assert('!$not_valid->getStatus()');
 echo $not_valid->getMessage() . "\n";
 
-$test = new Domain51_Test_Assert_RegExp('/\d/', 123, 'pattern: %s');
+$test = new PHPT_Assert_RegExp('/\d/', 123, 'pattern: %s');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_RegExp('/\d/', 321, 'pattern: %s, value: %s');
+$test = new PHPT_Assert_RegExp('/\d/', 321, 'pattern: %s, value: %s');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_RegExp('/\d/', 321, 'just value: %2$s');
+$test = new PHPT_Assert_RegExp('/\d/', 321, 'just value: %2$s');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_RegExp('/\d/', 123, 'should be is: [%3$s]');
+$test = new PHPT_Assert_RegExp('/\d/', 123, 'should be is: [%3$s]');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_RegExp('/\d/', 'abc', 'should be is not: [%3$s]');
+$test = new PHPT_Assert_RegExp('/\d/', 'abc', 'should be is not: [%3$s]');
 echo $test->getMessage() . "\n";
 unset($test);
 

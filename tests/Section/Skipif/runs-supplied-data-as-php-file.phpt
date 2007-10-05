@@ -6,15 +6,15 @@ The $data passed in to
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
+$case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $data = "<?php echo 's', 'k', 'i', 'p'; ?>";
-$section = new Domain51_Test_Section_Skipif($data);
+$section = new PHPT_Section_Skipif($data);
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (Domain51_Test_Case_VetoException $e) {
+} catch (PHPT_Case_VetoException $e) {
     
 }
 

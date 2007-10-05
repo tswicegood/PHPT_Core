@@ -1,8 +1,8 @@
 --TEST--
-An optional second parameter on Domain51_Test_Assert_False::__construct() allows for a custom
+An optional second parameter on PHPT_Assert_False::__construct() allows for a custom
 message to be used instead of the default message.
 
-An optional second parameter on Domain51_Test_Assert_False::__construct() allows for a custom
+An optional second parameter on PHPT_Assert_False::__construct() allows for a custom
 message to be used instead of the default message.  Any valid <i>$format</i> string is allowed.
 There are three replacements available: 
  # The first "%s" is the first value passed in at construct
@@ -13,19 +13,19 @@ There are three replacements available:
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$valid = new Domain51_Test_Assert_False(false, 'value should be false');
+$valid = new PHPT_Assert_False(false, 'value should be false');
 assert('$valid->getStatus()');
 echo $valid->getMessage() . "\n";
 
-$not_valid  = new Domain51_Test_Assert_False(true, 'value should be false');
+$not_valid  = new PHPT_Assert_False(true, 'value should be false');
 assert('!$not_valid->getStatus()');
 echo $not_valid->getMessage() . "\n";
 
-$test = new Domain51_Test_Assert_False(0, 'value one: %s');
+$test = new PHPT_Assert_False(0, 'value one: %s');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_False(true, 'should be is not: [%2$s]');
+$test = new PHPT_Assert_False(true, 'should be is not: [%2$s]');
 echo $test->getMessage() . "\n";
 unset($test);
 

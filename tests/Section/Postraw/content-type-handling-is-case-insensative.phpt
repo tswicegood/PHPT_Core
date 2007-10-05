@@ -10,8 +10,8 @@ $post_data = <<<END
 content-type: {$content_type}
 END;
 
-$post = new Domain51_Test_Section_Postraw($post_data);
-$env = new Domain51_Test_Section_Env();
+$post = new PHPT_Section_Postraw($post_data);
+$env = new PHPT_Section_Env();
 
 $post->modifyEnv($env);
 assert('$env->data["CONTENT_TYPE"] == $content_type');

@@ -14,8 +14,8 @@ fclose($fp);
 file_put_contents($filename, $code);
 
 $message = 'Some Random Int Passed Through STDIN: ' . rand(100, 200);
-$caller = new Domain51_Test_CodeRunner();
-$runner = new Domain51_Test_CodeRunner_Proc($caller);
+$caller = new PHPT_CodeRunner();
+$runner = new PHPT_CodeRunner_Proc($caller);
 $runner->stdin = $message;
 $result = $runner->run($filename);
 

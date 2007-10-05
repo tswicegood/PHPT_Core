@@ -1,16 +1,16 @@
 --TEST--
-Domain51_Test_Assert_Equal tests two values to see if they are equal (==).  getStatus() returns
+PHPT_Assert_Equal tests two values to see if they are equal (==).  getStatus() returns
 TRUE|FALSE depending on whether the assertion passes while getMessage() returns an appropriate
 message depending on the status.
 --FILE--
 <?php
 require dirname(__FILE__) . '/../_setup.inc';
 
-$equal = new Domain51_Test_Assert_Equal(123, 123);
+$equal = new PHPT_Assert_Equal(123, 123);
 assert('$equal->getStatus()');
 echo $equal->getMessage() . "\n";
 
-$not_equal = new Domain51_Test_Assert_Equal(123, 321);
+$not_equal = new PHPT_Assert_Equal(123, 321);
 assert('!$not_equal->getStatus()');
 echo $not_equal->getMessage() . "\n";
 

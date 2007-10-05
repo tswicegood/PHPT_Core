@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Result takes an array of results (generally from a
+PHPT_Result takes an array of results (generally from a
 ResultReader) and wraps them so they can be iterated across
 --FILE--
 <?php
@@ -19,7 +19,7 @@ $array = array(
     ),
 );
 
-$result = new Domain51_Test_Result($array);
+$result = new PHPT_Result($array);
 assert('$result->current() == $array[0]');
 assert('$result->valid() == true');
 $result->next();

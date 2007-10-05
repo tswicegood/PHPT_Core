@@ -1,6 +1,6 @@
 <?php
 
-class Domain51_Test_Section_SimpleEnvModifier implements Domain51_Test_Section_EnvModifier
+class PHPT_Section_SimpleEnvModifier implements PHPT_Section_EnvModifier
 {
     public $key = '';
     public $value = '';
@@ -10,7 +10,7 @@ class Domain51_Test_Section_SimpleEnvModifier implements Domain51_Test_Section_E
         
     }
     
-    public function modifyEnv(Domain51_Test_Section_Env $env)
+    public function modifyEnv(PHPT_Section_Env $env)
     {
         $env->data[$this->key] = $this->value;
     }

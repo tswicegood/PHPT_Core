@@ -6,15 +6,15 @@ Throws an exception if no "hex" characters are found within the string
 require_once dirname(__FILE__) . '/../../../_setup.inc';
 require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
+$case = new PHPT_SimpleTestCase();
 $case->output = 'zyx';
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$expect = new Domain51_Test_Section_Expectf('%x');
+$expect = new PHPT_Section_Expectf('%x');
 try {
     $expect->run($case);
     trigger_error('exception not caught');
-} catch (Domain51_Test_Section_Expectf_UnexpectedOutputException $e) {
+} catch (PHPT_Section_Expectf_UnexpectedOutputException $e) {
     
 }
 

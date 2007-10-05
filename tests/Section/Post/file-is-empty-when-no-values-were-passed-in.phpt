@@ -6,10 +6,10 @@ created.
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$post = new Domain51_Test_Section_Post('');
+$post = new PHPT_Section_Post('');
 assert('empty($post->file)');
 
-$post = new Domain51_Test_Section_Post();
+$post = new PHPT_Section_Post();
 assert('empty($post->file)');
 
 ?>

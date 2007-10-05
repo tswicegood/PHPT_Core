@@ -1,89 +1,89 @@
 --TEST--
-Domain51_Test_Assert_Type can determine if the value is a int
+PHPT_Assert_Type can determine if the value is a int
 --FILE--
 <?php
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$test = new Domain51_Test_Assert_Type('int', true);
+$test = new PHPT_Assert_Type('int', true);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', false);
+$test = new PHPT_Assert_Type('int', false);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', array());
+$test = new PHPT_Assert_Type('int', array());
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', array(123, 234));
+$test = new PHPT_Assert_Type('int', array(123, 234));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', 'hello world');
+$test = new PHPT_Assert_Type('int', 'hello world');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', 123);
+$test = new PHPT_Assert_Type('int', 123);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', 123.321);
+$test = new PHPT_Assert_Type('int', 123.321);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', '123');
+$test = new PHPT_Assert_Type('int', '123');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', '123.321');
+$test = new PHPT_Assert_Type('int', '123.321');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$assertion = new Domain51_Test_Assert_Type('int', true);
-$test = new Domain51_Test_Assert_Type('int', $assertion);
+$assertion = new PHPT_Assert_Type('int', true);
+$test = new PHPT_Assert_Type('int', $assertion);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', null);
+$test = new PHPT_Assert_Type('int', null);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
 $fp = fopen(dirname(__FILE__) . '/temporary.file', 'w');
-$test = new Domain51_Test_Assert_Type('int', $fp);
+$test = new PHPT_Assert_Type('int', $fp);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', 'strtolower');
+$test = new PHPT_Assert_Type('int', 'strtolower');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', array('ReflectionClass', 'export'));
+$test = new PHPT_Assert_Type('int', array('ReflectionClass', 'export'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$reflection = new ReflectionClass('Domain51_Test_Assert_Type');
-$test = new Domain51_Test_Assert_Type('int', array($reflection, 'implementsinterface'));
+$reflection = new ReflectionClass('PHPT_Assert_Type');
+$test = new PHPT_Assert_Type('int', array($reflection, 'implementsinterface'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('int', $reflection);
+$test = new PHPT_Assert_Type('int', $reflection);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
@@ -102,7 +102,7 @@ value [123] is a type of int
 value [123.321] is not a type of int
 value ['123'] is not a type of int
 value ['123.321'] is not a type of int
-value [object: Domain51_Test_Assert_Type] is not a type of int
+value [object: PHPT_Assert_Type] is not a type of int
 value [NULL] is not a type of int
 value [resource] is not a type of int
 value ['strtolower'] is not a type of int

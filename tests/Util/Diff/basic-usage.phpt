@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Util_Diff can be cast to a string to show the differences between
+PHPT_Util_Diff can be cast to a string to show the differences between
 two strings passed into it.
 --FILE--
 <?php
@@ -13,7 +13,7 @@ $two = "Uno Line\n" .
        "Second Line\n" .
        "Third Only In Actual";
 
-$diff = new Domain51_Test_Util_Diff($one, $two);
+$diff = new PHPT_Util_Diff($one, $two);
 echo $diff, "\n";
 
 ?>

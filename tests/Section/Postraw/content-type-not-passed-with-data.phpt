@@ -11,7 +11,7 @@ Content-Type: foo-bar
 {$post_string}
 END;
 
-$post = new Domain51_Test_Section_Postraw($post_data);
+$post = new PHPT_Section_Postraw($post_data);
 assert('$post->raw_data == $post_string');
 
 ?>

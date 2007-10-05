@@ -7,7 +7,7 @@ being used in a command-line.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $ini_data = "message=Hello World";
-$ini = new Domain51_Test_Section_Ini($ini_data);
+$ini = new PHPT_Section_Ini($ini_data);
 $expected = '-d "message=Hello World" '
     . '-d "output_handler=" '
     . '-d "open_basedir=" '

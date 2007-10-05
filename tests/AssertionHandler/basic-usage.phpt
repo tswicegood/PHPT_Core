@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_AssertionHandler is instantiated with a title
+PHPT_AssertionHandler is instantiated with a title
 and a ResultRecorder.  It then can have AssertionPacks added
 to it which it uses to determine where to dispatch calls to
 asssert*() methods.
@@ -8,28 +8,28 @@ asssert*() methods.
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-class SimpleRecorder implements Domain51_Test_ResultRecorder
+class SimpleRecorder implements PHPT_ResultRecorder
 {
-    public function registerAssertionHandler(Domain51_Test_AssertionHandler $handler)
+    public function registerAssertionHandler(PHPT_AssertionHandler $handler)
     {
         echo "just registered: {$handler->name}\n";
     }
     
-    public function onSuccess(Domain51_Test_Assertion $assertion)
+    public function onSuccess(PHPT_Assertion $assertion)
     {
         echo "passed: " . $assertion->getMessage() . "\n";
     }
     
-    public function onFailure(Domain51_Test_Assertion $assertion)
+    public function onFailure(PHPT_Assertion $assertion)
     {
         echo "failed: " . $assertion->getMessage() . "\n";
     }
 }
 
-$test = new Domain51_Test_AssertionHandler('/tmp/easytest');
+$test = new PHPT_AssertionHandler('/tmp/easytest');
 $test->registerRecorder(new SimpleRecorder());
 $test->addAssertionPack(
-    new Domain51_Test_AssertionPacks_Basic()
+    new PHPT_AssertionPacks_Basic()
 );
 
 $test->assertTrue(true);

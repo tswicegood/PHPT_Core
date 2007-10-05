@@ -10,7 +10,7 @@ $filename = dirname(__FILE__) . '/foobar.php';
 $code = '<?php var_dump($this) ?>';
 file_put_contents($filename, $code);
 
-$runner = new Domain51_Test_CodeRunner();
+$runner = new PHPT_CodeRunner();
 $result = $runner->run($filename);
 
 echo $result->output, "\n";

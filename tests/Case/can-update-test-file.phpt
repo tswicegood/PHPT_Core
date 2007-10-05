@@ -10,15 +10,15 @@ $filename = dirname(__FILE__) . '/some-fake-test-case.php';
 $code = "<?php
 echo 'Hello world...';
 ?>";
-$file = new Domain51_Test_Section_File($code);
+$file = new PHPT_Section_File($code);
 $file->filename = $filename;
 
-$sections = new Domain51_Test_SectionList(array(
-    new Domain51_Test_Section_Test('foobar'),
+$sections = new PHPT_SectionList(array(
+    new PHPT_Section_Test('foobar'),
     $file,
 ));
 
-$case = new Domain51_Test_Case($sections);
+$case = new PHPT_Case($sections);
 assert('trim(file_get_contents($filename)) == trim($code)');
 
 $case->code = 'Updated code';

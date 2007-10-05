@@ -5,7 +5,7 @@ False assertion is named assertFalse
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_False(false);
+$assertion = new PHPT_Assert_False(false);
 assert('$assertion->getName() == "assertFalse"');
 
 ?>

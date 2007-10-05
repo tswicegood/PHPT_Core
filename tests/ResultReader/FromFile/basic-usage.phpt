@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_ResultReader_FromFile can parse results recorded by
+PHPT_ResultReader_FromFile can parse results recorded by
 the ToFile recorder and turn them into a result object
 --FILE--
 <?php
@@ -35,10 +35,10 @@ END;
 $result_file = dirname(__FILE__) . '/temp-output.xml';
 file_put_contents($result_file, $xml);
 
-$reader = new Domain51_Test_ResultReader_FromFile();
+$reader = new PHPT_ResultReader_FromFile();
 $result = $reader->parse($result_file);
 
-assert('$result instanceof Domain51_Test_Result');
+assert('$result instanceof PHPT_Result');
 assert('$result->count() == 4');
 assert('$result->count("pass") == 2');
 assert('$result->count("fail") == 2');

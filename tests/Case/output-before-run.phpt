@@ -1,11 +1,11 @@
 --TEST--
-Domain51_Test_Case::$output is null at instantiation
+PHPT_Case::$output is null at instantiation
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$case = new Domain51_Test_Case(new Domain51_Test_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList());
 assert('is_null($case->output)');
 
 ?>

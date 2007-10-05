@@ -6,7 +6,7 @@ $filename is readable
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $filename = dirname(__FILE__) . '/fake-test-case.php';
-$section = new Domain51_Test_Section_File('');
+$section = new PHPT_Section_File('');
 $section->filename = $filename;
 
 assert('$section->filename == $filename');

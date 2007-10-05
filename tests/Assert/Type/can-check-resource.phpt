@@ -1,89 +1,89 @@
 --TEST--
-Domain51_Test_Assert_Type can determine if the value is a resource
+PHPT_Assert_Type can determine if the value is a resource
 --FILE--
 <?php
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$test = new Domain51_Test_Assert_Type('resource', true);
+$test = new PHPT_Assert_Type('resource', true);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', false);
+$test = new PHPT_Assert_Type('resource', false);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', array());
+$test = new PHPT_Assert_Type('resource', array());
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', array(123, 234));
+$test = new PHPT_Assert_Type('resource', array(123, 234));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', 'hello world');
+$test = new PHPT_Assert_Type('resource', 'hello world');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', 123);
+$test = new PHPT_Assert_Type('resource', 123);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', 123.321);
+$test = new PHPT_Assert_Type('resource', 123.321);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', '123');
+$test = new PHPT_Assert_Type('resource', '123');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', '123.321');
+$test = new PHPT_Assert_Type('resource', '123.321');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$assertion = new Domain51_Test_Assert_Type('resource', true);
-$test = new Domain51_Test_Assert_Type('resource', $assertion);
+$assertion = new PHPT_Assert_Type('resource', true);
+$test = new PHPT_Assert_Type('resource', $assertion);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', null);
+$test = new PHPT_Assert_Type('resource', null);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
 $fp = fopen(dirname(__FILE__) . '/temporary.file', 'w');
-$test = new Domain51_Test_Assert_Type('resource', $fp);
+$test = new PHPT_Assert_Type('resource', $fp);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', 'strtolower');
+$test = new PHPT_Assert_Type('resource', 'strtolower');
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', array('ReflectionClass', 'export'));
+$test = new PHPT_Assert_Type('resource', array('ReflectionClass', 'export'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$reflection = new ReflectionClass('Domain51_Test_Assert_Type');
-$test = new Domain51_Test_Assert_Type('resource', array($reflection, 'implementsresourceerface'));
+$reflection = new ReflectionClass('PHPT_Assert_Type');
+$test = new PHPT_Assert_Type('resource', array($reflection, 'implementsresourceerface'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('resource', $reflection);
+$test = new PHPT_Assert_Type('resource', $reflection);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
@@ -102,7 +102,7 @@ value [123] is not a type of resource
 value [123.321] is not a type of resource
 value ['123'] is not a type of resource
 value ['123.321'] is not a type of resource
-value [object: Domain51_Test_Assert_Type] is not a type of resource
+value [object: PHPT_Assert_Type] is not a type of resource
 value [NULL] is not a type of resource
 value [resource] is a type of resource
 value ['strtolower'] is not a type of resource

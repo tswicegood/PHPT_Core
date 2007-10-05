@@ -1,5 +1,5 @@
 --TEST--
-When included, Domain51_Test_Framework registers its static autoload() method with
+When included, PHPT_Framework registers its static autoload() method with
 the SPL autoload stack
 --FILE--
 <?php
@@ -8,12 +8,12 @@ the SPL autoload stack
 function FooBarAutoload() { }
 spl_autoload_register('FooBarAutoload');
 
-$expected = array('Domain51_Test_Framework', 'autoload');
+$expected = array('PHPT_Framework', 'autoload');
 
 // sanity check
 assert('!in_array($expected, spl_autoload_functions())');
 
-require_once dirname(__FILE__) . '/../../src/Domain51/Test/Framework.php';
+require_once dirname(__FILE__) . '/../../src/PHPT/Framework.php';
 
 assert('in_array($expected, spl_autoload_functions())');
 

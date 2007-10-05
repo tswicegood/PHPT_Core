@@ -1,6 +1,6 @@
 --TEST--
 Will take a file and run it through a PHP parser and return a
-Domain51_Test_CodeRunner_Result object.
+PHPT_CodeRunner_Result object.
 --FILE--
 <?php
 
@@ -11,10 +11,10 @@ $filename = dirname(__FILE__) . '/foobar.php';
 $code = '<?php echo "Random Int: ' . $random . '"; ?>';
 file_put_contents($filename, $code);
 
-$runner = new Domain51_Test_CodeRunner();
+$runner = new PHPT_CodeRunner();
 $result = $runner->run($filename);
 
-assert('$result instanceof Domain51_Test_CodeRunner_Result');
+assert('$result instanceof PHPT_CodeRunner_Result');
 assert('$result->filename == $filename');
 $expected_output = "Random Int: {$random}";
 assert('$result->output == $expected_output');

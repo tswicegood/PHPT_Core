@@ -1,12 +1,12 @@
 --TEST--
-Domain51_Test_CodeRunner decorates the real runner, i.e., the Domain51_Test_CodeRunner_$name
+PHPT_CodeRunner decorates the real runner, i.e., the PHPT_CodeRunner_$name
 object
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-class Domain51_Test_CodeRunner_Foobar
+class PHPT_CodeRunner_Foobar
 {
     public function __set($key, $value) {
         echo "__set({$key}, {$value})\n";
@@ -21,7 +21,7 @@ class Domain51_Test_CodeRunner_Foobar
     }
 }
 
-$runner = new Domain51_Test_CodeRunner('Foobar');
+$runner = new PHPT_CodeRunner('Foobar');
 $runner->foo = 'bar';
 $foo = $runner->foo;
 $runner->run('foobar.php');
@@ -31,5 +31,5 @@ $runner->run('foobar.php');
 --EXPECT--
 __set(foo, bar)
 __get(foo)
-Domain51_Test_CodeRunner_Foobar::run called with foobar.php
+PHPT_CodeRunner_Foobar::run called with foobar.php
 ===DONE===

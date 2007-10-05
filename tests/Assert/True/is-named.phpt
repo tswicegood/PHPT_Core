@@ -5,7 +5,7 @@ True assertion is named assertTrue
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_True(true);
+$assertion = new PHPT_Assert_True(true);
 assert('$assertion->getName() == "assertTrue"');
 
 ?>

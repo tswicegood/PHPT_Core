@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Assert_True tests whether a value is true (== true).
+PHPT_Assert_True tests whether a value is true (== true).
 getStatus() returns true if it is, false otherwise while getMessage()
 returns an appropriate message
 --FILE--
@@ -7,11 +7,11 @@ returns an appropriate message
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$valid = new Domain51_Test_Assert_True(true);
+$valid = new PHPT_Assert_True(true);
 assert('$valid->getStatus()');
 echo $valid->getMessage() . "\n";
 
-$not_valid = new Domain51_Test_Assert_True(false);
+$not_valid = new PHPT_Assert_True(false);
 assert('!$not_valid->getStatus()');
 echo $not_valid->getMessage() . "\n";
 

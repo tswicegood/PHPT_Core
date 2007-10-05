@@ -11,7 +11,7 @@ file_put_contents($filename, $code);
 
 $random = rand(100, 200);
 
-$runner = new Domain51_Test_CodeRunner();
+$runner = new PHPT_CodeRunner();
 $runner->environment = array(
     'foobar_message' => $random,
 );

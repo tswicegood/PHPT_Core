@@ -1,5 +1,5 @@
 --TEST--
-When Domain51_Test_Section_Env::run() is called, the data['SCRIPT_FILENAME']
+When PHPT_Section_Env::run() is called, the data['SCRIPT_FILENAME']
 value should always equal the provided Case's filename property.
 --FILE--
 <?php
@@ -7,10 +7,10 @@ value should always equal the provided Case's filename property.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/_simple-test-case.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
+$case = new PHPT_SimpleTestCase();
 $filename = 'some-random-file-' . rand(100, 200);
 $case->filename = $filename;
-$env = new Domain51_Test_Section_Env('foo=bar');
+$env = new PHPT_Section_Env('foo=bar');
 
 assert('$env->data["SCRIPT_FILENAME"] == ""');
 $env->run($case);

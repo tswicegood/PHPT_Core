@@ -6,8 +6,8 @@ If $file is empty, no file is created when run() is invoked
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/_simple-test-case.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
-$post = new Domain51_Test_Section_Post();
+$case = new PHPT_SimpleTestCase();
+$post = new PHPT_Section_Post();
 
 $before_run = scandir(dirname(__FILE__));
 $post->run($case);

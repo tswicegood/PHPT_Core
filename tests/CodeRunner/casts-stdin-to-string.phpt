@@ -25,7 +25,7 @@ class FoobarStdin {
 
 $message = new FoobarStdin();
 
-$runner = new Domain51_Test_CodeRunner();
+$runner = new PHPT_CodeRunner();
 $runner->stdin = $message;
 $result = $runner->run($filename);
 

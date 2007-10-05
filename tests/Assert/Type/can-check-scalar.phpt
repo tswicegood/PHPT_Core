@@ -1,89 +1,89 @@
 --TEST--
-Domain51_Test_Assert_Type can determine if the value is a scalar
+PHPT_Assert_Type can determine if the value is a scalar
 --FILE--
 <?php
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$test = new Domain51_Test_Assert_Type('scalar', true);
+$test = new PHPT_Assert_Type('scalar', true);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', false);
+$test = new PHPT_Assert_Type('scalar', false);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', array());
+$test = new PHPT_Assert_Type('scalar', array());
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', array(123, 234));
+$test = new PHPT_Assert_Type('scalar', array(123, 234));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', 'hello world');
+$test = new PHPT_Assert_Type('scalar', 'hello world');
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', 123);
+$test = new PHPT_Assert_Type('scalar', 123);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', 123.321);
+$test = new PHPT_Assert_Type('scalar', 123.321);
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', '123');
+$test = new PHPT_Assert_Type('scalar', '123');
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', '123.321');
+$test = new PHPT_Assert_Type('scalar', '123.321');
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$assertion = new Domain51_Test_Assert_Type('scalar', true);
-$test = new Domain51_Test_Assert_Type('scalar', $assertion);
+$assertion = new PHPT_Assert_Type('scalar', true);
+$test = new PHPT_Assert_Type('scalar', $assertion);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', null);
+$test = new PHPT_Assert_Type('scalar', null);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
 $fp = fopen(dirname(__FILE__) . '/temporary.file', 'w');
-$test = new Domain51_Test_Assert_Type('scalar', $fp);
+$test = new PHPT_Assert_Type('scalar', $fp);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', 'strtolower');
+$test = new PHPT_Assert_Type('scalar', 'strtolower');
 assert('$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', array('ReflectionClass', 'export'));
+$test = new PHPT_Assert_Type('scalar', array('ReflectionClass', 'export'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$reflection = new ReflectionClass('Domain51_Test_Assert_Type');
-$test = new Domain51_Test_Assert_Type('scalar', array($reflection, 'implementsscalarerface'));
+$reflection = new ReflectionClass('PHPT_Assert_Type');
+$test = new PHPT_Assert_Type('scalar', array($reflection, 'implementsscalarerface'));
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_Type('scalar', $reflection);
+$test = new PHPT_Assert_Type('scalar', $reflection);
 assert('!$test->getStatus()');
 echo $test->getMessage(), "\n";
 unset($test);
@@ -102,7 +102,7 @@ value [123] is a type of scalar
 value [123.321] is a type of scalar
 value ['123'] is a type of scalar
 value ['123.321'] is a type of scalar
-value [object: Domain51_Test_Assert_Type] is not a type of scalar
+value [object: PHPT_Assert_Type] is not a type of scalar
 value [NULL] is not a type of scalar
 value [resource] is not a type of scalar
 value ['strtolower'] is a type of scalar

@@ -10,8 +10,8 @@ line1=foo
 line2=bar
 END;
 
-$post = new Domain51_Test_Section_Postraw($post_data);
-$case = new Domain51_Test_SimpleTestCase();
+$post = new PHPT_Section_Postraw($post_data);
+$case = new PHPT_SimpleTestCase();
 $post->run($case);
 
 assert('filesize($post->file) == strlen($post_data)');

@@ -6,10 +6,10 @@ If SectionList is instantiated with a non-empty array, valid() will be true
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $data = array(
-    'ENV' => new Domain51_Test_Section_Env(''),
+    'ENV' => new PHPT_Section_Env(''),
 );
 
-$list = new Domain51_Test_SectionList($data);
+$list = new PHPT_SectionList($data);
 assert('$list->valid() == true');
 
 ?>

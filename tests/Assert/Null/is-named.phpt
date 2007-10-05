@@ -5,7 +5,7 @@ Null assertion is named assertNull
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_Null(null);
+$assertion = new PHPT_Assert_Null(null);
 assert('$assertion->getName() == "assertNull"');
 
 ?>

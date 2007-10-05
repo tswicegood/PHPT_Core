@@ -1,29 +1,29 @@
 --TEST--
-Domain51_Test_Util_ValueDumper can dump simple values
+PHPT_Util_ValueDumper can dump simple values
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$dumper = new Domain51_Test_Util_ValueDumper('Hello World!');
+$dumper = new PHPT_Util_ValueDumper('Hello World!');
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper('ÁHola mundo!');
+$dumper = new PHPT_Util_ValueDumper('ÁHola mundo!');
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(123);
+$dumper = new PHPT_Util_ValueDumper(123);
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(123.321);
+$dumper = new PHPT_Util_ValueDumper(123.321);
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(true);
+$dumper = new PHPT_Util_ValueDumper(true);
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(false);
+$dumper = new PHPT_Util_ValueDumper(false);
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(null);
+$dumper = new PHPT_Util_ValueDumper(null);
 echo $dumper, "\n";
 
 ?>

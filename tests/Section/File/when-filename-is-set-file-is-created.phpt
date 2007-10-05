@@ -1,12 +1,12 @@
 --TEST--
-When Domain51_Test_Section_File::$filename is set, a file is created containing $contents
+When PHPT_Section_File::$filename is set, a file is created containing $contents
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $random = 'Random Int: ' . rand(100, 200);
-$section = new Domain51_Test_Section_File($random);
+$section = new PHPT_Section_File($random);
 
 $filename = dirname(__FILE__) . '/fake-test-case.php';
 

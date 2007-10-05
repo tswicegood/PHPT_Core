@@ -25,8 +25,8 @@ $filename = dirname(__FILE__) . '/foobar.php';
 $code = "<?php echo ini_get('display_errors'); ?>";
 file_put_contents($filename, $code);
 
-$caller = new Domain51_Test_CodeRunner();
-$runner = new Domain51_Test_CodeRunner_Proc($caller);
+$caller = new PHPT_CodeRunner();
+$runner = new PHPT_CodeRunner_Proc($caller);
 // set with an object that can be cast to a string
 $runner->ini = new FoobarIni();
 $result = $runner->run($filename);

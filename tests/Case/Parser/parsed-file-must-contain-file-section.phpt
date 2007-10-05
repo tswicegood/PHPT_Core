@@ -8,11 +8,11 @@ require_once dirname(__FILE__) . '/_setup.inc';
 $test_file = dirname(__FILE__) . '/missing-file-section.phpt';
 copy($test_file . '-', $test_file);
 
-$parser = new Domain51_Test_Case_Parser();
+$parser = new PHPT_Case_Parser();
 try {
     $parser->parse($test_file);
     trigger_error('exception not caught');
-} catch (Domain51_Test_Exception_InvalidCaseException $e) {
+} catch (PHPT_Exception_InvalidCaseException $e) {
     assert('$e->getMessage() == "missing FILE section"');
 }
 

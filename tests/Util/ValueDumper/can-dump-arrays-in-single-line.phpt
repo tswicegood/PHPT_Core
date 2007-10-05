@@ -1,21 +1,21 @@
 --TEST--
-Domain51_Test_Util_ValueDumper can dump an array in as a single-line
+PHPT_Util_ValueDumper can dump an array in as a single-line
 string.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$dumper = new Domain51_Test_Util_ValueDumper(array());
+$dumper = new PHPT_Util_ValueDumper(array());
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(array(123, 321));
+$dumper = new PHPT_Util_ValueDumper(array(123, 321));
 echo $dumper, "\n";
 
-$dumper = new Domain51_Test_Util_ValueDumper(array('zero' => 123, 'one' => 'tres dos uno'));
+$dumper = new PHPT_Util_ValueDumper(array('zero' => 123, 'one' => 'tres dos uno'));
 echo $dumper, "\n";
 
-echo new Domain51_Test_Util_ValueDumper(
+echo new PHPT_Util_ValueDumper(
     array(
         123,
         array(

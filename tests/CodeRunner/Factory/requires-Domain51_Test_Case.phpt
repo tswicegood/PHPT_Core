@@ -1,14 +1,14 @@
 --TEST--
-Domain51_Test_CodeRunner_Factory::factory requires a Domain51_Test_Case object
+PHPT_CodeRunner_Factory::factory requires a PHPT_Case object
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$reflection = new ReflectionMethod('Domain51_Test_CodeRunner_Factory', 'factory');
+$reflection = new ReflectionMethod('PHPT_CodeRunner_Factory', 'factory');
 $params = $reflection->getParameters();
 $param = array_shift($params);
-assert('$param->getClass()->getName() == "Domain51_Test_Case"');
+assert('$param->getClass()->getName() == "PHPT_Case"');
 
 ?>
 ===DONE===

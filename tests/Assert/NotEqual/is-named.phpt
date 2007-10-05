@@ -5,7 +5,7 @@ NotEqual assertion is named assertNotEqual
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$assertion = new Domain51_Test_Assert_NotEqual(true, false);
+$assertion = new PHPT_Assert_NotEqual(true, false);
 assert('$assertion->getName() == "assertNotEqual"');
 
 ?>

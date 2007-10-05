@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Test_Section_Postraw::$file is always unique
+PHPT_Section_Postraw::$file is always unique
 --FILE--
 <?php
 
@@ -9,8 +9,8 @@ $post_data =<<<END
 msg=Hello+World
 END;
 
-$one = new Domain51_Test_Section_Postraw($post_data);
-$two = new Domain51_Test_Section_Postraw($post_data);
+$one = new PHPT_Section_Postraw($post_data);
+$two = new PHPT_Section_Postraw($post_data);
 assert('$one->file != $two->file');
 
 ?>

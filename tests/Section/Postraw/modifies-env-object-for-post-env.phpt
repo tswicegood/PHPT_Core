@@ -1,6 +1,6 @@
 --TEST--
-When modifyEnv() is invoked, Domain51_Test_Section_Postraw modifies the
-supplied Domain51_Test_Section_Env object to meet the expected environment
+When modifyEnv() is invoked, PHPT_Section_Postraw modifies the
+supplied PHPT_Section_Env object to meet the expected environment
 setup for a posted value.
 --FILE--
 <?php
@@ -11,8 +11,8 @@ $post_data = <<<END
 msg=Hello+World
 END;
 
-$post = new Domain51_Test_Section_Postraw($post_data);
-$env = new Domain51_Test_Section_Env();
+$post = new PHPT_Section_Postraw($post_data);
+$env = new PHPT_Section_Env();
 
 $post->modifyEnv($env);
 assert('$env->data["REQUEST_METHOD"] == "POST"');

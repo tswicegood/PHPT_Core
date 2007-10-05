@@ -1,12 +1,12 @@
 --TEST--
-Domain51_Test_Assert_Identical implements Domain51_Test_Assertion
+PHPT_Assert_Identical implements PHPT_Assertion
 --FILE--
 <?php
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$reflection = new ReflectionClass('Domain51_Test_Assert_Identical');
-assert('$reflection->implementsInterface("Domain51_Test_Assertion")');
+$reflection = new ReflectionClass('PHPT_Assert_Identical');
+assert('$reflection->implementsInterface("PHPT_Assertion")');
 
 ?>
 ===DONE===

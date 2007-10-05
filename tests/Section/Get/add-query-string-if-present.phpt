@@ -1,14 +1,14 @@
 --TEST--
-Domain51_Test_Section_Get, will modify the QUERY_STRING
+PHPT_Section_Get, will modify the QUERY_STRING
 Section_Env::$data["QUERY_STRING"] variable when modifyEnv() is called.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$env = new Domain51_Test_Section_Env();
+$env = new PHPT_Section_Env();
 $get_data = "message=Hello+World";
-$get = new Domain51_Test_Section_Get($get_data);
+$get = new PHPT_Section_Get($get_data);
 $get->modifyEnv($env);
 
 assert('$env->data["QUERY_STRING"] == $get_data');

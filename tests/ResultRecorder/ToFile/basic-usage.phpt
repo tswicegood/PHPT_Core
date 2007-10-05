@@ -11,14 +11,14 @@ $result_file = __FILE__ . '.results';
 @unlink($result_file);
 assert('!file_exists($result_file)');
 
-$recorder = new Domain51_Test_ResultRecorder_ToFile(__FILE__);
+$recorder = new PHPT_ResultRecorder_ToFile(__FILE__);
 
 // creates empty file on start up
 assert('file_exists($result_file)');
 assert('filesize($result_file) == 0');
 
-$handler = new Domain51_Test_AssertionHandler(__FILE__);
-$handler->addAssertionPack(new Domain51_Test_AssertionPacks_Basic());
+$handler = new PHPT_AssertionHandler(__FILE__);
+$handler->addAssertionPack(new PHPT_AssertionPacks_Basic());
 
 $handler->registerRecorder($recorder);
 $handler->assertTrue(true);

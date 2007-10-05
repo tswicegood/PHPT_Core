@@ -6,15 +6,15 @@ Throws an exception with %d and no decimals
 require_once dirname(__FILE__) . '/../../../_setup.inc';
 require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 
-$case = new Domain51_Test_SimpleTestCase();
+$case = new PHPT_SimpleTestCase();
 $case->output = 'this string contains no decimals';
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new Domain51_Test_Section_Expectf('%d');
+$section = new PHPT_Section_Expectf('%d');
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (Domain51_Test_Section_Expectf_UnexpectedOutputException $e) {
+} catch (PHPT_Section_Expectf_UnexpectedOutputException $e) {
     
 }
 

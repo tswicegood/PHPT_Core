@@ -6,7 +6,7 @@ If the $leave_file property is set to true, the created file will not be removed
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $filename = dirname(__FILE__) . '/fake-test-case.php';
-$section = new Domain51_Test_Section_File('Hello World!');
+$section = new PHPT_Section_File('Hello World!');
 $section->filename = $filename;
 
 assert('file_exists($filename)');

@@ -6,16 +6,16 @@ If you call filterByInterface() with null or no-value, the full dataset is resto
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $runnable = array(
-    'ENV' => new Domain51_Test_Section_Env(''),
-    'CLEAN' => new Domain51_Test_Section_Clean(''),
+    'ENV' => new PHPT_Section_Env(''),
+    'CLEAN' => new PHPT_Section_Clean(''),
 );
 
 $non_runnable = array(
-    'INI' => new Domain51_Test_Section_Ini(''),
+    'INI' => new PHPT_Section_Ini(''),
 );
 
 $data = array_merge($runnable, $non_runnable);
-$list = new Domain51_Test_SectionList($data);
+$list = new PHPT_SectionList($data);
 $list->filterByInterface('Runnable');
 
 // sanity check

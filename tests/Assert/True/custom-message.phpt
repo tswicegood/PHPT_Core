@@ -1,5 +1,5 @@
 --TEST--
-An optional second parameter on Domain51_Test_Assert_True::__construct() allows for a custom
+An optional second parameter on PHPT_Assert_True::__construct() allows for a custom
 message to be used instead of the default message.  Any valid <i>$format</i> string is allowed.
 There are three replacements available: 
  # The first "%s" is the first value passed in at construct
@@ -9,19 +9,19 @@ There are three replacements available:
 
 require dirname(__FILE__) . '/../_setup.inc';
 
-$valid = new Domain51_Test_Assert_True(true, 'value should be true');
+$valid = new PHPT_Assert_True(true, 'value should be true');
 assert('$valid->getStatus()');
 echo $valid->getMessage() . "\n";
 
-$not_valid  = new Domain51_Test_Assert_True(false, 'value should be true');
+$not_valid  = new PHPT_Assert_True(false, 'value should be true');
 assert('!$not_valid->getStatus()');
 echo $not_valid->getMessage() . "\n";
 
-$test = new Domain51_Test_Assert_True(0, 'value one: %s');
+$test = new PHPT_Assert_True(0, 'value one: %s');
 echo $test->getMessage() . "\n";
 unset($test);
 
-$test = new Domain51_Test_Assert_True(false, 'should be is not: [%2$s]');
+$test = new PHPT_Assert_True(false, 'should be is not: [%2$s]');
 echo $test->getMessage() . "\n";
 unset($test);
 

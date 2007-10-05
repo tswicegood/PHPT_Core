@@ -5,8 +5,8 @@ Calling SectionList::rewind() restarts the iterator at the beginning
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$list = new Domain51_Test_SectionList(array(
-    'ENV' => new Domain51_Test_Section_Env(''),
+$list = new PHPT_SectionList(array(
+    'ENV' => new PHPT_Section_Env(''),
 ));
 
 
