@@ -63,4 +63,14 @@ class PHPT_Case
                 return (string)$this->sections->FILE->contents;
         }
     }
+    
+    public function is($validator)
+    {
+        if (is_string($validator)) {
+            $validator_name = "PHPT_Case_Validator_{$validator}";
+            $validator = new $validator_name();
+        }
+        assert('$validator instanceof PHPT_Case_Validator || is_string($validator)');
+        return $validator->is($this);
+    }
 }
