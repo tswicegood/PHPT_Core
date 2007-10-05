@@ -45,7 +45,7 @@ class PHPT_Case_Parser
         $sections = new PHPT_SectionList($raw_sections);
         
         $case = new PHPT_Case($sections);
-        $this->_validator->validate($case);
+        $case->validate('Runnable');
         return $case;
     }
 }
