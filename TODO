@@ -40,6 +40,8 @@ Prior to v0.1 release
     - assert('is_string($data)');
 * Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
   unless the particular test case has to modify the environment.
+* Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
+  in environment vars
 
 ### Goals
 * Capable of running its own tests
