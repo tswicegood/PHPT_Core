@@ -28,9 +28,9 @@ Prior to v0.1 release
     * Add CodeRunner_OutputBuffer to handle ob_start() based runs
 * Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
   Should be able to:
-    * Set environment vars if present in test case
-    * Set ini settings if present in test case
-    * Set any arguments to pass to execution
+    * [DONE] Set environment vars if present in test case
+    * [DONE] Set ini settings if present in test case
+    * [DONE] Set any arguments to pass to execution
     * Pass any posted vars
 * Create a suite capable of running multiple test cases
 * Create script for running tests
