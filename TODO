@@ -12,11 +12,8 @@ Prior to v0.1 release
     * [DONE] Implement filterByInterface code that can request certain types of Section_* filters:
 * [DONE] Add Section_RunBefore interface for filtering - make sure Case::run() executes before run()
 * [DONE] Add Section_RunAfter interface for filtering - make sure Case::run() executes after run()
-* Determine and implement how sections will modify Case's command.  Possible solutions:
-    - Case::$command that can be modified
-    - Case_CommandBuilder object that looks at sections and builds command based on available
-      sections
-    - Move functionality into Test_Runner object
+* [DONE] Determine and implement how sections will modify Case's command.  Possible solutions:
+    - [DONE] Move functionality into CodeRunner its related objects
 * [DONE] Create test file parser capable of:
     * [DONE] parsing pre-run sections
         * [DONE] create env, post, postraw, get, ini, cookie, and stdin sections
