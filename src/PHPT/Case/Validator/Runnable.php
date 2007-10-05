@@ -2,6 +2,8 @@
 
 class PHPT_Case_Validator_Runnable implements PHPT_Case_Validator
 {
+    private $_message = false;
+    
     public function __construct()
     {
         
@@ -9,17 +11,22 @@ class PHPT_Case_Validator_Runnable implements PHPT_Case_Validator
     
     public function validate(PHPT_Case $case)
     {
-        $message = false;
+        if (!$this->is($case)) {
+            throw new PHPT_Exception_InvalidCaseException($this->_message);
+        }
+    }
+    
+    public function is(PHPT_Case $case)
+    {
         if ($case->sections->has('FILE') == false) {
-            $message = 'missing FILE section';
+            $this->_message = 'missing FILE section';
         } elseif ($case->sections->has('TEST') == false) {
-            $message = 'missing TEST section';
+            $this->_message = 'missing TEST section';
         } elseif ($case->sections->FILE->filename == '') {
-            $message = 'FILE section missing filename property';
+            $this->_message = 'FILE section missing filename property';
         }
         
-        if ($message !== false) {
-            throw new PHPT_Exception_InvalidCaseException($message);
-        }
+        return !(bool)$this->_message;
+
     }
 }
