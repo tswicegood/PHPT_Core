@@ -1,13 +1,13 @@
 <?php
 
-class PHPT_Case_Validator_Runnable
+class PHPT_Case_Validator_Runnable implements PHPT_Case_Validator
 {
     public function __construct()
     {
         
     }
     
-    public function validate($case)
+    public function validate(PHPT_Case $case)
     {
         $message = false;
         if ($case->sections->has('FILE') == false) {
