@@ -1,28 +1,21 @@
 <?php
 
-class PHPT_CodeRunner_Proc
+class PHPT_CodeRunner_Proc extends PHPT_CodeRunner_Abstract
 {
-    private $_caller = null;
-    
-    public $command_line = 'php';
-    public $environment = array();
-    public $timeout = 60;
-    public $ini = null;
-    public $stdin = null;
-    public $args = null;
-    
-    public function __construct(PHPT_CodeRunner $caller)
-    {
-        $this->_caller = $caller;
-    }
-    
     public function run($filename)
     {
+        $this->filename = $filename;
+        
         $result = new PHPT_CodeRunner_Result();
         $result->filename = $filename;
         
+        $command = new PHPT_CodeRunner_CommandLine($this);
+        if (!empty($this->command_line)) {
+            $command->executable = $this->command_line;
+        }
+        
         $proc = proc_open(
-            "{$this->command_line} {$this->ini} -f {$filename} {$this->args} ; echo $? >&3",
+            (string)$command . ' ; echo $? >&3',
             array(
                 0 => array('pipe', 'r'),
                 1 => array('pipe', 'w'),

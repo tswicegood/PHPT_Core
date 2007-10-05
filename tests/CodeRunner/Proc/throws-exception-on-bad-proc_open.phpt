@@ -12,7 +12,7 @@ file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Proc($caller);
-$runner->command_line = '/some/unknown/and/bad/path/to/php';
+$runner->executable = '/some/unknown/and/bad/path/to/php';
 try {
     $runner->run($filename);
     trigger_error('exception not caught');

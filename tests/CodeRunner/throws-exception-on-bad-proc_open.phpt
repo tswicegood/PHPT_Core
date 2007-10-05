@@ -11,7 +11,7 @@ $code = '<?php echo "Hello World!"; ?>';
 file_put_contents($filename, $code);
 
 $runner = new PHPT_CodeRunner();
-$runner->command_line = '/some/unknown/and/bad/path/to/php';
+$runner->executable = '/some/unknown/and/bad/path/to/php';
 try {
     $runner->run($filename);
     trigger_error('exception not caught');
