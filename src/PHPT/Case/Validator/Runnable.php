@@ -12,7 +12,7 @@ class PHPT_Case_Validator_Runnable implements PHPT_Case_Validator
     public function validate(PHPT_Case $case)
     {
         if (!$this->is($case)) {
-            throw new PHPT_Exception_InvalidCaseException($this->_message);
+            throw new PHPT_Case_InvalidCaseException($this->_message);
         }
     }
     

@@ -1,6 +1,6 @@
 --TEST--
 If the FILE->filename property is empty in the provide Case's sections property
-a PHPT_Exception_InvalidCaseException will be thrown.
+a PHPT_Case_InvalidCaseException will be thrown.
 --FILE--
 <?php
 

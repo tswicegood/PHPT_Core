@@ -1,6 +1,6 @@
 --TEST--
 If a Case->sections does not contain a TEST section, a
-PHPT_Exception_InvalidCaseException will be thrown.
+PHPT_Case_InvalidCaseException will be thrown.
 --FILE--
 <?php
 
@@ -17,7 +17,7 @@ $validator = new PHPT_Case_Validator_Runnable();
 try {
     $validator->validate($case);
     trigger_error('exception not caught');
-} catch (PHPT_Exception_InvalidCaseException $e) {
+} catch (PHPT_Case_InvalidCaseException $e) {
     assert('$e->getMessage() == "missing TEST section"');
 }
 

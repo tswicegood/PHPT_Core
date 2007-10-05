@@ -1,6 +1,6 @@
 --TEST--
 If the FILE->filename property is empty in the provide Case's sections property
-a PHPT_Exception_InvalidCaseException will be thrown.
+a PHPT_Case_InvalidCaseException will be thrown.
 --FILE--
 <?php
 
@@ -18,7 +18,7 @@ try {
     );
     
     trigger_error('exception not caught');
-} catch (PHPT_Exception_InvalidCaseException $e) {
+} catch (PHPT_Case_InvalidCaseException $e) {
     assert('$e->getMessage() == "FILE section missing filename property"');
 }
 

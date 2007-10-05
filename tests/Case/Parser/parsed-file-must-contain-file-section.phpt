@@ -12,7 +12,7 @@ $parser = new PHPT_Case_Parser();
 try {
     $parser->parse($test_file);
     trigger_error('exception not caught');
-} catch (PHPT_Exception_InvalidCaseException $e) {
+} catch (PHPT_Case_InvalidCaseException $e) {
     assert('$e->getMessage() == "missing FILE section"');
 }
 
