@@ -66,11 +66,21 @@ class PHPT_Case
     
     public function is($validator)
     {
+        return $this->_validatorFactory($validator)->is($this);
+    }
+    
+    public function validate($validator)
+    {
+        $this->_validatorFactory($validator)->validate($this);
+    }
+    
+    private function _validatorFactory($validator)
+    {
         if (is_string($validator)) {
             $validator_name = "PHPT_Case_Validator_{$validator}";
             $validator = new $validator_name();
         }
         assert('$validator instanceof PHPT_Case_Validator || is_string($validator)');
-        return $validator->is($this);
+        return $validator;
     }
 }
