@@ -14,6 +14,11 @@ class PHPT_CodeRunner_Factory
         if ($case->sections->has('ARGS')) {
             $runner->args = (string)$case->sections->ARGS;
         }
+        if ($case->sections->has('POST')) {
+            $runner->post_filename = (string)$case->sections->POST->file;
+        } elseif ($case->sections->has('POSTRAW')) {
+            $runner->post_filename = (string)$case->sections->POSTRAW->file;
+        }
         return $runner;
     }
 }
