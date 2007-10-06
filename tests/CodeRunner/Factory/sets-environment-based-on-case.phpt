@@ -5,18 +5,15 @@ Test_Case's sections->ENV->data value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
 class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new FoobarSections();
-        $this->sections->ENV = new StdClass();
-        $this->sections->ENV->data = array(
-            'random' => rand(100, 200),
-        );
+        $this->sections = new PHPT_SectionList(array(
+            new PHPT_Section_Env('random=' . rand(100, 200)),
+        ));
     }
 }
 

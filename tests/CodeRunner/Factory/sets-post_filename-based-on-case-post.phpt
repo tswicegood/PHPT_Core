@@ -5,16 +5,17 @@ Test_Case's sections->POST->file value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
 class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new FoobarSections();
-        $this->sections->POST = new StdClass();
-        $this->sections->POST->file = 'foobar.php';
+        $post = new PHPT_Section_Post('foo=bar');
+        $post->file = 'foobar.php';
+        $this->sections = new PHPT_SectionList(array(
+            $post,
+        ));
     }
     
     public function __destruct() { }

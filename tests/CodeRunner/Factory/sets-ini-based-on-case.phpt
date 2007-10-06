@@ -5,15 +5,15 @@ Test_Case's (string)sections->INI value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
 class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new FoobarSections();
-        $this->sections->INI = ' -d foo=bar ';
+        $this->sections = new PHPT_SectionList(array(
+            new PHPT_Section_Ini('foo=bar'),
+        ));
     }
     
     public function __destruct() { }

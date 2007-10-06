@@ -5,20 +5,22 @@ Test_Case's sections->POSTRAW->file value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
 class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new FoobarSections();
-        $this->sections->POSTRAW = new StdClass();
-        $this->sections->POSTRAW->file = 'foobar.php';
+        $post = new PHPT_Section_Postraw('foo=bar');
+        $post->file = 'foobar.php';
+        $this->sections = new PHPT_SectionList(array(
+            $post,
+        ));
     }
     
     public function __destruct() { }
 }
+
 
 $case = new FoobarTestCase();
 

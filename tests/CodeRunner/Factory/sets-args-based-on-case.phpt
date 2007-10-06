@@ -5,15 +5,13 @@ Test_Case's (string)sections->ARGS value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-require_once dirname(__FILE__) . '/_foobar-sections.inc';
 
 class FoobarTestCase extends PHPT_Case
 {
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new FoobarSections();
-        $this->sections->ARGS = ' -- -foo=bar ';
+        $this->sections = new PHPT_SectionList(array(new PHPT_Section_Args('-foo=bar')));
     }
     
     public function __destruct() { }
