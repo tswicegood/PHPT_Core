@@ -24,7 +24,7 @@ class PHPT_Section_Post implements PHPT_Section_RunBefore, PHPT_Section_EnvModif
         file_put_contents($this->file, $this->raw_data);
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_Env $env, PHPT_Case $case)
     {
         $env->data['REQUEST_METHOD'] = 'POST';
         $env->data['CONTENT_TYPE'] = 'application/x-www-form-urlencoded';

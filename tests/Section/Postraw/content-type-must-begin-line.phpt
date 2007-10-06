@@ -5,13 +5,14 @@ trigger setting a custom content-type.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $post_data = <<<END
  Content-Type: not set
 END;
 $env = new PHPT_Section_Env();
 $post = new PHPT_Section_Postraw($post_data);
-$post->modifyEnv($env);
+$post->modifyEnv($env, new PHPT_SimpleTestCase());
 assert('$env->data["CONTENT_TYPE"] != "not set"');
 
 ?>

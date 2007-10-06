@@ -10,7 +10,7 @@ class PHPT_Section_SimpleEnvModifier implements PHPT_Section_EnvModifier
         
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_Env $env, PHPT_Case $case)
     {
         $env->data[$this->key] = $this->value;
     }

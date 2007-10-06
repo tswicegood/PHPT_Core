@@ -9,7 +9,7 @@ class PHPT_Section_Cookie implements PHPT_Section_EnvModifier
         $this->_data = $data;
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_Env $env, PHPT_Case $case)
     {
         $env->data['HTTP_COOKIE'] = (string)$this;
     }

@@ -40,7 +40,7 @@ class PHPT_Section_Env implements PHPT_Section_Runnable
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
         if ($case->sections->filterByInterface('EnvModifier')->valid()) {
             foreach ($case->sections as $section) {
-                $section->modifyEnv($this);
+                $section->modifyEnv($this, $case);
             }
         }
         $case->sections->filterByInterface();

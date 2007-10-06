@@ -5,11 +5,12 @@ Section_Env::$data["QUERY_STRING"] variable when modifyEnv() is called.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $env = new PHPT_Section_Env();
 $get_data = "message=Hello+World";
 $get = new PHPT_Section_Get($get_data);
-$get->modifyEnv($env);
+$get->modifyEnv($env, new PHPT_SimpleTestCase());
 
 assert('$env->data["QUERY_STRING"] == $get_data');
 
