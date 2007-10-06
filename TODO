@@ -23,12 +23,12 @@ Prior to v0.1 release
 * Create a test case/code runner
     * Add CodeRunner_Proc to handle proc_open() runs
     * Add CodeRunner_OutputBuffer to handle ob_start() based runs
-* Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
+* [DONE] Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
   Should be able to:
     * [DONE] Set environment vars if present in test case
     * [DONE] Set ini settings if present in test case
     * [DONE] Set any arguments to pass to execution
-    * Pass any posted vars
+    * [DONE] Pass any posted vars
 * Create a suite capable of running multiple test cases
 * Create script for running tests
 * Create build file to handle packaging
@@ -42,6 +42,7 @@ Prior to v0.1 release
   unless the particular test case has to modify the environment.
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
+* Make CodeRunner_Proc code fail gracefully on Windows
 
 ### Goals
 * Capable of running its own tests
