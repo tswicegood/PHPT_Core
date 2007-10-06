@@ -30,7 +30,7 @@ Prior to v0.1 release
     * [DONE] Set any arguments to pass to execution
     * [DONE] Pass any posted vars
 * Make CodeRunner_Factory change CodeRunner::$executable to 'cgi-bin' when doing a web request
-    * Use Registry->executable if isset, OR
+    * Use Registry->cgi_executable if isset, OR
     * Use 'php-cgi' if present, OR
     * Throw Case_VetoException due to lack of CGI binary
 * Create a suite capable of running multiple test cases
