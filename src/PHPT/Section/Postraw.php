@@ -25,9 +25,9 @@ class PHPT_Section_Postraw extends PHPT_Section_Post
         parent::__construct($real_data);
     }
     
-    public function modifyEnv(PHPT_Section_Env $env, PHPT_Case $case)
+    public function modifyEnv(PHPT_Section_Env $env)
     {
-        parent::modifyEnv($env, $case);
+        parent::modifyEnv($env);
         if (!is_null($this->_content_type)) {
             $env->data['CONTENT_TYPE'] = $this->_content_type;
         }
