@@ -11,6 +11,7 @@ abstract class PHPT_CodeRunner_Abstract
     public $stdin = null;
     public $args = null;
     public $filename = null;
+    public $post_filename = null;
     
     public function __construct(PHPT_CodeRunner $caller)
     {
