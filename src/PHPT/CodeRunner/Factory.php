@@ -21,7 +21,9 @@ class PHPT_CodeRunner_Factory
         }
         
         if ($case->is('CgiRequired')) {
-            $runner->executable = 'php-cgi';
+            $runner->executable = isset(PHPT_Registry::getInstance()->cgi_executable) ?
+                PHPT_Registry::getInstance()->cgi_executable :
+                'php-cgi';
         }
         return $runner;
     }
