@@ -12,4 +12,5 @@ class FoobarCodeRunner extends PHPT_CodeRunner_Abstract
     }
     
     public function run($filename) { }
+    public function validate() { }
 }
