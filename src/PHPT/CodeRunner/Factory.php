@@ -19,6 +19,10 @@ class PHPT_CodeRunner_Factory
         } elseif ($case->sections->has('POSTRAW')) {
             $runner->post_filename = (string)$case->sections->POSTRAW->file;
         }
+        
+        if ($case->is('CgiRequired')) {
+            $runner->executable = 'php-cgi';
+        }
         return $runner;
     }
 }
