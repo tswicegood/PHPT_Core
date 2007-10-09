@@ -19,4 +19,6 @@ abstract class PHPT_CodeRunner_Abstract
     }
     
     abstract public function run($filename);
+    
+    abstract public function validate();
 }
