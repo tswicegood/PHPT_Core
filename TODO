@@ -47,6 +47,7 @@ Prior to v0.1 release
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
 * Make CodeRunner_Proc code fail gracefully on Windows
+* Get working on basic PHP install on Windows
 
 ### Goals
 * Capable of running its own tests
