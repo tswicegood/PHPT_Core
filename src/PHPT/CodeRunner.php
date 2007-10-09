@@ -24,4 +24,9 @@ class PHPT_CodeRunner
     {
         return $this->_runner->run($filename);
     }
+    
+    public function validate()
+    {
+        $this->_runner->validate();
+    }
 }
