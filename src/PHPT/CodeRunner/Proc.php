@@ -79,4 +79,32 @@ class PHPT_CodeRunner_Proc extends PHPT_CodeRunner_Abstract
         $result->exitcode = $exitcode;
         return $result;
     }
+    
+    public function validate()
+    {
+        if ($this->executable{0} == DIRECTORY_SEPARATOR) {
+            $info = new SplFileInfo($this->executable);
+            if ($info->isExecutable() == false) {
+                throw new PHPT_CodeRunner_InvalidExecutableException(
+                    'unable to locate PHP executable: ' . $this->executable
+                );
+            }
+        }
+        $paths = explode(PATH_SEPARATOR, getenv('PATH'));
+        $found = false;
+        foreach ($paths as $path) {
+            $info = new SplFileInfo($path . '/' . $this->executable);
+            if ($info->isExecutable() == true) {
+                $found = true;
+                break;
+            }
+        }
+        if ($found == false) {
+            throw new PHPT_CodeRunner_InvalidExecutableException(
+                'unable to locate PHP executable: ' . $this->executable
+            );
+        }
+    }
 }
+
+class PHPT_CodeRunner_InvalidExecutableException  extends Exception { }
