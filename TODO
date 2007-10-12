@@ -21,7 +21,7 @@ Prior to v0.1 release
         * [DONE] create clean, expect, expectf, and expectregexp sections
     * [DONE] returning a ready-to-run test case
 * Create a test case/code runner
-    * Add CodeRunner_Proc to handle proc_open() runs
+    * [DONE] Add CodeRunner_Proc to handle proc_open() runs
     * Add CodeRunner_OutputBuffer to handle ob_start() based runs
 * [DONE] Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
   Should be able to:
