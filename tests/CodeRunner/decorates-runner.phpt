@@ -1,12 +1,12 @@
 --TEST--
-PHPT_CodeRunner decorates the real runner, i.e., the PHPT_CodeRunner_$name
+PHPT_CodeRunner decorates the real runner, i.e., the PHPT_CodeRunner_Driver_$name
 object
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-class PHPT_CodeRunner_Foobar
+class PHPT_CodeRunner_Driver_Foobar
 {
     public function __set($key, $value) {
         echo "__set({$key}, {$value})\n";
@@ -31,5 +31,5 @@ $runner->run('foobar.php');
 --EXPECT--
 __set(foo, bar)
 __get(foo)
-PHPT_CodeRunner_Foobar::run called with foobar.php
+PHPT_CodeRunner_Driver_Foobar::run called with foobar.php
 ===DONE===

@@ -12,7 +12,7 @@ $code = "<?php sleep(" . ($random + 1) . "); ?>";
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $runner->timeout = $random;
 try {
     $r = $runner->run($filename);

@@ -5,7 +5,7 @@ Has a public $filename property
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$reflection = new ReflectionClass('PHPT_CodeRunner_Abstract');
+$reflection = new ReflectionClass('PHPT_CodeRunner_Driver_Abstract');
 assert('$reflection->hasProperty("filename")');
 assert('$reflection->getProperty("filename")->isPublic()');
 

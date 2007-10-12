@@ -12,7 +12,7 @@ file_put_contents($filename, $code);
 $random = rand(100, 200);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $runner->args = " -- $random";
 $result = $runner->run($filename);
 

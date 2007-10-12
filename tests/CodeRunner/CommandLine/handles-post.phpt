@@ -1,5 +1,5 @@
 --TEST--
-If CodeRunner_Abstract::$post_filename is not empty, the filename will be passed
+If CodeRunner_Driver_Abstract::$post_filename is not empty, the filename will be passed
 into the PHP script being executed
 --FILE--
 <?php

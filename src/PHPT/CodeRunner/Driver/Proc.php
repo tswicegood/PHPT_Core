@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_CodeRunner_Proc extends PHPT_CodeRunner_Abstract
+class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
 {
     public function run($filename)
     {

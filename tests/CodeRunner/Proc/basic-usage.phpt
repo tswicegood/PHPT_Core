@@ -1,6 +1,6 @@
 --TEST--
 Will take a file and run it through a PHP parser and return a
-PHPT_CodeRunner_Proc_Result object.
+PHPT_CodeRunner_Driver_Proc_Result object.
 --FILE--
 <?php
 
@@ -12,7 +12,7 @@ $code = '<?php echo "Random Int: ' . $random . '"; ?>';
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $result = $runner->run($filename);
 
 assert('$result instanceof PHPT_CodeRunner_Result');

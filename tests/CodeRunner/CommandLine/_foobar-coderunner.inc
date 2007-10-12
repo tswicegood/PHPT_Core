@@ -1,6 +1,6 @@
 <?php
 
-class FoobarCodeRunner extends PHPT_CodeRunner_Abstract
+class FoobarCodeRunner extends PHPT_CodeRunner_Driver_Abstract
 {
     public $filename = '';
     public $ini = '';

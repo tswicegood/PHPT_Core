@@ -5,7 +5,7 @@ The validate() method will call validate() on the runner
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-class PHPT_CodeRunner_Foobar {
+class PHPT_CodeRunner_Driver_Foobar {
     public function validate() {
         echo __METHOD__, " was called\n";
     }
@@ -17,5 +17,5 @@ $runner->validate();
 ?>
 ===DONE===
 --EXPECT--
-PHPT_CodeRunner_Foobar::validate was called
+PHPT_CodeRunner_Driver_Foobar::validate was called
 ===DONE===

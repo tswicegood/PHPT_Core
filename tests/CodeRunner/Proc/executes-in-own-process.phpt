@@ -1,5 +1,5 @@
 --TEST--
-Code executed by the CodeRunner_Proc is executed in its own process
+Code executed by the CodeRunner_Driver_Proc is executed in its own process
 --FILE--
 <?php
 
@@ -11,7 +11,7 @@ $code = '<?php var_dump($this) ?>';
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $result = $runner->run($filename);
 
 echo $result->output, "\n";

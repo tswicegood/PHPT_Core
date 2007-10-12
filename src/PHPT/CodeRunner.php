@@ -6,7 +6,7 @@ class PHPT_CodeRunner
     
     public function __construct($type = 'Proc')
     {
-        $runner_name = 'PHPT_CodeRunner_' . $type;
+        $runner_name = 'PHPT_CodeRunner_Driver_' . $type;
         $this->_runner = new $runner_name($this);
     }
     

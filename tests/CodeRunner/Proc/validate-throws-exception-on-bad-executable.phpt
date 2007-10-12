@@ -10,7 +10,7 @@ a CodeRunner_InvalidExecutableException
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $runner->executable = '/some/unknown/path/to/php';
 try {
     $runner->validate();

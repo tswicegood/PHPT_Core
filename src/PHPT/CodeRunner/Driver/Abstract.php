@@ -1,6 +1,6 @@
 <?php
 
-abstract class PHPT_CodeRunner_Abstract
+abstract class PHPT_CodeRunner_Driver_Abstract
 {
     protected $_caller = null;
     

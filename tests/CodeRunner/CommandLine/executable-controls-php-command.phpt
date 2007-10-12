@@ -1,6 +1,6 @@
 --TEST--
 PHPT_CodeRunner_CommandLine uses replaces its executable with the passed in
-CodeRunner_Abstract's $executable property
+CodeRunner_Driver_Abstract's $executable property
 --FILE--
 <?php
 

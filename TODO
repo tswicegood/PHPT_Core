@@ -21,7 +21,7 @@ Prior to v0.1 release
         * [DONE] create clean, expect, expectf, and expectregexp sections
     * [DONE] returning a ready-to-run test case
 * Create a test case/code runner
-    * [DONE] Add CodeRunner_Proc to handle proc_open() runs
+    * [DONE] Add CodeRunner_Driver_Proc to handle proc_open() runs
     * Add CodeRunner_OutputBuffer to handle ob_start() based runs
 * [DONE] Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
   Should be able to:
@@ -46,7 +46,7 @@ Prior to v0.1 release
   unless the particular test case has to modify the environment.
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
-* Make CodeRunner_Proc code fail gracefully on Windows
+* Make CodeRunner_Driver_Proc code fail gracefully on Windows
 * Get working on basic PHP install on Windows
 
 ### Goals

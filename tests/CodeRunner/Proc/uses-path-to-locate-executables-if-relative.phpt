@@ -11,7 +11,7 @@ to find it.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 // PHPT_Registry->path will default to dirname($_ENV['_']) which is the dirname of the
 // php executable that is executing the test
 $runner->executable = 'php';

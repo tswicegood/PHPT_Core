@@ -8,7 +8,7 @@ class PHPT_CodeRunner_CommandLine
     private $_args = '';
     private $_post_filename = '';
     
-    public function __construct(PHPT_CodeRunner_Abstract $runner)
+    public function __construct(PHPT_CodeRunner_Driver_Abstract $runner)
     {
         $this->_filename = $runner->filename;
         $this->_ini = (string)$runner->ini;

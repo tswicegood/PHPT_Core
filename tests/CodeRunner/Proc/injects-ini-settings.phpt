@@ -26,7 +26,7 @@ $code = "<?php echo ini_get('display_errors'); ?>";
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 // set with an object that can be cast to a string
 $runner->ini = new FoobarIni();
 $result = $runner->run($filename);

@@ -1,5 +1,5 @@
 --TEST--
-If proc_open() does not generate a resource, a PHPT_CodeRunner_Proc_ExecutionException
+If proc_open() does not generate a resource, a PHPT_CodeRunner_Driver_Proc_ExecutionException
 is thrown
 --FILE--
 <?php
@@ -11,7 +11,7 @@ $code = '<?php echo "Hello World!"; ?>';
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $runner->executable = '/some/unknown/and/bad/path/to/php';
 try {
     $runner->run($filename);

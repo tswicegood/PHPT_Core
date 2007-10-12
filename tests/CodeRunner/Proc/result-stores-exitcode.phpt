@@ -12,7 +12,7 @@ $code = "<?php exit({$random}); ?>";
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $result = $runner->run($filename);
 
 echo $result->exitcode, "\n";
