@@ -35,6 +35,7 @@ Prior to v0.1 release
     * [DONE] Throw Case_VetoException due to lack of CGI binary
 * Create a suite capable of running multiple test cases
 * Create script for running tests
+    * Create/integrate command line option parser (extend on getopt()?)
 * Create build file to handle packaging
 * [DONE] Consider making a new Domain51_Test_Section_Runnable interface to specify run() method:
     - There's a lot of code, particularly in the setup, that doesn't need to be run.
