@@ -25,6 +25,11 @@ class PHPT_CodeRunner_Factory
                 PHPT_Registry::getInstance()->cgi_executable :
                 'php-cgi';
         }
-        return $runner;
+        try {
+            $runner->validate();
+            return $runner;
+        } catch (PHPT_CodeRunner_InvalidExecutableException $e) {
+            throw new PHPT_Case_VetoException($e->getMessage());
+        }
     }
 }

@@ -90,7 +90,7 @@ class PHPT_CodeRunner_Proc extends PHPT_CodeRunner_Abstract
                 );
             }
         }
-        $paths = explode(PATH_SEPARATOR, getenv('PATH'));
+        $paths = explode(PATH_SEPARATOR, PHPT_Registry::getInstance()->path);
         $found = false;
         foreach ($paths as $path) {
             $info = new SplFileInfo($path . '/' . $this->executable);

@@ -5,6 +5,7 @@ Test_Case's sections->POST->file value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../_support/bin';
 
 class FoobarTestCase extends PHPT_Case
 {
