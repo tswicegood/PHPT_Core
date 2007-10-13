@@ -8,6 +8,7 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/fake-test-case.phpt';
 
 $code = '<?php echo "Random Int: " . rand(100, 200); ?>';
 
