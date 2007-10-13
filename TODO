@@ -34,8 +34,15 @@ Prior to v0.1 release
     * [DONE] Use 'php-cgi' if present, OR
     * [DONE] Throw Case_VetoException due to lack of CGI binary
 * Create a suite capable of running multiple test cases
-* Create script for running tests
+    * Create a Collector for tests
+    * Create a CaseList capable of iterator across tests
+    * Create a Case_Runner for tallying pass/fail/skip
+* Create a PHPT_Reporter for displaying results
+    * Create PHPT_Reporter_PEARRunTest
+    * Create PHPT_Reporter_Default
+* Create PHPT_Controller_CLI for handling interaction from commandline 
     * Create/integrate command line option parser (extend on getopt()?)
+* Create script to invoke PHPT_Controller_CLI
 * Create build file to handle packaging
 * [DONE] Consider making a new Domain51_Test_Section_Runnable interface to specify run() method:
     - There's a lot of code, particularly in the setup, that doesn't need to be run.
