@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_CaseList implements Iterator
+class PHPT_CaseList implements Iterator, Countable
 {
     private $_cases = array();
     private $_files = array();
@@ -10,6 +10,11 @@ class PHPT_CaseList implements Iterator
     {
         $this->_files = $files;
         $this->_parser = new PHPT_Case_Parser();
+    }
+    
+    public function count()
+    {
+        return count($this->_files);
     }
     
     public function current()
