@@ -7,6 +7,9 @@ class PHPT_Case_Collector
         
     }
     
+    /**
+     * @todo refactor collection/recursion through directory into a generic PatternCollector
+     */
     public function collect($path)
     {
         $case_files = array();
