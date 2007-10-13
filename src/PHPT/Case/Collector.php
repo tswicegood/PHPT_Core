@@ -7,19 +7,31 @@ class PHPT_Case_Collector
         
     }
     
+    public function collect($path, $recursive = false)
+    {
+        return new PHPT_CaseList($this->_locateFiles($path, $recursive));
+    }
+    
+    
     /**
      * @todo refactor collection/recursion through directory into a generic PatternCollector
      */
-    public function collect($path)
+    private function _locateFiles($path, $recursive = false)
     {
-        $case_files = array();
+        $return = array();
         
         $dir = scandir($path);
         foreach ($dir as $file) {
-            if (substr($file, -5) == '.phpt') {
-                $case_files[] = "{$path}/{$file}";
+            if (substr($file, 0, 1) == '.') {
+                continue;
+            }
+            $full_file = "{$path}/{$file}";
+            if ($recursive && is_dir($full_file)) {
+                $return = array_merge($return, $this->_locateFiles($full_file, $recursive));
+            } elseif (substr($file, -5) == '.phpt') {
+                $return[] = "{$path}/{$file}";
             }
         }
-        return new PHPT_CaseList($case_files);
+        return $return;
     }
 }
