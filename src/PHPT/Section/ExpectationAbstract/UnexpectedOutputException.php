@@ -5,11 +5,13 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
 {
     protected $_wanted = null;
     protected $_actual = null;
+    protected $_message = '';
     
     public function __construct($wanted, $actual)
     {
         $this->_wanted = $wanted;
         $this->_actual = $actual;
+        parent::__construct($this->_message);
     }
     
     public function __toString()
