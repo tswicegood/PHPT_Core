@@ -19,5 +19,7 @@ assert('preg_match("/^Random Int: [12][0-9]{2}/", $case->output)');
 
 ?>
 ===DONE===
+--CLEAN--
+<?php @unlink(dirname(__FILE__) . '/fake-test-case.php'); ?>
 --EXPECT--
 ===DONE===

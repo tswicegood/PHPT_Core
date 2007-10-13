@@ -6,7 +6,7 @@ returns false
 
 require_once dirname(__FILE__) . '/_setup.inc';
 
-$case = new PHPT_Case(new PHPT_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList(), dirname(__FILE__) . '/fake-test-case.phpt');
 $validator = new PHPT_Case_Validator_CgiRequired();
 assert('$validator->is($case) == false');
 

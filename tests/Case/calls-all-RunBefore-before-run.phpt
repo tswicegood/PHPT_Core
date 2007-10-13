@@ -26,7 +26,8 @@ $case = new PHPT_Case(
         new PHPT_Section_SimpleBeforeOne(),
         new PHPT_Section_SimpleBeforeTwo(),
         $file,
-    ))
+    )),
+    dirname(__FILE__) . '/fake-test-case.phpt'
 );
 
 $case->run();

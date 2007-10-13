@@ -15,7 +15,7 @@ $sections = new PHPT_SectionList(array(
     $file
 ));
 
-$case = new PHPT_Case($sections);
+$case = new PHPT_Case($sections, dirname(__FILE__) . '/fake-test-case.phpt');
 $case->run();
 assert('$case->output == $random');
 

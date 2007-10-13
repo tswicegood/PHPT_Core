@@ -5,7 +5,7 @@ PHPT_Case::$output is null at instantiation
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$case = new PHPT_Case(new PHPT_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList(), dirname(__FILE__) . '/fake-test-case.phpt');
 assert('is_null($case->output)');
 
 ?>

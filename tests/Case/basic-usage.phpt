@@ -20,13 +20,11 @@ $sections = new PHPT_SectionList(array(
     $file
 ));
 
-$case = new PHPT_Case($sections);
+$case = new PHPT_Case($sections, dirname(__FILE__) . '/some-fake-test-case.phpt');
 assert('$case->name == $name');
-assert('$case->filename == $filename');
+assert('$case->filename == $filename . "t"');
 assert('$case->code == $code');
 assert('$case->sections === $sections');
-
-assert('file_exists($case->filename)');
 
 ?>
 ===DONE===

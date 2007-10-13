@@ -13,7 +13,7 @@ class PHPT_Case_Validator_Foobar implements PHPT_Case_Validator {
     public function is(PHPT_Case $case) { }
 }
 
-$case = new PHPT_Case(new PHPT_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList(), dirname(__FILE__) . '/fake-test-case.phpt');
 $case->validate('Foobar');
 
 ?>

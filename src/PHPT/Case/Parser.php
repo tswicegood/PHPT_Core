@@ -21,9 +21,6 @@ class PHPT_Case_Parser
                 if (!empty($section_name)) {
                     $section_object_name = 'PHPT_Section_' . ucfirst(strtolower($section_name));
                     $raw_sections[$section_name] = new $section_object_name($section_data);
-                    if ($section_name == 'FILE') {
-                        $raw_sections[$section_name]->filename = dirname($file) . '/' . basename($file, '.phpt') . '.php';
-                    }
                 }
                 
                 $section_name = $matches[1];
@@ -44,7 +41,7 @@ class PHPT_Case_Parser
         
         $sections = new PHPT_SectionList($raw_sections);
         
-        $case = new PHPT_Case($sections);
+        $case = new PHPT_Case($sections, $file);
         $case->validate('Runnable');
         return $case;
     }

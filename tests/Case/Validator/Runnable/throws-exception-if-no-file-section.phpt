@@ -10,7 +10,7 @@ $sections = new PHPT_SectionList(array(
     new PHPT_Section_Test('foobar')
 ));
 
-$case = new PHPT_Case($sections);
+$case = new PHPT_Case($sections, dirname(__FILE__) . '/fake-test-case.phpt');
 $validator = new PHPT_Case_Validator_Runnable();
 
 try {

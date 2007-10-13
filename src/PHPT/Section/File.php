@@ -49,6 +49,7 @@ class PHPT_Section_File implements PHPT_Section_Runnable
     
     public function run(PHPT_Case $case)
     {
+        $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
         $case->output = $this->_runner->run($this->_filename)->output;
     }
 }

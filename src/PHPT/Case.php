@@ -5,10 +5,14 @@ class PHPT_Case
 {
     public $sections = null;
     public $output = null;
+    private $_filename = '';
     
-    public function __construct(PHPT_SectionList $sections)
+    public function __construct(PHPT_SectionList $sections, $filename)
     {
+        assert('is_string($filename)');
+        
         $this->sections = $sections;
+        $this->_filename = $filename;
     }
     
     public function __destruct()
@@ -57,7 +61,7 @@ class PHPT_Case
                 return (string)$this->sections->TEST;
             
             case 'filename' :
-                return (string)$this->sections->FILE->filename;
+                return $this->_filename;
             
             case 'code' :
                 return (string)$this->sections->FILE->contents;

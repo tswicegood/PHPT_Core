@@ -18,7 +18,7 @@ $sections = new PHPT_SectionList(array(
     $file,
 ));
 
-$case = new PHPT_Case($sections);
+$case = new PHPT_Case($sections, dirname(__FILE__) . '/fake-test-case.phpt');
 assert('trim(file_get_contents($filename)) == trim($code)');
 
 $case->code = 'Updated code';

@@ -15,8 +15,8 @@ $case = $parser->parse($test_file);
 
 assert('$case instanceof PHPT_Case');
 assert('$case->name == "This is a sample test case to show that \"Hello World\" can be echoed"');
-assert('$case->filename == $test_case_file');
-assert('file_exists($case->filename)');
+assert('$case->filename == $test_file');
+
 ?>
 ===DONE===
 --CLEAN--

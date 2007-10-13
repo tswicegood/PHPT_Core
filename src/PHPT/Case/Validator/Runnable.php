@@ -22,8 +22,6 @@ class PHPT_Case_Validator_Runnable implements PHPT_Case_Validator
             $this->_message = 'missing FILE section';
         } elseif ($case->sections->has('TEST') == false) {
             $this->_message = 'missing TEST section';
-        } elseif ($case->sections->FILE->filename == '') {
-            $this->_message = 'FILE section missing filename property';
         }
         
         return !(bool)$this->_message;

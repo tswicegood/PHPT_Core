@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 class FoobarSection implements PHPT_Section_CgiExecutable { }
 
-$case = new PHPT_Case(new PHPT_SectionList(array(new FoobarSection())));
+$case = new PHPT_Case(new PHPT_SectionList(array(new FoobarSection())), dirname(__FILE__) . '/fake-test-case.phpt');
 $validator = new PHPT_Case_Validator_CgiRequired();
 assert('$validator->is($case) == true');
 

@@ -18,7 +18,7 @@ $sections = new PHPT_SectionList(array(
     $file
 ));
 
-$case = new PHPT_Case($sections);
+$case = new PHPT_Case($sections, dirname(__FILE__) . '/fake-test-case.phpt');
 assert('file_exists($filename)');
 unset($case);
 assert('!file_exists($filename)');

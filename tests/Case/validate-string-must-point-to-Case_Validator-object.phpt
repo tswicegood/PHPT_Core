@@ -10,7 +10,7 @@ class PHPT_Case_Validator_Foobar {
     public function validate() { }
 }
 
-$case = new PHPT_Case(new PHPT_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList(), dirname(__FILE__) . '/fake-test-case.phpt');
 $case->validate('Foobar');
 
 ?>
