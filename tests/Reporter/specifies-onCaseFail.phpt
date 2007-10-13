@@ -1,5 +1,5 @@
 --TEST--
-Specifies PHPT_Reporter::onCaseFail(PHPT_Case $case, Exception $exception)
+Specifies PHPT_Reporter::onCaseFail(PHPT_Case $case, PHPT_Case_FailureException $failure)
 --FILE--
 <?php
 
@@ -13,8 +13,8 @@ assert('$param->getName() == "case"');
 assert('$param->getClass()->getName() == "PHPT_Case"');
 
 $param = array_shift($parameters);
-assert('$param->getName() == "exception"');
-assert('$param->getClass()->getName() == "Exception"');
+assert('$param->getName() == "failure"');
+assert('$param->getClass()->getName() == "PHPT_Case_FailureException"');
 ?>
 ===DONE===
 --EXPECT--

@@ -60,8 +60,8 @@ interface PHPT_Reporter
      * during a Case's run()
      *
      * @param PHPT_Case $case
-     * @param Exception $exception
+     * @param PHPT_Case_FailureException $failure
      * @return string
      */
-    public function onCaseFail(PHPT_Case $case, Exception $exception);
+    public function onCaseFail(PHPT_Case $case, PHPT_Case_FailureException $failure);
 }
