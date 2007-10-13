@@ -31,10 +31,6 @@ class PHPT_Section_Env implements PHPT_Section_Runnable
         }
     }
     
-    /**
-     * @todo create Domain51_Section_EnvModifier interface that allows any section
-     *       to modify the environment object
-     */
     public function run(PHPT_Case $case)
     {
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
