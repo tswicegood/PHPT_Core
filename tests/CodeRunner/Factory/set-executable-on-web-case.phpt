@@ -6,7 +6,7 @@ will be set to 'php-cgi'
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../_support/bin';
+PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../../tests-supporting/bin';
 
 class PHPT_SimpleTestCase extends PHPT_Case
 {

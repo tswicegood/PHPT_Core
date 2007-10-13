@@ -6,8 +6,8 @@ PHPT_CaseList functions as a basic iterator
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $data = array(
-    dirname(__FILE__) . '/../_support/tests/hello-world.phpt',
-    dirname(__FILE__) . '/../_support/tests/addition.phpt',
+    dirname(__FILE__) . '/../../tests-supporting/tests/hello-world.phpt',
+    dirname(__FILE__) . '/../../tests-supporting/tests/addition.phpt',
 );
 
 $list = new PHPT_CaseList($data);

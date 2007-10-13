@@ -5,7 +5,7 @@ Returns CaseList containing the various Cases located there
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$test_path = realpath(dirname(__FILE__) . '/../../_support/tests');
+$test_path = realpath(dirname(__FILE__) . '/../../../tests-supporting/tests');
 
 $collector = new PHPT_Case_Collector($test_path);
 $collection = $collector->collect($test_path);

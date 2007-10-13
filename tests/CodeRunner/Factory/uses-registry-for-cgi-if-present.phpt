@@ -5,7 +5,7 @@ instead of the default "php".
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../_support/bin';
+PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../../tests-supporting/bin';
 
 class PHPT_SimpleTestCase extends PHPT_Case
 {
@@ -37,7 +37,7 @@ assert('$runner->executable == $executable');
 ===DONE===
 --CLEAN--
 <?php
-$dir = dirname(__FILE__) . '/../../_support/bin';
+$dir = dirname(__FILE__) . '/../../../tests-supporting/bin';
 foreach (scandir($dir) as $file) {
     if (preg_match('/foobar-executable-[12][0-9]{2}/', $file)) {
         unlink($dir . '/' . $file);
