@@ -1,18 +1,6 @@
 <?php
 
-class PHPT_Section_Expectf_UnexpectedOutputException extends Exception
+class PHPT_Section_Expectf_UnexpectedOutputException 
+    extends PHPT_Section_ExpectationAbstract_UnexpectedOutputException
 {
-    private $_wanted = null;
-    private $_actual = null;
-    
-    public function __construct($wanted, $actual)
-    {
-        $this->_wanted = $wanted;
-        $this->_actual = $actual;
-    }
-    
-    public function __toString()
-    {
-        return (string)new PHPT_Util_Diff($this->_wanted, $this->_actual);
-    }
 }
