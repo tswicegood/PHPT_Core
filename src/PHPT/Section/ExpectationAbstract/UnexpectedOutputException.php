@@ -1,7 +1,7 @@
 <?php
 
 abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
-    extends Exception
+    extends PHPT_Case_FailureException
 {
     protected $_wanted = null;
     protected $_actual = null;
@@ -13,6 +13,11 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
     }
     
     public function __toString()
+    {
+        return $this->getDiff();
+    }
+    
+    public function getDiff()
     {
         return (string)new PHPT_Util_Diff($this->_wanted, $this->_actual);
     }
