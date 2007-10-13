@@ -76,3 +76,6 @@ Prior to v0.2 release
   object.
 * Consider having a Section_Helper_FileIncluder capable of automatically loading a "_section.inc"
   file if it's present.
+* Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
+    * Add Case_Validator_UnableToRunInOutputBuffer to determine if a Case can run within output
+      buffer mode
