@@ -37,9 +37,9 @@ Prior to v0.1 release
     * [DONE] Create a Collector for tests
     * [DONE] Create a CaseList capable of iterator across tests
     * Create a Case_Runner for tallying pass/fail/skip
-* Create a PHPT_Reporter for displaying results
+* [DONE] Create a PHPT_Reporter for displaying results
     * Create PHPT_Reporter_PEARRunTest
-    * Create PHPT_Reporter_Default
+    * [DONE] Create PHPT_Reporter_Text
 * Create PHPT_Controller_CLI for handling interaction from commandline 
     * Create/integrate command line option parser (extend on getopt()?)
 * Create script to invoke PHPT_Controller_CLI
@@ -56,6 +56,7 @@ Prior to v0.1 release
   in environment vars
 * Make CodeRunner_Driver_Proc code fail gracefully on Windows
 * Get working on basic PHP install on Windows
+* Add timer to Reporter_Text output
 
 ### Goals
 * Capable of running its own tests
