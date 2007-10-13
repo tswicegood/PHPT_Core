@@ -34,8 +34,8 @@ Prior to v0.1 release
     * [DONE] Use 'php-cgi' if present, OR
     * [DONE] Throw Case_VetoException due to lack of CGI binary
 * Create a suite capable of running multiple test cases
-    * Create a Collector for tests
-    * Create a CaseList capable of iterator across tests
+    * [DONE] Create a Collector for tests
+    * [DONE] Create a CaseList capable of iterator across tests
     * Create a Case_Runner for tallying pass/fail/skip
 * Create a PHPT_Reporter for displaying results
     * Create PHPT_Reporter_PEARRunTest
