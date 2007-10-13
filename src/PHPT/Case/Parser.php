@@ -19,8 +19,7 @@ class PHPT_Case_Parser
         foreach ($lines as $line) {
             if (preg_match('/^--([^-]+)--$/', $line, $matches)) {
                 if (!empty($section_name)) {
-                    $section_object_name = 'PHPT_Section_' . ucfirst(strtolower($section_name));
-                    $raw_sections[$section_name] = new $section_object_name($section_data);
+                    $raw_sections[$section_name] = $this->_createSection($section_name, $section_data);
                 }
                 
                 $section_name = $matches[1];
@@ -39,10 +38,19 @@ class PHPT_Case_Parser
             $section_data .= trim($line);
         }
         
+        // set the last section
+        $raw_sections[$section_name] = $this->_createSection($section_name, $section_data);
+        
         $sections = new PHPT_SectionList($raw_sections);
         
         $case = new PHPT_Case($sections, $file);
         $case->validate('Runnable');
         return $case;
+    }
+    
+    private function _createSection($name, $data)
+    {
+        $object_name = 'PHPT_Section_' . ucfirst(strtolower($name));
+        return new $object_name($data);
     }
 }
