@@ -2,6 +2,9 @@
 
 interface PHPT_Reporter
 {
+    public function onStart();
+    public function onEnd();
+    
     public function onCaseStart(PHPT_Case $case);
     public function onCaseEnd(PHPT_Case $case);
     public function onCasePass(PHPT_Case $case);
