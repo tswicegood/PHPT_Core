@@ -33,10 +33,10 @@ Prior to v0.1 release
     * [DONE] Use Registry->cgi_executable if isset, OR
     * [DONE] Use 'php-cgi' if present, OR
     * [DONE] Throw Case_VetoException due to lack of CGI binary
-* Create a suite capable of running multiple test cases
+* [DONE] Create a suite capable of running multiple test cases
     * [DONE] Create a Collector for tests
     * [DONE] Create a CaseList capable of iterator across tests
-    * Create a Case_Runner for tallying pass/fail/skip
+    * [DONE] Create a Case_Runner for tallying pass/fail/skip - done via the Reporter
 * [DONE] Create a PHPT_Reporter for displaying results
     * Create PHPT_Reporter_PEARRunTest
     * [DONE] Create PHPT_Reporter_Text
