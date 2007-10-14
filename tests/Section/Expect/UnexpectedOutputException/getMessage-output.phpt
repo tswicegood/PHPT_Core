@@ -3,9 +3,9 @@ getMessage() returns "output does not match EXPECT section"
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../../_setup.inc';
+require_once dirname(__FILE__) . '/_setup.inc';
 
-$exception = new PHPT_Section_Expect_UnexpectedOutputException('foo', 'bar');
+$exception = new PHPT_Section_Expect_UnexpectedOutputException(new PHPT_SimpleTestCase(), 'bar');
 echo $exception->getMessage(), "\n";
 
 ?>

@@ -4,9 +4,9 @@ diff is returned
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../../_setup.inc';
+require_once dirname(__FILE__) . '/_setup.inc';
 
-$exception = new PHPT_Section_Expect_UnexpectedOutputException("one", "two");
+$exception = new PHPT_Section_Expect_UnexpectedOutputException(new PHPT_SimpleTestCase(), "one");
 echo $exception->getDiff(), "\n";
 
 ?>

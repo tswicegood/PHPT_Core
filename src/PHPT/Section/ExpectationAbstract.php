@@ -17,8 +17,8 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
         if (!$this->_isValid($case)) {
             $this->_storeExpFile($case->filename);
             throw new $this->_exception(
-                $this->_expected,
-                $case->output
+                $case,
+                $this->_expected
             );
         }
 

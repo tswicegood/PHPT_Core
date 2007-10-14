@@ -9,6 +9,9 @@ class PHPT_SimpleTestCase extends PHPT_Case {
 }
 
 class PHPT_SimpleFailureException extends PHPT_Case_FailureException {
+    public function __construct($msg = '') {
+        parent::__construct(new PHPT_SimpleTestCase(), $msg);
+    }
     public function getDiff() {
         return (string)new PHPT_Util_Diff('one', 'two');
     }
