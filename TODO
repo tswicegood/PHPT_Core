@@ -40,6 +40,16 @@ Prior to v0.1 release
 * [DONE] Create a PHPT_Reporter for displaying results
     * Create PHPT_Reporter_PEARRunTest
     * [DONE] Create PHPT_Reporter_Text
+* Fill out implementation for Case_FailureException
+    * write to ".out" file
+    * getOutput()
+* Fill out implementation for Section_ExpectationAbstract_UnexpectedOutputException
+    * move write to ".exp" file to exception __construct()
+    * add getExpectation()
+    * write to ".log" file on __construct()
+    * add getLog()
+    * write to ".diff" file on __construct()
+    * flag passed in Case->leave_file to leave the .php file in tact
 * Create PHPT_Controller_CLI for handling interaction from commandline 
     * Create/integrate command line option parser (extend on getopt()?)
 * Create script to invoke PHPT_Controller_CLI
