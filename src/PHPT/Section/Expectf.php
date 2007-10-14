@@ -11,6 +11,7 @@ class PHPT_Section_Expectf extends PHPT_Section_ExpectationAbstract
     public function __construct($data)
     {
         parent::__construct($data);
+        $data = preg_quote($data, '/');
         $this->_real_pattern = str_replace(
             array(
                 '%i',
