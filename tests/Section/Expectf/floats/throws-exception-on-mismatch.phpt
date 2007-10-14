@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 
 $case = new PHPT_SimpleTestCase();
 $case->output = 'this string contains no floats';
-$case->filename = dirname(__FILE__) . '/fake-test-case.php';
+$case->filename = dirname(__FILE__) . '/fake-test-case.phpt';
 
 $section = new PHPT_Section_Expectf('%f');
 try {
@@ -21,6 +21,9 @@ try {
 ?>
 ===DONE===
 --CLEAN--
-<?php unlink(dirname(__FILE__) . '/fake-test-case.exp'); ?>
+<?php
+$path = dirname(__FILE__);
+include "{$path}/../_clean.inc";
+?>
 --EXPECT--
 ===DONE===

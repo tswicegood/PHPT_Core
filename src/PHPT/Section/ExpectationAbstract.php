@@ -28,7 +28,7 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
     
     protected function _storeExpFile($filename)
     {
-        $exp_filename = dirname($filename) . '/' . basename($filename, '.php') . '.exp';
+        $exp_filename = $filename . '.exp';
         file_put_contents($exp_filename, $this->_expected);
     }
 }

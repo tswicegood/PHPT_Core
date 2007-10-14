@@ -7,8 +7,8 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $basename = 'fake-test-case' . rand(100, 200);
-$filename = dirname(__FILE__) . "/{$basename}.php";
-$exp_filename = dirname(__FILE__) . "/{$basename}.exp";
+$filename = dirname(__FILE__) . "/{$basename}.phpt";
+$exp_filename = $filename . '.exp';
 
 // clean up in case its left over
 @unlink($exp_filename);
