@@ -7,7 +7,7 @@ $output property preg_match()s the $data the section was instantiated with
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
-$pattern = '/.{2}/';
+$pattern = '.{2}';
 $section = new PHPT_Section_Expectregex($pattern);
 
 $case = new PHPT_SimpleTestCase();

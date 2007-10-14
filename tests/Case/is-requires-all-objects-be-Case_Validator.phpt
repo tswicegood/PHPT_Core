@@ -9,7 +9,7 @@ class FooBarValidator {
     public function is() { }
 }
 
-$case = new PHPT_Case(new PHPT_SectionList());
+$case = new PHPT_Case(new PHPT_SectionList(), dirname(__FILE__) . '/fake-test-case.phpt');
 $case->is(new FooBarValidator());
 
 ?>
