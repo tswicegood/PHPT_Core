@@ -3,7 +3,7 @@ If $stdin property is not null, its value is passed into the running process
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $filename = dirname(__FILE__) . '/foobar.php';
 $code = '<?php

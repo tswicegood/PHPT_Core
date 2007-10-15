@@ -3,7 +3,7 @@ Code executed by the CodeRunner_Driver_Proc is executed in its own process
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $random = rand(100, 200);
 $filename = dirname(__FILE__) . '/foobar.php';

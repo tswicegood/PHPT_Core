@@ -4,7 +4,7 @@ running code to completely execute.
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $random = rand(1, 2);
 $filename = dirname(__FILE__) . '/foobar.php';

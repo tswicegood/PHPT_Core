@@ -4,7 +4,7 @@ PHPT_CodeRunner_Driver_Proc_Result object.
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $random = rand(100, 200);
 $filename = dirname(__FILE__) . '/foobar.php';

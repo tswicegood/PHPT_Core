@@ -3,7 +3,7 @@ Takes the string value of $ini and injects it in the command line
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 class FoobarIni {
     public $display_errors = 1;

@@ -3,7 +3,7 @@ Takes an array for $environment and passes it to the code being run
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $code = '<?php echo getenv("foobar_message"); ?>';
 $filename = dirname(__FILE__) . '/foobar.php';

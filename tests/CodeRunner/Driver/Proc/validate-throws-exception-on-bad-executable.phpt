@@ -7,7 +7,7 @@ a CodeRunner_InvalidExecutableException
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Driver_Proc($caller);
