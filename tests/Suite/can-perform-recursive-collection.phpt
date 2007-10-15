@@ -6,7 +6,7 @@ Can recurse through directories looking for test cases
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $test_path = dirname(__FILE__) . '/../../tests-supporting/tests';
-$collector = new PHPT_Case_Collector();
+$collector = new PHPT_Suite_Factory();
 $list = $collector->collect($test_path, true);
 
 assert('count($list) == 5');

@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Case_Collector
+class PHPT_Suite_Factory
 {
     public function __construct()
     {

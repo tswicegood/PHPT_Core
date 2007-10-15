@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $test_path = realpath(dirname(__FILE__) . '/../../../tests-supporting/tests');
 
-$collector = new PHPT_Case_Collector($test_path);
+$collector = new PHPT_Suite_Factory($test_path);
 $collection = $collector->collect($test_path);
 
 assert('$collection instanceof PHPT_Suite');
