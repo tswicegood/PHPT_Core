@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_CaseList implements Iterator, Countable
+class PHPT_Suite implements Iterator, Countable
 {
     private $_cases = array();
     private $_files = array();

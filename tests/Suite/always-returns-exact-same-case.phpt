@@ -9,7 +9,7 @@ $data = array(
     dirname(__FILE__) . '/../../tests-supporting/tests/hello-world.phpt',
 );
 
-$list = new PHPT_CaseList($data);
+$list = new PHPT_Suite($data);
 assert('$list->current() === $list->current()');
 
 ?>

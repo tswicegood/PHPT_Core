@@ -1,5 +1,5 @@
 --TEST--
-Returns CaseList containing the various Cases located there
+Returns Suite containing the various Cases located there
 --FILE--
 <?php
 
@@ -10,7 +10,7 @@ $test_path = realpath(dirname(__FILE__) . '/../../../tests-supporting/tests');
 $collector = new PHPT_Case_Collector($test_path);
 $collection = $collector->collect($test_path);
 
-assert('$collection instanceof PHPT_CaseList');
+assert('$collection instanceof PHPT_Suite');
 assert('count($collection) == 2');
 
 foreach ($collection as $case) {

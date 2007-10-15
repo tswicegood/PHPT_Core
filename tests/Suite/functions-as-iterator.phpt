@@ -1,5 +1,5 @@
 --TEST--
-PHPT_CaseList functions as a basic iterator 
+PHPT_Suite functions as a basic iterator 
 --FILE--
 <?php
 
@@ -10,7 +10,7 @@ $data = array(
     dirname(__FILE__) . '/../../tests-supporting/tests/addition.phpt',
 );
 
-$list = new PHPT_CaseList($data);
+$list = new PHPT_Suite($data);
 assert('$list->valid()');
 
 foreach ($list as $case) {

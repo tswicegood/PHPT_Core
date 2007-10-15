@@ -9,7 +9,7 @@ class PHPT_Case_Collector
     
     public function collect($path, $recursive = false)
     {
-        return new PHPT_CaseList($this->_locateFiles($path, $recursive));
+        return new PHPT_Suite($this->_locateFiles($path, $recursive));
     }
     
     
