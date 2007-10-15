@@ -7,13 +7,13 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $test_path = realpath(dirname(__FILE__) . '/../../../tests-supporting/tests');
 
-$collector = new PHPT_Suite_Factory($test_path);
-$collection = $collector->collect($test_path);
+$factory = new PHPT_Suite_Factory($test_path);
+$suite = $factory->factory($test_path);
 
-assert('$collection instanceof PHPT_Suite');
-assert('count($collection) == 2');
+assert('$suite instanceof PHPT_Suite');
+assert('count($suite) == 2');
 
-foreach ($collection as $case) {
+foreach ($suite as $case) {
     // sanity check
     assert('$case instanceof PHPT_Case');
     

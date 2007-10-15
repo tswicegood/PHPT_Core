@@ -7,7 +7,7 @@ class PHPT_Suite_Factory
         
     }
     
-    public function collect($path, $recursive = false)
+    public function factory($path, $recursive = false)
     {
         return new PHPT_Suite($this->_locateFiles($path, $recursive));
     }
