@@ -7,6 +7,11 @@ class PHPT_Controller_CLI implements PHPT_Controller
         
     }
     
+    /**
+     * @todo add support for "--quiet"
+     * @todo add support for "--reporter"
+     * @todo add support for $path being an actual file (instantiate Suite directly?)
+     */
     public function run(array $options = array())
     {
         $recursive = in_array('--recursive', $options);
