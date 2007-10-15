@@ -8,9 +8,10 @@ class PHPT_Controller_CLI implements PHPT_Controller
     }
     
     /**
-     * @todo add support for "--quiet"
+     * @todo add support for "--quiet" - map to --report TextQuiet
      * @todo add support for "--reporter"
      * @todo add support for $path being an actual file (instantiate Suite directly?)
+     * @todo put every long-command into PHPT_Registry
      */
     public function run(array $options = array())
     {
