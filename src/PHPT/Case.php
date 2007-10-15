@@ -24,21 +24,30 @@ class PHPT_Case
         }
     }
     
-    public function run()
+    public function run(PHPT_Reporter $reporter)
     {
-        if ($this->sections->filterByInterface('RunBefore')->valid()) {
-            foreach ($this->sections as $section) {
-                $section->run($this);
+        $reporter->onCaseStart($this);
+        try {
+            if ($this->sections->filterByInterface('RunBefore')->valid()) {
+                foreach ($this->sections as $section) {
+                    $section->run($this);
+                }
             }
+            $this->sections->filterByInterface();
+            $this->sections->FILE->run($this);
+            if ($this->sections->filterByInterface('RunAfter')->valid()) {
+                foreach ($this->sections as $section) {
+                    $section->run($this);
+                }
+            }
+            $reporter->onCasePass($this);
+        } catch (PHPT_Case_VetoException $veto) {
+            $reporter->onCaseSkip($this, $veto);
+        } catch (PHPT_Case_FailureException $failure) {
+            $reporter->onCaseFail($this, $failure);
         }
         $this->sections->filterByInterface();
-        $this->sections->FILE->run($this);
-        if ($this->sections->filterByInterface('RunAfter')->valid()) {
-            foreach ($this->sections as $section) {
-                $section->run($this);
-            }
-        }
-        $this->sections->filterByInterface();
+        $reporter->onCaseEnd($this);
     }
     
     public function __set($key, $value)

@@ -18,7 +18,7 @@ foreach ($collection as $case) {
     assert('$case instanceof PHPT_Case');
     
     // all tests should pass
-    $case->run();
+    $case->run(new PHPT_Reporter_Null());
 }
 
 ?>
