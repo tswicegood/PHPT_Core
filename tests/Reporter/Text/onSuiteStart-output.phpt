@@ -1,12 +1,12 @@
 --TEST--
-output of onStart()
+output of onStartStart()
 --FILE--
 <?php
 
-require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/_setup.inc';
 
 $reporter = new PHPT_Reporter_Text();
-$reporter->onStart();
+$reporter->onSuiteStart(new PHPT_SimpleSuite());
 
 ?>
 ===DONE===

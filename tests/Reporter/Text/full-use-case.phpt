@@ -6,8 +6,9 @@ Walk through the full use-case
 require_once dirname(__FILE__) . '/_setup.inc';
 
 $reporter = new PHPT_Reporter_Text();
+$suite = new PHPT_SimpleSuite();
 
-$reporter->onStart();
+$reporter->onSuiteStart($suite);
 
 for ($i2 = 0; $i2 < 8; $i2++) {
     $case = new PHPT_SimpleTestCase();
@@ -39,7 +40,7 @@ for ($i = 0; $i < 90; $i++) {
     $reporter->onCaseEnd($case);
 }
 
-$reporter->onEnd();
+$reporter->onSuiteEnd($suite);
 
 ?>
 ===DONE===

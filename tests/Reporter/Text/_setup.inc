@@ -16,3 +16,9 @@ class PHPT_SimpleFailureException extends PHPT_Case_FailureException {
         return (string)new PHPT_Util_Diff('one', 'two');
     }
 }
+
+class PHPT_SimpleSuite extends PHPT_Suite
+{
+    public function __construct() { }
+    public function __destruct() { }
+}

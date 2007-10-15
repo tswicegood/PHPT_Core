@@ -3,24 +3,26 @@
 interface PHPT_Reporter
 {
     /**
-     * Called when the Reporter is started
+     * Called when the Reporter is started from a PHPT_Suite
      *
      * Use this method to display any start specific messages, such as number of tests
      * to run, etc.
      *
+     * @param PHPT_Suite $suite
      * @return string
      */
-    public function onStart();
+    public function onSuiteStart(PHPT_Suite $suite);
     
     /**
-     * Called when the Reporter is finished
+     * Called when the Reporter is finished in a PHPT_Suite
      *
      * Use this method to display any end specific messages such as pass/fail/skip tallies,
      * time run, etc.
      *
+     * @param PHPT_Suite $suite
      * @return string
      */
-    public function onEnd();
+    public function onSuiteEnd(PHPT_Suite $suite);
     
     /**
      * Called when a Case is started

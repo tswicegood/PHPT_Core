@@ -8,12 +8,12 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private $_failures = array();
     
     // @todo remove hard-coded version #
-    public function onStart()
+    public function onSuiteStart(PHPT_Suite $suite)
     {
         echo "PHPT Test Runner v0.1\n\n";
     }
     
-    public function onEnd()
+    public function onSuiteEnd(PHPT_Suite $suite)
     {
         echo "\n\n";
         

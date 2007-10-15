@@ -1,5 +1,5 @@
 --TEST--
-onEnd() outputs a tally of all tests run
+onSuiteEnd() outputs a tally of all tests run
 --FILE--
 <?php
 
@@ -13,7 +13,7 @@ ob_start();
 $reporter->onCasePass($case);
 ob_clean();
 
-$reporter->onEnd();
+$reporter->onSuiteEnd(new PHPT_SimpleSuite());
 
 ?>
 ===DONE===

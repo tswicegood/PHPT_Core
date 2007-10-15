@@ -17,6 +17,11 @@ class PHPT_Suite implements Iterator, Countable
         return count($this->_files);
     }
     
+    public function run(PHPT_Reporter $reporter)
+    {
+        
+    }
+    
     public function current()
     {
         if (!isset($this->_cases[$this->key()])) {

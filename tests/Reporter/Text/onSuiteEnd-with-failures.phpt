@@ -23,7 +23,7 @@ ob_start();
 $reporter->onCaseFail($case, $failure);
 ob_clean();
 
-$reporter->onEnd();
+$reporter->onSuiteEnd(new PHPT_SimpleSuite());
 
 ?>
 ===DONE===

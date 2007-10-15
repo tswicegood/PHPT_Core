@@ -22,12 +22,19 @@ class PHPT_SimpleVeto extends PHPT_Case_VetoException
     public function __construct() { }
 }
 
+class PHPT_SimpleSuite extends PHPT_Suite
+{
+    public function __construct() { }
+    public function __destruct() { }
+}
+
 $case = new PHPT_SimpleCase();
 $failure = new PHPT_SimpleFailureException();
 $veto = new PHPT_SimpleVeto();
+$suite = new PHPT_SimpleSuite();
 
 $reporter = new PHPT_Reporter_Null();
-$reporter->onStart();
+$reporter->onSuiteStart($suite);
 
 $reporter->onCaseStart($case);
 $reporter->onCasePass($case);
@@ -41,7 +48,7 @@ $reporter->onCaseStart($case);
 $reporter->onCaseSkip($case, $veto);
 $reporter->onCaseEnd($case);
 
-$reporter->onEnd();
+$reporter->onSuiteEnd($suite);
 
 ?>
 ===DONE===

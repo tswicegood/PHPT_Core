@@ -7,12 +7,12 @@ class PHPT_Reporter_Null implements PHPT_Reporter
         
     }
     
-    public function onStart()
+    public function onSuiteStart(PHPT_Suite $suite)
     {
         
     }
     
-    public function onEnd()
+    public function onSuiteEnd(PHPT_Suite $suite)
     {
         
     }
