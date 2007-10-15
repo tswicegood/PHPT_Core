@@ -32,10 +32,7 @@ class PHPT_Case_Parser
                 continue;
             }
             
-            if (!empty($section_data)) {
-                $section_data .= "\n";
-            }
-            $section_data .= trim($line);
+            $section_data .= $line;
         }
         
         // set the last section
@@ -51,6 +48,6 @@ class PHPT_Case_Parser
     private function _createSection($name, $data)
     {
         $object_name = 'PHPT_Section_' . ucfirst(strtolower($name));
-        return new $object_name($data);
+        return new $object_name(rtrim($data));
     }
 }

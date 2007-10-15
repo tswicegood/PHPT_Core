@@ -1,0 +1,13 @@
+--TEST--
+
+The lines after this are trimmed, but nothing within the line itself
+gets trimmed nor the whitespace preceeding it.
+  These spaces are still here, but not the four below
+    
+--FILE--
+<?php
+
+?>
+===DONE===
+--EXPECT--
+===DONE===
