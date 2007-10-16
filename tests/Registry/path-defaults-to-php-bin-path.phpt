@@ -7,7 +7,7 @@ if it exists
 require_once dirname(__FILE__) . '/../_setup.inc';
 $registry = new PHPT_Registry();
 assert('isset($registry->path)');
-assert('$registry->path == dirname(getenv("PATH"))');
+assert('$registry->path == getenv("PATH")');
 
 ?>
 ===DONE===
