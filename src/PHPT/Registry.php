@@ -7,7 +7,7 @@ class PHPT_Registry
     
     public function __construct()
     {
-        $this->path = dirname(getenv('_'));
+        $this->path = getenv('PATH');
     }
     
     public static function getInstance()
