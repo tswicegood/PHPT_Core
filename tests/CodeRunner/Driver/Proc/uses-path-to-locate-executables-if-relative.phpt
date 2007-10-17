@@ -12,8 +12,8 @@ require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Driver_Proc($caller);
-// PHPT_Registry->path will default to dirname($_ENV['PATH']) which is the dirname of the
-// php executable that is executing the test
+// PHPT_Registry->path will default to $_ENV['PATH']) or dirname($_ENV['_']) in the event PATH
+// is not set
 $runner->executable = 'php';
 $runner->validate();
 
