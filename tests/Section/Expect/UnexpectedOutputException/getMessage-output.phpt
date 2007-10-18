@@ -5,7 +5,9 @@ getMessage() returns "output does not match EXPECT section"
 
 require_once dirname(__FILE__) . '/_setup.inc';
 
-$exception = new PHPT_Section_Expect_UnexpectedOutputException(new PHPT_SimpleTestCase(), 'bar');
+$case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
+$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, 'bar');
 echo $exception->getMessage(), "\n";
 
 ?>

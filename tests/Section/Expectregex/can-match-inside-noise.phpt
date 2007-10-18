@@ -8,6 +8,7 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $random = rand(100, 199);
 $case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
 $case->output = <<<END
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris id enim. Vestibulum euismod
 purus condimentum massa. Nullam mauris. Integer justo. Vestibulum ante ipsum primis in
@@ -33,5 +34,7 @@ try {
 
 ?>
 ===DONE===
+--CLEAN--
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===

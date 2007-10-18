@@ -6,7 +6,9 @@ diff is returned
 
 require_once dirname(__FILE__) . '/_setup.inc';
 
-$exception = new PHPT_Section_Expectregex_UnexpectedOutputException(new PHPT_SimpleTestCase(), "one");
+$case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
+$exception = new PHPT_Section_Expectregex_UnexpectedOutputException($case, "one");
 echo $exception->getDiff(), "\n";
 
 ?>

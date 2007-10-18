@@ -6,7 +6,9 @@ a string, shows a diff of the two values it was handed in.
 
 require_once dirname(__FILE__) . '/_setup.inc';
 
-$exception = new PHPT_Section_Expect_UnexpectedOutputException(new PHPT_SimpleTestCase(), "one");
+$case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
+$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, "one");
 echo $exception, "\n";
 
 ?>
