@@ -15,7 +15,6 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
     public function run(PHPT_Case $case)
     {
         if (!$this->_isValid($case)) {
-            $this->_storeExpFile($case->filename);
             throw new $this->_exception(
                 $case,
                 $this->_expected
@@ -25,10 +24,4 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
     }
     
     abstract protected function _isValid(PHPT_Case $case);
-    
-    protected function _storeExpFile($filename)
-    {
-        $exp_filename = $filename . '.exp';
-        file_put_contents($exp_filename, $this->_expected);
-    }
 }
