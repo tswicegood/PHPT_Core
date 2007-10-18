@@ -21,6 +21,11 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
             $case->filename . '.out',
             $case->output
         );
+        
+        file_put_contents(
+            $case->filename . '.diff',
+            $this->getDiff()
+        );
         parent::__construct($case, $this->_message);
     }
     

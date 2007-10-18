@@ -32,6 +32,7 @@ $case->run($reporter);
 <?php
 @unlink(dirname(__FILE__) . '/fake-test-case.phpt.exp');
 @unlink(dirname(__FILE__) . '/fake-test-case.phpt.out');
+@unlink(dirname(__FILE__) . '/fake-test-case.phpt.diff');
 ?>
 --EXPECT--
 PHPT_SimpleReporter::onCaseStart was called
