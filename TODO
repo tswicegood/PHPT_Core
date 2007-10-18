@@ -38,7 +38,7 @@ Prior to v0.1 release
     * [DONE] Create a CaseList capable of iterator across tests
     * [DONE] Create a Case_Runner for tallying pass/fail/skip - done via the Reporter
 * [DONE] Create a PHPT_Reporter for displaying results
-    * Create PHPT_Reporter_PEARRunTest
+    * [DONE] Create PHPT_Reporter_Pear
     * [DONE] Create PHPT_Reporter_Text
 * Fill out implementation for Case_FailureException
     * write to ".out" file
