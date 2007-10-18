@@ -29,7 +29,10 @@ $case->run($reporter);
 ?>
 ===DONE===
 --CLEAN--
-<?php @unlink(dirname(__FILE__) . '/fake-test-case.phpt.exp'); ?>
+<?php
+@unlink(dirname(__FILE__) . '/fake-test-case.phpt.exp');
+@unlink(dirname(__FILE__) . '/fake-test-case.phpt.out');
+?>
 --EXPECT--
 PHPT_SimpleReporter::onCaseStart was called
 PHPT_SimpleReporter::onCaseFail was called
