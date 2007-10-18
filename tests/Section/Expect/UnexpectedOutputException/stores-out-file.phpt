@@ -1,6 +1,6 @@
 --TEST--
 When PHPT_Section_Expect_UnexpectedOutputException is instantiated, it creates
-a .exp file with the expected output
+a .out file with the actual output
 --FILE--
 <?php
 
@@ -9,12 +9,12 @@ require_once dirname(__FILE__) . '/_setup.inc';
 $filename = dirname(__FILE__) . '/foobar.phpt';
 $case = new PHPT_SimpleTestCase();
 $case->filename = $filename;
+$case->output = 'Random Int: ' . rand(100, 200);
 
-$random = 'Random Int: ' . rand(100, 200);
-$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, $random);
+$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, 'foobar');
 
-assert('file_exists($filename . ".exp")');
-assert('trim(file_get_contents($filename . ".exp")) == trim($random)');
+assert('file_exists($filename . ".out")');
+assert('trim(file_get_contents($filename . ".out")) == trim($case->output)');
 
 
 ?>

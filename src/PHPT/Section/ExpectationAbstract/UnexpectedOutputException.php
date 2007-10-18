@@ -16,6 +16,11 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
             $case->filename . '.exp',
             $this->_wanted
         );
+        
+        file_put_contents(
+            $case->filename . '.out',
+            $case->output
+        );
         parent::__construct($case, $this->_message);
     }
     
