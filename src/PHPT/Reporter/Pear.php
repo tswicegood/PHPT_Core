@@ -2,10 +2,10 @@
 
 class PHPT_Reporter_Pear implements PHPT_Reporter
 {
-    private $_failures = array();
-    private $_pass_total = 0;
-    private $_skip_total = 0;
-    private $_timer_start = null;
+    protected $_failures = array();
+    protected $_pass_total = 0;
+    protected $_skip_total = 0;
+    protected $_timer_start = null;
     
     public function __construct()
     {
