@@ -40,11 +40,9 @@ Prior to v0.1 release
 * [DONE] Create a PHPT_Reporter for displaying results
     * [DONE] Create PHPT_Reporter_Pear
     * [DONE] Create PHPT_Reporter_Text
-* Fill out implementation for Case_FailureException
-    * write to ".out" file
-    * getOutput()
 * Fill out implementation for Section_ExpectationAbstract_UnexpectedOutputException
     * [DONE] move write to ".exp" file to exception __construct()
+    * [DONE] write to ".out" file
     * write to ".log" file on __construct()
     * write to ".diff" file on __construct()
     * flag passed in Case->leave_file to leave the .php file in tact
