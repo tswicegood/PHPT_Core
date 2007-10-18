@@ -10,6 +10,8 @@ echo $exception->getMessage(), "\n";
 
 ?>
 ===DONE===
+--CLEAN--
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 output does not match EXPECT section
 ===DONE===

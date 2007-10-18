@@ -29,6 +29,6 @@ try {
 ?>
 ===DONE===
 --CLEAN--
-<?php include dirname(__FILE__) . '/_clean.inc'; ?>
+<?php $base = 'fake-test-case'; include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===

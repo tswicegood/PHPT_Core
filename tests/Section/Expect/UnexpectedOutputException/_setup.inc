@@ -1,10 +1,4 @@
 <?php
 
 require_once dirname(__FILE__) . '/../../../_setup.inc';
-
-class PHPT_SimpleTestCase extends PHPT_Case {
-    public $filename = '';
-    public $output = 'two';
-    public function __construct() { }
-    public function __destruct() { }
-}
+require_once dirname(__FILE__) . '/../../_simple-test-case.inc';

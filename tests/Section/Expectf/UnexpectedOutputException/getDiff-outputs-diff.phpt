@@ -11,6 +11,8 @@ echo $exception->getDiff(), "\n";
 
 ?>
 ===DONE===
+--CLEAN--
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 001- one
 001+ two

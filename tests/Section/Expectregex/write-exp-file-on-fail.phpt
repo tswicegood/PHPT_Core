@@ -31,13 +31,10 @@ try {
 --CLEAN--
 <?php
 
-$dir = dirname(__FILE__);
-$files = scandir($dir);
-foreach ($files as $file) {
-    if (preg_match('/^simple-fake-case.*/', $file)) {
-        unlink($dir . '/' . $file);
-    }
-}
+$base = 'simple-fake-case';
+$path = dirname(__FILE__);
+include dirname(__FILE__) . '/_clean.inc';
+
 ?>
 --EXPECT--
 ===DONE===

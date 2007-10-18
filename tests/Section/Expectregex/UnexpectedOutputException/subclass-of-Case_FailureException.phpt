@@ -10,5 +10,7 @@ assert('$reflection->isSubClassof("PHPT_Case_FailureException")');
 
 ?>
 ===DONE===
+--CLEAN--
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===

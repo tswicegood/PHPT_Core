@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 
 $case = new PHPT_SimpleTestCase();
 $case->output = '';
-$case->filename = dirname(__FILE__) . '/fake-test-case.phpt';
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
 
 $expect = new PHPT_Section_Expectf('%s');
 try {

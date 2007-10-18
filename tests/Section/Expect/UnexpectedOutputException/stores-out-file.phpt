@@ -20,9 +20,6 @@ assert('trim(file_get_contents($filename . ".out")) == trim($case->output)');
 ?>
 ===DONE===
 --CLEAN--
-<?php
-@unlink(dirname(__FILE__) . '/foobar.phpt.out');
-@unlink(dirname(__FILE__) . '/foobar.phpt.exp');
-?>
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===

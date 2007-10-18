@@ -6,7 +6,7 @@ a .out file with the actual output
 
 require_once dirname(__FILE__) . '/_setup.inc';
 
-$filename = dirname(__FILE__) . '/fake-test-case.phpt';
+$filename = dirname(__FILE__) . '/foobar.phpt';
 $case = new PHPT_SimpleTestCase();
 $case->filename = $filename;
 $case->output = 'Random Int: ' . rand(100, 200);
@@ -20,9 +20,6 @@ assert('trim(file_get_contents($filename . ".out")) == trim($case->output)');
 ?>
 ===DONE===
 --CLEAN--
-<?php
-@unlink(dirname(__FILE__) . '/foobar.phpt.out');
-@unlink(dirname(__FILE__) . '/foobar.phpt.exp');
-?>
+<?php $path = dirname(__FILE__); include dirname(__FILE__) . '/_clean.inc'; ?>
 --EXPECT--
 ===DONE===
