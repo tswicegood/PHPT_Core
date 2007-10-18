@@ -90,3 +90,4 @@ Prior to v0.2 release
 * Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
     * Add Case_Validator_UnableToRunInOutputBuffer to determine if a Case can run within output
       buffer mode
+* Add "priority" to Sections, lower #s are executed first
