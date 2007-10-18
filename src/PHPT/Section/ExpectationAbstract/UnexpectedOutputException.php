@@ -7,9 +7,9 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
     protected $_actual = null;
     protected $_message = '';
     
-    public function __construct(PHPT_Case $case, $reason)
+    public function __construct(PHPT_Case $case, $expected)
     {
-        $this->_wanted = $reason;
+        $this->_wanted = $expected;
         $this->_actual = $case->output;
         parent::__construct($case, $this->_message);
     }
