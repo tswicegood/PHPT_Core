@@ -44,7 +44,7 @@ Prior to v0.1 release
     * [DONE] move write to ".exp" file to exception __construct()
     * [DONE] write to ".out" file
     * write to ".log" file on __construct()
-    * write to ".diff" file on __construct()
+    * [DONE] write to ".diff" file on __construct()
     * flag passed in Case->leave_file to leave the .php file in tact
 * Make sure all extraneous files are removed after a test passes
 * Create PHPT_Controller_CLI for handling interaction from commandline 
