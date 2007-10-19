@@ -8,7 +8,6 @@ class PHPT_Controller_CLI implements PHPT_Controller
     }
     
     /**
-     * @todo add support for $path being an actual file (instantiate Suite directly?)
      * @todo put every long-command into PHPT_Registry
      *
      * @todo refactor getopt parsing into another class
@@ -40,8 +39,13 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $recursive = in_array('--recursive', $options);
         
         $path = array_pop($options);
-        $factory = new PHPT_Suite_Factory();
-        $suite = $factory->factory($path, $recursive);
+        
+        if (is_dir($path)) {
+            $factory = new PHPT_Suite_Factory();
+            $suite = $factory->factory($path, $recursive);
+        } else {
+            $suite = new PHPT_Suite(array($path));
+        }
         
         $real_reporter_name = 'PHPT_Reporter_' . $reporter_name;
         if ($quiet) {
