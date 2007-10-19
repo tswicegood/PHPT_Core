@@ -15,6 +15,7 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
     public function run(PHPT_Case $case)
     {
         if (!$this->_isValid($case)) {
+            $case->leave_file = true;
             throw new $this->_exception(
                 $case,
                 $this->_expected

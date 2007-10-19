@@ -7,6 +7,7 @@ class PHPT_SimpleTestCase extends PHPT_Case {
     public $filename = 'foobar.phpt';
     public $output = 'two';
     public $sections = array();
+    public $leave_file = false;
     public function __construct() { }
     public function __destruct() { }
 }
