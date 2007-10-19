@@ -11,6 +11,7 @@ class PHPT_Registry
         if ($this->path === false) {
             $this->path = dirname(getenv('_'));
         }
+        $this->opts = array();
     }
     
     public static function getInstance()
