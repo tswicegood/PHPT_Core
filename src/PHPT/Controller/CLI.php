@@ -15,30 +15,15 @@ class PHPT_Controller_CLI implements PHPT_Controller
      */
     public function run(array $options = array())
     {
-        $reporter_name = 'Text';
-        $reporter_found = false;
-        $quiet = false;
-        
-        foreach ($options as $key => $value) {
-            if ($reporter_found) {
-                $reporter_name = $value;
-                $reporter_found = false;
-                continue;
-            }
-            switch ($value) {
-                case '--reporter' :
-                    $reporter_found = true;
-                    continue;
-                
-                case '--quiet' :
-                    $quiet = true;
-                    continue;
-            }
-            
-        }
-        $recursive = in_array('--recursive', $options);
-        
         $path = array_pop($options);
+        
+        $opt_parser = new PHPT_Util_CLI_OptParser();
+        $opt_parser->parse($options);
+        
+        $registry = PHPT_Registry::getInstance();
+        $recursive = isset($registry->opts['recursive']);
+        $reporter_name = isset($registry->opts['reporter']) ? $registry->opts['reporter'] : 'Text';
+        $quiet = isset($registry->opts['quiet']);
         
         if (is_dir($path)) {
             $factory = new PHPT_Suite_Factory();
