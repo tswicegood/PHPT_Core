@@ -9,7 +9,17 @@ class PHPT_Controller_CLI implements PHPT_Controller
     
     public function run(array $options = array())
     {
+        $phpt = array_shift($options);
+        if (basename($phpt) != 'phpt' && !is_null($phpt)) {
+            // put it back on if it isn't "phpt"
+            array_unshift($options, $phpt);
+        }
+        
         $path = array_pop($options);
+        if (!is_file($path) && !is_dir($path)) {
+            $options[] = $path;
+            $path = getcwd();
+        }
         
         $opt_parser = new PHPT_Util_CLI_OptParser();
         $opt_parser->parse($options);
