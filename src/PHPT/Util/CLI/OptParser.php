@@ -12,9 +12,14 @@ class PHPT_Util_CLI_OptParser
         $encountered = null;
         $parsed_opts = array();
         foreach ($opts as $value) {
-            if (!is_null($encountered) && $value{0} != '-') {
-                $parsed_opts[$encountered] = $value;
-                continue;
+            if (!is_null($encountered)) {
+                if ($value{0} != '-') {
+                    $parsed_opts[$encountered] = $value;
+                    $encountered = null;
+                    continue;
+                } else {
+                    $parsed_opts[$encountered] = true;
+                }
             }
             
             if (substr($value, 0, 2) == '--') {
@@ -26,6 +31,11 @@ class PHPT_Util_CLI_OptParser
                     $parsed_opts[$letter] = true;
                 }
             }
+        }
+        
+        // add any trailing entries
+        if (!is_null($encountered)) {
+            $parsed_opts[$encountered] = true;
         }
         
         PHPT_Registry::getInstance()->opts = $parsed_opts;
