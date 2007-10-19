@@ -7,9 +7,6 @@ class PHPT_Controller_CLI implements PHPT_Controller
         
     }
     
-    /**
-     * @todo add error handling when a requested reporter doesn't exist
-     */
     public function run(array $options = array())
     {
         $path = array_pop($options);
@@ -37,6 +34,12 @@ class PHPT_Controller_CLI implements PHPT_Controller
                 $real_reporter_name .= 'Quiet';
             }
         }
+        
+        if (!class_exists($real_reporter_name, true)) {
+            echo "Error: Unable to locate reporter {$reporter_name}\n";
+            exit(101);
+        }
+        
         $reporter = new $real_reporter_name();
         $suite->run($reporter);
     }
