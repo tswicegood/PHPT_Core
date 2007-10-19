@@ -27,7 +27,7 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $registry = PHPT_Registry::getInstance();
         $recursive = isset($registry->opts['recursive']);
         $reporter_name = isset($registry->opts['reporter']) ? $registry->opts['reporter'] : 'Text';
-        $quiet = isset($registry->opts['quiet']);
+        $quiet = isset($registry->opts['quiet']) || isset($registry->opts['q']);
         
         if (is_dir($path)) {
             $factory = new PHPT_Suite_Factory();
