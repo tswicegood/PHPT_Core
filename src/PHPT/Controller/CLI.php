@@ -25,7 +25,7 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $opt_parser->parse($options);
         
         $registry = PHPT_Registry::getInstance();
-        $recursive = isset($registry->opts['recursive']);
+        $recursive = isset($registry->opts['recursive']) || isset($registry->opts['r']);
         $reporter_name = isset($registry->opts['reporter']) ? $registry->opts['reporter'] : 'Text';
         $quiet = isset($registry->opts['quiet']) || isset($registry->opts['q']);
         
