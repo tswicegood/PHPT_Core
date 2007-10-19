@@ -43,7 +43,7 @@ Prior to v0.1 release
 * Fill out implementation for Section_ExpectationAbstract_UnexpectedOutputException
     * [DONE] move write to ".exp" file to exception __construct()
     * [DONE] write to ".out" file
-    * write to ".log" file on __construct()
+    * [DONE] write to ".log" file on __construct()
     * [DONE] write to ".diff" file on __construct()
     * flag passed in Case->leave_file to leave the .php file in tact
 * Make sure all extraneous files are removed after a test passes
