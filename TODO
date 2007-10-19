@@ -20,9 +20,9 @@ Prior to v0.1 release
     * [DONE] parsing post-run secionts
         * [DONE] create clean, expect, expectf, and expectregexp sections
     * [DONE] returning a ready-to-run test case
-* Create a test case/code runner
+* [DONE] Create a test case/code runner
     * [DONE] Add CodeRunner_Driver_Proc to handle proc_open() runs
-    * Add CodeRunner_OutputBuffer to handle ob_start() based runs
+    * [DONE] Add CodeRunner_OutputBuffer to handle ob_start() based runs
 * [DONE] Create CodeRunner_Factory for building CodeRunner instances that are ready to run.
   Should be able to:
     * [DONE] Set environment vars if present in test case
