@@ -8,9 +8,6 @@ class PHPT_Controller_CLI implements PHPT_Controller
     }
     
     /**
-     * @todo put every long-command into PHPT_Registry
-     *
-     * @todo refactor getopt parsing into another class
      * @todo add error handling when a requested reporter doesn't exist
      */
     public function run(array $options = array())
