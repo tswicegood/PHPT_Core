@@ -26,6 +26,11 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
             $case->filename . '.diff',
             $this->getDiff()
         );
+        
+        file_put_contents(
+            $case->filename . '.log',
+            $this->_getLog($case, $expected)
+        );
         parent::__construct($case, $this->_message);
     }
     
@@ -37,5 +42,14 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
     public function getDiff()
     {
         return (string)new PHPT_Util_Diff($this->_wanted, $this->_actual);
+    }
+    
+    private function _getLog(PHPT_Case $case, $expected)
+    {
+        return "---- EXPECTED OUTPUT\n"
+            . $expected . "\n"
+            . "---- ACTUAL OUTPUT\n"
+            . $case->output . "\n"
+            . "---- FAILED\n";
     }
 }
