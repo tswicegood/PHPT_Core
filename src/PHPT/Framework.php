@@ -19,7 +19,7 @@ class PHPT_Framework
         }
         
         $class_name_without_namespace = substr($class, self::$namespace_length);
-        require self::$base_path . '/' . str_replace('_', '/', $class_name_without_namespace) . '.php';
+        @include self::$base_path . '/' . str_replace('_', '/', $class_name_without_namespace) . '.php';
     }
 }
 

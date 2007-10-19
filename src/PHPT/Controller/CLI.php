@@ -8,7 +8,6 @@ class PHPT_Controller_CLI implements PHPT_Controller
     }
     
     /**
-     * @todo add support for "--quiet" - map to --report TextQuiet
      * @todo add support for $path being an actual file (instantiate Suite directly?)
      * @todo put every long-command into PHPT_Registry
      *
@@ -19,6 +18,7 @@ class PHPT_Controller_CLI implements PHPT_Controller
     {
         $reporter_name = 'Text';
         $reporter_found = false;
+        $quiet = false;
         
         foreach ($options as $key => $value) {
             if ($reporter_found) {
@@ -26,10 +26,16 @@ class PHPT_Controller_CLI implements PHPT_Controller
                 $reporter_found = false;
                 continue;
             }
-            if ($value == '--reporter') {
-                $reporter_found = true;
-                continue;
+            switch ($value) {
+                case '--reporter' :
+                    $reporter_found = true;
+                    continue;
+                
+                case '--quiet' :
+                    $quiet = true;
+                    continue;
             }
+            
         }
         $recursive = in_array('--recursive', $options);
         
@@ -37,8 +43,15 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $factory = new PHPT_Suite_Factory();
         $suite = $factory->factory($path, $recursive);
         
-        $reporter_name = 'PHPT_Reporter_' . $reporter_name;
-        $reporter = new $reporter_name();
+        $real_reporter_name = 'PHPT_Reporter_' . $reporter_name;
+        if ($quiet) {
+            if (!class_exists($real_reporter_name . 'Quiet', true)) {
+                echo "Error: No quiet {$reporter_name} reporter available\n";
+            } else {
+                $real_reporter_name .= 'Quiet';
+            }
+        }
+        $reporter = new $real_reporter_name();
         $suite->run($reporter);
     }
 }
