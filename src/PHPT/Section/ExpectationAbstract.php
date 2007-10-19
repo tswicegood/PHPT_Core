@@ -21,7 +21,17 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
                 $this->_expected
             );
         }
-
+        
+        $path = dirname($case->filename);
+        $dir = scandir($path);
+        
+        // "foobar.php.*" is a match
+        $base_file = basename($case->filename) . '.';
+        foreach ($dir as $file) {
+            if (strstr($file, $base_file) !== false) {
+                unlink("{$path}/{$file}");
+            }
+        }
     }
     
     abstract protected function _isValid(PHPT_Case $case);
