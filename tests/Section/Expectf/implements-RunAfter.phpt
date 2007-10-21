@@ -1,12 +1,12 @@
 --TEST--
-PHPT_Section_Expectf implements PHPT_Section_RunAfter 
+PHPT_Section_Expectf implements PHPT_Section_RunnableAfter 
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $section = new PHPT_Section_Expectf('');
-assert('$section instanceof PHPT_Section_RunAfter');
+assert('$section instanceof PHPT_Section_RunnableAfter');
 
 ?>
 ===DONE===

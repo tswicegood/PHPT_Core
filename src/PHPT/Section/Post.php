@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Post implements PHPT_Section_RunBefore, PHPT_Section_EnvModifier
+class PHPT_Section_Post implements PHPT_Section_RunnableBefore, PHPT_Section_EnvModifier
 {
     public $file = '';
     public $raw_data = '';

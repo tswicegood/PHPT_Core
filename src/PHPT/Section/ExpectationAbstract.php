@@ -1,6 +1,6 @@
 <?php
 
-abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunAfter
+abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_RunnableAfter
 {
     protected $_expected = null;
     private $_exception = 'PHPT_Section_%s_UnexpectedOutputException';

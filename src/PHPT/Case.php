@@ -28,14 +28,14 @@ class PHPT_Case
     {
         $reporter->onCaseStart($this);
         try {
-            if ($this->sections->filterByInterface('RunBefore')->valid()) {
+            if ($this->sections->filterByInterface('RunnableBefore')->valid()) {
                 foreach ($this->sections as $section) {
                     $section->run($this);
                 }
             }
             $this->sections->filterByInterface();
             $this->sections->FILE->run($this);
-            if ($this->sections->filterByInterface('RunAfter')->valid()) {
+            if ($this->sections->filterByInterface('RunnableAfter')->valid()) {
                 foreach ($this->sections as $section) {
                     $section->run($this);
                 }

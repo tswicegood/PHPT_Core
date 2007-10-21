@@ -1,11 +1,11 @@
 --TEST--
-PHPT_Section_RunBefore is an interface
+PHPT_Section_RunnableBefore is an interface
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$reflection = new ReflectionClass('PHPT_Section_RunBefore');
+$reflection = new ReflectionClass('PHPT_Section_RunnableBefore');
 assert('$reflection->isInterface()');
 
 ?>

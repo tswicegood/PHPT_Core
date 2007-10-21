@@ -1,18 +1,18 @@
 --TEST--
-Any sections that implement the PHPT_Section_RunBefore interface are run prior
+Any sections that implement the PHPT_Section_RunnableBefore interface are run prior
 to running the FILE section
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-class PHPT_Section_SimpleBeforeOne implements PHPT_Section_RunBefore {
+class PHPT_Section_SimpleBeforeOne implements PHPT_Section_RunnableBefore {
     public function run(PHPT_Case $case) {
         echo __CLASS__ . " called\n";
     }
 }
 
-class PHPT_Section_SimpleBeforeTwo implements PHPT_Section_RunBefore {
+class PHPT_Section_SimpleBeforeTwo implements PHPT_Section_RunnableBefore {
     public function run(PHPT_Case $case) {
         echo __CLASS__ . " called\n";
     }
