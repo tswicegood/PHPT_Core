@@ -4,6 +4,7 @@
     
     <property name="version" value="0.1alpha" />
     <property name="package_name" value="PHPT_Core" />
+    <property name="channel" value="channel.phpt.info" />
     
     <target name="clean">
         <delete dir="./build/package" />
@@ -35,7 +36,7 @@
         <d51pearpkg2 dir="./build/package" baseinstalldir="/">
             <name>${package_name}</name>
             <summary>PHPT_Core provides the core of PHPT testing framework</summary>
-            <channel>channel.phpt.info</channel>
+            <channel>${channel}</channel>
             <description indentions_to_remove="16">
                 <!--        Don't exceed this width         -->
                 PHPT_Core provides the base parser and core set
@@ -44,7 +45,6 @@
                 
                 * ability to create custom sections
                 * ability to create custom reporters
-                * a simple CLI tool for running tests
             </description>
             
             <lead user="tswicegood" name="Travis Swicegood" email="developer@domain51.com" />
