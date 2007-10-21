@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PHP_Core" basedir="." default="make">
+    <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
+    
+    <property name="version" value="0.1alpha" />
+    <property name="package_name" value="PHPT_Core" />
+    
+    <target name="clean">
+        <delete dir="./build/package" />
+        <delete dir="./build/export" />
+        <delete file="./${package_name}-${version}.tgz" />
+        
+        <mkdir dir="./build/package" />
+    </target>
+        
+    <target name="export" depends="clean">
+        <echo msg="Exporting SVN files" />
+        <exec command="svn export ./src ./build/export" />
+        <exec command="svn export ./scripts ./build/export/scripts" />
+        
+        <copy todir="./build/package">
+            <filterchain>
+                <replacetokens begintoken="@@" endtoken="@@">
+                    <token key="VERSION" value="${version}" />
+                </replacetokens>
+            </filterchain>
+            <fileset dir="./build/export">
+                <include name="PHPT*/**" />
+                <include name="scripts*/**" />
+            </fileset>
+        </copy>
+    </target>
+    
+    <target name="build" depends="export">
+        <d51pearpkg2 dir="./build/package" baseinstalldir="/">
+            <name>${package_name}</name>
+            <summary>PHPT_Core provides the core of PHPT testing framework</summary>
+            <channel>channel.phpt.info</channel>
+            <description indentions_to_remove="16">
+                <!--        Don't exceed this width         -->
+                PHPT_Core provides the base parser and core set
+                of Sections necessary to parse most .phpt test
+                case files.  It provides:
+                
+                * ability to create custom sections
+                * ability to create custom reporters
+                * a simple CLI tool for running tests
+            </description>
+            
+            <lead user="tswicegood" name="Travis Swicegood" email="developer@domain51.com" />
+            <license>LGPL/CDDL</license>
+            
+            <version release="${version}" api="1.0" />
+            <stability release="alpha" api="alpha" />
+            
+            <dirroles key="scripts">script</dirroles>
+            <replacement path="scripts/phpt.php" type="pear-config" from="@php_bin@" to="php_bin" />
+            <release>
+                <install as="phpt" name="scripts/phpt.php" />
+            </release>
+            
+            <changelog version="0.1alpha" date="2007-10-19">
+                This is the initial alpha release of this package
+            </changelog>
+        </d51pearpkg2>
+    </target>
+    
+    <target name="make" depends="build">
+        <echo msg="Creating PEAR archive file for ${package_name}" />
+        <mkdir dir="./build/package/${package_name}-${version}" />
+        <copy todir="./build/package/${package_name}-${version}">
+            <fileset dir="./build/package">
+                <include name="PHPT/**/**" />
+                <include name="scripts*/**" />
+            </fileset>
+        </copy>
+        <delete dir="./build/package/PHPT" />
+        <tar compression="gzip" destfile="${package_name}-${version}.tgz" basedir="./build/package" />
+    </target>
+    
+    <target name="docs" depends="export">
+        <echo msg="Creating documentation" />
+        <phpdoc title="${package_name} Docs" 
+            destdir="./apidocs"
+            sourcecode="./build"
+            output="HTML:frames:DOM/earthli"
+        >
+            <fileset dir="./build/export">
+                <include name="**" />
+            </fileset>
+        </phpdoc>
+    </target>
+</project>
