@@ -53,6 +53,12 @@
             <version release="${version}" api="1.0" />
             <stability release="alpha" api="alpha" />
             
+            <dependencies>
+                <php minimum_version="5.2.0" />
+                
+                <pear minimum_version="1.6.0" />
+            </dependencies>
+            
             <dirroles key="scripts">script</dirroles>
             <replacement path="scripts/phpt.php" type="pear-config" from="@php_bin@" to="php_bin" />
             <release>
