@@ -1,18 +1,3 @@
-### Possible v0.1, maybe v0.2
-* Add tests to all Sections insuring that they are instantiated with a string:
-    - assert('is_string($data)');
-* Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
-  unless the particular test case has to modify the environment.
-* Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
-  in environment vars
-* Make CodeRunner_Driver_Proc code fail gracefully on Windows
-* Get working on basic PHP install on Windows
-* Add timer to Reporter_Text output
-
-### Goals
-* Capable of running its own tests
-* Capable of running all of the tests in PEAR
-
 Prior to v0.2 release
 ---------------------
 * Add Section_FileModifier interface for modifying Section_File
@@ -32,8 +17,17 @@ Prior to v0.2 release
     * Add Case_Validator_UnableToRunInOutputBuffer to determine if a Case can run within output
       buffer mode
 * Add "priority" to Sections, lower #s are executed first
+* Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
+  unless the particular test case has to modify the environment.
+* Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
+  in environment vars
+* Make CodeRunner_Driver_Proc code fail gracefully on Windows
+* Get working on basic PHP install on Windows
+* Add timer to Reporter_Text output
 
 
 Floating tasks
 --------------
 * Add Growl reporter for Mac OS X
+* Add tests to all Sections insuring that they are instantiated with a string:
+    - assert('is_string($data)');
