@@ -1,8 +1,8 @@
 Prior to v0.2 release
 ---------------------
-* Add Section_FileModifier interface for modifying Section_File
-* Implement Section_Redirecttest
-* Add Section_FileModifier interface for modifying the FILE section
+* Move to all upper case for real sections (i.e., PHPT_Section_Expect to PHPT_Section_EXPECT)
+* Add Section_FILEModifier interface for modifying Section_FILE
+* Implement Section_REDIRECTTEST
 * Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
   object.
 * Consider having a Section_Helper_FileIncluder capable of automatically loading a "_section.inc"
