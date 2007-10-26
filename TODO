@@ -2,12 +2,6 @@ Prior to v0.2 release
 ---------------------
 * Add Section_FileModifier interface for modifying Section_File
 * Implement Section_Redirecttest
-* Add SETUP section
-    * Add ability to have blank --SETUP-- automatically include _setup.inc
-* Add TEARDOWN section
-    * Add ability to have blank --TEARDOWN-- automatically include _teardown.inc
-* Add ASSERT and/or ASSERTOBJECT section
-    * Add ability to have blank --ASSERTOBJECT-- automatically include __assertobject.inc
 * Add Section_FileModifier interface for modifying the FILE section
 * Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
   object.
