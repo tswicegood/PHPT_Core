@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Post implements PHPT_Section_RunnableBefore, PHPT_Section_EnvModifier
+class PHPT_Section_POST implements PHPT_Section_RunnableBefore, PHPT_Section_ENVModifier
 {
     public $file = '';
     public $raw_data = '';
@@ -24,7 +24,7 @@ class PHPT_Section_Post implements PHPT_Section_RunnableBefore, PHPT_Section_Env
         file_put_contents($this->file, $this->raw_data);
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_ENV $env)
     {
         $env->data['REQUEST_METHOD'] = 'POST';
         $env->data['CONTENT_TYPE'] = 'application/x-www-form-urlencoded';

@@ -1,5 +1,5 @@
 --TEST--
-When Section_Expect fails, it should write a .exp file with the expected outcome.
+When Section_EXPECT fails, it should write a .exp file with the expected outcome.
 --FILE--
 <?php
 
@@ -18,10 +18,10 @@ $case->filename = $filename;
 $case->output = 'bar';
 
 $expect_data = "foo: " . rand(100, 200);
-$expect = new PHPT_Section_Expect($expect_data);
+$expect = new PHPT_Section_EXPECT($expect_data);
 try {
     $expect->run($case);
-} catch (PHPT_Section_Expect_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECT_UnexpectedOutputException $e) {
     assert('file_exists($exp_filename)');
     assert('trim(file_get_contents($exp_filename)) == $expect_data');
 }

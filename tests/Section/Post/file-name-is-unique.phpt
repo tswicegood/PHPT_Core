@@ -1,5 +1,5 @@
 --TEST--
-PHPT_Section_Post::$file is always unique
+PHPT_Section_POST::$file is always unique
 --FILE--
 <?php
 
@@ -9,8 +9,8 @@ $post_data =<<<END
 msg=Hello+World
 END;
 
-$one = new PHPT_Section_Post($post_data);
-$two = new PHPT_Section_Post($post_data);
+$one = new PHPT_Section_POST($post_data);
+$two = new PHPT_Section_POST($post_data);
 assert('$one->file != $two->file');
 
 ?>

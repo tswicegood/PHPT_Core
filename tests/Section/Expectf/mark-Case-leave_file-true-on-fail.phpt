@@ -1,5 +1,5 @@
 --TEST--
-If PHPT_Section_Expectf fails, mark Case->leave_file as true
+If PHPT_Section_EXPECTF fails, mark Case->leave_file as true
 --FILE--
 <?php
 
@@ -13,10 +13,10 @@ $case->output = "foobar";
 // sanity check
 assert('$case->laeve_file == false');
 
-$expect = new PHPT_Section_Expectf('barfoo');
+$expect = new PHPT_Section_EXPECTF('barfoo');
 try {
     $expect->run($case);
-} catch (PHPT_Section_Expectf_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTF_UnexpectedOutputException $e) {
     
 }
 

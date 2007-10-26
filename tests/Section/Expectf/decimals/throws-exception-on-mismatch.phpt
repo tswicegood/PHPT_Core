@@ -10,11 +10,11 @@ $case = new PHPT_SimpleTestCase();
 $case->output = 'this string contains no decimals';
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
 
-$section = new PHPT_Section_Expectf('%d');
+$section = new PHPT_Section_EXPECTF('%d');
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectf_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTF_UnexpectedOutputException $e) {
     
 }
 

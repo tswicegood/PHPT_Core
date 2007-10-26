@@ -4,7 +4,7 @@
  * @todo this needs to be updated to current PHP standards instead of this original
  *       values set forth from PEAR_RunTests
  */
-class PHPT_Section_Expectf extends PHPT_Section_ExpectationAbstract
+class PHPT_Section_EXPECTF extends PHPT_Section_ExpectationAbstract
 {
     private $_real_pattern = '';
     

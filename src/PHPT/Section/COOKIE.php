@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Cookie implements PHPT_Section_EnvModifier
+class PHPT_Section_COOKIE implements PHPT_Section_ENVModifier
 {
     private $_data = '';
     
@@ -9,7 +9,7 @@ class PHPT_Section_Cookie implements PHPT_Section_EnvModifier
         $this->_data = $data;
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_ENV $env)
     {
         $env->data['HTTP_COOKIE'] = (string)$this;
     }

@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->output = '!';
 
-$section = new PHPT_Section_Expectf('%s');
+$section = new PHPT_Section_EXPECTF('%s');
 $section->run($case);
 
 ?>

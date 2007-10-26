@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Ini implements PHPT_Section
+class PHPT_Section_INI implements PHPT_Section
 {
     private $_default_values = array(
         'output_handler' => '',

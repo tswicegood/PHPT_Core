@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->output = 'this string contains a float 0.123';
 
-$section = new PHPT_Section_Expectf('%f');
+$section = new PHPT_Section_EXPECTF('%f');
 $section->run($case);
 
 ?>

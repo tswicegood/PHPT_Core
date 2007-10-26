@@ -1,5 +1,5 @@
 --TEST--
-PHPT_Section_Postraw::$file is created during run with the contents that
+PHPT_Section_POSTRAW::$file is created during run with the contents that
 the object was instantiated with
 --FILE--
 <?php
@@ -12,7 +12,7 @@ a[0]=1&a[1]=2
 END;
 
 $case = new PHPT_SimpleTestCase();
-$post = new PHPT_Section_Postraw($post_data);
+$post = new PHPT_Section_POSTRAW($post_data);
 
 assert('!empty($post->file)');
 assert('!file_exists($post->file)');

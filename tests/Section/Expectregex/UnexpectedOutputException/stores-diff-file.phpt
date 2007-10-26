@@ -1,5 +1,5 @@
 --TEST--
-When PHPT_Section_Expectregex_UnexpectedOutputException is instantiated, it creates
+When PHPT_Section_EXPECTREGEX_UnexpectedOutputException is instantiated, it creates
 a .diff file with the expected output
 --FILE--
 <?php
@@ -10,7 +10,7 @@ $filename = dirname(__FILE__) . '/foobar.phpt';
 $case = new PHPT_SimpleTestCase();
 $case->filename = $filename;
 
-$exception = new PHPT_Section_Expectregex_UnexpectedOutputException($case, 'one');
+$exception = new PHPT_Section_EXPECTREGEX_UnexpectedOutputException($case, 'one');
 
 $expected = "001- one\n" .
     "001+ two";

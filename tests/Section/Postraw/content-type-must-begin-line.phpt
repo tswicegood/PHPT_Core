@@ -7,8 +7,8 @@ trigger setting a custom content-type.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $post_data = ' Content-Type: not set';
-$env = new PHPT_Section_Env();
-$post = new PHPT_Section_Postraw($post_data);
+$env = new PHPT_Section_ENV();
+$post = new PHPT_Section_POSTRAW($post_data);
 $post->modifyEnv($env);
 echo $env->data['CONTENT_TYPE'], "\n";
 

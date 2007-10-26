@@ -12,10 +12,10 @@ on the supplied $reporter object, if any.
 require_once dirname(__FILE__) . '/../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-reporter.inc';
 
-$test = new PHPT_Section_Test('simple hello world');
-$file = new PHPT_Section_File('<?php echo "Hello World!"; ?>');
-$expect = new PHPT_Section_Expect('Hello World!');
-$skip = new PHPT_Section_Skipif('skip - always skip');
+$test = new PHPT_Section_TEST('simple hello world');
+$file = new PHPT_Section_FILE('<?php echo "Hello World!"; ?>');
+$expect = new PHPT_Section_EXPECT('Hello World!');
+$skip = new PHPT_Section_SKIPIF('skip - always skip');
 $list = new PHPT_SectionList(array(
     $test,
     $file,

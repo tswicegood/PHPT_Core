@@ -6,7 +6,7 @@ If a SectionList contains a section of $name, has($name) will return true
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $list = new PHPT_SectionList(array(
-    new PHPT_Section_Env(''),
+    new PHPT_Section_ENV(''),
 ));
 
 assert('$list->has("ENV") == true');

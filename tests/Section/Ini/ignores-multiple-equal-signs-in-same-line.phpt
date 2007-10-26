@@ -7,7 +7,7 @@ used for split.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $ini_data = 'message=Contains=multiple equals (=) signs';
-$ini = new PHPT_Section_Ini($ini_data);
+$ini = new PHPT_Section_INI($ini_data);
 assert('$ini->data["message"] == "Contains=multiple equals (=) signs"');
 
 ?>

@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/_foobar-coderunner.inc';
 
 $runner = new FoobarCodeRunner();
 $args = '-f --int ' . rand(100, 200);
-$runner->args = new PHPT_Section_Args($args);
+$runner->args = new PHPT_Section_ARGS($args);
 
 $command = new PHPT_CodeRunner_CommandLine($runner);
 echo $command, "\n";

@@ -22,7 +22,7 @@ assert('$case_positive->output == (float)$case_positive->output');
 assert('$case_negative->output == (float)$case_negative->output');
 assert('$case_short->output == (float)$case_short->output');
 
-$section = new PHPT_Section_Expectf('%f');
+$section = new PHPT_Section_EXPECTF('%f');
 $section->run($case_positive);
 $section->run($case_negative);
 $section->run($case_short);

@@ -1,6 +1,6 @@
 --TEST--
-PHPT_Section_Expectregex will throw a
-PHPT_Section_Expectregex_UnexpectedOutputException when the data
+PHPT_Section_EXPECTREGEX will throw a
+PHPT_Section_EXPECTREGEX_UnexpectedOutputException when the data
 it is instantiated with does not match the $output property of the
 provided PHPT_Case object.
 --FILE--
@@ -15,11 +15,11 @@ $case->output = '';
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $pattern = '/.{1}/';
-$expect = new PHPT_Section_Expectregex($pattern);
+$expect = new PHPT_Section_EXPECTREGEX($pattern);
 try {
     $expect->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectregex_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTREGEX_UnexpectedOutputException $e) {
     
 }
 

@@ -5,7 +5,7 @@ A property can be accessed directly as a property using its key
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$env = new PHPT_Section_Env('');
+$env = new PHPT_Section_ENV('');
 $list = new PHPT_SectionList(array($env));
 
 assert('$list->ENV == $env');

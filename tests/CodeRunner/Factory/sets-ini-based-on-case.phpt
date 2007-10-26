@@ -13,7 +13,7 @@ class FoobarTestCase extends PHPT_Case
     
     public function __construct() {
         $this->sections = new PHPT_SectionList(array(
-            new PHPT_Section_Ini('foo=bar'),
+            new PHPT_Section_INI('foo=bar'),
         ));
     }
     

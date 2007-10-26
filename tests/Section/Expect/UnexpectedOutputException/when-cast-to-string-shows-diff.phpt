@@ -1,5 +1,5 @@
 --TEST--
-When a PHPT_Section_Expect_UnexpectedOutputException is cast to
+When a PHPT_Section_EXPECT_UnexpectedOutputException is cast to
 a string, shows a diff of the two values it was handed in.
 --FILE--
 <?php
@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/_setup.inc';
 
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
-$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, "one");
+$exception = new PHPT_Section_EXPECT_UnexpectedOutputException($case, "one");
 echo $exception, "\n";
 
 ?>

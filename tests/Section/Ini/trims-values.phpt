@@ -6,7 +6,7 @@ Any whitespace in the value is trimmed
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $ini_data = "key=  has two spaces at front and one tab at end of key\t";
-$ini = new PHPT_Section_Ini($ini_data);
+$ini = new PHPT_Section_INI($ini_data);
 assert('$ini->data["key"] == "has two spaces at front and one tab at end of key"');
 
 ?>

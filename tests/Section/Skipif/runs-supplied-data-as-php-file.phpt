@@ -10,7 +10,7 @@ $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $data = "<?php echo 's', 'k', 'i', 'p'; ?>";
-$section = new PHPT_Section_Skipif($data);
+$section = new PHPT_Section_SKIPIF($data);
 try {
     $section->run($case);
     trigger_error('exception not caught');

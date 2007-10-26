@@ -1,12 +1,12 @@
 --TEST--
-When PHPT_Section_Args is cast to a string, its data is represented
+When PHPT_Section_ARGS is cast to a string, its data is represented
 with a leading " -- "
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-echo new PHPT_Section_Args('--foo=bar --random=' . rand(100, 200)), "\n";
+echo new PHPT_Section_ARGS('--foo=bar --random=' . rand(100, 200)), "\n";
 
 
 ?>

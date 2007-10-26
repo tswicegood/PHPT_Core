@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Clean implements PHPT_Section_RunnableAfter
+class PHPT_Section_CLEAN implements PHPT_Section_RunnableAfter
 {
     public $filename = null;
     public $output = '';

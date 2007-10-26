@@ -1,5 +1,5 @@
 --TEST--
-If PHPT_Section_Expectregex fails, mark Case->leave_file as true
+If PHPT_Section_EXPECTREGEX fails, mark Case->leave_file as true
 --FILE--
 <?php
 
@@ -13,10 +13,10 @@ $case->output = "foobar";
 // sanity check
 assert('$case->leave_file == false');
 
-$expect = new PHPT_Section_Expectregex('barfoo');
+$expect = new PHPT_Section_EXPECTREGEX('barfoo');
 try {
     $expect->run($case);
-} catch (PHPT_Section_Expectregex_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTREGEX_UnexpectedOutputException $e) {
     
 }
 

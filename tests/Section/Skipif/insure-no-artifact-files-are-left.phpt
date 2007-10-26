@@ -1,5 +1,5 @@
 --TEST--
-No artifacts are left from a successful PHPT_Section_Skipif::run()
+No artifacts are left from a successful PHPT_Section_SKIPIF::run()
 --FILE--
 <?php
 
@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new PHPT_Section_Skipif('pass');
+$section = new PHPT_Section_SKIPIF('pass');
 $directory_before_run = scandir(dirname(__FILE__));
 $section->run($case);
 $directory_after_run = scandir(dirname(__FILE__));

@@ -6,7 +6,7 @@ PHPT_Case_InvalidCaseException will be thrown.
 
 require_once dirname(__FILE__) . '/../../../_setup.inc';
 
-$file = new PHPT_Section_File('foobar');
+$file = new PHPT_Section_FILE('foobar');
 $file->filename = dirname(__FILE__) . '/fake-test-case.phpt';
 
 $sections = new PHPT_SectionList(array($file));

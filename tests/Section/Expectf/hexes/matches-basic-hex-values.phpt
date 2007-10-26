@@ -12,7 +12,7 @@ $case = new PHPT_SimpleTestCase();
 $case->output = '0129AF';
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new PHPT_Section_Expectf('%x');
+$section = new PHPT_Section_EXPECTF('%x');
 $section->run($case);
 
 ?>

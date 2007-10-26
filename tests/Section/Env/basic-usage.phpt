@@ -1,5 +1,5 @@
 --TEST--
-Domain51_Section_Env handles the ENV block.  It parses key/value pairs from
+Domain51_Section_ENV handles the ENV block.  It parses key/value pairs from
 the block, each line being a new pair, and makes those values available
 via the data property.
 --FILE--
@@ -20,7 +20,7 @@ trims=this line and the next final blank line here
 
 END;
 
-$env = new PHPT_Section_Env($env_data);
+$env = new PHPT_Section_ENV($env_data);
 $expected = array(
     'foo' => 'bar',
     'random' => $random,

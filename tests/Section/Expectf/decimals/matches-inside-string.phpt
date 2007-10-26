@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->output = 'this string contains 1 decimal';
 
-$section = new PHPT_Section_Expectf('this string contains %d decimal');
+$section = new PHPT_Section_EXPECTF('this string contains %d decimal');
 $section->run($case);
 
 ?>

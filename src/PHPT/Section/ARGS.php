@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Args implements PHPT_Section
+class PHPT_Section_ARGS implements PHPT_Section
 {
     private $_data = '';
     

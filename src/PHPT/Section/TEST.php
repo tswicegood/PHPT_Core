@@ -1,8 +1,8 @@
 <?php
 
-class PHPT_Section_Stdin implements PHPT_Section
+class PHPT_Section_TEST implements PHPT_Section
 {
-    private $_data = null;
+    private $_data = '';
     
     public function __construct($data)
     {

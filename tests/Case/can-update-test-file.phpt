@@ -10,11 +10,11 @@ $filename = dirname(__FILE__) . '/some-fake-test-case.php';
 $code = "<?php
 echo 'Hello world...';
 ?>";
-$file = new PHPT_Section_File($code);
+$file = new PHPT_Section_FILE($code);
 $file->filename = $filename;
 
 $sections = new PHPT_SectionList(array(
-    new PHPT_Section_Test('foobar'),
+    new PHPT_Section_TEST('foobar'),
     $file,
 ));
 

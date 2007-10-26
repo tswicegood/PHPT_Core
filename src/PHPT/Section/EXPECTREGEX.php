@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Expectregex extends PHPT_Section_ExpectationAbstract
+class PHPT_Section_EXPECTREGEX extends PHPT_Section_ExpectationAbstract
 {
     protected function _isValid(PHPT_Case $case)
     {
@@ -16,7 +16,7 @@ class PHPT_Section_Expectregex extends PHPT_Section_ExpectationAbstract
         $matches = null;
         $result = @preg_match($pattern, $case->output, $matches);
         if (is_null($matches)) {
-            throw new PHPT_Section_Expectregex_InvalidRegexException($case, $pattern);
+            throw new PHPT_Section_EXPECTREGEX_InvalidRegexException($case, $pattern);
         }
         return $result;
     }

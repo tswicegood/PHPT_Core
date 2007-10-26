@@ -10,7 +10,7 @@ $case = new PHPT_SimpleTestCase();
 $case->output = "text with +0.001 inside";
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new PHPT_Section_Expectf("text with %f inside");
+$section = new PHPT_Section_EXPECTF("text with %f inside");
 $section->run($case);
 
 ?>

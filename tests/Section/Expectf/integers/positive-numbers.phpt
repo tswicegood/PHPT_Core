@@ -10,7 +10,7 @@ $case = new PHPT_SimpleTestCase();
 $case->output = "text with +123 inside";
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new PHPT_Section_Expectf("text with %i inside");
+$section = new PHPT_Section_EXPECTF("text with %i inside");
 $section->run($case);
 
 ?>

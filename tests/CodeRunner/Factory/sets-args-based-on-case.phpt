@@ -12,7 +12,7 @@ class FoobarTestCase extends PHPT_Case
     public $sections = null;
     
     public function __construct() {
-        $this->sections = new PHPT_SectionList(array(new PHPT_Section_Args('-foo=bar')));
+        $this->sections = new PHPT_SectionList(array(new PHPT_Section_ARGS('-foo=bar')));
     }
     
     public function __destruct() { }

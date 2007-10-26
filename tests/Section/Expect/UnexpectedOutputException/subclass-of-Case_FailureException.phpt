@@ -1,11 +1,11 @@
 --TEST--
-PHPT_Section_Expect_UnexpectedOutputException is a subclass of PHPT_Case_FailureException
+PHPT_Section_EXPECT_UnexpectedOutputException is a subclass of PHPT_Case_FailureException
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../../_setup.inc';
 
-$reflection = new ReflectionClass('PHPT_Section_Expect_UnexpectedOutputException');
+$reflection = new ReflectionClass('PHPT_Section_EXPECT_UnexpectedOutputException');
 assert('$reflection->isSubClassof("PHPT_Case_FailureException")');
 
 ?>

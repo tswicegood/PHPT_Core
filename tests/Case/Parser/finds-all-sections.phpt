@@ -15,11 +15,11 @@ $case = $parser->parse($test_file);
 
 assert('$case->sections instanceof PHPT_SectionList');
 
-assert('$case->sections->current() instanceof PHPT_Section_Test');
+assert('$case->sections->current() instanceof PHPT_Section_TEST');
 $case->sections->next();
-assert('$case->sections->current() instanceof PHPT_Section_File');
+assert('$case->sections->current() instanceof PHPT_Section_FILE');
 $case->sections->next();
-assert('$case->sections->current() instanceof PHPT_Section_Expect');
+assert('$case->sections->current() instanceof PHPT_Section_EXPECT');
 
 
 ?>

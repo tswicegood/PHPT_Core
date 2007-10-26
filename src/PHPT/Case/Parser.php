@@ -47,7 +47,7 @@ class PHPT_Case_Parser
     
     private function _createSection($name, $data)
     {
-        $object_name = 'PHPT_Section_' . ucfirst(strtolower($name));
+        $object_name = 'PHPT_Section_' . $name;
         return new $object_name(rtrim($data));
     }
 }

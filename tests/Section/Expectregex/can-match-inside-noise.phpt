@@ -21,14 +21,14 @@ mollis in, condimentum et, ante. Suspendisse dui turpis, aliquam sed, ultricies 
 nec, velit. Duis cursus turpis vitae nisi.
 END;
 
-$section = new PHPT_Section_Expectregex('.*Random Int: 1[0-9]{2}.*');
+$section = new PHPT_Section_EXPECTREGEX('.*Random Int: 1[0-9]{2}.*');
 $section->run($case);
 
 // this one should not match
-$section = new PHPT_Section_Expectregex('/^Random Int: 1[0-9]{2}.*/');
+$section = new PHPT_Section_EXPECTREGEX('/^Random Int: 1[0-9]{2}.*/');
 try {
     $section->run($case);
-} catch (PHPT_Section_Expectregex_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTREGEX_UnexpectedOutputException $e) {
     
 }
 

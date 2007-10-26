@@ -6,7 +6,7 @@ the current value
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$env = new PHPT_Section_Env('');
+$env = new PHPT_Section_ENV('');
 $data = array(
     'foo' => $env,
 );

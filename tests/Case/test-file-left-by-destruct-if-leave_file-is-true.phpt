@@ -12,11 +12,11 @@ $code = "<?php
 echo 'Hello world...';
 ?>";
 
-$file = new PHPT_Section_File($code);
+$file = new PHPT_Section_FILE($code);
 $file->filename = $filename;
 
 $sections = new PHPT_SectionList(array(
-    new PHPT_Section_Test($name),
+    new PHPT_Section_TEST($name),
     $file,
 ));
 

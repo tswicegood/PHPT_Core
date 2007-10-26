@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Env implements PHPT_Section_Runnable
+class PHPT_Section_ENV implements PHPT_Section_Runnable
 {
     public $data = array();
     private $_default_values_to_empty = array(

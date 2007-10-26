@@ -1,15 +1,15 @@
 --TEST--
-If no data or an empty string is passed into Section_Post, no file parameter is
+If no data or an empty string is passed into Section_POST, no file parameter is
 created.
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$post = new PHPT_Section_Post('');
+$post = new PHPT_Section_POST('');
 assert('empty($post->file)');
 
-$post = new PHPT_Section_Post();
+$post = new PHPT_Section_POST();
 assert('empty($post->file)');
 
 ?>

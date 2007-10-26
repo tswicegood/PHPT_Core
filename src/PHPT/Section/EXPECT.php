@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Expect extends PHPT_Section_ExpectationAbstract
+class PHPT_Section_EXPECT extends PHPT_Section_ExpectationAbstract
 {
     protected function _isValid(PHPT_Case $case)
     {

@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Skipif implements PHPT_Section_RunnableBefore
+class PHPT_Section_SKIPIF implements PHPT_Section_RunnableBefore
 {
     private $_data = null;
     

@@ -10,8 +10,8 @@ require_once dirname(__FILE__) . '/_simple-env-modifier.inc';
 
 $case = new PHPT_SimpleTestCase();
 $sectionList = new PHPT_SectionList(array(
-    'ENV' => new PHPT_Section_Env(''),
-    'INI' => new PHPT_Section_Ini(''),
+    'ENV' => new PHPT_Section_ENV(''),
+    'INI' => new PHPT_Section_INI(''),
     'fake' => new PHPT_Section_SimpleEnvModifier(''),
 ));
 
@@ -22,7 +22,7 @@ foreach ($sectionList as $value) {
 
 $case->sections = $sectionList;
 
-$env = new PHPT_Section_Env('');
+$env = new PHPT_Section_ENV('');
 $env->run($case);
 
 $after_run = array();

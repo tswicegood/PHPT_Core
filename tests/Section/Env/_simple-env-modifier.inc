@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_SimpleEnvModifier implements PHPT_Section_EnvModifier
+class PHPT_Section_SimpleENVModifier implements PHPT_Section_ENVModifier
 {
     public $key = '';
     public $value = '';
@@ -10,7 +10,7 @@ class PHPT_Section_SimpleEnvModifier implements PHPT_Section_EnvModifier
         
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_ENV $env)
     {
         $env->data[$this->key] = $this->value;
     }

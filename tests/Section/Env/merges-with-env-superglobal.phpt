@@ -15,7 +15,7 @@ $env_data = <<<END
 foo=bar
 END;
 
-$env = new PHPT_Section_Env($env_data);
+$env = new PHPT_Section_ENV($env_data);
 
 $expected = array(
     'foo' => 'bar',

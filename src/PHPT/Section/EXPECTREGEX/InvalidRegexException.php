@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Expectregex_InvalidRegexException extends PHPT_Case_FailureException
+class PHPT_Section_EXPECTREGEX_InvalidRegexException extends PHPT_Case_FailureException
 {
     public function __construct(PHPT_Case $case, $pattern)
     {

@@ -1,5 +1,5 @@
 --TEST--
-When a PHPT_Section_Clean object is destroyed, it removes the
+When a PHPT_Section_CLEAN object is destroyed, it removes the
 file it created during run().
 --FILE--
 <?php
@@ -11,7 +11,7 @@ $random = rand(100, 200);
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . "/some-random-{$random}-test.php";
 
-$clean = new PHPT_Section_Clean('foo');
+$clean = new PHPT_Section_CLEAN('foo');
 $clean->run($case);
 $clean_filename = $clean->filename;
 unset($clean);

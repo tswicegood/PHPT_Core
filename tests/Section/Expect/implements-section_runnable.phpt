@@ -1,10 +1,10 @@
 --TEST--
-PHPT_Section_Expect implements PHPT_Section_Runnable
+PHPT_Section_EXPECT implements PHPT_Section_Runnable
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-$reflection = new ReflectionClass('PHPT_Section_Expect');
+$reflection = new ReflectionClass('PHPT_Section_EXPECT');
 assert('$reflection->implementsInterface("PHPT_Section_Runnable")');
 
 ?>

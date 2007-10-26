@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_File implements PHPT_Section_Runnable
+class PHPT_Section_FILE implements PHPT_Section_Runnable
 {
     public $leave_file = false;
     

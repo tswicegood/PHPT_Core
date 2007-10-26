@@ -12,7 +12,7 @@ class FoobarTestCase extends PHPT_Case
     public $sections = null;
     
     public function __construct() {
-        $post = new PHPT_Section_Post('foo=bar');
+        $post = new PHPT_Section_POST('foo=bar');
         $post->file = 'foobar.php';
         $this->sections = new PHPT_SectionList(array(
             $post,

@@ -1,6 +1,6 @@
 --TEST--
-PHPT_Section_Env::run() will iterator over all of the supplied Case::$sections
-values, and if the value is an instanceof PHPT_Section_EnvModifier, it will
+PHPT_Section_ENV::run() will iterator over all of the supplied Case::$sections
+values, and if the value is an instanceof PHPT_Section_ENVModifier, it will
 call modifyEnv() and supply it with a copy of itself.
 --FILE--
 <?php
@@ -19,7 +19,7 @@ $case->sections = new PHPT_SectionList(
     array($modifier)
 );
 
-$env = new PHPT_Section_Env('foo=bar');
+$env = new PHPT_Section_ENV('foo=bar');
 assert('!isset($env->data[$modifier->key])');
 $env->run($case);
 assert('isset($env->data[$modifier->key])');

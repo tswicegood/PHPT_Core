@@ -10,11 +10,11 @@ $case = new PHPT_SimpleTestCase();
 $case->output = 'some string';
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
 
-$expect = new PHPT_Section_Expectf('%i');
+$expect = new PHPT_Section_EXPECTF('%i');
 try {
     $expect->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectf_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECTF_UnexpectedOutputException $e) {
     
 }
 

@@ -8,10 +8,10 @@ require_once dirname(__FILE__) . '/../_setup.inc';
 
 $random = rand(100, 200);
 $case_data = '<?php echo "' . $random . '"; ?>';
-$file = new PHPT_Section_File($case_data);
+$file = new PHPT_Section_FILE($case_data);
 $file->filename = dirname(__FILE__) . '/fake-test-case.php';
 $sections = new PHPT_SectionList(array(
-    new PHPT_Section_Test('foobar'),
+    new PHPT_Section_TEST('foobar'),
     $file
 ));
 

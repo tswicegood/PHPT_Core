@@ -1,5 +1,5 @@
 --TEST--
-When a Domain1_Test_Section_Ini is cast to a string, the string is capable of
+When a Domain1_Test_Section_INI is cast to a string, the string is capable of
 being used in a command-line.
 --FILE--
 <?php
@@ -7,7 +7,7 @@ being used in a command-line.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $ini_data = "message=Hello World";
-$ini = new PHPT_Section_Ini($ini_data);
+$ini = new PHPT_Section_INI($ini_data);
 $expected = '-d "message=Hello World" '
     . '-d "output_handler=" '
     . '-d "open_basedir=" '

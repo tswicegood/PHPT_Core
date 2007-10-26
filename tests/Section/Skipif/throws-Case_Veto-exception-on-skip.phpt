@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$section = new PHPT_Section_Skipif('skip');
+$section = new PHPT_Section_SKIPIF('skip');
 try {
     $section->run($case);
     trigger_error('exception not caught');

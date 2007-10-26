@@ -7,7 +7,7 @@ list object so it can be chained.
 require_once dirname(__FILE__) . '/../_setup.inc';
 
 $data = array(
-    'INI' => new PHPT_Section_Ini(''),
+    'INI' => new PHPT_Section_INI(''),
 );
 
 $list = new PHPT_SectionList($data);

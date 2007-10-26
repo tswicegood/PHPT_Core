@@ -10,7 +10,7 @@ line1=foo
 line2=bar
 END;
 
-$post = new PHPT_Section_Postraw($post_data);
+$post = new PHPT_Section_POSTRAW($post_data);
 $case = new PHPT_SimpleTestCase();
 $post->run($case);
 

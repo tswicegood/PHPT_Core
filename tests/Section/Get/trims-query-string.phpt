@@ -5,9 +5,9 @@ The query string will have any leading and trailing whitespace trimmed
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$env = new PHPT_Section_Env();
+$env = new PHPT_Section_ENV();
 $get_data = "  trims two spaces from left and tab from right\t";
-$get = new PHPT_Section_Get($get_data);
+$get = new PHPT_Section_GET($get_data);
 $get->modifyEnv($env);
 assert('$env->data["QUERY_STRING"] == "trims two spaces from left and tab from right"');
 

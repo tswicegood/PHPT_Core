@@ -1,5 +1,5 @@
 --TEST--
-If the data passed in to PHPT_Section_Expectregex ends in "===DONE===", that will be
+If the data passed in to PHPT_Section_EXPECTREGEX ends in "===DONE===", that will be
 stripped from the regex during comparison
 --FILE--
 <?php
@@ -15,7 +15,7 @@ foobar1[0-9]{2}
 ===DONE===
 END;
 
-$section = new PHPT_Section_Expectregex($data);
+$section = new PHPT_Section_EXPECTREGEX($data);
 $section->run($case);
 
 ?>

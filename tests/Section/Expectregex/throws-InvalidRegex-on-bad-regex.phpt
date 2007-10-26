@@ -1,5 +1,5 @@
 --TEST--
-When the regex pattern provided is invalid, a PHPT_Section_Expectregex_InvalidRegexException
+When the regex pattern provided is invalid, a PHPT_Section_EXPECTREGEX_InvalidRegexException
 will be thrown
 --FILE--
 <?php
@@ -10,27 +10,27 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->output = 'foobar';
 
-$section = new PHPT_Section_Expectregex('/no ending delimiter');
+$section = new PHPT_Section_EXPECTREGEX('/no ending delimiter');
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectregex_InvalidRegexException $e) {
+} catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
     echo $e->getMessage(), "\n";
 }
 
-$section = new PHPT_Section_Expectregex('no beginng delimiter/');
+$section = new PHPT_Section_EXPECTREGEX('no beginng delimiter/');
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectregex_InvalidRegexException $e) {
+} catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
     echo $e->getMessage(), "\n";
 }
 
-$section = new PHPT_Section_Expectregex('/unknown /Q modifier/');
+$section = new PHPT_Section_EXPECTREGEX('/unknown /Q modifier/');
 try {
     $section->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expectregex_InvalidRegexException $e) {
+} catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
     echo $e->getMessage(), "\n";
 }
 

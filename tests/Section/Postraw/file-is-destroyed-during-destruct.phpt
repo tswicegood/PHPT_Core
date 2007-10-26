@@ -1,5 +1,5 @@
 --TEST--
-When a PHPT_Section_Postraw object is destroyed after the $file is
+When a PHPT_Section_POSTRAW object is destroyed after the $file is
 created, __destruct() will remove the file.
 --FILE--
 <?php
@@ -12,7 +12,7 @@ msg=Hello+World
 END;
 
 $case = new PHPT_SimpleTestCase();
-$post = new PHPT_Section_Postraw($post_data);
+$post = new PHPT_Section_POSTRAW($post_data);
 $post->run($case);
 $filename = $post->file;
 

@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/_setup.inc';
 
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
-$exception = new PHPT_Section_Expectregex_UnexpectedOutputException($case, 'bar');
+$exception = new PHPT_Section_EXPECTREGEX_UnexpectedOutputException($case, 'bar');
 echo $exception->getMessage(), "\n";
 
 ?>

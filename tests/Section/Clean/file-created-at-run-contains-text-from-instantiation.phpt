@@ -1,5 +1,5 @@
 --TEST--
-When PHPT_Section_Clean::run() is called, a file at the
+When PHPT_Section_CLEAN::run() is called, a file at the
 location specified by the $filename property is created containing the
 $data value used at instantiation.
 --FILE--
@@ -15,7 +15,7 @@ $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.php';
 
 $random = (string)rand(100, 200);
-$clean = new PHPT_Section_Clean($random);
+$clean = new PHPT_Section_CLEAN($random);
 $clean->run($case);
 
 assert('trim(file_get_contents(dirname(__FILE__) . "/foobar.clean.php")) == $random');

@@ -16,7 +16,7 @@ for ($i = 0; $i < 5; $i++) {
 
 $case->output = 'foobar';
 
-$section = new PHPT_Section_Expect('foobar');
+$section = new PHPT_Section_EXPECT('foobar');
 $section->run($case);
 
 $count = 0;

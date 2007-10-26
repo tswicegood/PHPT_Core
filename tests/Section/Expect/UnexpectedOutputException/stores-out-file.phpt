@@ -1,5 +1,5 @@
 --TEST--
-When PHPT_Section_Expect_UnexpectedOutputException is instantiated, it creates
+When PHPT_Section_EXPECT_UnexpectedOutputException is instantiated, it creates
 a .out file with the actual output
 --FILE--
 <?php
@@ -11,7 +11,7 @@ $case = new PHPT_SimpleTestCase();
 $case->filename = $filename;
 $case->output = 'Random Int: ' . rand(100, 200);
 
-$exception = new PHPT_Section_Expect_UnexpectedOutputException($case, 'foobar');
+$exception = new PHPT_Section_EXPECT_UnexpectedOutputException($case, 'foobar');
 
 assert('file_exists($filename . ".out")');
 assert('trim(file_get_contents($filename . ".out")) == trim($case->output)');

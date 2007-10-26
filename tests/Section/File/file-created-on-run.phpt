@@ -11,7 +11,7 @@ $case->filename = dirname(__FILE__) . '/fake-test-case.phpt';
 
 $code = 'Hello World';
 
-$file = new PHPT_Section_File($code);
+$file = new PHPT_Section_FILE($code);
 
 $expected_file = dirname(__FILE__). '/fake-test-case.php';
 assert('file_exists($expected_file) == false');

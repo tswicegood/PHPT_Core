@@ -11,15 +11,15 @@ $case->output = '1';
 // set filename in mock as some PHP installs won't allow writing to files beginning with a period
 $case->filename = dirname(__FILE__) . '/fake-test-case.php';
 
-$expect = new PHPT_Section_Expect('1');
+$expect = new PHPT_Section_EXPECT('1');
 $expect->run($case);
 // nothing happens
 
-$expect = new PHPT_Section_Expect('01');
+$expect = new PHPT_Section_EXPECT('01');
 try {
     $expect->run($case);
     trigger_error('exception not caught');
-} catch (PHPT_Section_Expect_UnexpectedOutputException $e) {
+} catch (PHPT_Section_EXPECT_UnexpectedOutputException $e) {
     
 }
 ?>

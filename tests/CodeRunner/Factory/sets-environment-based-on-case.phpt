@@ -13,7 +13,7 @@ class FoobarTestCase extends PHPT_Case
     
     public function __construct() {
         $this->sections = new PHPT_SectionList(array(
-            new PHPT_Section_Env('random=' . rand(100, 200)),
+            new PHPT_Section_ENV('random=' . rand(100, 200)),
         ));
     }
 }

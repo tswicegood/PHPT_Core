@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_Postraw extends PHPT_Section_Post
+class PHPT_Section_POSTRAW extends PHPT_Section_POST
 {
     private $_content_type = null;
     
@@ -25,7 +25,7 @@ class PHPT_Section_Postraw extends PHPT_Section_Post
         parent::__construct($real_data);
     }
     
-    public function modifyEnv(PHPT_Section_Env $env)
+    public function modifyEnv(PHPT_Section_ENV $env)
     {
         parent::modifyEnv($env);
         if (!is_null($this->_content_type)) {

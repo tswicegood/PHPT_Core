@@ -18,7 +18,7 @@ class PHPT_Section_SimpleBeforeTwo implements PHPT_Section_RunnableBefore {
     }
 }
 
-$file = new PHPT_Section_File("Hello World!\n");
+$file = new PHPT_Section_FILE("Hello World!\n");
 $file->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $case = new PHPT_Case(
