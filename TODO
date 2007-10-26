@@ -5,12 +5,12 @@ Prior to v0.2 release
 * Implement Section_REDIRECTTEST
 * Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
   object.
-* Consider having a Section_Helper_FileIncluder capable of automatically loading a "_section.inc"
-  file if it's present.
+* Add Section_Helper_FileIncluder capable of automatically loading a "_section.inc" file if present
+* Add Section_Helper_FileIncluder code to all sections
 * Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
     * Add Case_Validator_UnableToRunInOutputBuffer to determine if a Case can run within output
       buffer mode
-* Add "priority" to Sections, lower #s are executed first
+* Add "getPriority()" to PHPT_Section_Runnable, lower #s are executed first
 * Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
   unless the particular test case has to modify the environment.
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
@@ -18,10 +18,16 @@ Prior to v0.2 release
 * Make CodeRunner_Driver_Proc code fail gracefully on Windows
 * Get working on basic PHP install on Windows
 * Add timer to Reporter_Text output
+* Add support for loading php.ini via INI section
+* Add support for picking up php.ini file if present in same dir as test
+* eval() code in ENV section prior to parsing it
+* Add PHPT_Case_Parser_Exception to wrap around any exceptions thrown while parsing the test file
+* Add PHPT_Reporter::onCaseParseError()
 
 
 Floating tasks
 --------------
+* Start adding API docs to the interfaces
 * Add Growl reporter for Mac OS X
 * Add tests to all Sections insuring that they are instantiated with a string:
     - assert('is_string($data)');
