@@ -49,6 +49,11 @@ class PHPT_Section_FILE implements PHPT_Section_Runnable
     
     public function run(PHPT_Case $case)
     {
+        if ($case->sections->filterByInterface('FILEModifier')->valid()) {
+            foreach ($case->sections as $section) {
+                $section->modifyFile($this);
+            }
+        }
         $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
         $case->output = $this->_runner->run($this->_filename)->output;
     }
