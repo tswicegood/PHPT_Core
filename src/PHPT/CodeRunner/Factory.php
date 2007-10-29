@@ -5,7 +5,7 @@ class PHPT_CodeRunner_Factory
     public function factory(PHPT_Case $case)
     {
         $reg = PHPT_Registry::getInstance();
-        if (isset($reg->opts['quick'])) {
+        if (isset($reg->opts['quick']) && $case->is('OutputBufferCompatible')) {
             $runner = new PHPT_CodeRunner('OutputBuffer');
         } else {
             $runner = new PHPT_CodeRunner();
