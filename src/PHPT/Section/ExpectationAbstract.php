@@ -36,7 +36,7 @@ abstract class PHPT_Section_ExpectationAbstract implements PHPT_Section_Runnable
     
     public function getPriority()
     {
-        
+        return 100;
     }
     
     abstract protected function _isValid(PHPT_Case $case);
