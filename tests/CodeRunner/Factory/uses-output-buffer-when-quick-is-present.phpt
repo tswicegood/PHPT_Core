@@ -13,7 +13,7 @@ class PHPT_SimpleTestCase extends PHPT_Case {
     }
     public function __destruct() { }
     public function is() {
-        return false;
+        return true;
     }
 }
 
