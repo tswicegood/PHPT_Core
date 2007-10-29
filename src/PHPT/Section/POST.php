@@ -26,7 +26,7 @@ class PHPT_Section_POST implements PHPT_Section_RunnableBefore, PHPT_Section_ENV
     
     public function getPriority()
     {
-        
+        return 50;
     }
     
     public function modifyEnv(PHPT_Section_ENV $env)
