@@ -28,6 +28,6 @@ class PHPT_Section_SKIPIF implements PHPT_Section_RunnableBefore
     
     public function getPriority()
     {
-        
+        return 0;
     }
 }
