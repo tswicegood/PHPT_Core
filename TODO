@@ -9,12 +9,12 @@ Prior to v0.2 release
 * Add Section_Helper_FileIncluder capable of automatically loading a "_section.inc" file if present
 * Add Section_Helper_FileIncluder code to all sections
 * [DONE] Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
-    * Add Case_Validator_UnableToRunInOutputBuffer to determine if a Case can run within output
+    * Add Case_Validator_OutputBufferCompatible to determine if a Case can run within output
       buffer mode
 * Add "getPriority()" to PHPT_Section_Runnable, lower #s are executed first
-* Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
+* [DONE] Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
   unless the particular test case has to modify the environment.
-    * Add check to make sure a test can be run in OutputBuffer mode prior to running
+    * [DONE] Add check to make sure a test can be run in OutputBuffer mode prior to running
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
 * Make CodeRunner_Driver_Proc code fail gracefully on Windows
