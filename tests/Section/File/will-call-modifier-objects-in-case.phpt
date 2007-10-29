@@ -6,13 +6,7 @@ implement the Section_FILEModifier interface
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
-
-class PHPT_SimpleFileModifier implements PHPT_Section, PHPT_Section_FILEModifier
-{
-    public function modifyFile(PHPT_Section_FILE $file) {
-        echo __METHOD__, " was called\n";
-    }
-}
+require_once dirname(__FILE__) . '/_simple-file-modifier.inc';
 
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
