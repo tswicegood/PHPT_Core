@@ -12,6 +12,8 @@ Prior to v0.2 release
     * Add Case_Validator_OutputBufferCompatible to determine if a Case can run within output
       buffer mode
 * Add "getPriority()" to PHPT_Section_Runnable, lower #s are executed first
+    * [DONE] Add PHPT_Section_Runnable::getPriority()
+    * Add sorting to PHPT_SectionList based on getPriority()
 * [DONE] Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
   unless the particular test case has to modify the environment.
     * [DONE] Add check to make sure a test can be run in OutputBuffer mode prior to running
