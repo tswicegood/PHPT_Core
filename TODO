@@ -1,6 +1,6 @@
 Prior to v0.2 release
 ---------------------
-* Move to all upper case for real sections (i.e., PHPT_Section_Expect to PHPT_Section_EXPECT)
+* [DONE] Move to all upper case for real sections (i.e., PHPT_Section_Expect to PHPT_Section_EXPECT)
 * Add Section_FILEModifier interface for modifying Section_FILE
 * Implement Section_REDIRECTTEST
 * Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
