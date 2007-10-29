@@ -1,5 +1,6 @@
 --TEST--
 PHPT_Case::validate() requires all objects passed to it be an instanceof PHPT_Case_Validator
+--ARGS--
 --FILE--
 <?php
 

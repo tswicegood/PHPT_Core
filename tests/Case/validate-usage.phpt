@@ -1,5 +1,6 @@
 --TEST--
 PHPT_Case::validate() will call validate() on the provided object
+--ARGS--
 --FILE--
 <?php
 

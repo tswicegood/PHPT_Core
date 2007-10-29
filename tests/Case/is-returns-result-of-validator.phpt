@@ -1,5 +1,6 @@
 --TEST--
 is() returns the result of the Validator object that it is used with
+--ARGS--
 --FILE--
 <?php
 

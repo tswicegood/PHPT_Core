@@ -1,6 +1,7 @@
 --TEST--
 When a string is used or PHPT_Case::validate(), it must point to an object that implements
 PHPT_Case_Validator
+--ARGS--
 --FILE--
 <?php
 

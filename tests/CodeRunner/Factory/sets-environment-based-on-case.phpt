@@ -1,6 +1,7 @@
 --TEST--
 The returned PHPT_CodeRunner has its $environment property set based on the
 Test_Case's sections->ENV->data value.
+--ARGS--
 --FILE--
 <?php
 

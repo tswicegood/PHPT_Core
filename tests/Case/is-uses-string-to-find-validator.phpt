@@ -1,6 +1,7 @@
 --TEST--
 If PHPT_Case::is() is provided with a string, it will be appended to "PHPT_Case_Validator_"
 to attempt to find a validator to use.
+--ARGS--
 --FILE--
 <?php
 

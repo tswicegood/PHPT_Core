@@ -1,6 +1,7 @@
 --TEST--
 If the executable is unknown (such as a bad one passed in via the Registry), a
 PHPT_Case_VetoException will be thrown
+--ARGS--
 --FILE--
 <?php
 

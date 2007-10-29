@@ -1,5 +1,6 @@
 --TEST--
 If $stdin property is not null, it will be cast to string prior to being passed in
+--ARGS--
 --FILE--
 <?php
 

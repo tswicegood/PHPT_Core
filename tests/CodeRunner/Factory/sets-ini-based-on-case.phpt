@@ -1,6 +1,7 @@
 --TEST--
 The returned PHPT_CodeRunner has its $ini property set based on the
 Test_Case's (string)sections->INI value.
+--ARGS--
 --FILE--
 <?php
 

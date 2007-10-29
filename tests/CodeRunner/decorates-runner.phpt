@@ -1,6 +1,7 @@
 --TEST--
 PHPT_CodeRunner decorates the real runner, i.e., the PHPT_CodeRunner_Driver_$name
 object
+--ARGS--
 --FILE--
 <?php
 

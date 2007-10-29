@@ -1,5 +1,6 @@
 --TEST--
 Takes the string value of $ini and injects it in the command line
+--ARGS--
 --FILE--
 <?php
 

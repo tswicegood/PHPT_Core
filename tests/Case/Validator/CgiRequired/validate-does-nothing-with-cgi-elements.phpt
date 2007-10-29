@@ -1,5 +1,6 @@
 --TEST--
 If Case->sections contains any CgiElement objects, validate() will do nothing
+--ARGS--
 --FILE--
 <?php
 

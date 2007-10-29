@@ -1,6 +1,7 @@
 --TEST--
 If a Case answers is('CgiRequired') and Registry->cgi_executable is set, use that value
 instead of the default "php".
+--ARGS--
 --FILE--
 <?php
 

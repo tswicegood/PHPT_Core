@@ -1,6 +1,7 @@
 --TEST--
 The returned PHPT_CodeRunner has its $post_filename property set based on the
 Test_Case's sections->POSTRAW->file value.
+--ARGS--
 --FILE--
 <?php
 
