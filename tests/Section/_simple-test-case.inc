@@ -8,6 +8,8 @@ class PHPT_SimpleTestCase extends PHPT_Case {
     public $output = 'two';
     public $sections = array();
     public $leave_file = false;
-    public function __construct() { }
+    public function __construct() {
+        $this->sections = new PHPT_SectionList(array());
+    }
     public function __destruct() { }
 }
