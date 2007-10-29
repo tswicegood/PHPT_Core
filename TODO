@@ -26,7 +26,8 @@ Prior to v0.2 release
 * Add PHPT_Case_Parser_Exception to wrap around any exceptions thrown while parsing the test file
 * Add PHPT_Reporter::onCaseParseError()
 * Catch user abort and still display final output
-
+* Add --TESTOPTION-- section to allow options to be set on a per-test basis
+* or add --NOOUTPUTBUFFER-- section to keep it from running in OutputBuffer mode
 
 Floating tasks
 --------------
