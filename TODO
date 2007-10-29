@@ -5,6 +5,7 @@ Prior to v0.2 release
 * [DONE] Make Section_FILE modifiable by any other sections that implement Section_FILEModifier interface
 * Implement Section_REDIRECTTEST
 * [DONE] Create PHPT_Section_ModifiableAbstrct abstract to handle one object modifying another object.
+* Add test to insure Section_FILE uses factory (other than Controller_CLI test by proxy)
 * Add Section_Helper_FileIncluder capable of automatically loading a "_section.inc" file if present
 * Add Section_Helper_FileIncluder code to all sections
 * Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
@@ -13,6 +14,7 @@ Prior to v0.2 release
 * Add "getPriority()" to PHPT_Section_Runnable, lower #s are executed first
 * Add in code at the CodeRunner_Factory level that will always return a CodeRunner_OutputBuffer
   unless the particular test case has to modify the environment.
+    * Add check to make sure a test can be run in OutputBuffer mode prior to running
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
 * Make CodeRunner_Driver_Proc code fail gracefully on Windows

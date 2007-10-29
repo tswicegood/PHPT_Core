@@ -6,13 +6,13 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
     
     private $_contents = '';
     private $_filename = '';
-    private $_runner = null;
+    private $_runner_factory = null;
     
     public function __construct($data)
     {
         parent::__construct($data);
         $this->_contents = $data;
-        $this->_runner = new PHPT_CodeRunner();
+        $this->_runner_factory = new PHPT_CodeRunner_Factory();
     }
     
     public function __destruct()
@@ -52,6 +52,6 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
     {
         parent::run($case);
         $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
-        $case->output = $this->_runner->run($this->_filename)->output;
+        $case->output = $this->_runner_factory->factory($case)->run($this->_filename)->output;
     }
 }

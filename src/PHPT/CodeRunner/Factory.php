@@ -4,7 +4,12 @@ class PHPT_CodeRunner_Factory
 {
     public function factory(PHPT_Case $case)
     {
-        $runner = new PHPT_CodeRunner();
+        $reg = PHPT_Registry::getInstance();
+        if (isset($reg->opts['quick'])) {
+            $runner = new PHPT_CodeRunner('OutputBuffer');
+        } else {
+            $runner = new PHPT_CodeRunner();
+        }
         if ($case->sections->has('ENV')) {
             $runner->environment = $case->sections->ENV->data;
         }
