@@ -27,4 +27,9 @@ class PHPT_Section_CLEAN implements PHPT_Section_RunnableAfter
         $result = $runner->run($this->filename);
         $this->output = $result->output;
     }
+    
+    public function getPriority()
+    {
+        
+    }
 }

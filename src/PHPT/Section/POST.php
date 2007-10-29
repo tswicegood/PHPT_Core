@@ -24,6 +24,11 @@ class PHPT_Section_POST implements PHPT_Section_RunnableBefore, PHPT_Section_ENV
         file_put_contents($this->file, $this->raw_data);
     }
     
+    public function getPriority()
+    {
+        
+    }
+    
     public function modifyEnv(PHPT_Section_ENV $env)
     {
         $env->data['REQUEST_METHOD'] = 'POST';

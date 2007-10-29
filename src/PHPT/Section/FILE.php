@@ -54,4 +54,9 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
         $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
         $case->output = $this->_runner_factory->factory($case)->run($this->_filename)->output;
     }
+    
+    public function getPriority()
+    {
+        
+    }
 }

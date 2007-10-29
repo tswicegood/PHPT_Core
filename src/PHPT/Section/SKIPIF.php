@@ -25,4 +25,9 @@ class PHPT_Section_SKIPIF implements PHPT_Section_RunnableBefore
             throw new PHPT_Case_VetoException();
         }
     }
+    
+    public function getPriority()
+    {
+        
+    }
 }

@@ -10,12 +10,16 @@ class PHPT_Section_SimpleAfterOne implements PHPT_Section_RunnableAfter {
     public function run(PHPT_Case $case) {
         echo __CLASS__ . " called\n";
     }
+    
+    public function getPriority() { }
 }
 
 class PHPT_Section_SimpleAfterTwo implements PHPT_Section_RunnableAfter {
     public function run(PHPT_Case $case) {
         echo __CLASS__ . " called\n";
     }
+    
+    public function getPriority() { }
 }
 
 $file = new PHPT_Section_FILE("Hello World!\n");
