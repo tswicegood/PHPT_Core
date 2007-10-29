@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_ENV implements PHPT_Section_Runnable
+class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
 {
     public $data = array();
     private $_default_values_to_empty = array(
@@ -16,6 +16,7 @@ class PHPT_Section_ENV implements PHPT_Section_Runnable
     
     public function __construct($data = '')
     {
+        parent::__construct($data);
         $this->data = $_ENV;
         foreach ($this->_default_values_to_empty as $key_name) {
             $this->data[$key_name] = '';
@@ -34,11 +35,6 @@ class PHPT_Section_ENV implements PHPT_Section_Runnable
     public function run(PHPT_Case $case)
     {
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
-        if ($case->sections->filterByInterface('EnvModifier')->valid()) {
-            foreach ($case->sections as $section) {
-                $section->modifyEnv($this);
-            }
-        }
-        $case->sections->filterByInterface();
+        parent::run($case);
     }
 }

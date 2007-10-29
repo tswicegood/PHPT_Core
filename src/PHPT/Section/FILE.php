@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_FILE implements PHPT_Section_Runnable
+class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
 {
     public $leave_file = false;
     
@@ -10,6 +10,7 @@ class PHPT_Section_FILE implements PHPT_Section_Runnable
     
     public function __construct($data)
     {
+        parent::__construct($data);
         $this->_contents = $data;
         $this->_runner = new PHPT_CodeRunner();
     }
@@ -49,13 +50,7 @@ class PHPT_Section_FILE implements PHPT_Section_Runnable
     
     public function run(PHPT_Case $case)
     {
-        if ($case->sections->filterByInterface('FILEModifier')->valid()) {
-            foreach ($case->sections as $section) {
-                $section->modifyFile($this);
-            }
-        }
-        $case->sections->filterByInterface();
-        
+        parent::run($case);
         $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
         $case->output = $this->_runner->run($this->_filename)->output;
     }

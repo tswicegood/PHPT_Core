@@ -4,8 +4,7 @@ Prior to v0.2 release
 * [DONE] Add Section_FILEModifier interface for modifying Section_FILE
 * [DONE] Make Section_FILE modifiable by any other sections that implement Section_FILEModifier interface
 * Implement Section_REDIRECTTEST
-* Create Domain51_Test_Section_Modifiable abstract to handle one object modifying another
-  object.
+* [DONE] Create PHPT_Section_ModifiableAbstrct abstract to handle one object modifying another object.
 * Add Section_Helper_FileIncluder capable of automatically loading a "_section.inc" file if present
 * Add Section_Helper_FileIncluder code to all sections
 * Add "--quick" command line switch to phpt executable to run using the OutputBuffer driver
