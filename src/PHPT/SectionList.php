@@ -4,6 +4,8 @@ class PHPT_SectionList implements Iterator
 {
     private $_raw_sections = array();
     private $_sections = array();
+    private $_section_map = array();
+    private $_key_map = array();
     
     public function __construct(array $sections = array())
     {
@@ -12,8 +14,13 @@ class PHPT_SectionList implements Iterator
                 throw new PHPT_SectionList_InvalidParameter();
             }
             $name = strtoupper(str_replace('PHPT_Section_', '', get_class($section)));
-            $this->_raw_sections[$name] = $section;
+            $key = $section instanceof PHPT_Section_Runnable ? $section->getPriority() . '.' . $name : $name;
+            $this->_raw_sections[$key] = $section;
+            $this->_section_map[$name] = $key;
+            $this->_key_map[$key] = $name;
         }
+        
+        ksort($this->_raw_sections);
         
         $this->_sections = $this->_raw_sections;
     }
@@ -25,7 +32,7 @@ class PHPT_SectionList implements Iterator
     
     public function key()
     {
-        return key($this->_sections);
+        return $this->_key_map[key($this->_sections)];
     }
     
     public function next()
@@ -64,11 +71,14 @@ class PHPT_SectionList implements Iterator
     
     public function has($name)
     {
-        return isset($this->_raw_sections[$name]);
+        if (!isset($this->_section_map[$name])) {
+            return false;
+        }
+        return isset($this->_raw_sections[$this->_section_map[$name]]);
     }
     
     public function __get($key)
     {
-        return $this->_raw_sections[$key];
+        return $this->_raw_sections[$this->_section_map[$key]];
     }
 }
