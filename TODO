@@ -30,6 +30,7 @@ Prior to v0.2 release
 * Catch user abort and still display final output
 * Add --TESTOPTION-- section to allow options to be set on a per-test basis
 * or add --NOOUTPUTBUFFER-- section to keep it from running in OutputBuffer mode
+* Make sure PHPT_Framework autoloader plays well with __autoload function
 
 Floating tasks
 --------------
