@@ -18,13 +18,13 @@ $controller->run(array(
 
 ?>
 ===DONE===
---EXPECT--
-PHPT Test Runner v0.1
+--EXPECTF--
+PHPT Test Runner v%f%s
 
 ..
 
 Test Cases Run: 2, Passes: 2, Failures: 0, Skipped: 0
-PHPT Test Runner v0.1
+PHPT Test Runner v%f%s
 
 ..
 

@@ -16,9 +16,9 @@ $controller->run($options);
 
 ?>
 ===DONE===
---EXPECT--
+--EXPECTF--
 Error: No quiet Text reporter available
-PHPT Test Runner v0.1
+PHPT Test Runner v%f%s
 
 ..
 

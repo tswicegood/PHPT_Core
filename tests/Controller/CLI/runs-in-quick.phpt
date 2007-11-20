@@ -31,8 +31,8 @@ $controller->run($options);
 ===DONE===
 --CLEAN--
 <?php @unlink(dirname(__FILE__) . '/foobar.phpt'); ?>
---EXPECT--
-PHPT Test Runner v0.1
+--EXPECTF--
+PHPT Test Runner v%f%s
 
 .
 

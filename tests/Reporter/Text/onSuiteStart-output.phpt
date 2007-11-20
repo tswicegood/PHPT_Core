@@ -11,6 +11,6 @@ $reporter->onSuiteStart(new PHPT_SimpleSuite());
 ?>
 ===DONE===
 --EXPECTF--
-PHPT Test Runner v%f
+PHPT Test Runner v%f%s
 
 ===DONE===

@@ -15,7 +15,7 @@ $controller->run($options);
 ?>
 ===DONE===
 --EXPECTF--
-PHPT Test Runner v0.1
+PHPT Test Runner v%f%s
 
 F.
 
