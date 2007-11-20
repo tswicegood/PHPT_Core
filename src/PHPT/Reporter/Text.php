@@ -10,7 +10,7 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     // @todo remove hard-coded version #
     public function onSuiteStart(PHPT_Suite $suite)
     {
-        echo "PHPT Test Runner v0.1\n\n";
+        echo "PHPT Test Runner v0.1.1alpha\n\n";
     }
     
     public function onSuiteEnd(PHPT_Suite $suite)
