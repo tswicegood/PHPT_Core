@@ -34,6 +34,8 @@ Prior to v0.2 release
 
 Floating tasks
 --------------
+* Make diff on EXPECTF more intelligent - do row by row comparison to determine if the row
+  actually matched instead of relying explicitly on standard diff.
 * Start adding API docs to the interfaces
 * Add Growl reporter for Mac OS X
 * Add tests to all Sections insuring that they are instantiated with a string:
