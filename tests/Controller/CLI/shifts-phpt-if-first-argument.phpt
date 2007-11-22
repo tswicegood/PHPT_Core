@@ -21,4 +21,5 @@ PHPT Test Runner v%f%s
 ..
 
 Test Cases Run: 2, Passes: 2, Failures: 0, Skipped: 0
+Total Test Time: %d:%d
 ===DONE===

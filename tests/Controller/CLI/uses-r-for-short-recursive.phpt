@@ -15,10 +15,6 @@ $controller->run($options);
 
 ?>
 ===DONE===
---EXPECTF--
-PHPT Test Runner v%f%s
-
-.....
-
-Test Cases Run: 5, Passes: 5, Failures: 0, Skipped: 0
+--EXPECTREGEX--
+.*Test Cases Run: 5, Passes: 5, Failures: 0, Skipped: 0.*
 ===DONE===

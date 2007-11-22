@@ -17,8 +17,9 @@ $reporter->onSuiteEnd(new PHPT_SimpleSuite());
 
 ?>
 ===DONE===
---EXPECT--
+--EXPECTF--
 
 
 Test Cases Run: 1, Passes: 1, Failures: 0, Skipped: 0
+Total Test Time: %d:%d
 ===DONE===

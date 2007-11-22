@@ -15,12 +15,5 @@ $controller = new PHPT_Controller_CLI();
 $controller->run($options);
 
 ?>
-===DONE===
---EXPECTF--
-Error: No quiet Text reporter available
-PHPT Test Runner v%f%s
-
-..
-
-Test Cases Run: 2, Passes: 2, Failures: 0, Skipped: 0
-===DONE===
+--EXPECTREGEX--
+/^Error: No quiet Text reporter available.*/

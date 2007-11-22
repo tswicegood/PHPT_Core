@@ -6,15 +6,19 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private $_pass_total = 0;
     private $_skips = array();
     private $_failures = array();
+    private $_start_time = null;
+    private $_end_time = null;
     
     // @todo remove hard-coded version #
     public function onSuiteStart(PHPT_Suite $suite)
     {
         echo "PHPT Test Runner v0.1.1alpha\n\n";
+        $this->_start_time = microtime(false);
     }
     
     public function onSuiteEnd(PHPT_Suite $suite)
     {
+        $this->_end_time = microtime(false);
         echo "\n\n";
         
         if (count($this->_skips) > 0) {
@@ -40,6 +44,22 @@ class PHPT_Reporter_Text implements PHPT_Reporter
             $this->_pass_total,
             count($this->_failures),
             count($this->_skips)
+        );
+
+        $this->_outputTestTime();
+    }
+
+    private function _outputTestTime()
+    {
+        $minutes = floor($this->_end_time - $this->_start_time);
+        if ($minutes < 0) {
+            $minutes = '00';
+        }
+        $seconds = ($this->_end_time - $this->_start_time) % 60;
+        printf(
+            "Total Test Time: %s:%s\n",
+            str_pad($minutes, 2, '0', STR_PAD_LEFT),
+            str_pad($seconds, 2, '0', STR_PAD_LEFT)
         );
     }
     

@@ -18,11 +18,12 @@ $reporter->onSuiteEnd(new PHPT_SimpleSuite());
 
 ?>
 ===DONE===
---EXPECT--
+--EXPECTF--
 
 
 Skipped Cases:
     /path/to/foobar.phpt - for testing purposes
 
 Test Cases Run: 1, Passes: 0, Failures: 0, Skipped: 1
+Total Test Time: %d:%d
 ===DONE===

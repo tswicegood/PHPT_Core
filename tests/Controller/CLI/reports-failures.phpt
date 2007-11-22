@@ -25,4 +25,5 @@ Failed Cases:
         001+ fails
 
 Test Cases Run: 2, Passes: 1, Failures: 1, Skipped: 0
+Total Test Time: %d:%d
 ===DONE===
