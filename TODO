@@ -21,7 +21,7 @@ Prior to v0.2 release
   in environment vars
 * Make CodeRunner_Driver_Proc code fail gracefully on Windows
 * Get working on basic PHP install on Windows
-* Add timer to Reporter_Text output
+* [DONE] Add timer to Reporter_Text output
 * Add support for loading php.ini via INI section
 * Add support for picking up php.ini file if present in same dir as test
 * eval() code in ENV section prior to parsing it
