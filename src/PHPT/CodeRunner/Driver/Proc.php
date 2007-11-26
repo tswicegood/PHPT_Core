@@ -12,13 +12,8 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         $result->filename = $filename;
         
         $proc = $this->_runCode();
-        
-       
-        if (!is_null($this->stdin)) {
-            fwrite($this->_pipes[0], (string)$this->stdin);
-        }
-        fclose($this->_pipes[0]);
-        
+        $this->_handleInput();
+              
         $data = '';
         
         while (true) {
@@ -88,6 +83,14 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         }
  
         return $proc;
+    }
+
+    private function _handleInput()
+    {
+        if (!is_null($this->stdin)) {
+            fwrite($this->_pipes[0], (string)$this->stdin);
+        }
+        fclose($this->_pipes[0]);
     }
     
     public function validate()
