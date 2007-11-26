@@ -3,6 +3,7 @@
 class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
 {
     private $_pipes = array();
+    private $_process = null;
 
     public function run($filename)
     {
@@ -11,11 +12,62 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         $result = new PHPT_CodeRunner_Result();
         $result->filename = $filename;
         
-        $proc = $this->_runCode();
+        $this->_runCode();
         $this->_handleInput();
-              
-        $data = '';
         
+        $result->output = $this->_waitForAndRetrieveOutput();
+            
+        $exitcode = trim(fread($this->_pipes[3], 5));
+        fclose($this->_pipes[3]);
+        
+        proc_close($this->_process);
+        
+        $result->exitcode = $exitcode;
+        return $result;
+    }
+
+    private function _runCode()
+    {
+        $command = new PHPT_CodeRunner_CommandLine($this);
+        if (!empty($this->command_line)) {
+            $command->executable = $this->command_line;
+        }
+        
+        $this->_process = proc_open(
+            (string)$command . ' ; echo $? >&3',
+            array(
+                0 => array('pipe', 'r'),
+                1 => array('pipe', 'w'),
+                2 => array('pipe', 'w'),
+                3 => array('pipe', 'w'), // pipe to write exit code to
+            ),
+            $this->_pipes,
+            null,
+            $this->environment,
+            array(
+            //    'supress_errors' => true,
+            )
+        );
+
+        // @todo figure out how to test
+        if ($this->_process == false) {
+            throw new PHPT_Exception_InvalidStateException(
+                'proc_open returned false in ' . __METHOD__
+            );
+        }
+    }
+
+    private function _handleInput()
+    {
+        if (!is_null($this->stdin)) {
+            fwrite($this->_pipes[0], (string)$this->stdin);
+        }
+        fclose($this->_pipes[0]);
+    }
+
+    private function _waitForAndRetrieveOutput()
+    {
+        $data = '';
         while (true) {
             /* hide errors from interrupted syscalls */
             $read = $this->_pipes;
@@ -23,7 +75,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
             $n = @stream_select($read, $write, $except, $this->timeout);
             
             if ($n === 0) {
-                proc_terminate($proc);
+                proc_terminate($this->_process);
                 throw new PHPT_CodeRunner_TimeoutException($this->_caller);
                 
             } elseif ($n > 0) {
@@ -41,56 +93,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
                 $data .= $line;
             }
         }
-    
-        $exitcode = trim(fread($this->_pipes[3], 5));
-        fclose($this->_pipes[3]);
-        
-        proc_close($proc);
-        
-        $result->output = $data;
-        $result->exitcode = $exitcode;
-        return $result;
-    }
-
-    private function _runCode()
-    {
-        $command = new PHPT_CodeRunner_CommandLine($this);
-        if (!empty($this->command_line)) {
-            $command->executable = $this->command_line;
-        }
-        
-        $proc = proc_open(
-            (string)$command . ' ; echo $? >&3',
-            array(
-                0 => array('pipe', 'r'),
-                1 => array('pipe', 'w'),
-                2 => array('pipe', 'w'),
-                3 => array('pipe', 'w'), // pipe to write exit code to
-            ),
-            $this->_pipes,
-            null,
-            $this->environment,
-            array(
-            //    'supress_errors' => true,
-            )
-        );
-
-        // @todo figure out how to test
-        if ($proc == false) {
-            throw new PHPT_Exception_InvalidStateException(
-                'proc_open returned false in ' . __METHOD__
-            );
-        }
- 
-        return $proc;
-    }
-
-    private function _handleInput()
-    {
-        if (!is_null($this->stdin)) {
-            fwrite($this->_pipes[0], (string)$this->stdin);
-        }
-        fclose($this->_pipes[0]);
+        return $data;
     }
     
     public function validate()
