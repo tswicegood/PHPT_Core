@@ -16,13 +16,8 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         $this->_handleInput();
         
         $result->output = $this->_waitForAndRetrieveOutput();
-            
-        $exitcode = trim(fread($this->_pipes[3], 5));
-        fclose($this->_pipes[3]);
+        $result->exitcode = $this->_exitAndGetCode();
         
-        proc_close($this->_process);
-        
-        $result->exitcode = $exitcode;
         return $result;
     }
 
@@ -94,6 +89,14 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
             }
         }
         return $data;
+    }
+
+    private function _exitAndGetCode()
+    {
+        $exitcode = trim(fread($this->_pipes[3], 5));
+        fclose($this->_pipes[3]);
+        proc_close($this->_process);
+        return $exitcode;
     }
     
     public function validate()
