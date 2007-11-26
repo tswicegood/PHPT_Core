@@ -23,13 +23,8 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
 
     private function _runCode()
     {
-        $command = new PHPT_CodeRunner_CommandLine($this);
-        if (!empty($this->command_line)) {
-            $command->executable = $this->command_line;
-        }
-        
         $this->_process = proc_open(
-            (string)$command . ' ; echo $? >&3',
+            $this->_fetchCommandLine(),
             array(
                 0 => array('pipe', 'r'),
                 1 => array('pipe', 'w'),
@@ -50,6 +45,16 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
                 'proc_open returned false in ' . __METHOD__
             );
         }
+    }
+
+    private function _fetchCommandLine()
+    {
+        $command = new PHPT_CodeRunner_CommandLine($this);
+        if (!empty($this->command_line)) {
+            $command->executable = $this->command_line;
+        }
+
+        return (string)$command  . ' ; echo $? >&3';
     }
 
     private function _handleInput()
