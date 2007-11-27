@@ -2,7 +2,7 @@
 <project name="PHP_Core" basedir="." default="make">
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
     
-    <property name="version" value="0.1.1devel" />
+    <property name="version" value="0.1.2devel" />
     <property name="package_name" value="PHPT_Core" />
     <property name="channel" value="channel.phpt.info" />
     
@@ -51,7 +51,7 @@
             <license>LGPL/CDDL</license>
             
             <version release="${version}" api="1.0" />
-            <stability release="devel" api="alpha" />
+            <stability release="devel" api="devel" />
             
             <dependencies>
                 <php minimum_version="5.2.0" />
@@ -65,6 +65,15 @@
                 <install as="phpt" name="scripts/phpt.php" />
             </release>
             
+            <changelog version="0.1.2devel" date="2007-11-26">
+                <!--        Don't exceed this width         -->
+                Running changes for 0.1.2alpha as they exist in
+                SVN:
+
+                * Add test time to work Text reporter
+                * Refactor CodeRunner_Driver_Proc
+            </changelog>
+
             <changelog version="0.1.1devel" date="2007-10-29">
                 Running changes for SVN
             </changelog>
