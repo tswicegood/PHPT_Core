@@ -72,9 +72,9 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         $data = '';
         while (true) {
             /* hide errors from interrupted syscalls */
-            $read = $this->_pipes;
+            $read = array($this->_pipes[1]);
             $except = $write = null;
-            $n = @stream_select($read, $write, $except, $this->timeout);
+            $n = stream_select($read, $write, $except, $this->timeout);
             
             if ($n === 0) {
                 proc_terminate($this->_process);
