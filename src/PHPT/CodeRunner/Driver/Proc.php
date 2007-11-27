@@ -2,6 +2,13 @@
 
 class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
 {
+    private $_pipes_template = array(
+        0 => array('pipe', 'r'),
+        1 => array('pipe', 'w'),
+        2 => array('pipe', 'w'),
+        3 => array('pipe', 'w'), // pipe to write exit code to
+    );
+
     private $_pipes = array();
     private $_process = null;
 
@@ -25,12 +32,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
     {
         $this->_process = proc_open(
             $this->_fetchCommandLine(),
-            array(
-                0 => array('pipe', 'r'),
-                1 => array('pipe', 'w'),
-                2 => array('pipe', 'w'),
-                3 => array('pipe', 'w'), // pipe to write exit code to
-            ),
+            $this->_pipes_template,
             $this->_pipes,
             null,
             $this->environment,
