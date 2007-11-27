@@ -20,5 +20,5 @@ assert('$string == $expected');
 ?>
 ===DONE===
 --EXPECTREGEX--
-php -f \/([^ ]+)\/fake-test-case.php[12][0-9]{2}
+php -f ([^ ]+)\/fake-test-case.php[12][0-9]{2}
 ===DONE===

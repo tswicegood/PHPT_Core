@@ -20,5 +20,5 @@ echo $command, "\n";
 ?>
 ===DONE===
 --EXPECTREGEX--
-\/path\/to\/random\/int\/php-[12][0-9]{2} -f \/([^ ]+)\/fake-test-case.php
+\/path\/to\/random\/int\/php-[12][0-9]{2} -f ([^ ]+)\/fake-test-case.php
 ===DONE===

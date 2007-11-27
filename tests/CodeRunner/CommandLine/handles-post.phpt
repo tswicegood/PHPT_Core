@@ -19,5 +19,5 @@ assert('$command == $expected');
 ?>
 ===DONE===
 --EXPECTREGEX--
-php -f (\/|\\)([^ ]+)(\/|\\)fake-test-case.php 2>&1 < (\/|\\)([^ ]+)(\/|\\)fake-post-file.php
+php -f ([^ ]+)\/fake-test-case.php 2>&1 < ([^ ]+)\/fake-post-file.php
 ===DONE===
