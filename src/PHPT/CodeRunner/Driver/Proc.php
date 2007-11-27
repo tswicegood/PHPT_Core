@@ -102,7 +102,8 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
     {
         $exitcode = trim(fread($this->_pipes[3], 5));
         fclose($this->_pipes[3]);
-        proc_close($this->_process);
+        $close = proc_close($this->_process);
+        if (empty($exitcode)) { $exitcode = $close; }
         return $exitcode;
     }
     
