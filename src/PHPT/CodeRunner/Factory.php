@@ -30,6 +30,10 @@ class PHPT_CodeRunner_Factory
                 PHPT_Registry::getInstance()->cgi_executable :
                 'php-cgi';
         }
+
+        if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+            $runner->executable = $runner->executable . '.exe';
+        }
         try {
             $runner->validate();
             return $runner;
