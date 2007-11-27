@@ -13,12 +13,12 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     public function onSuiteStart(PHPT_Suite $suite)
     {
         echo "PHPT Test Runner v0.1.1alpha\n\n";
-        $this->_start_time = microtime(false);
+        $this->_start_time = microtime(true);
     }
     
     public function onSuiteEnd(PHPT_Suite $suite)
     {
-        $this->_end_time = microtime(false);
+        $this->_end_time = microtime(true);
         echo "\n\n";
         
         if (count($this->_skips) > 0) {
@@ -51,7 +51,8 @@ class PHPT_Reporter_Text implements PHPT_Reporter
 
     private function _outputTestTime()
     {
-        $minutes = floor($this->_end_time - $this->_start_time);
+        $seconds = floor($this->_end_time - $this->_start_time);
+        $minutes = floor($seconds / 60);
         if ($minutes < 0) {
             $minutes = '00';
         }
