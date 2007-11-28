@@ -7,6 +7,8 @@ class PHPT_CodeRunner_Factory
         $reg = PHPT_Registry::getInstance();
         if (isset($reg->opts['quick']) && $case->is('OutputBufferCompatible')) {
             $runner = new PHPT_CodeRunner('OutputBuffer');
+        } elseif (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+            $runner = new PHPT_CodeRunner('WScriptShell');
         } else {
             $runner = new PHPT_CodeRunner();
         }
