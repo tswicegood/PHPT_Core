@@ -18,10 +18,6 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     
     public function onSuiteEnd(PHPT_Suite $suite)
     {
-        var_dump(PHPT_Registry::getInstance()->opts['output']);
-        if (isset(PHPT_Registry::getInstance()->opts['output'])) {
-            ob_start();
-        }
         $this->_end_time = microtime(true);
         echo "\n\n";
         
@@ -51,11 +47,6 @@ class PHPT_Reporter_Text implements PHPT_Reporter
         );
 
         $this->_outputTestTime();
-        if (isset(PHPT_Registry::getInstance()->opts['output'])) {
-            $buffer = ob_get_clean();
-            file_put_contents('./test.out', $buffer);
-            echo $buffer;
-        }
     }
 
     private function _outputTestTime()
