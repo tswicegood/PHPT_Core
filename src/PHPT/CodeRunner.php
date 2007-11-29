@@ -4,8 +4,11 @@ class PHPT_CodeRunner
 {
     private $_driver = null;
     
-    public function __construct($type = 'Proc')
+    public function __construct($type = null)
     {
+        if (is_null($type)) {
+            $type = strtoupper(substr(PHP_OS, 0, 3)) == 'WIN' ? 'WScriptShell' : 'Proc';
+        }
         $runner_name = 'PHPT_CodeRunner_Driver_' . $type;
         $this->_driver = new $runner_name($this);
     }
