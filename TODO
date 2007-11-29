@@ -19,8 +19,9 @@ Prior to v0.2 release
     * [DONE] Add check to make sure a test can be run in OutputBuffer mode prior to running
 * Modify tests to insure that tests are skipped with "php" is not in path and PHP_BIN is not
   in environment vars
-* Make CodeRunner_Driver_Proc code fail gracefully on Windows
-* Get working on basic PHP install on Windows
+* [NOTDOING - added WScriptShell instead] Make CodeRunner_Driver_Proc code fail gracefully on Windows
+* [DONE] Get working on basic PHP install on Windows
+    * Add ability to create phpt.bat file on Windows via installable package
 * [DONE] Add timer to Reporter_Text output
 * Add support for loading php.ini via INI section
 * Add support for picking up php.ini file if present in same dir as test
@@ -31,7 +32,8 @@ Prior to v0.2 release
 * Add --TESTOPTION-- section to allow options to be set on a per-test basis
 * or add --NOOUTPUTBUFFER-- section to keep it from running in OutputBuffer mode
 * Make sure PHPT_Framework autoloader plays well with __autoload function
-* Make sure it can find php executable if it has spaces in its path
+* [DONE] Make sure it can find php executable if it has spaces in its path
+* Add '--php </path/to/php>' option so you can specify which PHP executable to run
 
 
 Floating tasks
