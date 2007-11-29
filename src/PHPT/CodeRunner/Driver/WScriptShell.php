@@ -1,6 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/Abstract.php';
 class PHPT_CodeRunner_Driver_WScriptShell extends PHPT_CodeRunner_Driver_Abstract
 {
     private $_process = null;
