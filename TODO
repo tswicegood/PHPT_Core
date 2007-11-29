@@ -40,3 +40,5 @@ Floating tasks
 * Add Growl reporter for Mac OS X
 * Add tests to all Sections insuring that they are instantiated with a string:
     - assert('is_string($data)');
+* Add in a "-c|--config <file>" option to allow setting multiple values at once
+  and to allow distributing the configuration needed to run a set of tests
