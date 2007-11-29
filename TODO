@@ -31,6 +31,8 @@ Prior to v0.2 release
 * Add --TESTOPTION-- section to allow options to be set on a per-test basis
 * or add --NOOUTPUTBUFFER-- section to keep it from running in OutputBuffer mode
 * Make sure PHPT_Framework autoloader plays well with __autoload function
+* Make sure it can find php executable if it has spaces in its path
+
 
 Floating tasks
 --------------
