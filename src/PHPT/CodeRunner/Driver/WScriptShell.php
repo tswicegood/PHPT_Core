@@ -63,8 +63,8 @@ class PHPT_CodeRunner_Driver_WScriptShell extends PHPT_CodeRunner_Driver_Abstrac
             if ($timer >= $this->timeout) {
                 throw new PHPT_CodeRunner_TimeoutException($this->_caller);
             }
-            usleep(100000);
-            $timer = $timer + .1;
+            usleep(50000);
+            $timer = $timer + .05;
         }
 
         $error = $this->_process->StdErr->ReadAll();
