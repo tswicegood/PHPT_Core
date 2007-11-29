@@ -2,11 +2,7 @@
 Will take a file and run it through a PHP parser and return a
 PHPT_CodeRunner_Driver_WScriptShell_Result object.
 --SKIPIF--
-<?php
-if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN') {
-    echo 'skip - only applicable in Windows';
-}
-?>
+<?php require dirname(__FILE__) . '/_skipif.inc'; ?>
 --FILE--
 <?php
 

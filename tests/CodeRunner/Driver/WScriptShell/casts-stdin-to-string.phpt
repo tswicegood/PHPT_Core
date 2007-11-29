@@ -1,11 +1,7 @@
 --TEST--
 If $stdin property is not null, it will be cast to string prior to being passed in
 --SKIPIF--
-<?php
-if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN') {
-    echo 'skip - only applicable in Windows';
-}
-?>
+<?php require dirname(__FILE__) . '/_skipif.inc'; ?>
 --FILE--
 <?php
 

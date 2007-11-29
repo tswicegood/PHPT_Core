@@ -1,11 +1,7 @@
 --TEST--
 CodeRunner_Driver_WScriptShell can handle executing code that exits during its execution
 --SKIPIF--
-<?php
-if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN') {
-    echo 'skip - only applicable in Windows';
-}
-?>
+<?php require dirname(__FILE__) . '/_skipif.inc'; ?>
 --FILE--
 <?php
 

@@ -1,5 +1,7 @@
 --TEST--
 $args is passed in as arguments within the code
+--SKIPIF--
+<?php include dirname(__FILE__) . '/_skipif.inc'; ?>
 --FILE--
 <?php
 
