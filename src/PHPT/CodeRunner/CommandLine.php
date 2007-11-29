@@ -13,7 +13,7 @@ class PHPT_CodeRunner_CommandLine
         $this->_filename = $runner->filename;
         $this->_ini = (string)$runner->ini;
         $this->_args = (string)$runner->args;
-        $this->_executable = (string)$runner->executable;
+        $this->_executable = str_replace(' ', '\ ', (string)$runner->executable);
         $this->_post_filename = (string)$runner->post_filename;
     }
     
