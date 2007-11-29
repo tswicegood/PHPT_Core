@@ -2,13 +2,15 @@
 If the $executable property is not set to a valid executable, validate() will throw
 a CodeRunner_InvalidExecutableException
 @todo make work on Windows
+--SKIPIF--
+<?php require dirname(__FILE__) . '/_skipif.inc'; ?>
 --FILE--
 <?php
 
 require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $caller = new PHPT_CodeRunner();
-$runner = new PHPT_CodeRunner_Driver_Proc($caller);
+$runner = new PHPT_CodeRunner_Driver_WScriptShell($caller);
 $runner->executable = '/some/unknown/path/to/php.exe';
 try {
     $runner->validate();
