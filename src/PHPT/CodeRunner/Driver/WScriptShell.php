@@ -46,6 +46,11 @@ class PHPT_CodeRunner_Driver_WScriptShell extends PHPT_CodeRunner_Driver_Abstrac
             $timer = $timer + .1;
         }
 
+        $error = $this->_process->StdErr->ReadAll();
+        if (!empty($error)) {
+            throw new PHPT_CodeRunner_ExecutionException($error);
+        }
+
         return $this->_process->StdOut->ReadAll();
     }
 
