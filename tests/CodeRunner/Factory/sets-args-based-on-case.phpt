@@ -5,7 +5,6 @@ Test_Case's (string)sections->ARGS value.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
-PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../../tests-supporting/bin';
 
 class FoobarTestCase extends PHPT_Case
 {

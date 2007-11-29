@@ -1,6 +1,7 @@
 --TEST--
 If PHPT_Registry->opts['quick'] is present and true, use CodeRunner_Driver_OutputBuffer
 --ARGS--
+
 --FILE--
 <?php
 

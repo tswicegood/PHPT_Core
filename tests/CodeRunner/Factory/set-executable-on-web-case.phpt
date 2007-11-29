@@ -6,8 +6,6 @@ will be set to 'php-cgi'
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-PHPT_Registry::getInstance()->path = dirname(__FILE__) . '/../../../tests-supporting/bin';
-
 class PHPT_SimpleTestCase extends PHPT_Case
 {
     public $sections = null;
@@ -26,7 +24,12 @@ $factory = new PHPT_CodeRunner_Factory();
 
 $runner = $factory->factory($case);
 $expected = dirname(__FILE__) . '/../../support/bin/php-cgi';
-assert('$runner->executable == "php-cgi"');
+
+if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+    assert('$runner->executable == "php-cgi.exe"');
+} else {
+    assert('$runner->executable == "php-cgi"');
+}
 
 ?>
 ===DONE===

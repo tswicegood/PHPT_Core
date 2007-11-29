@@ -22,7 +22,7 @@ class PHPT_SimpleTestCase extends PHPT_Case
 
 $case = new PHPT_SimpleTestCase();
 
-PHPT_Registry::getInstance()->cgi_executable = '/path/to/some/unknown/php';
+$executable = PHPT_Registry::getInstance()->cgi_executable = '/path/to/some/unknown/php';
 
 $factory = new PHPT_CodeRunner_Factory();
 
@@ -30,7 +30,10 @@ try {
     $factory->factory($case);
     trigger_error('exception not caught');
 } catch (PHPT_Case_VetoException $e) {
-    assert('$e->getMessage() == "unable to locate PHP executable: /path/to/some/unknown/php"');
+    if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+        $executable .= '.exe';
+    }
+    assert('$e->getMessage() == "unable to locate PHP executable: $executable"'); 
 }
 
 ?>
