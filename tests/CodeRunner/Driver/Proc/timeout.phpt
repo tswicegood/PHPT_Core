@@ -1,6 +1,12 @@
 --TEST--
 The $timeout property allows you to set how long you want to wait for the
 running code to completely execute.
+--SKIPIF--
+<?php 
+if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+    echo 'skip - proc_get_status() is broken on Windows';
+}
+?>
 --FILE--
 <?php
 
