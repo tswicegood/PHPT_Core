@@ -1,5 +1,11 @@
 --TEST--
 Takes an array for $environment and passes it to the code being run
+--SKIPIF--
+<?php
+if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+    echo 'skip - does not work under windows';
+}
+?>
 --FILE--
 <?php
 
