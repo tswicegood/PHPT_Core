@@ -1,6 +1,12 @@
 --TEST--
 If a Case answers is('CgiRequired') and Registry->cgi_executable is set, use that value
 instead of the default "php".
+--SKIPIF--
+<?php
+if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+    echo 'skip - chmod is unreliable on Windows';
+}
+?>
 --ARGS--
 --FILE--
 <?php
