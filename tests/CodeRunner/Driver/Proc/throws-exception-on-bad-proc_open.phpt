@@ -17,7 +17,7 @@ try {
     $runner->run($filename);
     trigger_error('exception not caught');
 } catch (PHPT_CodeRunner_ExecutionException $e) {
-    assert('preg_match("/\/some\/unknown\/and\/bad\/path\/to\/php/", $e->getMessage())');
+    
 }
 
 ?>
