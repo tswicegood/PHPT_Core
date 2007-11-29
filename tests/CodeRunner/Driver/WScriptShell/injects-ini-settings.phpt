@@ -1,5 +1,11 @@
 --TEST--
 Takes the string value of $ini and injects it in the command line
+--SKIPIF--
+<?php
+if (strtoupper(substr(PHP_OS, 0, 3)) != 'WIN') {
+    echo 'skip - only applicable in Windows';
+}
+?>
 --FILE--
 <?php
 
