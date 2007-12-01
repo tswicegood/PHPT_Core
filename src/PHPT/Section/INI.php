@@ -29,15 +29,30 @@ class PHPT_Section_INI implements PHPT_Section
     
     public function __construct($data = '')
     {
-        if (!empty($data)) {
-            $lines = explode("\n", $data);
-            foreach ($lines as $line) {
-                $pair = explode('=', $line, 2);
-                $this->data[trim($pair[0])] = trim($pair[1]);
-            }
-        }
         
+        if (!empty($data)) {
+            $this->data = $this->_parseIni($data);
+        }
+
+        if (isset(PHPT_Registry::getInstance()->opts['ini'])) {
+            $this->data = array_merge(
+                $this->_parseIni(PHPT_Registry::getInstance()->opts['ini'], ','),
+                $this->data
+            );
+        }
+       
         $this->data = array_merge($this->data, $this->_default_values);
+    }
+
+    private function _parseIni($raw_data, $separator = "\n")
+    {
+        $return = array();
+        $lines = explode($separator, $raw_data);
+        foreach ($lines as $line) {
+            $pair = explode('=', $line, 2);
+            $return[trim($pair[0])] = trim($pair[1]);
+        }
+        return $return;
     }
     
     public function __toString()
