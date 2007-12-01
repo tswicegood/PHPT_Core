@@ -17,7 +17,7 @@ class PHPT_Case_Parser
         $section_data = '';
         
         foreach ($lines as $line) {
-            if (preg_match('/^--([^-]+)--$/', $line, $matches)) {
+            if (preg_match('/^--([^-]+)--$/', trim($line), $matches)) {
                 if (!empty($section_name)) {
                     $raw_sections[$section_name] = $this->_createSection($section_name, $section_data);
                 }
