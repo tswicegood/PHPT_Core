@@ -41,15 +41,7 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $opt_parser->parse($options);
 
         $this->_runProcessors();
-        
-        if (is_dir($path)) {
-            $factory = new PHPT_Suite_Factory();
-            $suite = $factory->factory($path, $this->_recursive);
-        } else {
-            $suite = new PHPT_Suite(array($path));
-        }
-        
-       
+        $suite = $this->_suiteFactory($path);
         $suite->run($this->_reporter);
     }
 
@@ -57,6 +49,17 @@ class PHPT_Controller_CLI implements PHPT_Controller
     {
         $list = new PHPT_Controller_CLI_ProcessorList();
         array_map(array($this, 'acceptProcessor'), $list->toArray());
+    }
+
+    private function _suiteFactory($path)
+    {
+        if (is_dir($path)) {
+            $factory = new PHPT_Suite_Factory();
+            $suite = $factory->factory($path, $this->_recursive);
+        } else {
+            $suite = new PHPT_Suite(array($path));
+        }
+        return $suite;
     }
 
     public function acceptProcessor(PHPT_Controller_CLI_Processor $processor)
