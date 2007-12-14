@@ -31,7 +31,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
     private function _runCode()
     {
         $this->_process = proc_open(
-            $this->_fetchCommandLine(),
+            $this->_commandFactory(),
             $this->_pipes_template,
             $this->_pipes,
             null,
@@ -49,7 +49,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
         }
     }
 
-    private function _fetchCommandLine()
+    private function _commandFactory()
     {
         $command = new PHPT_CodeRunner_CommandLine($this);
         if (!empty($this->command_line)) {
