@@ -3,6 +3,7 @@
 class PHPT_Controller_CLI implements PHPT_Controller
 {
     private $_recursive = false;
+    private $_reporter = null;
 
     public function __construct()
     {
@@ -14,6 +15,10 @@ class PHPT_Controller_CLI implements PHPT_Controller
         switch ($key) {
             case 'recursive' :
                 $this->_recursive = $value;
+                break;
+            case 'reporter' :
+                // @todo make sure this implements PHPT_Reporter
+                $this->_reporter = $value;
                 break;
         }
     }
@@ -38,9 +43,7 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $this->_runProcessors();
         
         $registry = PHPT_Registry::getInstance();
-        $reporter_name = isset($registry->opts['reporter']) ? $registry->opts['reporter'] : 'Text';
-        $quiet = isset($registry->opts['quiet']) || isset($registry->opts['q']);
-        
+       
         if (is_dir($path)) {
             $factory = new PHPT_Suite_Factory();
             $suite = $factory->factory($path, $this->_recursive);
@@ -48,22 +51,8 @@ class PHPT_Controller_CLI implements PHPT_Controller
             $suite = new PHPT_Suite(array($path));
         }
         
-        $real_reporter_name = 'PHPT_Reporter_' . $reporter_name;
-        if ($quiet) {
-            if (!class_exists($real_reporter_name . 'Quiet', true)) {
-                echo "Error: No quiet {$reporter_name} reporter available\n";
-            } else {
-                $real_reporter_name .= 'Quiet';
-            }
-        }
-        
-        if (!class_exists($real_reporter_name, true)) {
-            echo "Error: Unable to locate reporter {$reporter_name}\n";
-            exit(101);
-        }
-        
-        $reporter = new $real_reporter_name();
-        $suite->run($reporter);
+       
+        $suite->run($this->_reporter);
     }
 
     private function _runProcessors()
