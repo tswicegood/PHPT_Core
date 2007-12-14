@@ -42,8 +42,6 @@ class PHPT_Controller_CLI implements PHPT_Controller
 
         $this->_runProcessors();
         
-        $registry = PHPT_Registry::getInstance();
-       
         if (is_dir($path)) {
             $factory = new PHPT_Suite_Factory();
             $suite = $factory->factory($path, $this->_recursive);
