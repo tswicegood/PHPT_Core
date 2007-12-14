@@ -8,6 +8,15 @@ class PHPT_Controller_CLI implements PHPT_Controller
     {
         
     }
+    
+    public function __set($key, $value)
+    {
+        switch ($key) {
+            case 'recursive' :
+                $this->_recursive = $value;
+                break;
+        }
+    }
 
     public function run(array $options = array())
     {
@@ -25,9 +34,10 @@ class PHPT_Controller_CLI implements PHPT_Controller
         
         $opt_parser = new PHPT_Util_CLI_OptParser();
         $opt_parser->parse($options);
+
+        $this->_runProcessors();
         
         $registry = PHPT_Registry::getInstance();
-        $this->_recursive = isset($registry->opts['recursive']) || isset($registry->opts['r']);
         $reporter_name = isset($registry->opts['reporter']) ? $registry->opts['reporter'] : 'Text';
         $quiet = isset($registry->opts['quiet']) || isset($registry->opts['q']);
         
@@ -55,4 +65,16 @@ class PHPT_Controller_CLI implements PHPT_Controller
         $reporter = new $real_reporter_name();
         $suite->run($reporter);
     }
+
+    private function _runProcessors()
+    {
+        $list = new PHPT_Controller_CLI_ProcessorList();
+        array_map(array($this, 'acceptProcessor'), $list->toArray());
+    }
+
+    public function acceptProcessor(PHPT_Controller_CLI_Processor $processor)
+    {
+        $processor->process($this);
+    }
 }
+
