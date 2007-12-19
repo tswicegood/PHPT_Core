@@ -23,6 +23,10 @@ class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
         }
         
         $data = trim($data);
+        $php = new PHPT_Util_Code($data);
+        if ($php->isValid()) {
+            $data = $php->evaluate();
+        }
         if (!empty($data)) {
             $lines = explode("\n", $data);
             foreach ($lines as $line) {
