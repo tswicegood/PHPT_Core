@@ -1,14 +1,14 @@
 --TEST--
-PHPT_Section_FILEModifier provides a modifyFile(PHPT_Section_FILE $file) method
+PHPT_Section_FILEModifier provides a modifyFILE(PHPT_Section_FILE $file) method
 --FILE--
 <?php
 
 require_once  dirname(__FILE__) . '/../../_setup.inc';
 
 $interface = new ReflectionClass('PHPT_Section_FILEModifier');
-assert('$interface->hasMethod("modifyFile")');
+assert('$interface->hasMethod("modifyFILE")');
 
-$method = $interface->getMethod('modifyFile');
+$method = $interface->getMethod('modifyFILE');
 assert('$method->getNumberOfParameters() == 1');
 
 $param = array_shift($method->getParameters());

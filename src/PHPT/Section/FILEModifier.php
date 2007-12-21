@@ -10,5 +10,5 @@ interface PHPT_Section_FILEModifier
      *
      * @param PHPT_Section_FILE $file
      */
-    public function modifyFile(PHPT_Section_FILE $file);
+    public function modifyFILE(PHPT_Section_FILE $file);
 }

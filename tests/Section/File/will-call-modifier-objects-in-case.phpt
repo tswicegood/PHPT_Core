@@ -20,5 +20,5 @@ $section->run($case);
 ?>
 ===DONE===
 --EXPECT--
-PHPT_SimpleFileModifier::modifyFile was called
+PHPT_SimpleFileModifier::modifyFILE was called
 ===DONE===
