@@ -53,9 +53,4 @@ class PHPT_Suite implements Iterator, Countable
     {
         return current($this->_files) !== false;
     }
-
-    public function accept(PHPT_Suite_Visitor $visitor)
-    {
-        $visitor->visit($this);
-    }
 }
