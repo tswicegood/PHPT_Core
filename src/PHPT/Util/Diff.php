@@ -7,6 +7,12 @@ class PHPT_Util_Diff
     
     public function __construct($wanted, $actual)
     {
+        if ($this->_invalidString($wanted)) {
+            throw new PHPT_Util_Diff_InvalidParameter('wanted');
+        }
+        if ($this->_invalidString($actual)) {
+            throw new PHPT_Util_Diff_InvalidParameter('actual');
+        }
         $this->_wanted = explode("\n", $wanted);
         $this->_actual = explode("\n", $actual);
     }
@@ -36,5 +42,18 @@ class PHPT_Util_Diff
         
         ksort($return);
         return implode("\n", $return);
+    }
+
+    private function _invalidString($string)
+    {
+        return !is_string($string) && @((string)$string != $string);
+    }
+}
+
+class PHPT_Util_Diff_InvalidParameter extends Exception
+{
+    public function __construct($parameter_name)
+    {
+        parent::__construct('provided $' . $parameter_name . ' value is not a valid string');
     }
 }
