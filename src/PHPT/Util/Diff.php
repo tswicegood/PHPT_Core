@@ -19,6 +19,10 @@ class PHPT_Util_Diff
     
     public function __toString()
     {
+        if ($this->_cheapComparison()) {
+            return '';
+        }
+
         $return = array();
         
         $actual_diff = array_diff_assoc($this->_wanted, $this->_actual);
@@ -42,6 +46,11 @@ class PHPT_Util_Diff
         
         ksort($return);
         return implode("\n", $return);
+    }
+
+    private function _cheapComparison()
+    {
+        return strcmp(serialize($this->_wanted), serialize($this->_actual)) === 0;
     }
 
     private function _invalidString($string)
