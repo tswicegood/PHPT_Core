@@ -21,8 +21,9 @@ class PHPT_Section_SKIPIF implements PHPT_Section_RunnableBefore
         $response = implode("\n", $response);
         unlink($filename);
         
-        if (preg_match('/^skip/', $response)) {
-            throw new PHPT_Case_VetoException();
+        if (preg_match('/^skip( - (.*))?/', $response, $matches)) {
+            $message = !empty($matches[2]) ? $matches[2] : '';
+            throw new PHPT_Case_VetoException($message);
         }
     }
     
