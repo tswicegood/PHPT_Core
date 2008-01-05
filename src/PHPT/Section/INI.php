@@ -39,6 +39,8 @@ class PHPT_Section_INI implements PHPT_Section_RunnableBefore
         $this->_case = $case;
         if (!empty($this->_raw_data)) {
             $this->data = $this->_loadFromFileAndParseIni($this->_raw_data);
+        } elseif (file_exists(dirname($case->filename) . '/php.ini')) {
+            $this->data = $this->_loadFromFileAndParseIni(dirname($case->filename) . '/php.ini');
         }
 
         if (isset(PHPT_Registry::getInstance()->opts['ini'])) {
