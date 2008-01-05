@@ -2,6 +2,8 @@
 
 class PHPT_Framework
 {
+    const VERSION = "@@VERSION@@";
+
     static private $namespace_length = null;
     static private $base_path = null;
     
