@@ -1,8 +1,8 @@
 <?php
 
-class PHPT_Controller_CLI_Processors_HelpProcessor
+class PHPT_Controller_CLI_Processors_HelpProcessor implements PHPT_Controller_CLI_Processor
 {
-    public function process()
+    public function process(PHPT_Controller_CLI $cli)
     {
         if (!isset(PHPT_Registry::getInstance()->opts['help']) &&
             !isset(PHPT_Registry::getInstance()->opts['h'])
