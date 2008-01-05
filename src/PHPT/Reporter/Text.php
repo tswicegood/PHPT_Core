@@ -9,10 +9,9 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private $_start_time = null;
     private $_end_time = null;
     
-    // @todo remove hard-coded version #
     public function onSuiteStart(PHPT_Suite $suite)
     {
-        echo "PHPT Test Runner v0.1.1alpha\n\n";
+        echo "PHPT Test Runner v", PHPT_Framework::VERSION, "\n\n";
         $this->_start_time = microtime(true);
     }
     

@@ -26,13 +26,13 @@ $controller->run(array(
 ?>
 ===DONE===
 --EXPECTF--
-PHPT Test Runner v%f%s
+PHPT Test Runner v@@VERSION@@
 
 ..
 
 Test Cases Run: 2, Passes: 2, Failures: 0, Skipped: 0
 Total Test Time: %d:%d
-PHPT Test Runner v%f%s
+PHPT Test Runner v@@VERSION@@
 
 ..
 

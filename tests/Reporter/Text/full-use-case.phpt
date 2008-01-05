@@ -45,7 +45,7 @@ $reporter->onSuiteEnd($suite);
 ?>
 ===DONE===
 --EXPECTF--
-PHPT Test Runner v%f%s
+PHPT Test Runner v@@VERSION@@
 
 ........FS......................................................................
 ....................
