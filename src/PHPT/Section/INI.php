@@ -39,8 +39,8 @@ class PHPT_Section_INI implements PHPT_Section_RunnableBefore
         $this->_case = $case;
         if (!empty($this->_raw_data)) {
             $this->data = $this->_loadFromFileAndParseIni($this->_raw_data);
-        } elseif (file_exists(dirname($case->filename) . '/php.ini')) {
-            $this->data = $this->_loadFromFileAndParseIni(dirname($case->filename) . '/php.ini');
+        } elseif (file_exists($this->_getPhpIni($case))) {
+            $this->data = $this->_loadFromFileAndParseIni($this->_getPhpIni($case));
         }
 
         if (isset(PHPT_Registry::getInstance()->opts['ini'])) {
@@ -83,6 +83,10 @@ class PHPT_Section_INI implements PHPT_Section_RunnableBefore
             $return[trim($pair[0])] = trim($pair[1]);
         }
         return $return;
+    }
+
+    private function _getPhpIni(PHPT_Case $case) {
+        return dirname($case->filename) . '/php.ini';
     }
     
     public function __toString()
