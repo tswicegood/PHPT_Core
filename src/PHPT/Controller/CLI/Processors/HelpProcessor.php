@@ -9,8 +9,9 @@ class PHPT_Controller_CLI_Processors_HelpProcessor implements PHPT_Controller_CL
         ) {
             return;
         }
+        $version = PHPT_Framework::VERSION;
         echo <<<END
-PHPT v0 usage:
+PHPT v$version usage:
   $ phpt [FILE]
   $ phpt [DIRECTORY]
 

@@ -15,8 +15,8 @@ $help->process($cli);
 
 ?>
 This text should not be displayed - process() should have exited
---EXPECTF--
-PHPT v%d usage:
+--EXPECT--
+PHPT v@@VERSION@@ usage:
   $ phpt [FILE]
   $ phpt [DIRECTORY]
 
