@@ -5,9 +5,12 @@ being used in a command-line.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $ini_data = "message=Hello World";
 $ini = new PHPT_Section_INI($ini_data);
+$ini->run(new PHPT_SimpleTestCase());
+
 $expected = '-d "message=Hello World" '
     . '-d "output_handler=" '
     . '-d "open_basedir=" '

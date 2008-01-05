@@ -11,7 +11,7 @@ class FoobarIni {
     public $display_errors = 1;
 
     public function __toString() {
-        return " -d display_errors={$this->display_errors} ";
+        return " -d \"display_errors={$this->display_errors}\" ";
     }
 }
 

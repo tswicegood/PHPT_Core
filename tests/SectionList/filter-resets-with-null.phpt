@@ -10,8 +10,9 @@ $runnable = array(
     'CLEAN' => new PHPT_Section_CLEAN(''),
 );
 
+class PHPT_Section_FOO implements PHPT_Section { }
 $non_runnable = array(
-    'INI' => new PHPT_Section_INI(''),
+    'FOO' => new PHPT_Section_FOO(), 
 );
 
 $data = array_merge($runnable, $non_runnable);

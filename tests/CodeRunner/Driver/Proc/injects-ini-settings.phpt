@@ -9,15 +9,15 @@ class FoobarIni {
     public $display_errors = 1;
 
     public function __toString() {
-        return " -d display_errors={$this->display_errors} ";
+        return " -d \"display_errors={$this->display_errors}\" ";
     }
 }
 
 // sanity check
 $obj = new FoobarIni();
-assert('(string)$obj == " -d display_errors=1 "');
+assert('(string)$obj == " -d \"display_errors=1\" "');
 $obj->display_errors = 0;
-assert('(string)$obj == " -d display_errors=0 "');
+assert('(string)$obj == " -d \"display_errors=0\" "');
 unset($obj);
 
 

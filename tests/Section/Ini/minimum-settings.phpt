@@ -7,8 +7,11 @@ prior the first stable release of PHPT.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $ini = new PHPT_Section_INI();
+$ini->run(new PHPT_SimpleTestCase());
+
 $expected = array(
     'output_handler' => '',
     'open_basedir' => '',

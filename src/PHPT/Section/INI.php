@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_INI implements PHPT_Section
+class PHPT_Section_INI implements PHPT_Section_RunnableBefore
 {
     private $_default_values = array(
         'output_handler' => '',
@@ -26,12 +26,19 @@ class PHPT_Section_INI implements PHPT_Section
     );
     
     public $data = array();
+    private $_raw_data = null;
+    private $_case = null;
     
     public function __construct($data = '')
     {
+        $this->_raw_data = $data;
+    }
         
-        if (!empty($data)) {
-            $this->data = $this->_parseIni($data);
+    public function run(PHPT_Case $case)
+    {
+        $this->_case = $case;
+        if (!empty($this->_raw_data)) {
+            $this->data = $this->_loadFromFileAndParseIni($this->_raw_data);
         }
 
         if (isset(PHPT_Registry::getInstance()->opts['ini'])) {
@@ -42,6 +49,27 @@ class PHPT_Section_INI implements PHPT_Section
         }
        
         $this->data = array_merge($this->data, $this->_default_values);
+    }
+
+    public function getPriority()
+    {
+        return 0;    
+    }
+
+    private function _loadFromFileAndParseIni($data, $separator = "\n")
+    {
+        if (is_file($data)) {
+            $data = file_get_contents($data);
+        } else {
+            $php = new PHPT_Util_Code($data);
+            if ($php->isValid()) {
+                $data = $php->runAsFile($this->_case->filename . '.ini');
+                if (is_file($data)) {
+                    $data = file_get_contents($data);
+                }
+            }
+        }
+        return $this->_parseIni($data, $separator);
     }
 
     private function _parseIni($raw_data, $separator = "\n")
