@@ -18,6 +18,18 @@ class PHPT_Util_Code
         return eval($this->_code);
     }
 
+    public function runAsFile($file)
+    {
+        file_put_contents($file, '<?php ' . $this->_code);
+        ob_start();
+        $return = include $file;
+        $buffer = ob_get_clean();
+        if (!empty($buffer)) {
+            $return = $buffer;
+        }
+        return $return;
+    }
+
     /**
      * Returns true if this code represents executable PHP
      *
