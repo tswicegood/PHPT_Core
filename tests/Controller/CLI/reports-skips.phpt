@@ -17,7 +17,7 @@ $controller->run($options);
 --EXPECTREGEX--
 /.*
 Skipped Cases:
-    .*tests-skips\/01-skips.phpt -.*
+    .*tests-skips\/01-skips.phpt - because it always does
 
 Test Cases Run: 2, Passes: 1, Failures: 0, Skipped: 1.*/
 ===DONE===
