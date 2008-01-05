@@ -51,7 +51,7 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
     public function run(PHPT_Case $case)
     {
         parent::run($case);
-        $this->filename = dirname($case->filename) . '/' . basename($case->filename, '.phpt') . '.php';
+        $this->filename = dirname($case->filename) . '/' . basename($case->filename) . '.php';
         $case->output = $this->_runner_factory->factory($case)->run($this->_filename)->output;
     }
     
