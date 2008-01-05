@@ -7,6 +7,7 @@ class PHPT_Section_EXPECTREGEX extends PHPT_Section_ExpectationAbstract
         $pattern = $this->_expected;
         if (substr($pattern, -10) == '===DONE===') {
             $pattern = substr($pattern, 0, -10);
+            $this->_checkForDoneToken($case);
         }
         if ($pattern[0] != '/') {
             $pattern = '/' . trim($pattern) . '/';
@@ -19,5 +20,12 @@ class PHPT_Section_EXPECTREGEX extends PHPT_Section_ExpectationAbstract
             throw new PHPT_Section_EXPECTREGEX_InvalidRegexException($case, $pattern);
         }
         return $result;
+    }
+
+    private function _checkForDoneToken(PHPT_Case $case)
+    {
+        if (substr($case->output, -10) != '===DONE===') {
+            throw new PHPT_Section_EXPECTREGEX_UnexpectedOutputException($case, $this->_expected);
+        }
     }
 }

@@ -8,7 +8,8 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 
 $case = new PHPT_SimpleTestCase();
-$case->output = "foobar" . rand(100, 199);
+$case->output = "foobar" . rand(100, 199) .
+    "\n===DONE===";
 
 $data = <<<END
 foobar1[0-9]{2}
