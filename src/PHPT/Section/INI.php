@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_INI implements PHPT_Section_RunnableBefore
+class PHPT_Section_INI extends PHPT_Section_ModifiableAbstract implements PHPT_Section_RunnableBefore
 {
     private $_default_values = array(
         'output_handler' => '',
@@ -31,11 +31,13 @@ class PHPT_Section_INI implements PHPT_Section_RunnableBefore
     
     public function __construct($data = '')
     {
+        parent::__construct($data);
         $this->_raw_data = $data;
     }
         
     public function run(PHPT_Case $case)
     {
+        parent::run($case);
         $this->_case = $case;
         if (!empty($this->_raw_data)) {
             $this->data = $this->_loadFromFileAndParseIni($this->_raw_data);
