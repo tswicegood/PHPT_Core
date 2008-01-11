@@ -12,7 +12,6 @@ $filename = 'some-random-file-' . rand(100, 200);
 $case->filename = $filename;
 $env = new PHPT_Section_ENV('foo=bar');
 
-assert('$env->data["SCRIPT_FILENAME"] == ""');
 $env->run($case);
 assert('$env->data["SCRIPT_FILENAME"] == $filename');
 

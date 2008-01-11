@@ -5,13 +5,19 @@ a minimum of "default" values.
 <?php
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
+require_once dirname(__FILE__) . '/../_simple-test-case.inc';
+
+$case = new PHPT_SimpleTestCase();
+$case->filename = dirname(__FILE__) . '/foobar.phpt';
 
 $env = new PHPT_Section_ENV();
+$env->run($case);
+
 $expected = array(
     'REDIRECT_STATUS' => '',
     'QUERY_STRING' => '',
-    'PATH_TRANSLATED' => '',
-    'SCRIPT_FILENAME' => '',
+    'PATH_TRANSLATED' => $case->filename,
+    'SCRIPT_FILENAME' => $case->filename,
     'REQUEST_METHOD' => '',
     'CONTENT_TYPE' => '',
     'CONTENT_LENGTH' => '',

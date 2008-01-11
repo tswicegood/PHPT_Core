@@ -17,12 +17,7 @@ class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
     public function __construct($data = '')
     {
         parent::__construct($data);
-        $this->_setDefaultValues();
-        if (!empty($data)) {
-            $this->_parseProvidedData(
-                $this->_evaluateProvidedData($data)
-            );
-        }
+        $this->_raw_data = $data;
     }
 
     private function _setDefaultValues()
@@ -42,18 +37,24 @@ class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
         }
     }
 
-    private function _evaluateProvidedData($data)
+    private function _evaluateProvidedData($data, $case)
     {
         $data = trim($data);
         $php = new PHPT_Util_Code($data);
         if ($php->isValid()) {
-            $data = $php->evaluate();
+            $data = $php->runAsFile($case->filename . '.env');
         }
         return $data;
     }
 
     public function run(PHPT_Case $case)
     {
+        $this->_setDefaultValues();
+        if (!empty($this->_raw_data)) {
+            $this->_parseProvidedData(
+                $this->_evaluateProvidedData($this->_raw_data, $case)
+            );
+        }
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
         parent::run($case);
     }
