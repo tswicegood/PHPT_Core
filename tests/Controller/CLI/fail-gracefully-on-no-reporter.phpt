@@ -11,7 +11,7 @@ $random = rand(100, 200);
 $opts = array(
     '--reporter',
     'UnknownAndUnknowable',// . $random,
-    dirname(__FILE__) . '/../../../test-supporting/tests',
+    dirname(__FILE__) . '/../../../tests-supporting/tests',
 );
 
 $controller = new PHPT_Controller_CLI();
