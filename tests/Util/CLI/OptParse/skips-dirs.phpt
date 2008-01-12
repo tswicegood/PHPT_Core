@@ -19,7 +19,7 @@ $expected = array(
     'foo' => 'bar',
 );
 
-assert('PHPT_Registry::getInstance()->opts == $expected');
+assert('PHPT_Registry::getInstance()->opts === $expected');
 
 ?>
 ===DONE===
