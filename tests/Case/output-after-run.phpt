@@ -21,5 +21,7 @@ assert('$case->output == $random');
 
 ?>
 ===DONE===
+--CLEAN--
+<?php unlink(dirname(__FILE__) . '/fake-test-case.php'); ?>
 --EXPECT--
 ===DONE===

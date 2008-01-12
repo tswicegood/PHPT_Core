@@ -39,6 +39,8 @@ echo $case->output;
 
 ?>
 ===DONE===
+--CLEAN--
+<?php unlink(dirname(__FILE__) . '/fake-test-case.php'); ?>
 --EXPECT--
 PHPT_Section_SimpleAfterOne called
 PHPT_Section_SimpleAfterTwo called
