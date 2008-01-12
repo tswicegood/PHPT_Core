@@ -12,9 +12,7 @@ class PHPT_Util_CLI_OptParser
         $encountered = null;
         $parsed_opts = array();
         foreach ($opts as $value) {
-            if (is_file($value) || is_dir($value)) {
-                continue;
-            }
+            
             if (!is_null($encountered)) {
                 if ($value{0} != '-') {
                     $parsed_opts[$encountered] = $value;
@@ -29,6 +27,9 @@ class PHPT_Util_CLI_OptParser
                 $encountered = substr($value, 2);
                 continue;
             } else {
+                if (is_file($value) || is_dir($value)) {
+                    continue;
+                }
                 $values = str_split(substr($value, 1));
                 foreach ($values as $letter) {
                     $parsed_opts[$letter] = true;
