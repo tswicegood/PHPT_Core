@@ -24,6 +24,7 @@ class PHPT_Util_Code
         ob_start();
         $return = include $file;
         $buffer = ob_get_clean();
+        unlink($file);
         if (!empty($buffer)) {
             $return = $buffer;
         }
