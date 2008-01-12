@@ -30,7 +30,6 @@ $case->run($reporter);
 ===DONE===
 --CLEAN--
 <?php
-@unlink(dirname(__FILE__) . '/fake-test-case.phpt.php');
 @unlink(dirname(__FILE__) . '/fake-test-case.phpt.exp');
 @unlink(dirname(__FILE__) . '/fake-test-case.phpt.out');
 @unlink(dirname(__FILE__) . '/fake-test-case.phpt.diff');
