@@ -6,6 +6,7 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private $_pass_total = 0;
     private $_skips = array();
     private $_failures = array();
+    private $_errors = array();
     private $_start_time = null;
     private $_end_time = null;
     
@@ -36,12 +37,21 @@ class PHPT_Reporter_Text implements PHPT_Reporter
                 echo "\n\n";
             }
         }
+
+        if (count($this->_errors) > 0) {
+            echo "Cases with Errors:\n";
+            foreach ($this->_errors as $file => $error_message) {
+                echo "    {$file} - {$error_message}\n";
+            }
+            echo "\n";
+        }
         
         printf(
-            "Test Cases Run: %d, Passes: %d, Failures: %d, Skipped: %d\n",
+            "Test Cases Run: %d, Passes: %d, Failures: %d, Errors: %d, Skipped: %d\n",
             $this->_total,
             $this->_pass_total,
             count($this->_failures),
+            count($this->_errors),
             count($this->_skips)
         );
 
@@ -96,7 +106,14 @@ class PHPT_Reporter_Text implements PHPT_Reporter
 
     public function onParserError(Exception $exception)
     {
+        $this->_addExceptionToErrorStack($exception);
+        $this->_output('E');
+    }
 
+    private function _addExceptionToErrorStack(Exception $exception)
+    {
+        $callTrace = array_shift($exception->getTrace());
+        $this->_errors[$callTrace['file']] = $exception->getMessage();
     }
     
     private function _output($string) {
