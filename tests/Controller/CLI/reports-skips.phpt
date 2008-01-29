@@ -19,5 +19,5 @@ $controller->run($options);
 Skipped Cases:
     .*tests-skips\/01-skips.phpt - because it always does
 
-Test Cases Run: 2, Passes: 1, Failures: 0, Skipped: 1.*/
+Test Cases Run: 2, Passes: 1, Failures: 0, Errors: 0, Skipped: 1.*/
 ===DONE===

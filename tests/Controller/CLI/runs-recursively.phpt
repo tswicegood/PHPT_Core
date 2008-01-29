@@ -15,4 +15,4 @@ $controller->run($options);
 
 ?>
 --EXPECTREGEX--
-/.*Test Cases Run: 5, Passes: 5, Failures: 0, Skipped: 0.*/
+/.*Test Cases Run: 5, Passes: 5, Failures: 0, Errors: 0, Skipped: 0.*/

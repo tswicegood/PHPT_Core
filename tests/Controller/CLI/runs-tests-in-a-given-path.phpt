@@ -15,5 +15,5 @@ $controller->run($options);
 ?>
 ===DONE===
 --EXPECTREGEX--
-/.*Test Cases Run: 2, Passes: 2, Failures: 0, Skipped: 0.*/
+/.*Test Cases Run: 2, Passes: 2, Failures: 0, Errors: 0, Skipped: 0.*/
 ===DONE===
