@@ -28,6 +28,10 @@ class PHPT_Reporter_Foobar implements PHPT_Reporter {
     public function onCaseEnd(PHPT_Case $case) {
         echo __METHOD__, " was called\n";
     }
+
+    public function onParserError() {
+        echo __METHOD__, " was called\n";
+    }
 }
 
 class PHPT_Reporter_FoobarQuiet implements PHPT_Reporter {

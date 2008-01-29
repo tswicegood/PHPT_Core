@@ -2,14 +2,32 @@
 
 class PHPT_Case_Parser
 {
+    private $_reporter = null;
     private $_validator = null;
     
     public function __construct()
     {
         $this->_validator = new PHPT_Case_Validator_Runnable();
     }
+
+    public function setReporter($reporter)
+    {
+        $this->_reporter = $reporter;
+    }
     
     public function parse($file)
+    {
+        try {
+            return $this->_doParse($file);
+        } catch (Exception $e) {
+            if (is_null($this->_reporter)) {
+                throw $e;
+            }
+            $this->_reporter->onParserError();
+        }
+    }
+
+    private function _doParse($file)
     {
         $raw_sections = array();
         $lines = file($file);
@@ -48,6 +66,11 @@ class PHPT_Case_Parser
     private function _createSection($name, $data)
     {
         $object_name = 'PHPT_Section_' . $name;
+        if (!class_exists($object_name, true)) {
+            throw new PHPT_Case_Parser_UnknownSectionName($name);
+        }
         return new $object_name(rtrim($data));
     }
 }
+
+class PHPT_Case_Parser_UnknownSectionName extends Exception { }
