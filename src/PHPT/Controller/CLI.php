@@ -17,7 +17,9 @@ class PHPT_Controller_CLI implements PHPT_Controller
                 $this->_recursive = $value;
                 break;
             case 'reporter' :
-                // @todo make sure this implements PHPT_Reporter
+                if (!($value instanceof PHPT_Reporter)) {
+                    throw new PHPT_Controller_CLI_InvalidReporter($value);
+                }
                 $this->_reporter = $value;
                 break;
         }
