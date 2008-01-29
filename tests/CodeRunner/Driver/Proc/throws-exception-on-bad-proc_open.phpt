@@ -10,14 +10,17 @@ $filename = dirname(__FILE__) . '/foobar.php';
 $code = '<?php echo "Hello World!"; ?>';
 file_put_contents($filename, $code);
 
+$some_invalid_executable = '/some/unknown/and/bad/path/to/php';
+
 $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Driver_Proc($caller);
-$runner->executable = '/some/unknown/and/bad/path/to/php';
+$runner->executable = $some_invalid_executable;
+
 try {
     $runner->run($filename);
     trigger_error('exception not caught');
 } catch (PHPT_CodeRunner_ExecutionException $e) {
-    
+    assert('$e->getExecutable() == $some_invalid_executable');
 }
 
 ?>
