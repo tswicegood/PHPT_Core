@@ -39,6 +39,6 @@ Failed Cases:
         001- one
         001+ two
 
-Test Cases Run: 2, Passes: 0, Failures: 2, Skipped: 0
+Test Cases Run: 2, Passes: 0, Failures: 2, Errors: 0, Skipped: 0
 Total Test Time: %d:%d
 ===DONE===
