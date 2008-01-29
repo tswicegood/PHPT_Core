@@ -23,10 +23,10 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
     
     public function __toString()
     {
-        return $this->getDiff();
+        return $this->getReason();
     }
     
-    public function getDiff()
+    public function getReason()
     {
         return (string)new PHPT_Util_Diff($this->_wanted, $this->_actual);
     }
@@ -52,7 +52,7 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
     {
         file_put_contents(
             $this->_case->filename . '.diff',
-            $this->getDiff()
+            $this->getReason()
         );
     }
 

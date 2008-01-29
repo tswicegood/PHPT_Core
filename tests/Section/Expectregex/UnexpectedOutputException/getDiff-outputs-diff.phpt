@@ -1,5 +1,5 @@
 --TEST--
-When a PHPT_Section_EXPECTREGEX_UnexpectedOutputException::getDiff() is called, the
+When a PHPT_Section_EXPECTREGEX_UnexpectedOutputException::getReason() is called, the
 diff is returned
 --FILE--
 <?php
@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/_setup.inc';
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
 $exception = new PHPT_Section_EXPECTREGEX_UnexpectedOutputException($case, "one");
-echo $exception->getDiff(), "\n";
+echo $exception->getReason(), "\n";
 
 ?>
 ===DONE===

@@ -7,5 +7,5 @@ abstract class PHPT_Case_FailureException extends Exception
         parent::__construct($reason);
     }
     
-    abstract public function getDiff();
+    abstract public function getReason();
 }

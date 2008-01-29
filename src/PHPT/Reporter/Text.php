@@ -93,7 +93,7 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     {
         $this->_failures[$case->filename] = array(
             'message' => $failure->getMessage(),
-            'diff' => $failure->getDiff(),
+            'diff' => $failure->getReason(),
         );
         $this->_output('F');
     }

@@ -11,7 +11,7 @@ class PHPT_Section_EXPECTREGEX_InvalidRegexException extends PHPT_Case_FailureEx
         parent::__construct($case, $reason);
     }
     
-    public function getDiff()
+    public function getReason()
     {
         return '';
     }

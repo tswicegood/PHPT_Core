@@ -14,7 +14,7 @@ class PHPT_SimpleCase extends PHPT_Case
 class PHPT_SimpleFailureException extends PHPT_Case_FailureException
 {
     public function __construct() { }
-    public function getDiff() { }
+    public function getReason() { }
 }
 
 class PHPT_SimpleVeto extends PHPT_Case_VetoException
