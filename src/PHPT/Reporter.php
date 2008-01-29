@@ -66,4 +66,6 @@ interface PHPT_Reporter
      * @return string
      */
     public function onCaseFail(PHPT_Case $case, PHPT_Case_FailureException $failure);
+
+    public function onParserError(Exception $exception);
 }
