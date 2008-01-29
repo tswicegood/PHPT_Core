@@ -68,4 +68,8 @@ class PHPT_Reporter_Pear implements PHPT_Reporter
         echo "SKIP {$case->name}[{$case->filename}](reason: {$veto->getMessage()})\n";
     }
 
+    public function onParserError(Exception $exception)
+    {
+
+    }
 }

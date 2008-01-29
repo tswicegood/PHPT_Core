@@ -41,4 +41,9 @@ class PHPT_Reporter_Null implements PHPT_Reporter
     {
         
     }
+
+    public function onParserError(Exception $exception)
+    {
+
+    }
 }

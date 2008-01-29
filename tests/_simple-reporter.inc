@@ -22,7 +22,7 @@ class PHPT_SimpleReporter implements PHPT_Reporter {
     public function onSuiteEnd(PHPT_Suite $suite) {
         echo __METHOD__, " was called\n";
     }
-    public function onParserError() {
+    public function onParserError(Exception $exception) {
         echo __METHOD__, " was called\n";
     }
 }

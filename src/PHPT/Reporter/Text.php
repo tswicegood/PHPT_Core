@@ -93,6 +93,11 @@ class PHPT_Reporter_Text implements PHPT_Reporter
         $this->_skips[$case->filename] = $veto->getMessage();
         $this->_output('S');
     }
+
+    public function onParserError(Exception $exception)
+    {
+
+    }
     
     private function _output($string) {
         if ($this->_total > 0 && $this->_total % 80 == 0) {

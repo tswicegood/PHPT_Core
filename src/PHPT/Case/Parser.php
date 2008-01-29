@@ -23,7 +23,7 @@ class PHPT_Case_Parser
             if (is_null($this->_reporter)) {
                 throw $e;
             }
-            $this->_reporter->onParserError();
+            $this->_reporter->onParserError($e);
         }
     }
 
