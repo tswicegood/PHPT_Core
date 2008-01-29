@@ -19,8 +19,12 @@ class PHPT_Suite implements Iterator, Countable
     
     public function run(PHPT_Reporter $reporter)
     {
+        $this->_parser->setReporter($reporter);
         $reporter->onSuiteStart($this);
         foreach ($this as $case) {
+            if (!$case instanceof PHPT_Case) {
+                continue;
+            }
             $case->run($reporter);
         }
         $reporter->onSuiteEnd($this);
