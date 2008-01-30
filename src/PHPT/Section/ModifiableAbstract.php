@@ -21,7 +21,6 @@ abstract class PHPT_Section_ModifiableAbstract implements PHPT_Section_Runnable
                 $section->$modifyMethod($this);
             }
         }
-        $case->sections->filterByInterface();
     }
     
     public function getPriority()
