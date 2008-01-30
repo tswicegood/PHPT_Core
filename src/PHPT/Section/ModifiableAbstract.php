@@ -15,11 +15,12 @@ abstract class PHPT_Section_ModifiableAbstract implements PHPT_Section_Runnable
     
     public function run(PHPT_Case $case)
     {
-        if ($case->sections->filterByInterface($this->_modifier_name . 'Modifier')->valid()) {
-            $modifyMethod = 'modify' . $this->_modifier_name;
-            foreach ($case->sections as $section) {
-                $section->$modifyMethod($this);
-            }
+        if (!$case->sections->filterByInterface($this->_modifier_name . 'Modifier')->valid()) {
+            return;
+        }
+        $modifyMethod = 'modify' . $this->_modifier_name;
+        foreach ($case->sections as $section) {
+            $section->$modifyMethod($this);
         }
     }
     
