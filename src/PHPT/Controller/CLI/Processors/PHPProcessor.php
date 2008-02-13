@@ -1,10 +1,14 @@
 <?php
 
-class PHPT_Controller_CLI_Processors_PHPProcessor
+class PHPT_Controller_CLI_Processors_PHPProcessor implements PHPT_Controller_CLI_Processor
 {
-    public function process()
+    public function process(PHPT_Controller_CLI $cli)
     {
-        PHPT_Registry::getInstance()->php = PHPT_Registry::getInstance()->opts['php'];
+        $registry = PHPT_Registry::getInstance();
+        if (isset($registry->opts['php'])) {
+            $registry->php = $registry->opts['php'];
+        }
+        unset($registry);
     }
 }
 
