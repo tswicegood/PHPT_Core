@@ -17,6 +17,9 @@ abstract class PHPT_CodeRunner_Driver_Abstract
     {
         $this->_caller = $caller;
         $this->environment = $_ENV;
+        if (isset(PHPT_Registry::getInstance()->php)) {
+            $this->executable = PHPT_Registry::getInstance()->php;
+        }
     }
     
     abstract public function run($filename);
