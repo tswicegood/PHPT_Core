@@ -33,6 +33,31 @@
     </target>
     
     <target name="build" depends="export">
+        <phingcall target="build.package" />
+    </target>
+
+    <target name="export.git" depends="clean">
+        <echo msg="Creating copy of git contents" />
+         <copy todir="./build/package">
+            <filterchain>
+                <replacetokens begintoken="@@" endtoken="@@">
+                    <token key="VERSION" value="${version}" />
+                </replacetokens>
+            </filterchain>
+            <fileset dir="./src">
+                <include name="PHPT*/**" />
+            </fileset>
+            <fileset dir="./">
+                <include name="scripts/**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build.git" depends="export.git">
+        <phingcall target="build.package" />
+    </target>
+
+    <target name="build.package">
         <d51pearpkg2 dir="./build/package" baseinstalldir="/">
             <name>${package_name}</name>
             <summary>PHPT_Core provides the core of PHPT testing framework</summary>
@@ -85,6 +110,14 @@
     </target>
     
     <target name="make" depends="build">
+        <phingcall target="make.package" />
+    </target>
+
+    <target name="make.git" depends="build.git">
+        <phingcall target="make.package" />
+    </target>
+
+    <target name="make.package">
         <echo msg="Creating PEAR archive file for ${package_name}" />
         <mkdir dir="./build/package/${package_name}-${version}" />
         <copy todir="./build/package/${package_name}-${version}">
