@@ -74,6 +74,14 @@ class PHPT_Case
             
             case 'code' :
                 return (string)$this->sections->FILE->contents;
+
+            case 'result' :
+                if (!$this->sections->has('FILE')) {
+                    return null;
+                }
+                return !is_null($this->sections->FILE->result) ?
+                    $this->sections->FILE->result :
+                    null;
         }
     }
     
