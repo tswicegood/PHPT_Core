@@ -7,6 +7,7 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
     private $_contents = '';
     private $_filename = '';
     private $_runner_factory = null;
+    private $_result = null;
     
     public function __construct($data)
     {
@@ -46,13 +47,17 @@ class PHPT_Section_FILE extends PHPT_Section_ModifiableAbstract
         if ($key == 'filename') {
             return $this->_filename;
         }
+        if ($key == 'result') {
+            return $this->_result;
+        }
     }
     
     public function run(PHPT_Case $case)
     {
         parent::run($case);
         $this->filename = dirname($case->filename) . '/' . basename($case->filename) . '.php';
-        $case->output = $this->_runner_factory->factory($case)->run($this->_filename)->output;
+        $this->_result = $this->_runner_factory->factory($case)->run($this->_filename);
+        $case->output = $this->_result->output;
     }
     
     public function getPriority()
