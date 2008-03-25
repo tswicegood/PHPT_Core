@@ -2,7 +2,7 @@
 <project name="PHP_Core" basedir="." default="make">
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
     
-    <property name="version" value="0.1.3devel" />
+    <property name="version" value="0.1.3alpha" />
     <property name="package_name" value="PHPT_Core" />
     <property name="channel" value="channel.phpt.info" />
     
@@ -72,11 +72,11 @@
                 * ability to create custom reporters
             </description>
             
-            <lead user="tswicegood" name="Travis Swicegood" email="developer@domain51.com" />
+            <lead user="tswicegood" name="Travis Swicegood" email="development@domain51.com" />
             <license>LGPL/CDDL</license>
             
             <version release="${version}" api="1.0" />
-            <stability release="devel" api="devel" />
+            <stability release="alpha" api="alpha" />
             
             <dependencies>
                 <php minimum_version="5.2.0" />
@@ -90,9 +90,11 @@
                 <install as="phpt" name="scripts/phpt.php" />
             </release>
 
-            <changelog version="0.1.3devel" date="2008-02-13">
+            <changelog version="0.1.3alpha" date="2008-03-25">
                 <!--        Don't exceed this width         -->
-                Changes for version 0.1.3devel
+                Changes for version 0.1.3alpha
+
+                * Add in RETURNS section
             </changelog>
             
             <changelog version="0.1.2alpha" date="2008-02-13">
