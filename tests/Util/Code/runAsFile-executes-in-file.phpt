@@ -18,7 +18,11 @@ assert('$result == $file');
 ?>
 ===DONE===
 --CLEAN--
-<?php unlink(dirname(__FILE__) . '/foobar.php'); ?>
+<?php 
+if (file_exists(dirname(__FILE__) . '/foobar.php')) {
+    unlink(dirname(__FILE__) . '/foobar.php');
+}
+?>
 --EXPECT--
 ===DONE===
 
