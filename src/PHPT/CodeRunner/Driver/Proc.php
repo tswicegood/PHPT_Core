@@ -83,7 +83,7 @@ class PHPT_CodeRunner_Driver_Proc extends PHPT_CodeRunner_Driver_Abstract
             } elseif ($n > 0) {
                 $error_pipe = fread($this->_pipes[2], 8192);
                 if (!empty($error_pipe)) {
-                    throw new PHPT_CodeRunner_ExecutionException($error_pipe, $this->executable);
+                    $data .= $error_pipe;
                 }
 
                 $line = fread($this->_pipes[1], 8192);
