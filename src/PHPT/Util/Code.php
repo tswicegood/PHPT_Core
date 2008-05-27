@@ -44,7 +44,7 @@ class PHPT_Util_Code
         if (is_null($this->_valid)) {
             $code = 'if (false) {' . $this->_code . '}';
             ob_start();
-            $this->_valid = (eval($code) !== false);
+            $this->_valid = @(eval($code) !== false);
             ob_get_clean();
         }
         return $this->_valid;
