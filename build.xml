@@ -2,7 +2,7 @@
 <project name="PHP_Core" basedir="." default="make">
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
     
-    <property name="version" value="0.1.3alpha" />
+    <property name="version" value="0.1.4alpha" />
     <property name="package_name" value="PHPT_Core" />
     <property name="channel" value="channel.phpt.info" />
     
@@ -90,6 +90,16 @@
                 <install as="phpt" name="scripts/phpt.php" />
             </release>
 
+            <changelog version="0.1.4alpha" date="2008-05-27">
+                <!--        Don't exceed this width         -->
+                Updates to fix two bugs within PHP:
+                
+                * PHP's error display now happens on STDERR
+                which causes issues when running tests that
+                generate errors
+                * PHPT's error handling stack would improperly
+                display multiple errors.
+            </changelog>
             <changelog version="0.1.3alpha" date="2008-03-25">
                 <!--        Don't exceed this width         -->
                 Changes for version 0.1.3alpha
