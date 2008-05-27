@@ -40,8 +40,8 @@ class PHPT_Reporter_Text implements PHPT_Reporter
 
         if (count($this->_errors) > 0) {
             echo "Cases with Errors:\n";
-            foreach ($this->_errors as $file => $error_message) {
-                echo "    {$file} - {$error_message}\n";
+            foreach ($this->_errors as $error) {
+                echo "    {$error['file']} - {$error['exception']->getMessage()}\n";
             }
             echo "\n";
         }
@@ -113,7 +113,10 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private function _addExceptionToErrorStack(Exception $exception)
     {
         $callTrace = array_shift($exception->getTrace());
-        $this->_errors[$callTrace['file']] = $exception->getMessage();
+        $this->_errors[] = array(
+            'file' => $callTrace['file'],
+            'exception' => $exception,
+        );
     }
     
     private function _output($string) {
