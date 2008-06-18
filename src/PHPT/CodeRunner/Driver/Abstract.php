@@ -16,7 +16,11 @@ abstract class PHPT_CodeRunner_Driver_Abstract
     public function __construct(PHPT_CodeRunner $caller)
     {
         $this->_caller = $caller;
-        $this->environment = $_ENV;
+        if (!empty($_ENV)) {
+            $this->environment = $_ENV;
+        } else {
+            $this->environment['PATH'] = getenv('PATH');
+        }
         if (isset(PHPT_Registry::getInstance()->php)) {
             $this->executable = PHPT_Registry::getInstance()->php;
         }
