@@ -4,7 +4,7 @@ Passes the provided $reporter to the parser to handle invalid tests
 <?php
 
 require_once dirname(__FILE__) . '/../_setup.inc';
-require_once dirname(__FIlE__) . '/../_simple-reporter.inc';
+require_once dirname(__FILE__) . '/../_simple-reporter.inc';
 
 $reporter = new PHPT_SimpleReporter();
 
