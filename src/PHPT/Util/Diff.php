@@ -13,8 +13,8 @@ class PHPT_Util_Diff
         if ($this->_invalidString($actual)) {
             throw new PHPT_Util_Diff_InvalidParameter('actual');
         }
-        $this->_wanted = explode("\n", $wanted);
-        $this->_actual = explode("\n", $actual);
+        $this->_wanted = explode(PHP_EOL, $wanted);
+        $this->_actual = explode(PHP_EOL, $actual);
     }
     
     public function __toString()
@@ -45,7 +45,7 @@ class PHPT_Util_Diff
         }
         
         ksort($return);
-        return implode("\n", $return);
+        return implode(PHP_EOL, $return);
     }
 
     private function _cheapComparison()
