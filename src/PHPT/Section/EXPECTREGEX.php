@@ -11,6 +11,8 @@ class PHPT_Section_EXPECTREGEX extends PHPT_Section_ExpectationAbstract
         }
         if ($pattern[0] != '/') {
             $pattern = '/' . trim($pattern) . '/';
+        } else {
+            $pattern = trim($pattern);
         }
         
         // capture $matches - it'll still be NULL if $pattern was invalid
