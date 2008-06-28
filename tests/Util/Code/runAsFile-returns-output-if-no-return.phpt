@@ -9,7 +9,7 @@ $code = 'echo realpath(__FILE__);';
 
 $util = new PHPT_Util_Code($code);
 
-$file = dirname(__FILE__) . '/foobar.php';
+$file = dirname(__FILE__) . PATH_SEPARATOR . 'foobar.php';
 $result = $util->runAsFile($file);
 
 assert('$result == $file');
