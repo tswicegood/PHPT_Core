@@ -7,7 +7,7 @@ $a = 10;
 $b = 2;
 
 $result = $a / $b;
-echo $result, "\n";
+echo $result, PHP_EOL;
 
 ?>
 ===DONE===

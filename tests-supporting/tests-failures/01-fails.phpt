@@ -3,7 +3,7 @@ This is a simple failure
 --FILE--
 <?php
 
-echo "fails\n";
+echo "fails", PHP_EOL;
 
 ?>
 ===DONE===

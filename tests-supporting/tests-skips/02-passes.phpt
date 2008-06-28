@@ -3,7 +3,7 @@ This is a simple pass
 --FILE--
 <?php
 
-echo "passes\n";
+echo "passes", PHP_EOL;
 
 ?>
 ===DONE===
