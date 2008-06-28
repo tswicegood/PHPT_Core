@@ -17,9 +17,9 @@ class FoobarIni {
 
 // sanity check
 $obj = new FoobarIni();
-assert('(string)$obj == " -d display_errors=1 "');
+assert('(string)$obj == " -d \"display_errors=1\" "');
 $obj->display_errors = 0;
-assert('(string)$obj == " -d display_errors=0 "');
+assert('(string)$obj == " -d \"display_errors=0\" "');
 unset($obj);
 
 
