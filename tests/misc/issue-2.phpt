@@ -19,7 +19,7 @@ file_put_contents($test_case_file, $contents);
 $parser = new PHPT_Case_Parser();
 $case = $parser->parse($test_case_file);
 $case->run(new PHPT_Reporter_Null());
-assert('trim($case->result->output) == getenv("PATH")');
+assert('trim($case->result->output) == trim(getenv("PATH"))');
 
 ?>
 ===DONE===
