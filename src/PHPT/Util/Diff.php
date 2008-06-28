@@ -55,7 +55,12 @@ class PHPT_Util_Diff
 
     private function _invalidString($string)
     {
-        return !is_string($string) && @((string)$string != $string);
+        if (is_string($string)) {
+            return false;
+        } elseif (is_object($string)) {
+            return !(method_exists($string, '__toString') && (string)$string == $string);
+        }
+        return (string)$string != $string;
     }
 }
 
