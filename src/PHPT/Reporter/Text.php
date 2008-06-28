@@ -12,42 +12,42 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     
     public function onSuiteStart(PHPT_Suite $suite)
     {
-        echo "PHPT Test Runner v", PHPT_Framework::VERSION, "\n\n";
+        echo "PHPT Test Runner v", PHPT_Framework::VERSION, PHP_EOL, PHP_EOL;
         $this->_start_time = microtime(true);
     }
     
     public function onSuiteEnd(PHPT_Suite $suite)
     {
         $this->_end_time = microtime(true);
-        echo "\n\n";
+        echo PHP_EOL, PHP_EOL;
         
         if (count($this->_skips) > 0) {
-            echo "Skipped Cases:\n";
+            echo "Skipped Cases:", PHP_EOL;
             foreach ($this->_skips as $file => $reason) {
-                echo "    {$file} - {$reason}\n";
+                echo "    {$file} - {$reason}", PHP_EOL;
             }
-            echo "\n";
+            echo PHP_EOL;
         }
         
         if (count($this->_failures) > 0) {
-            echo "Failed Cases:\n";
+            echo "Failed Cases:", PHP_EOL;
             foreach ($this->_failures as $file => $data) {
-                echo "    {$file} - {$data['message']}\n";
+                echo "    {$file} - {$data['message']}", PHP_EOL;
                 echo preg_replace('/^/m', '        ', $data['diff']);
-                echo "\n\n";
+                echo PHP_EOL, PHP_EOL;
             }
         }
 
         if (count($this->_errors) > 0) {
-            echo "Cases with Errors:\n";
+            echo "Cases with Errors:", PHP_EOL;
             foreach ($this->_errors as $error) {
-                echo "    {$error['file']} - {$error['exception']->getMessage()}\n";
+                echo "    {$error['file']} - {$error['exception']->getMessage()}", PHP_EOL;
             }
-            echo "\n";
+            echo PHP_EOL;
         }
         
         printf(
-            "Test Cases Run: %d, Passes: %d, Failures: %d, Errors: %d, Skipped: %d\n",
+            "Test Cases Run: %d, Passes: %d, Failures: %d, Errors: %d, Skipped: %d" . PHP_EOL,
             $this->_total,
             $this->_pass_total,
             count($this->_failures),
@@ -67,7 +67,7 @@ class PHPT_Reporter_Text implements PHPT_Reporter
         }
         $seconds = ($this->_end_time - $this->_start_time) % 60;
         printf(
-            "Total Test Time: %s:%s\n",
+            "Total Test Time: %s:%s" . PHP_EOL,
             str_pad($minutes, 2, '0', STR_PAD_LEFT),
             str_pad($seconds, 2, '0', STR_PAD_LEFT)
         );
@@ -121,7 +121,7 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     
     private function _output($string) {
         if ($this->_total > 0 && $this->_total % 80 == 0) {
-            echo "\n";
+            echo PHP_EOL;
         }
         
         echo $string;

@@ -18,7 +18,7 @@ class PHPT_Section_SKIPIF implements PHPT_Section_RunnableBefore
         file_put_contents($filename, $this->_data);
         $response = array();
         exec('php -f ' . $filename, $response);
-        $response = implode("\n", $response);
+        $response = implode(PHP_EOL, $response);
         unlink($filename);
         
         if (preg_match('/^skip( - (.*))?/', $response, $matches)) {

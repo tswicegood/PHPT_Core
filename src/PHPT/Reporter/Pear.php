@@ -14,7 +14,7 @@ class PHPT_Reporter_Pear implements PHPT_Reporter
     
     public function onSuiteStart(PHPT_Suite $suite)
     {
-        echo "Running {$suite->count()} tests\n";
+        echo "Running {$suite->count()} tests", PHP_EOL;
         $this->_timer_start = time();
     }
     
@@ -26,16 +26,16 @@ class PHPT_Reporter_Pear implements PHPT_Reporter
         $minute = str_pad($total_time % 60, 2, '0', STR_PAD_LEFT);
         
         $buffer = '';
-        $buffer .= "TOTAL TIME {$hour}:{$minute}\n";
-        $buffer .= "{$this->_pass_total} PASSED TESTS\n";
-        $buffer .= "{$this->_skip_total} SKIPPED TESTS\n";
+        $buffer .= "TOTAL TIME {$hour}:{$minute}" . PHP_EOL;
+        $buffer .= "{$this->_pass_total} PASSED TESTS" . PHP_EOL;
+        $buffer .= "{$this->_skip_total} SKIPPED TESTS" . PHP_EOL;
         if (count($this->_failures) > 0) {
-            $buffer .= count($this->_failures) . " FAILED TESTS:\n";
+            $buffer .= count($this->_failures) . " FAILED TESTS:" . PHP_EOL;
             foreach ($this->_failures as $failure) {
-                $buffer .= $failure . "\n";
+                $buffer .= $failure . PHP_EOL;
             }
             file_put_contents('run-tests.log', $buffer);
-            echo 'wrote log to "', realpath('run-tests.log'), "\"\n";
+            echo 'wrote log to "', realpath('run-tests.log'), "\"", PHP_EOL;
         }
         echo $buffer;
     }
@@ -53,19 +53,19 @@ class PHPT_Reporter_Pear implements PHPT_Reporter
     public function onCasePass(PHPT_Case $case)
     {
         $this->_pass_total++;
-        echo "PASS {$case->name}[{$case->filename}]\n";
+        echo "PASS {$case->name}[{$case->filename}]", PHP_EOL;
     }
     
     public function onCaseFail(PHPT_Case $case, PHPT_Case_FailureException $failure)
     {
         $this->_failures[] = $case->filename;
-        echo "FAIL {$case->name}[{$case->filename}]\n";
+        echo "FAIL {$case->name}[{$case->filename}]", PHP_EOL;
     }
     
     public function onCaseSkip(PHPT_Case $case, PHPT_Case_VetoException $veto)
     {
         $this->_skip_total++;
-        echo "SKIP {$case->name}[{$case->filename}](reason: {$veto->getMessage()})\n";
+        echo "SKIP {$case->name}[{$case->filename}](reason: {$veto->getMessage()})", PHP_EOL;
     }
 
     public function onParserError(Exception $exception)

@@ -30,7 +30,7 @@ class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
 
     private function _parseProvidedData($data)
     {
-        $lines = explode("\n", $data);
+        $lines = explode(PHP_EOL, $data);
         foreach ($lines as $line) {
             $pair = explode('=', trim($line), 2);
             $this->data[$pair[0]] = $pair[1];

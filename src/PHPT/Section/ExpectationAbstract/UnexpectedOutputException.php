@@ -69,11 +69,11 @@ abstract class PHPT_Section_ExpectationAbstract_UnexpectedOutputException
      */
     private function _getLog(PHPT_Case $case, $expected)
     {
-        return "---- EXPECTED OUTPUT\n"
-            . $expected . "\n"
-            . "---- ACTUAL OUTPUT\n"
-            . $this->_case->output . "\n"
-            . "---- FAILED\n";
+        return '---- EXPECTED OUTPUT' . PHP_EOL
+            . $expected . PHP_EOL
+            . '---- ACTUAL OUTPUT' . PHP_EOL
+            . $this->_case->output . PHP_EOL
+            . '---- FAILED' . PHP_EOL;
     }
 }
 

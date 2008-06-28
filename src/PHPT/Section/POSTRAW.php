@@ -7,7 +7,7 @@ class PHPT_Section_POSTRAW extends PHPT_Section_POST
     public function __construct($data = '')
     {
         $real_data = '';
-        $lines = explode("\n", $data);
+        $lines = explode(PHP_EOL, $data);
         $started = false;
         
         foreach ($lines as $line) {
@@ -17,7 +17,7 @@ class PHPT_Section_POSTRAW extends PHPT_Section_POST
             }
             
             if ($started) {
-                $real_data .= "\n";
+                $real_data .= PHP_EOL;
             }
             $started = true;
             $real_data .= $line;

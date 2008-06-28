@@ -60,7 +60,7 @@ class PHPT_Section_INI extends PHPT_Section_ModifiableAbstract implements PHPT_S
         return 0;    
     }
 
-    private function _loadFromFileAndParseIni($data, $separator = "\n")
+    private function _loadFromFileAndParseIni($data, $separator = PHP_EOL)
     {
         if (is_file($data)) {
             $data = file_get_contents($data);
@@ -76,7 +76,7 @@ class PHPT_Section_INI extends PHPT_Section_ModifiableAbstract implements PHPT_S
         return $this->_parseIni($data, $separator);
     }
 
-    private function _parseIni($raw_data, $separator = "\n")
+    private function _parseIni($raw_data, $separator = PHP_EOL)
     {
         $return = array();
         $lines = explode($separator, $raw_data);
