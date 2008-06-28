@@ -21,7 +21,7 @@ for ($i = 0; $i < 180; $i++) {
     }
 }
 
-echo "\n";
+echo PHP_EOL;
 
 ?>
 ===DONE===

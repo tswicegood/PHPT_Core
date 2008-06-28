@@ -6,7 +6,7 @@ value it was instantiated with.
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$cookie_data = "Hello World\n"
+$cookie_data = "Hello World" . PHP_EOL
                . "Random #: " . rand(100, 200);
 $cookie = new PHPT_Section_COOKIE($cookie_data);
 assert('(string)$cookie == $cookie_data');

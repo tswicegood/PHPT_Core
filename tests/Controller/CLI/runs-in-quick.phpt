@@ -7,15 +7,15 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $filename = dirname(__FILE__) . '/foobar.phpt';
 // break up like this so the parser doesn't think its found another test
-$case = '--TEST--' . "\n"
-        . 'foobar' . "\n"
-        . '--FILE--' . "\n"
-        . '<?php' . "\n"
-        . 'echo getmypid(), "\n";' . "\n"
-        . '?>' . "\n"
-        . '===DONE===' . "\n"
-        . '--EXPECT--' . "\n"
-        . getmypid() . "\n"
+$case = '--TEST--' . PHP_EOL
+        . 'foobar' . PHP_EOL
+        . '--FILE--' . PHP_EOL
+        . '<?php' . PHP_EOL
+        . 'echo getmypid(), PHP_EOL;' . PHP_EOL
+        . '?>' . PHP_EOL
+        . '===DONE===' . PHP_EOL
+        . '--EXPECT--' . PHP_EOL
+        . getmypid() . PHP_EOL
         . '===DONE===';
 file_put_contents($filename, $case);
 

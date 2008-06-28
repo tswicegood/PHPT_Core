@@ -15,7 +15,7 @@ $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Driver_Proc($caller);
 $result = $runner->run($filename);
 
-echo $result->exitcode, "\n";
+echo $result->exitcode, PHP_EOL;
 assert('$result->exitcode == $random');
 ?>
 ===DONE===

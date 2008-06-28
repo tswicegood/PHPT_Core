@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/../_setup.inc';
 
 class PHPT_Section_SimpleAfterOne implements PHPT_Section_RunnableAfter {
     public function run(PHPT_Case $case) {
-        echo __CLASS__ . " called\n";
+        echo __CLASS__ . " called", PHP_EOL;
     }
     
     public function getPriority() { }
@@ -16,13 +16,13 @@ class PHPT_Section_SimpleAfterOne implements PHPT_Section_RunnableAfter {
 
 class PHPT_Section_SimpleAfterTwo implements PHPT_Section_RunnableAfter {
     public function run(PHPT_Case $case) {
-        echo __CLASS__ . " called\n";
+        echo __CLASS__ . " called", PHP_EOL;
     }
     
     public function getPriority() { }
 }
 
-$file = new PHPT_Section_FILE("Hello World!\n");
+$file = new PHPT_Section_FILE("Hello World!" . PHP_EOL);
 $file->filename = dirname(__FILE__) . '/fake-test-case.php';
 
 $case = new PHPT_Case(

@@ -13,7 +13,7 @@ file_put_contents($filename, $code);
 $runner = new PHPT_CodeRunner();
 $result = $runner->run($filename);
 
-echo $result->output, "\n";
+echo $result->output, PHP_EOL;
 
 ?>
 ===DONE===

@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/_foobar-coderunner.inc';
 $runner = new FooBarCodeRunner();
 $runner->executable = '/some/path/with spaces/in it/php';
 
-echo new PHPT_CodeRunner_CommandLine($runner), "\n";
+echo new PHPT_CodeRunner_CommandLine($runner), PHP_EOL;
 
 ?>
 ===DONE===

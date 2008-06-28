@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/_setup.inc';
 
 $reporter = new PHPT_Reporter_Text();
 $reporter->onParserError(new Exception);
-echo "\n";
+echo PHP_EOL;
 
 ?>
 ===DONE===

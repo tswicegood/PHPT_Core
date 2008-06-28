@@ -12,7 +12,7 @@ $case->filename = $filename;
 
 $exception = new PHPT_Section_EXPECTF_UnexpectedOutputException($case, 'one');
 
-$expected = "001- one\n" .
+$expected = "001- one" . PHP_EOL .
     "001+ two";
 
 assert('file_exists($filename . ".diff")');

@@ -11,7 +11,7 @@ $runner = new FoobarCodeRunner();
 $runner->ini = " -d display_errors=" . rand(0, 1) . " ";
 
 $command = new PHPT_CodeRunner_CommandLine($runner);
-echo $command, "\n";
+echo $command, PHP_EOL;
 
 $expected = 'php ' . trim($runner->ini) . ' -f ' . dirname(__FILE__) . '/fake-test-case.php';
 assert('$command == $expected');

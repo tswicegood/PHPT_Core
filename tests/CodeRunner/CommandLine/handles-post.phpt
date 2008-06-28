@@ -11,7 +11,7 @@ $runner = new FoobarCodeRunner();
 $runner->post_filename = dirname(__FILE__) . '/fake-post-file.php';
 
 $command = (string)new PHPT_CodeRunner_CommandLine($runner);
-echo $command, "\n";
+echo $command, PHP_EOL;
 
 $expected = 'php -f ' . dirname(__FILE__) . '/fake-test-case.php 2>&1 < ' . dirname(__FILE__) . '/fake-post-file.php';
 assert('$command == $expected');

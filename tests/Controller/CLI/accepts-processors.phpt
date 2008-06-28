@@ -8,7 +8,7 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 class PHPT_SimpleControllerProcessor implements PHPT_Controller_CLI_Processor {
     public function process(PHPT_Controller_CLI $cli) {
-        echo __METHOD__, " was called\n";
+        echo __METHOD__, " was called", PHP_EOL;
     }
 }
 

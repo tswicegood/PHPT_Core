@@ -16,7 +16,7 @@ $caller = new PHPT_CodeRunner();
 $runner = new PHPT_CodeRunner_Driver_WScriptShell($caller);
 $result = $runner->run($filename);
 
-echo $result->output, "\n";
+echo $result->output, PHP_EOL;
 
 ?>
 ===DONE===

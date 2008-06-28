@@ -12,7 +12,7 @@ $runner = new FoobarCodeRunner();
 $runner->filename .= $random;
 
 $string = (string)new PHPT_CodeRunner_CommandLine($runner);
-echo $string, "\n";
+echo $string, PHP_EOL;
 
 $expected = 'php -f ' . dirname(__FILE__) . '/fake-test-case.php' . $random;
 assert('$string == $expected');

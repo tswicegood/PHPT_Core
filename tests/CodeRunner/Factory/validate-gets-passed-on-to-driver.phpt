@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 class PHPT_CodeRunner_Driver_Foobar {
     public function validate() {
-        echo __METHOD__, " was called\n";
+        echo __METHOD__, " was called", PHP_EOL;
     }
 }
 

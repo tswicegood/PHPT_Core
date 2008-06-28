@@ -5,12 +5,12 @@ Reporter_Text includes a "Total Test Time MM:SS" line at the end
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$str = "--TEST--\n" .
-       "simply waits for one second\n" .
-       "--FILE--\n" .
-       "<?php sleep(1); ?>\n" .
-       "===DONE===\n" .
-       "--EXPECT--\n" .
+$str = "--TEST--" . PHP_EOL .
+       "simply waits for one second" . PHP_EOL .
+       "--FILE--" . PHP_EOL .
+       "<?php sleep(1); ?>" . PHP_EOL .
+       "===DONE===" . PHP_EOL .
+       "--EXPECT--" . PHP_EOL .
        "===DONE===";
 
 file_put_contents(dirname(__FILE__) . '/foobar.phpt', $str);

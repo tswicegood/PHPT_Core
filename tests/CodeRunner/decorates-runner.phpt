@@ -10,15 +10,15 @@ require_once dirname(__FILE__) . '/../_setup.inc';
 class PHPT_CodeRunner_Driver_Foobar
 {
     public function __set($key, $value) {
-        echo "__set({$key}, {$value})\n";
+        echo "__set({$key}, {$value})" . PHP_EOL;
     }
     
     public function __get($key) {
-        echo "__get({$key})\n";
+        echo "__get({$key})" . PHP_EOL;
     }
     
     public function run($filename) {
-        echo __METHOD__ . ' called with ' . $filename, "\n";
+        echo __METHOD__ . ' called with ' . $filename, PHP_EOL;
     }
 }
 

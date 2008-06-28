@@ -12,7 +12,7 @@ $args = '-f --int ' . rand(100, 200);
 $runner->args = new PHPT_Section_ARGS($args);
 
 $command = new PHPT_CodeRunner_CommandLine($runner);
-echo $command, "\n";
+echo $command, PHP_EOL;
 
 $expected = 'php -f ' . dirname(__FILE__) . '/fake-test-case.php -- ' . $args;
 assert('$command == $expected');

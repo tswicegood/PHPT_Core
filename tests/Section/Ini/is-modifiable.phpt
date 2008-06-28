@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 class PHPT_SimpleIniModifier implements PHPT_Section_INIModifier
 {
     public function modifyINI(PHPT_Section_INI $ini) {
-        echo __METHOD__, " was called\n";
+        echo __METHOD__, " was called", PHP_EOL;
     }
 }
 

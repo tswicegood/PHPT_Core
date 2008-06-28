@@ -9,7 +9,7 @@ require_once dirname(__FILE__) . '/_setup.inc';
 $case = new PHPT_SimpleTestCase();
 $case->filename = dirname(__FILE__) . '/foobar.phpt';
 $exception = new PHPT_Section_EXPECT_UnexpectedOutputException($case, "one");
-echo $exception->getReason(), "\n";
+echo $exception->getReason(), PHP_EOL;
 
 ?>
 ===DONE===

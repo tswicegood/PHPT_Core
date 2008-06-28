@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../../../_setup.inc';
 
 $random = rand(1, 2);
 $filename = dirname(__FILE__) . '/foobar.php';
-$code = "<?php sleep(" . ($random + 1) . "); echo 'Hello...\n'; ?>";
+$code = "<?php sleep(" . ($random + 1) . "); echo 'Hello...', PHP_EOL; ?>";
 file_put_contents($filename, $code);
 
 $caller = new PHPT_CodeRunner('WScriptShell');

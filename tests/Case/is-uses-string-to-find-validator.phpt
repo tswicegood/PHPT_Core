@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../_setup.inc';
 class PHPT_Case_Validator_Foobar implements PHPT_Case_Validator {
     public function validate(PHPT_Case $case) { }
     public function is(PHPT_Case $case) {
-        echo __METHOD__ . " was called\n";
+        echo __METHOD__ . " was called", PHP_EOL;
     }
 }
 

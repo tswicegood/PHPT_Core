@@ -15,7 +15,7 @@ $command = (string)new PHPT_CodeRunner_CommandLine($runner);
 $expected = $runner->executable . ' -f ' . dirname(__FILE__) . '/fake-test-case.php';
 assert('$command == $expected');
 
-echo $command, "\n";
+echo $command, PHP_EOL;
 
 ?>
 ===DONE===

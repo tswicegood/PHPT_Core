@@ -10,7 +10,7 @@ $post_data = ' Content-Type: not set';
 $env = new PHPT_Section_ENV();
 $post = new PHPT_Section_POSTRAW($post_data);
 $post->modifyEnv($env);
-echo $env->data['CONTENT_TYPE'], "\n";
+echo $env->data['CONTENT_TYPE'], PHP_EOL;
 
 ?>
 ===DONE===

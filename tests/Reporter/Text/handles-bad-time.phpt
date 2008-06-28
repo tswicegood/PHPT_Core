@@ -8,11 +8,11 @@ should run as fast as possible to run a test.
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-$str = "--TEST--\n" .
-       "simple, fast test\n" .
-       "--FILE--\n" .
-       "hi!\n" . 
-       "--EXPECT--\n" . 
+$str = "--TEST--" . PHP_EOL .
+       "simple, fast test" . PHP_EOL .
+       "--FILE--" . PHP_EOL .
+       "hi!" . PHP_EOL . 
+       "--EXPECT--" . PHP_EOL . 
        "hi!";
 
 file_put_contents(dirname(__FILE__) . '/tmp.phpt', $str);

@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $actual = "some text";
 
-echo new PHPT_Util_Diff('', $actual), "\n";
+echo new PHPT_Util_Diff('', $actual), PHP_EOL;
 
 ?>
 ===DONE===

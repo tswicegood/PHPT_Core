@@ -14,7 +14,7 @@ file_put_contents($filename, $code);
 $runner = new PHPT_CodeRunner();
 $result = $runner->run($filename);
 
-echo $result->exitcode, "\n";
+echo $result->exitcode, PHP_EOL;
 assert('$result->exitcode == $random');
 ?>
 ===DONE===

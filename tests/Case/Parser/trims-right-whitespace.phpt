@@ -12,7 +12,7 @@ $test_case_file = substr($test_file, 0, -1);
 $parser = new PHPT_Case_Parser();
 $case = $parser->parse($test_file);
 
-echo $case->name, "\n";
+echo $case->name, PHP_EOL;
 
 ?>
 ===DONE===

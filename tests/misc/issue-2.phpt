@@ -5,13 +5,13 @@ PATH environment variable should be the same as the current PATH
 
 require_once dirname(__FILE__) . '/../_setup.inc';
 
-$contents = "--TEST--\n" .
-            "foobar\n" .
-            "--FILE--\n" .
-            "<?php\n" .
-            "echo getenv('PATH'), \"" . '\n' ."\"\n" .
-            "?>\n" .
-            "--EXPECTF--\n" .
+$contents = "--TEST--" . PHP_EOL .
+            "foobar" . PHP_EOL .
+            "--FILE--" . PHP_EOL .
+            "<?php" . PHP_EOL .
+            "echo getenv('PATH'), PHP_EOL;" . PHP_EOL .
+            "?>" . PHP_EOL .
+            "--EXPECTF--" . PHP_EOL .
             "%s";
 $test_case_file = dirname(__FILE__) . '/foobar.phpt';
 file_put_contents($test_case_file, $contents);

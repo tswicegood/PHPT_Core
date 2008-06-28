@@ -15,7 +15,7 @@ try {
     $section->run($case);
     trigger_error('exception not caught');
 } catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
-    echo $e->getMessage(), "\n";
+    echo $e->getMessage(), PHP_EOL;
 }
 
 $section = new PHPT_Section_EXPECTREGEX('no beginng delimiter/');
@@ -23,7 +23,7 @@ try {
     $section->run($case);
     trigger_error('exception not caught');
 } catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
-    echo $e->getMessage(), "\n";
+    echo $e->getMessage(), PHP_EOL;
 }
 
 $section = new PHPT_Section_EXPECTREGEX('/unknown /Q modifier/');
@@ -31,7 +31,7 @@ try {
     $section->run($case);
     trigger_error('exception not caught');
 } catch (PHPT_Section_EXPECTREGEX_InvalidRegexException $e) {
-    echo $e->getMessage(), "\n";
+    echo $e->getMessage(), PHP_EOL;
 }
 
 ?>

@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../_simple-test-case.inc';
 $case = new PHPT_SimpleTestCase();
 $case->output = 'foobar' . rand(100, 200);
 
-$data = "foobar[12][0-9]{2}" . "\n===DONE===";
+$data = "foobar[12][0-9]{2}" . PHP_EOL . "===DONE===";
 $section = new PHPT_Section_EXPECTREGEX($data);
 try {
     $section->run($case);
@@ -19,7 +19,7 @@ try {
     
 }
 
-$case->output = 'foobar' . rand(100, 200) . "\n===DONE===";
+$case->output = 'foobar' . rand(100, 200) . PHP_EOL . "===DONE===";
 $section->run($case);
 
 ?>

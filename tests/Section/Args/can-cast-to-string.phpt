@@ -6,7 +6,7 @@ with a leading " -- "
 
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
-echo new PHPT_Section_ARGS('--foo=bar --random=' . rand(100, 200)), "\n";
+echo new PHPT_Section_ARGS('--foo=bar --random=' . rand(100, 200)), PHP_EOL;
 
 
 ?>

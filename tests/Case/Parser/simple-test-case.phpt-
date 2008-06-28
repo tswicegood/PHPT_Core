@@ -3,7 +3,7 @@ This is a sample test case to show that "Hello World" can be echoed
 --FILE--
 <?php
 
-echo "Hello World\n";
+echo "Hello World", PHP_EOL;
 
 ?>
 ===DONE===

@@ -7,14 +7,14 @@ two strings passed into it.
 require_once dirname(__FILE__) . '/../../_setup.inc';
 
 $random = rand(100, 200);
-$one = "First Line {$random}\n" .
+$one = "First Line {$random}" . PHP_EOL .
        "Second Line";
-$two = "Uno Line\n" .
-       "Second Line\n" .
+$two = "Uno Line" . PHP_EOL .
+       "Second Line" . PHP_EOL .
        "Third Only In Actual";
 
 $diff = new PHPT_Util_Diff($one, $two);
-echo $diff, "\n";
+echo $diff, PHP_EOL;
 
 ?>
 ===DONE===
