@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @todo Extract Method Refactor - this class is getting too many private methods
+ */
 class PHPT_Util_Diff
 {
     private $_wanted = array();
