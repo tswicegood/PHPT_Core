@@ -13,8 +13,9 @@ class PHPT_Util_Diff
         if ($this->_invalidString($actual)) {
             throw new PHPT_Util_Diff_InvalidParameter('actual');
         }
-        $this->_wanted = explode(PHP_EOL, $wanted);
-        $this->_actual = explode(PHP_EOL, $actual);
+        $standardize_eol = array($this, '_standardizeEol');
+        $this->_wanted = array_map($standardize_eol, explode("\n", $wanted));
+        $this->_actual = array_map($standardize_eol, explode("\n", $actual));
     }
     
     public function __toString()
@@ -46,6 +47,11 @@ class PHPT_Util_Diff
         
         ksort($return);
         return implode(PHP_EOL, $return);
+    }
+
+    private function _standardizeEol($value)
+    {
+        return rtrim($value, "\r");
     }
 
     private function _cheapComparison()
