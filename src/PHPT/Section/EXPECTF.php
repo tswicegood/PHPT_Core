@@ -4,7 +4,7 @@
  * @todo this needs to be updated to current PHP standards instead of this original
  *       values set forth from PEAR_RunTests
  */
-class PHPT_Section_EXPECTF extends PHPT_Section_ExpectationAbstract
+class PHPT_Section_EXPECTF extends PHPT_Section_EXPECTREGEX
 {
     private $_real_pattern = '';
     
@@ -12,7 +12,7 @@ class PHPT_Section_EXPECTF extends PHPT_Section_ExpectationAbstract
     {
         parent::__construct($data);
         $data = preg_quote($data, '/');
-        $this->_real_pattern = str_replace(
+        $this->_expected = str_replace(
             array(
                 '%i',
                 '%s',
@@ -29,10 +29,5 @@ class PHPT_Section_EXPECTF extends PHPT_Section_ExpectationAbstract
             ),
             "/{$data}/"
         );
-    }
-    
-    protected function _isValid(PHPT_Case $case)
-    {
-        return preg_match($this->_real_pattern, $case->output);
     }
 }
