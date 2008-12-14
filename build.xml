@@ -2,7 +2,7 @@
 <project name="PHP_Core" basedir="." default="make">
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
     
-    <property name="version" value="0.1.4alpha" />
+    <property name="version" value="0.1.5devel" />
     <property name="package_name" value="PHPT_Core" />
     <property name="channel" value="channel.phpt.info" />
     
@@ -89,6 +89,12 @@
             <release>
                 <install as="phpt" name="scripts/phpt.php" />
             </release>
+
+            <changelog version="0.1.5devel" date="2008-12-13">
+                <!--        Don't exceed this width         -->
+                Current working install for PHPT code prior to
+                a 0.1.5alpha release.
+            </changelog>
 
             <changelog version="0.1.4alpha" date="2008-05-27">
                 <!--        Don't exceed this width         -->
