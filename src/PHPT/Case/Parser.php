@@ -35,7 +35,8 @@ class PHPT_Case_Parser
         $section_data = '';
         
         foreach ($lines as $line) {
-            if (preg_match('/^--([^-]+)--$/', trim($line), $matches)) {
+            $line = rtrim(rtrim($line, "\n"), "\r");
+            if (preg_match('/^--([^-]+)--$/', $line, $matches)) {
                 if (!empty($section_name)) {
                     $raw_sections[$section_name] = $this->_createSection($section_name, $section_data);
                 }
@@ -50,7 +51,7 @@ class PHPT_Case_Parser
                 continue;
             }
             
-            $section_data .= $line;
+            $section_data .= $line . "\n";
         }
         
         // set the last section
