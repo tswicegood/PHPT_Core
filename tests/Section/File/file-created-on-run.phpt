@@ -13,7 +13,7 @@ $code = 'Hello World';
 
 $file = new PHPT_Section_FILE($code);
 
-$expected_file = dirname(__FILE__). '/fake-test-case.phpt.php';
+$expected_file = dirname(__FILE__). '/fake-test-case.php';
 assert('file_exists($expected_file) == false');
 $file->run($case);
 assert('file_exists($expected_file) == true');
