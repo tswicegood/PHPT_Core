@@ -113,8 +113,9 @@ class PHPT_Reporter_Text implements PHPT_Reporter
     private function _addExceptionToErrorStack(Exception $exception)
     {
         $callTrace = array_shift($exception->getTrace());
+        $file = substr($callTrace['file'], -4) == '.php' ? $callTrace['file'] . 't' : $callTrace['file'];
         $this->_errors[] = array(
-            'file' => $callTrace['file'],
+            'file' => $file,
             'exception' => $exception,
         );
     }

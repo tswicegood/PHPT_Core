@@ -27,7 +27,7 @@ $reporter->onSuiteEnd(new PHPT_SimpleSuite());
 
 
 Cases with Errors:
-    %sonSuiteEnd-with-errors.phpt.php - testing for error outputs
+    %sonSuiteEnd-with-errors.phpt - testing for error outputs
 
 Test Cases Run: 1, Passes: 0, Failures: 0, Errors: 1, Skipped: 0
 Total Test Time: %d:%d
