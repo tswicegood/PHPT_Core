@@ -11,7 +11,7 @@ $case = '--TEST--' . PHP_EOL
         . 'foobar' . PHP_EOL
         . '--FILE--' . PHP_EOL
         . '<?php' . PHP_EOL
-        . 'echo getmypid(), PHP_EOL;' . PHP_EOL
+        . 'echo ' . getmypid() . ', PHP_EOL;' . PHP_EOL
         . '?>' . PHP_EOL
         . '===DONE===' . PHP_EOL
         . '--EXPECT--' . PHP_EOL
