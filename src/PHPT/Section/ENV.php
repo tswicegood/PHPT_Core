@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract
+class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract implements PHPT_Section_RunnableBefore
 {
     public $data = array();
     private $_default_values_to_empty = array(
