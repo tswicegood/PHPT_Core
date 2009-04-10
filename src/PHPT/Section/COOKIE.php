@@ -1,6 +1,6 @@
 <?php
 
-class PHPT_Section_COOKIE implements PHPT_Section_ENVModifier
+class PHPT_Section_COOKIE implements PHPT_Section_ENVModifier, PHPT_Section_CgiExecutable
 {
     private $_data = '';
     
