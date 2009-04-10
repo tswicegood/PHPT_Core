@@ -57,6 +57,11 @@ class PHPT_Case_Parser
         // set the last section
         $raw_sections[$section_name] = $this->_createSection($section_name, $section_data);
         
+        // ensure that there is always an ENV section
+        if (!isset($raw_sections['ENV'])) {
+            $raw_sections['ENV'] = $this->_createSection('ENV', '');
+        }
+
         $sections = new PHPT_SectionList($raw_sections);
         
         $case = new PHPT_Case($sections, $file);
