@@ -56,6 +56,9 @@ class PHPT_Section_ENV extends PHPT_Section_ModifiableAbstract implements PHPT_S
             );
         }
         $this->data['PATH_TRANSLATED'] = $this->data['SCRIPT_FILENAME'] = $case->filename;
+        if (!isset($this->data['PATH'])) {
+            $this->data['PATH'] = getenv('PATH');
+        }
         parent::run($case);
     }
 }

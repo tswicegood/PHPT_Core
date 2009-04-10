@@ -39,6 +39,7 @@ $expected = array(
     'CONTENT_TYPE' => '',
     'CONTENT_LENGTH' => '',
     'HTTP_COOKIE' => '',
+    'PATH' => getenv('PATH'),
 );
 
 assert('$env->data == $expected');
