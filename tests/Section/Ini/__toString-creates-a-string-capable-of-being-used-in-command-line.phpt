@@ -12,6 +12,7 @@ $ini = new PHPT_Section_INI($ini_data);
 $ini->run(new PHPT_SimpleTestCase());
 
 $expected = '-d "message=Hello World" '
+    . '-d "error_reporting=E_ALL" '
     . '-d "output_handler=" '
     . '-d "open_basedir=" '
     . '-d "safe_mode=0" '

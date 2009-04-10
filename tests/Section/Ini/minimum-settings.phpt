@@ -13,6 +13,7 @@ $ini = new PHPT_Section_INI();
 $ini->run(new PHPT_SimpleTestCase());
 
 $expected = array(
+    'error_reporting' => 'E_ALL',
     'output_handler' => '',
     'open_basedir' => '',
     'safe_mode' => '0',

@@ -3,6 +3,7 @@
 class PHPT_Section_INI extends PHPT_Section_ModifiableAbstract implements PHPT_Section_RunnableBefore
 {
     private $_default_values = array(
+        'error_reporting' => 'E_ALL',
         'output_handler' => '',
         'open_basedir' => '',
         'safe_mode' => '0',
