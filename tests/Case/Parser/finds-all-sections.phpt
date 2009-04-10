@@ -16,15 +16,15 @@ $case = $parser->parse($test_file);
 assert('$case->sections instanceof PHPT_SectionList');
 
 $found_classes = array();
-$found_classes[] = get_class($case->sections->current());
-$case->sections->next();
-$found_classes[] = get_class($case->sections->current());
-$case->sections->next();
-$found_classes[] = get_class($case->sections->current());
+for ($i = 0; $i < 3; ++$i) {
+    $found_classes[] = get_class($case->sections->current());
+    $case->sections->next();
+}
 
-assert('in_array("PHPT_Section_TEST", $found_classes)');
-assert('in_array("PHPT_Section_FILE", $found_classes)');
+sort($found_classes);
 assert('in_array("PHPT_Section_EXPECT", $found_classes)');
+assert('in_array("PHPT_Section_FILE", $found_classes)');
+assert('in_array("PHPT_Section_TEST", $found_classes)');
 ?>
 ===DONE===
 --CLEAN--
