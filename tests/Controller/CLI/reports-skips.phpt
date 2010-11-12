@@ -18,6 +18,7 @@ $controller->run($options);
 /.*
 Skipped Cases:
     .*tests-skips\/01-skips.phpt - because it always does
+    .*tests-skips\/03-preskips.phpt - didn't see the ini setting
 
-Test Cases Run: 2, Passes: 1, Failures: 0, Errors: 0, Skipped: 1.*/
+Test Cases Run: 3, Passes: 1, Failures: 0, Errors: 0, Skipped: 2.*/
 ===DONE===
